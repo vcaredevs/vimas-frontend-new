@@ -434,11 +434,14 @@ section.strip-sec {
 }
 
 
-.zoom_image:hover {
+.zoom_image {
   transform: scale(1.1) !important;
   transform-origin: center;
 }
-
+.zoom_image:hover {
+  transform: scale(1.2) !important;
+  transform-origin: center;
+}
 .product-image {
   overflow: hidden;
   width: 100%;

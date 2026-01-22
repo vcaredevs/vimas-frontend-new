@@ -837,7 +837,7 @@
           <div class="col-lg-3">
             <div class="ship-des">
               <img src="../assets/images/shipp.webp" />
-              <h4>Return</h4>
+              <h4> Returns</h4>
               <p>within 10 days exchange</p>
             </div>
           </div>

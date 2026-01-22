@@ -7,7 +7,7 @@
 
           <div class="col-md-3">
             <div class="contact-info">
-              <img class="foot-img" src="./assets/images/logo-dark.png" height="100"/>
+              <img class="foot-img" src="../assets/images/logo-dark.png" height="100"/>
               <p><i class="bi bi-geo-alt"></i>No.81B Prince Info Park 1st Floor Tower B 2nd<br>
                 Main Road, Ambattur Chennai - 600058</p>
               <p><i class="bi bi-envelope"></i> abcd123@gmail.com</p>
