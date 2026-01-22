@@ -86,10 +86,14 @@
                     </div>
                    
                 </div>
-                <button class="checkout-btn mt-4"><router-link to="/checkout">Check Out</router-link></button>
+
+               <router-link to="/checkout"> <button class="checkout-btn mt-4 text-white">Check Out</button></router-link>
             </div>
         </div>
     </div>
+
+
+    
 </section>
 <!--------card section start---------->
 
