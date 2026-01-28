@@ -434,11 +434,14 @@ section.strip-sec {
 }
 
 
-.zoom_image:hover {
+.zoom_image {
   transform: scale(1.1) !important;
   transform-origin: center;
 }
-
+.zoom_image:hover {
+  transform: scale(1.2) !important;
+  transform-origin: center;
+}
 .product-image {
   overflow: hidden;
   width: 100%;
@@ -1457,3 +1460,11 @@ height: 430px;
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+    .topbanner{
+          margin-top: 3rem !important;
+        }
+        @media (max-width: 779px) {
+   .topbanner{
+          margin-top: 2rem;
+        }
+}

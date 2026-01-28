@@ -25,14 +25,116 @@
 </li>
               
               </ul>
-           
+           <p class="menu-icon" @click="goToWishList" style="cursor:pointer;">  <i class="far fa-heart"></i>
+           <span  class="cart-badge">{{
+                  store.wishlistProd && store.wishlistProd.data
+                    ? store.wishlistProd.data.length
+                    : 0
+                }}</span>
+          </p>
               <p class="menu-icon"><a><i class="fas fa-search"></i></a></p>
            
-              <p class="menu-icon"><router-link to="/cart" class="menu-icon">
+              <p class="menu-icon" @click="goToCart" style="cursor:pointer;">
   <i class="fas fa-shopping-cart"></i>
-</router-link></p>
+  <span v-if="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
+</p>
+ <p class="menu-icon" @click="goToProfile">  <i class="fas fa-user"></i> </p>
+
           </div>
       </div>
   </nav>
   </section>
 </template>
+<style>
+.menu-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -15px;
+  right: -14px;
+  background: red;
+  color: white;
+
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border-radius: 50%;
+}
+#myHeader{
+  top:0;
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
+}
+</style>
+<script setup>
+import { onMounted } from "vue";
+import { getCartCount } from "../services/apiService";
+import { cartCount } from "../services/cartService";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../assets/js/store";
+const { store } = useUserStore();
+const router = useRouter();
+const userId = atob(localStorage.getItem("user_id"));
+const isLoggedIn = () => {
+  return !!localStorage.getItem("authToken"); 
+};
+
+function goToCart() {
+  if (!isLoggedIn()) {
+    router.push("/login"); 
+  } else {
+    router.push("/cart");
+  }
+}
+function goToProfile() {
+  if (!isLoggedIn()) {
+    router.push("/login"); 
+  } else {
+    router.push("/customer/profile");
+  }
+}
+function goToWishList() {
+  if (!isLoggedIn()) {
+    router.push({ name: "Login" });
+  } else {
+     router.push({
+      name: "Wishlist",
+      params: { id: userId } 
+    });
+  }
+}
+
+const fetchCartCount = async () => {
+  console.log("Fetchcount");
+  
+  
+  try {
+    if (!isLoggedIn()) {
+      cartCount.value = 0;
+      return;
+    }
+
+    
+    const res = await getCartCount(userId);
+
+    cartCount.value = res.data.cart_count || 0;
+  } catch (err) {
+    cartCount.value = 0;
+  }
+};
+
+onMounted(() => {
+  fetchCartCount();
+});
+</script>

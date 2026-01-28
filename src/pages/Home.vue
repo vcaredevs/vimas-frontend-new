@@ -4,9 +4,9 @@
 <section class="page">
   <div class="page__wrapper">
 <!-- Hero Section -->
-<section class="hero-section text-center text-lg-start">
+<section class="hero-section text-center text-lg-start ">
  
-    <div id="carouselExampleIndicators" class="carousel slide">
+    <div id="carouselExampleIndicators " class="carousel slide topbanner">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -21,7 +21,7 @@
                     <h1 class="display-4 fw-bold">Products made with love.</h1>
                 <h2 class="lead text-muted">That’s what you get from us.</h2>
                 <p class="text-secondary text-center">sapien gravida elit. ex scelerisque risus sit non. ac quam nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra nisl.</p>
-                <p class="btn btn-dark mt-3"><a>Shop now</a></p>
+               <router-link to="/product"><p class="btn btn-dark mt-3">Shop now</p></router-link> 
                 </div>
             </div>
      
@@ -121,33 +121,21 @@
             </div>
         </div>
         <div class="categories_card_main">
-            <div class="category_card"> 
-                <a href="#">
+            <div class="category_card"  v-for="(item,index) in categories"  :key="index"> 
+               <!-- <router-link
+      :to="{
+        name: 'ProductDetail',
+        query: { category: item.slug }   
+      }"
+    > -->
                   <div class="category_image_animation">
                     <div class="image_1_bg" style="background-color: #edefe1;"></div>
-                    <img src="../assets/images/product2.webp">
+                    <img :src="image_url+item.image" :alt="item.name">
                   </div>
-                  <h4 class="h4">Psoriasis</h4>
-                </a>
+                  <h4 class="h4">{{ item.name }}</h4>
+                  <!-- </router-link> -->
            </div>
-           <div class="category_card"> 
-            <a href="#">
-              <div class="category_image_animation">
-                <div class="image_1_bg" style="background-color: #edefe1;"></div>
-                <img src="../assets/images/product3.webp">
-              </div>
-              <h4 class="h4">Dandruff</h4>
-            </a>
-          </div>
-          <div class="category_card"> 
-            <a href="#">
-              <div class="category_image_animation">
-                <div class="image_1_bg" style="background-color: #edefe1;"></div>
-                <img src="../assets/images/product1.webp">
-              </div>
-              <h4 class="h4">Hair Fall</h4>
-            </a>
-          </div>
+       
 
         </div>
         
@@ -185,81 +173,36 @@
             <div class="col-lg-11">
                 <div class="row g-4">
                     <!-- Product Card 1 -->
-                    <div class="col-md-4">
+                    <div class="col-md-4"  v-for="product in sellingProducts.slice(0,3)"
+      :key="product.id">
                       <div class="product-card">
-                        <div class="product-image">
-                          <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/Artboard 1 2.png" alt="Scalp Ezy Lotion">
-                        </div>
+                            <div class="product-image">
+                              <!-- <span class="discount-badge">Save ₹100.00</span> -->
+                         <router-link :to="product.slugable?{name: 'ProductDetail',params :{slug:product.slugable.key}}:''"> <img class="zoom_image" :src="image_url+product.image" :alt="product.name"></router-link>
+                            </div>
                         <div class="product-details">
                           <div class="product-rating"><svg role="presentation" fill="none" focusable="false"  width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
                             <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
                           </svg> 4.5 (100 reviews)</div>
-                          <h5 class="product-title"><a href="productdetails.html">Scalp Ezy Lotion</a></h5>
+                          <h5 class="product-title"><a href="productdetails.html">{{ product.name }}</a></h5>
                           <p>Smooth | Nourish</p>
                           <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
+                            <del v-if="product.sale_price !== null">₹{{ product.price }}</del> <span>₹{{ product.sale_price?product.sale_price:product.price
+                              }}</span>
                           </div>
-                            <button class="btn btn-dark mt-2">
+                            <button class="btn btn-dark mt-2" @click="addToCart(product)">
                                 <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                    <div class="button-text">Add to cart</div>
+                                    <div class="button-text" >Add to cart</div>
                                   </div>
                             </button> 
                         </div>
                       </div>
                     </div>
-                    <!-- Product Card 2 -->
-                    <div class="col-md-4">
-                      <div class="product-card">
-                        <div class="product-image">
-                          <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/bestproduct1.webp" alt="Scalp Ezy Hair Tonic">
-                        </div>
-                        <div class="product-details">
-                          <div class="product-rating"><svg role="presentation" fill="none" focusable="false"  width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                            <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                          </svg> 4.5 (101 reviews)</div>
-                          <h5 class="product-title">Scalp Ezy Hair Tonic</h5>
-                          <p>Smooth | Nourish</p>
-                          <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
-                          </div>
-                          <button class="btn btn-dark mt-2">
-                            <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                <div class="button-text">Add to cart</div>
-                              </div>
-                        </button> 
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="col-md-4">
-                      <div class="product-card">
-                        <div class="product-image">
-                          <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/bestproduct2.webp" alt="Scalp Ezy Oil">
-                        </div>
-                        <div class="product-details">
-                          <div class="product-rating"><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                            <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                          </svg> 4.5 (105 reviews)</div>
-                          <h5 class="product-title">Scalp Ezy Oil</h5>
-                          <p>Smooth | Nourish</p>
-                          <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
-                          </div>
-                          <button class="btn btn-dark mt-2">
-                            <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                <div class="button-text">Add to cart</div>
-                              </div>
-                        </button> 
-                        </div>
-                      </div>
-                    </div>
+                   
                   </div>
             </div>
             <div class="text-center btn-view-all">
-                <button class="btn btn-dark">View all products</button>
+              <router-link to="/product"><button class="btn btn-dark">View all products</button></router-link>   
               </div>
         </div>
       </div>
@@ -361,80 +304,35 @@
                 <h2>Summer Favourites</h2>
                 <img src="../assets/images/heading-underline.png" class="heading_image">
             </div>
-            <div class="col-lg-11">
+              <div class="col-lg-11">
                 <div class="row g-4">
                     <!-- Product Card 1 -->
-                    <div class="col-md-4">
+                    <div class="col-md-4"  v-for="product in summerProducts.slice(0,3)"
+      :key="product.id">
                       <div class="product-card">
                         <div class="product-image">
                           <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/bestproduct.webp" alt="Scalp Ezy Lotion">
+                    <router-link :to="product.slugable?{name: 'ProductDetail',params :{slug:product.slugable.key}}:''"><img class="zoom_image" :src="image_url+product.image" alt="Scalp Ezy Lotion"></router-link>
                         </div>
                         <div class="product-details">
                           <div class="product-rating"><svg role="presentation" fill="none" focusable="false"  width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
                             <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
                           </svg> 4.5 (100 reviews)</div>
-                          <h5 class="product-title">Scalp Ezy Lotion</h5>
+                          <h5 class="product-title"><a href="productdetails.html">{{ product.name }}</a></h5>
                           <p>Smooth | Nourish</p>
                           <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
+                            <del v-if="product.sale_price !== null">₹{{ product.price }}</del> <span>₹{{ product.sale_price?product.sale_price:product.price
+                              }}</span>
                           </div>
-                            <button class="btn btn-dark mt-2">
+                            <button class="btn btn-dark mt-2" @click="addToCart(product)">
                                 <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                    <div class="button-text">Add to cart</div>
+                                    <div class="button-text" >Add to cart</div>
                                   </div>
                             </button> 
                         </div>
                       </div>
                     </div>
-                    <!-- Product Card 2 -->
-                    <div class="col-md-4">
-                      <div class="product-card">
-                        <div class="product-image">
-                          <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/bestproduct1.webp" alt="Scalp Ezy Hair Tonic">
-                        </div>
-                        <div class="product-details">
-                          <div class="product-rating"><svg role="presentation" fill="none" focusable="false"  width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                            <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                          </svg> 4.5 (101 reviews)</div>
-                          <h5 class="product-title">Scalp Ezy Hair Tonic</h5>
-                          <p>Smooth | Nourish</p>
-                          <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
-                          </div>
-                          <button class="btn btn-dark mt-2">
-                            <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                <div class="button-text">Add to cart</div>
-                              </div>
-                        </button> 
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="col-md-4">
-                      <div class="product-card">
-                        <div class="product-image">
-                          <!-- <span class="discount-badge">Save ₹100.00</span> -->
-                          <img class="zoom_image" src="../assets/images/bestproduct2.webp" alt="Scalp Ezy Oil">
-                        </div>
-                        <div class="product-details">
-                          <div class="product-rating"><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                            <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                          </svg> 4.5 (105 reviews)</div>
-                          <h5 class="product-title">Scalp Ezy Oil</h5>
-                          <p>Smooth | Nourish</p>
-                          <div class="product-price">
-                            <del>₹550</del> <span>₹450</span>
-                          </div>
-                          <button class="btn btn-dark mt-2">
-                            <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                                <div class="button-text">Add to cart</div>
-                              </div>
-                        </button> 
-                        </div>
-                      </div>
-                    </div>
+                   
                   </div>
             </div>
             <!-- <div class="text-center btn-view-all">
@@ -451,7 +349,7 @@
     <div class="row justify-content-center">
       <div class="section_header">
         <h2>The Trichella Journey</h2>
-        <img src="http://192.168.1.120/yourshands/storage/heading-underline.png" class="heading_image">
+         <img src="../assets/images/heading-underline.png" class="heading_image">
       </div>
       <div class="col-lg-11 col-md-12 ">
         <div class="row">
@@ -837,7 +735,7 @@
           <div class="col-lg-3">
             <div class="ship-des">
               <img src="../assets/images/shipp.webp" />
-              <h4>Return</h4>
+              <h4> Returns</h4>
               <p>within 10 days exchange</p>
             </div>
           </div>
@@ -870,11 +768,56 @@
 
 </section>
 </template>
+
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-
+import { getCategory, getSellingProducts, getSummerProducts } from '../services/apiService';
+import { onMounted, ref } from 'vue';
+import { image_url } from '../config/api';
+import { addToCart } from '../services/cartService';
+ const categories = ref([]);
+ const sellingProducts = ref([]);
+  const summerProducts = ref([]);
+   const fetchCategories = async ()=>{
+      
+        
+        try {
+            const res = await getCategory();
+            categories.value = res.data.data;
+            console.log("categories.value",categories.value);
+            
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+        }
+    };
+    const fetchSellingProducts = async () => {
+  try {
+const res = await getSellingProducts();
+    if (res.data.status) {
+      sellingProducts.value = res.data.data;
+    }
+  } catch (error) {
+    console.error("Error fetching trending products", error);
+  }
+};
+    const fetchSummerProducts = async () => {
+    
+  try {
+const res = await getSummerProducts();
+    if (res.data.status) {
+      summerProducts.value = res.data.data.products;
+    }
+  } catch (error) {
+    console.error("Error fetching trending products", error);
+  }
+};
+onMounted(()=>{
+  fetchCategories();
+  fetchSellingProducts();
+  fetchSummerProducts();
+})
 </script>

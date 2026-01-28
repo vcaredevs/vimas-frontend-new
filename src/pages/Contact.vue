@@ -107,8 +107,8 @@
                             <h5>Follow us</h5>
                             <p>Don’t miss promotions, follow us for the latest news</p>
                             <div class="social-icons">
-                                <a href="#" class="text-decoration-none"><img src="./assets/images/instagram.png" /></a>
-                                <a href="#" class="text-decoration-none"><img src="./assets/images/facebook.png" /></a>
+                                <a href="#" class="text-decoration-none"><img src="../assets/images/instagram.png" /></a>
+                                <a href="#" class="text-decoration-none"><img src="../assets/images/facebook.png" /></a>
                             </div>
                         </div>
                         <div class="col-md-2 d-none d-md-flex justify-content-center">
@@ -136,28 +136,28 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="ship-des">
-                                        <img src="./assets/images/shipp1.webp" />
+                                        <img src="../assets/images/shipp1.webp" />
                                         <h4>Free shipping</h4>
                                         <p>Free shipping for orders above 500</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="ship-des">
-                                        <img src="./assets/images/shipp.webp" />
+                                        <img src="../assets/images/shipp.webp" />
                                         <h4>Return</h4>
                                         <p>within 10 days exchange</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="ship-des">
-                                        <img src="./assets/images/shipp2.webp" />
+                                        <img src="../assets/images/shipp2.webp" />
                                         <h4>Flexible Payment</h4>
                                         <p>pay with multiple credit cards</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="ship-des">
-                                        <img src="./assets/images/shipp3.webp" />
+                                        <img src="../assets/images/shipp3.webp" />
                                         <h4>Online Support</h4>
                                         <p>7 days a week</p>
                                     </div>
