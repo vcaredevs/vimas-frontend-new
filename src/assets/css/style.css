@@ -1460,3 +1460,11 @@ height: 430px;
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+    .topbanner{
+          margin-top: 3rem !important;
+        }
+        @media (max-width: 779px) {
+   .topbanner{
+          margin-top: 2rem;
+        }
+}

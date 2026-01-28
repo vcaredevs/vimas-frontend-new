@@ -140,7 +140,8 @@ section.how-sec img {
 }
 
 section.content-sec {
-  background-image: url(../images/product/contentt-bck.png);
+  /* background-image: url(../images/product/contentt-bck.png); */
+   background-image: url("../images/product/content-back.png");
   background-size: cover;
   background-position: center;
   padding: 50px 20px;
@@ -226,7 +227,7 @@ img.demo.cursor {
 }
 
 section.details-sec {
-  padding-top: 30px;
+  padding-top: 9rem;
   padding-bottom: 80px;
 }
 
@@ -965,6 +966,7 @@ button.btn.btn-outline-secondary.qun_min {
 }
 
 .faq_banner {
+  padding-top: 4rem;
   background-image: url(../images/faq-ban.png);
   height: 40vh;
   background-repeat: no-repeat;
@@ -1328,7 +1330,7 @@ h2.display-4 {
 
 .personal_info_sec {
 
-  padding: 70px 0;
+  padding-top:8rem;
 
 
 }
@@ -1758,7 +1760,7 @@ button#addAddressBtn {
   background-color: transparent;
   border: none;
   color: #323232;
-  margin-left: 15px;
+  margin-right: 15px;
   font-size: 12px;
 }
 
