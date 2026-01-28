@@ -32,7 +32,8 @@
                     : 0
                 }}</span>
           </p>
-              <p class="menu-icon"><a><i class="fas fa-search"></i></a></p>
+              <p class="menu-icon" @click="$emit('open-search')"><i class="fas fa-search"></i></p>
+              <SearchDrawer :open="openSearch" @close="openSearch = false" />
            
               <p class="menu-icon" @click="goToCart" style="cursor:pointer;">
   <i class="fas fa-shopping-cart"></i>
@@ -78,11 +79,13 @@
 }
 </style>
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { getCartCount } from "../services/apiService";
 import { cartCount } from "../services/cartService";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../assets/js/store";
+import SearchDrawer from "./SearchDrawer.vue";
+const openSearch = ref(false);
 const { store } = useUserStore();
 const router = useRouter();
 const userId = atob(localStorage.getItem("user_id"));

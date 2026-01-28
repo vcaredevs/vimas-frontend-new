@@ -15,6 +15,7 @@ import Wishlist from "../pages/wishlist.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/product", name: "Product", component: Product },
+  { path:"/product-categories/:slug", name:"ProductCategories", component: Product},
   { path: "/faq", name: "Faq", component: Faq },
   { path: "/contact", name: "Contact", component: Contact },
   { path: "/cart", name: "Cart", component: Cart },
