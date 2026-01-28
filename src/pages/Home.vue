@@ -122,18 +122,18 @@
         </div>
         <div class="categories_card_main">
             <div class="category_card"  v-for="(item,index) in categories"  :key="index"> 
-               <!-- <router-link
-      :to="{
-        name: 'ProductDetail',
-        query: { category: item.slug }   
-      }"
-    > -->
+        <router-link class="btn"        :to="{
+        name: 'ProductCategories',
+        params: {
+          slug: item.slugable.key ? item.slugable.key.replace('/product-categories/', '') : '',
+        },
+      }">
                   <div class="category_image_animation">
                     <div class="image_1_bg" style="background-color: #edefe1;"></div>
                     <img :src="image_url+item.image" :alt="item.name">
                   </div>
                   <h4 class="h4">{{ item.name }}</h4>
-                  <!-- </router-link> -->
+                </router-link> 
            </div>
        
 

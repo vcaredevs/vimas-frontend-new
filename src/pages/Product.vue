@@ -43,10 +43,10 @@
   <div class="row">
       <div class="col-md-3">
           <div class="filter-sticky">
-  <div class="card p-3 mt-4">
+  <div class="card p-3">
    <div class="d-flex justify-content-between align-items-center mb-3">
   <h5 class="mb-0">Filter</h5>
-  <button class="btn btn-sm btn-link text-decoration-none p-0" id="clearFilter">
+  <button class="btn btn-sm btn-link text-decoration-none p-0" id="clearFilter" @click="clearFilters">
     Clear
   </button>
 </div>
@@ -70,10 +70,22 @@
   </button>
 
 <div class="collapse show mt-2" id="categoryFilter">
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="category" id="catAll" checked>
-    <label class="form-check-label" for="catAll">Scalp Ezy Lotion</label>
-  </div>
+  <div class="form-check" v-for="item in categories" :key="item.id">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="category"
+    :id="'cat-' + item.id"
+    :value="item.slugable.key"
+    v-model="filters.category"
+    @change="onCategoryChange"
+  />
+  <label class="form-check-label" :for="'cat-' + item.id">
+    {{ item.name }}
+  </label>
+</div>
+
+
 
 
 </div>
@@ -87,23 +99,43 @@
       <div class="price-input">
         <div class="field">
           <span>Min</span>
-          <input type="number" class="input-min" value="0">
+          <input type="number" class="input-min" v-model.number="filters.minPrice" >
         </div>
         <div class="separator">-</div>
         <div class="field">
           <span>Max</span>
-          <input type="number" class="input-max" value="7500">
+          <input type="number" class="input-max" v-model.number="filters.maxPrice">
         </div>
       </div>
       <div class="slider">
-        <div class="progress"></div>
+        <div class="progress" :style="{
+    left: `${(filters.minPrice / maxRange) * 100}%`,
+    right: `${100 - (filters.maxPrice / maxRange) * 100}%`
+  }"></div>
       </div>
       <div class="range-input">
-        <input type="range" class="range-min" min="0" max="10000" value="0" step="100">
-        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+         <input
+    type="range"
+    class="range-min"
+    min="0"
+    :max="maxRange"
+    step="100"
+    v-model.number="filters.minPrice"
+    @change="debouncedFetchProducts"
+  />
+
+  <input
+    type="range"
+    class="range-max"
+    min="0"
+    :max="maxRange"
+    step="100"
+    v-model.number="filters.maxPrice"
+    @change="debouncedFetchProducts"
+  />
       </div>
     
-   
+
 
   
    <div class="mb-3 pt-4">
@@ -119,42 +151,43 @@
       <path d="M6 9l6 6 6-6" />
     </svg>
   </button>
-
+ 
   <div class="collapse show mt-2" id="productFilter">
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="product" id="prod1" checked>
-      <label class="form-check-label" for="prod1">Scalp Ezy Lotion</label>
-    </div>
+ <div class="form-check" v-for="product in productList" :key="product.id">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="product"
+    :value="product.id"
+    v-model="filters.product"
+ 
+  />
+  <label class="form-check-label">
+    {{ product.name }}
+  </label>
+</div>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="product" id="prod2">
-      <label class="form-check-label" for="prod2">Scalp Ezy Oil</label>
-    </div>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="product" id="prod3">
-      <label class="form-check-label" for="prod3">Scalp Ezy Hair Tonic</label>
-    </div>
-
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="product" id="prod4">
-      <label class="form-check-label" for="prod4">Scalp Ezy Lotion</label>
-    </div>
+ 
   </div>
 </div>
 
   </div>
   </div>
 </div>
-    <div class="col-md-9">
+
+    <div class="col-md-9" >
        <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <div class="paret" v-if="productList.length">
+           <div class="paret" v-if="productList.length==0">
+          <h6>No Products found</h6>
+        </div>
+        <div class="paret" v-else>
           <h6>{{ productList.length }} Products found</h6>
         </div>
       </div>
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
             Shop by : Featured
@@ -165,7 +198,7 @@
               <li><a class="dropdown-item" href="#">Lowest rating</a></li>
           </ul>
       </div>
-      </div>
+      </div> -->
     </div>
   </div>
        <div class="container my-5">
@@ -204,14 +237,6 @@
   </div>
    
 <!-------best product section end----------->
-
-
-
-
-
-
-
-
 
  </div>
   </div>
@@ -359,30 +384,171 @@ button[aria-expanded="true"] .filter-arrow {
     </style>
     <script setup>
      
-import { onMounted, ref } from 'vue';
-import { getProducts } from '../services/apiService';
+import { computed, onMounted, ref, watch } from 'vue';
+import { getProducts ,getCategoryProducts,getCategory} from '../services/apiService';
 import { image_url } from '../config/api';
 import { addToCart } from '../services/cartService';
-const loading = ref(false);
-
-
+import { useRoute,useRouter } from 'vue-router';
+const categories = ref([]);
+const route=useRoute();
+const router=useRouter();
+const allProducts = ref([])
 const productList=ref([]);
-async function fetchProducts(page = 1,param=null) {
-    if (!productList.value.length) {
-            loading.value = true;
-        }
+let priceDebounceTimer = null;
+const category = computed(() => route.params.slug);
+const filters = ref({
+  category: route.params.slug || null,
+  product: null,
+  minPrice: 0,
+  maxPrice: 7500,
+});
+async function fetchProducts(page = 1) {
   try {
+    let result;
 
-    const result = await getProducts(page,param);
-   
-  productList.value = result.data?.data || [];
-  
+    if (filters.value.category) {
+      result = await getCategoryProducts(filters.value.category, page);
+    } else {
+      result = await getProducts(page);
+    }
+
+    allProducts.value = result.data.data ?? result.data;
+    applyFilters(); 
   } catch (error) {
     console.error("Error fetching products:", error);
   }
 }
-      onMounted(()=>{
- fetchProducts()
-      });
+function applyFilters() {
+  let filtered = [...allProducts.value];
+
+
+  if (filters.value.product) {
+    filtered = filtered.filter(
+      p => p.id === filters.value.product
+    );
+  }
+
+
+  filtered = filtered.filter(p => {
+    const price = p.front_sale_price || p.sale_price || 0;
+    return (
+      price >= filters.value.minPrice &&
+      price <= filters.value.maxPrice
+    );
+  });
+
+  productList.value = filtered;
+}
+
+// async function fetchProducts(page = 1,param=null) {
+//   try {
+//     const params = {
+//       page,
+//       min_price: filters.value.minPrice,
+//       max_price: filters.value.maxPrice,
+//       product: filters.value.product,
+//     };
+
+//     let result;
+
+//     if (filters.value.category) {
+//       result = await getCategoryProducts(
+//         filters.value.category,page,
+//         params
+//       );
+//     } else {
+//       result = await getProducts(page,param);
+//     }
+
+//     productList.value = result.data.data ?? result.data;
+//   } catch (error) {
+//     console.error("Error fetching products:", error);
+//   }
+// }
+function onCategoryChange() {
+  router.push({
+    name: 'ProductCategories',
+    params: { slug: filters.value.category }
+  });
+}
+
+
+  const fetchCategories = async ()=>{
+      
+        
+        try {
+            const res = await getCategory();
+            categories.value = res.data.data;
+           
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+        }
+    };
+  async  function clearFilters() {
+  filters.value = {
+    category: null,
+    product: null,
+    minPrice: 0,
+    maxPrice: 7500,
+  };
+
+ await router.replace({ name: 'Product' });
+}
+
+watch(
+  () => route.params.slug,
+  (slug, oldSlug) => {
+    if (slug === oldSlug) return;
+
+    filters.value.category = slug || null;
+    fetchProducts(1);
+  },
+  { immediate: false  }
+);
+
+watch(
+  () => [filters.value.minPrice, filters.value.maxPrice, filters.value.product],
+  () => {
+    applyFilters();
+  }
+);
+function debouncedFetchProducts() {
+  if (priceDebounceTimer) {
+    clearTimeout(priceDebounceTimer);
+  }
+
+  priceDebounceTimer = setTimeout(() => {
+    fetchProducts(1);
+  }, 500); 
+}
+const minGap = 500;
+const maxRange = 10000;
+
+watch(
+  () => [filters.value.minPrice, filters.value.maxPrice],
+  ([min, max]) => {
+  
+    if (min < 0) filters.value.minPrice = 0;
+    if (max > maxRange) filters.value.maxPrice = maxRange;
+
+
+    if (max - min < minGap) {
+      if (min === filters.value.minPrice) {
+        filters.value.minPrice = max - minGap;
+      } else {
+        filters.value.maxPrice = min + minGap;
+      }
+    }
+
+    debouncedFetchProducts();
+  }
+);
+
+
+onMounted(()=>{
+  fetchCategories();
+  fetchProducts(1);
+  
+})
 
     </script>

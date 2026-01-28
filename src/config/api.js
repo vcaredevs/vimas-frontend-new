@@ -30,4 +30,5 @@ export const API_ENDPOINTS = {
   postWishlist: `/`,
   faqDetails: `/faqs`,
   categoryProducts: `/product-categories/`,
+  searchProducts: `/fastsearch/`,
 };

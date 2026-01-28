@@ -65,6 +65,8 @@ export const postwishlistProducts = (type,payload) =>
 export const getFaqDetails = () => api.get(API_ENDPOINTS.faqDetails);
 export const getCategoryProducts = (slug, page,param) =>
   api.get(`${API_ENDPOINTS.categoryProducts}${slug}?page=${page}&${param}`);
+export const getsearchDetails = (payload) =>
+  api.post(API_ENDPOINTS.searchProducts, payload);
 
 
 
