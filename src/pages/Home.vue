@@ -1,4 +1,15 @@
+ <style>
+.btn-btn-btns{
+      background: #09302a;
+      color: #fff;
+}
+.btn-btn-btns:hover{
+  background-color: #1B6A63;
+}
+
+</style>
 <template>
+ 
 
  
 <section class="page">
@@ -57,7 +68,7 @@
                     <h1 class="display-4 fw-bold">Products made with love.</h1>
                 <h2 class="lead text-muted">That’s what you get from us.</h2>
                 <p class="text-secondary text-center">sapien gravida elit. ex scelerisque risus sit non. ac quam nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra nisl.</p>
-                <p class="btn btn-dark mt-3"><a>Shop now</a></p>
+                <p class="btn btn-dark mt-3 btn-dar-btn"><a>Shop now</a></p>
                 </div>
             </div>
      
@@ -202,7 +213,7 @@
                   </div>
             </div>
             <div class="text-center btn-view-all">
-              <router-link to="/product"><button class="btn btn-dark">View all products</button></router-link>   
+              <router-link to="/product"><button class="btn btn-dark btn-btn-btns">View all products</button></router-link>   
               </div>
         </div>
       </div>

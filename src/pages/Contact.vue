@@ -1,3 +1,12 @@
+<style>
+.sent_btn{
+ background: #09302a;
+}
+.sent_btn:hover{
+    background-color: #1B6A63;
+}
+
+</style>
 <template>
       <section class="page">
         <div class="page__wrapper">
