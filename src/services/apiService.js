@@ -67,6 +67,8 @@ export const getCategoryProducts = (slug, page,param) =>
   api.get(`${API_ENDPOINTS.categoryProducts}${slug}?page=${page}&${param}`);
 export const getsearchDetails = (payload) =>
   api.post(API_ENDPOINTS.searchProducts, payload);
+export const getMenus = (menutype) =>
+  api.get(`${API_ENDPOINTS.menus}?type=${menutype}`);
 
 
 

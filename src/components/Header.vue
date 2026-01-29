@@ -4,12 +4,17 @@
     
     </div>
    <nav class="navbar navbar-expand-lg navbar-light ">
-      <div class="container">
+      <div class="container m-auto">
           <a class="navbar-brand fs-3 fw-bold" href="./"><img src="../assets/images/logo.png" height="50"/></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+              <!-- <ul class="navbar-nav ms-auto">
+          <li class="nav-item" v-for="(menu,index) in menus" :key="index">
+  <p class="nav-link">{{ menu.title }}</p>
+</li>
+</ul> -->
               <ul class="navbar-nav ms-auto">
           <li class="nav-item">
   <router-link to="/" class="nav-link">Home</router-link>
@@ -79,13 +84,14 @@
 }
 </style>
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { getCartCount } from "../services/apiService";
 import { cartCount } from "../services/cartService";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../assets/js/store";
 import SearchDrawer from "./SearchDrawer.vue";
 const openSearch = ref(false);
+const menus = ref([]);
 const { store } = useUserStore();
 const router = useRouter();
 const userId = atob(localStorage.getItem("user_id"));
@@ -140,4 +146,23 @@ const fetchCartCount = async () => {
 onMounted(() => {
   fetchCartCount();
 });
+onMounted(async () => {
+   
+    
+    watch(
+        () => store.menu?.menu_nodes,
+        (nodes) => {
+            if (!nodes) return;
+             menus.value = [...nodes].sort(
+        (a, b) => a.position - b.position
+      );
+           
+        },
+        { immediate: true }
+    );
+   
+  
+});
+
+
 </script>

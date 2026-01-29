@@ -3,18 +3,20 @@ import { reactive, ref } from "vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { useRouter } from "vue-router";
-import { getWishlistProduct, postwishlistProducts } from "../../services/apiService";
+import { getMenus, getWishlistProduct, postwishlistProducts } from "../../services/apiService";
 
 const router = useRouter();
-
+const MENU_CACHE_VERSION = "v1";
+const MENU_CACHE_TTL = 60 * 60 * 1000; 
+const getMenuCacheKey = (type) => `menu_${MENU_CACHE_VERSION}_${type}`;
 
 
 
 const store = reactive({
   
   wishlistProd:[],
- 
   loading:false,
+  menu:[]
 
 });
 
@@ -72,8 +74,39 @@ const checkLogin = ()=>{
     
 }
 
+const fetchMenus = async () => {
+ 
+    let menutype = "main-menu-1";
 
+     const CACHE_KEY = getMenuCacheKey(menutype);
+     const cached = localStorage.getItem(CACHE_KEY);
+       if (cached) {
+    const { data, expiry } = JSON.parse(cached);
+
+    if (Date.now() < expiry) {
+      store.menu = data;
+      return; 
+    } else {
+      localStorage.removeItem(CACHE_KEY);
+    }
+  }
+    try {
+           store.loading = true;
+        const menuRes = await getMenus(menutype);
+        store.menu = menuRes.data.data;
+           localStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({
+        data: store.menu,
+        expiry: Date.now() + MENU_CACHE_TTL,
+      })
+    );
+    } catch (error) {
+        console.error("Error is", error);
+    }
+};
 fetchwishlistDetails();
+fetchMenus();
 
 export function useUserStore() {
   return {
