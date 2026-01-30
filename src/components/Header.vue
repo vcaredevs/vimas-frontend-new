@@ -1,3 +1,12 @@
+<style>
+ .navbar-collapse{
+      margin-right: 57px;
+ }
+ .navbar-brand {
+      margin-left: 57px;
+ }
+</style>
+
 <template>
   <section class="header"  id="myHeader">
     <div class="head-start">
