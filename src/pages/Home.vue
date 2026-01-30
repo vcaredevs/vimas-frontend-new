@@ -29,8 +29,7 @@ button.btn.btn-darks {
   <div class="page__wrapper">
 <!-- Hero Section -->
 <section class="hero-section text-center text-lg-start ">
- 
-    <div id="carouselExampleIndicators " class="carousel slide topbanner">
+  <div id="carouselExampleIndicators" class="carousel slide topbanner">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -45,7 +44,7 @@ button.btn.btn-darks {
                     <h1 class="display-4 fw-bold">Products made with love.</h1>
                 <h2 class="lead text-muted">That’s what you get from us.</h2>
                 <p class="text-secondary text-center">sapien gravida elit. ex scelerisque risus sit non. ac quam nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra nisl.</p>
-               <router-link to="/product"><p class="btn btn-dark mt-3">Shop now</p></router-link> 
+                <p class="btn btn-dark mt-3"><a>Shop now</a></p>
                 </div>
             </div>
      
@@ -101,6 +100,7 @@ button.btn.btn-darks {
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+   
   </section>
 
 <!-- Features Section -->
@@ -144,7 +144,7 @@ button.btn.btn-darks {
                 <img src="../assets/images/heading-underline.png" class="heading_image">
             </div>
         </div>
-        <div class="categories_card_main">
+        <!-- <div class="categories_card_main">
             <div class="category_card"  v-for="(item,index) in categories"  :key="index"> 
         <router-link class="btn"        :to="{
         name: 'ProductCategories',
@@ -161,9 +161,53 @@ button.btn.btn-darks {
            </div>
        
 
-        </div>
+        </div> -->
         
-    </div>
+    <div class="categories_card_main">
+  <swiper
+    v-if="categories?.length"
+ 
+    :slides-per-view="4"
+    :space-between="30"
+    :pagination="{ clickable: true }"
+    :autoplay="{ delay: 3000, disableOnInteraction: false }"
+    :modules="[Autoplay]"
+    class="mySwiper"
+    :breakpoints="{
+      0: { slidesPerView: 1 },
+      576: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 }
+    }"
+  >
+    <swiper-slide
+      v-for="(item, index) in categories"
+      :key="index"
+    >
+      <div class="category_card">
+        <router-link
+          class="btn"
+          :to="{
+            name: 'ProductCategories',
+            params: {
+              slug: item.slugable?.key
+                ? item.slugable.key.replace('/product-categories/', '')
+                : '',
+            },
+          }"
+        >
+          <div class="category_image_animation">
+            <div class="image_1_bg" style="background-color: #edefe1;"></div>
+            <img :src="image_url + item.image" :alt="item.name" />
+          </div>
+          <h4 class="h4">{{ item.name }}</h4>
+        </router-link>
+      </div>
+    </swiper-slide>
+  </swiper>
+</div>
+
+      </div>
 </section>
 
 

@@ -31,4 +31,5 @@ export const API_ENDPOINTS = {
   faqDetails: `/faqs`,
   categoryProducts: `/product-categories/`,
   searchProducts: `/fastsearch/`,
+   menus: `/menus`,
 };
