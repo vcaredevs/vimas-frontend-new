@@ -1,10 +1,23 @@
  <style>
 .btn-btn-btns{
-      background: #09302a;
-      color: #fff;
+      background: #fff;
+      color: black;
 }
 .btn-btn-btns:hover{
-  background-color: #1B6A63;
+  background: #09302a;
+      color: #fff;
+}
+
+button.btn.btn-darks {
+    /* margin-top: 3rem; */
+    padding: 10px 30px;
+    border-radius: 4px;
+    padding: 0.6rem 0.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-size: 18px;
+    border-color:  black;
 }
 
 </style>
@@ -213,7 +226,7 @@
                   </div>
             </div>
             <div class="text-center btn-view-all">
-              <router-link to="/product"><button class="btn btn-dark btn-btn-btns">View all products</button></router-link>   
+              <router-link to="/product"><button class="btn btn-darks btn-btn-btns">View all products</button></router-link>   
               </div>
         </div>
       </div>
