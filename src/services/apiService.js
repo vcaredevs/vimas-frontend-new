@@ -31,7 +31,12 @@ export const deleteCartList=(payload)=>api.post(API_ENDPOINTS.cartDelete, payloa
 export const getCartCount = (userId) =>
   api.get(`${API_ENDPOINTS.cartCount}/${userId}`);
 export const postCustomerImage = (formData) => {
-  return api.post(API_ENDPOINTS.customerImage, formData,);
+  return api.post(API_ENDPOINTS.customerImage, formData,{
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  }
+  );
 };
 export const getCustomerDetail = (phone) => {
   return api.get(

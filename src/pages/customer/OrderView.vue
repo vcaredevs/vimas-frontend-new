@@ -7,7 +7,7 @@
                         <p class="purchaat text-center">Purchased At: <span>{{dateTime(orderViewDetails?.created_at)  }}</span></p>
                     </div>
                      <div class="col-md-4">
-                        <p class="purchaat text-center paid">Paid On: <span>{{dateTime(orderViewDetails?.created_at)  }}</span></p>
+                        <p class="purchaat text-center paid">Paid On: <span>{{dateTime(orderViewDetails?.payment.created_at)  }}</span></p>
                      </div>
                 </div>
                
