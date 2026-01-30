@@ -12,7 +12,8 @@
                 <div id="myTab" class="w-100">
                   <div class="w-100 text-center">
                     <div class="user-img mb-2">
-                      <img src="../../assets/images/ela.png" alt="" />
+                      <!-- <img src="../../assets/images/ela.png" alt="" /> -->
+                       <img :src="image_url+customer?.avatar" :alt="customer?.name"  class="rounded-circle"/>
                     </div>
                     <div class="user_name">{{ customer?.name }}</div>
                     <div class="user_mobile">{{ customer?.phone }}</div>
@@ -160,7 +161,7 @@
                       </div>
                     </div>
                     <!-- ========= -->
-                    <!-- <div class="pt-5">
+                    <div class="pt-5">
     <div class="pers_info_head">Upload image</div>
 
     <div class="upload_img_sec">
@@ -206,7 +207,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
                   </div>
 
                   <div
@@ -249,7 +250,7 @@
                                 <td>
                                   <div class="ord_no_status_pending">
                                     <i class="bi bi-circle-fill"></i>
-                                    <span>{{ item.payment.status_value }}</span>
+                                    <span class="text-capitalize">{{ item.status }}</span>
                                   </div>
                                 </td>
                                 <td>
@@ -450,6 +451,8 @@ const uploading = ref(false);
 const addresses = ref([]);
 const userId = atob(localStorage.getItem("user_id"));
 const orders = ref([]);
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 const currentPage = ref(null)
 const lastPage = ref(null)
 const form = ref({
@@ -484,14 +487,15 @@ async function saveAddress() {
     };
 
     const res = await postCustomerAddress(payload);
-
-    alert("Address added successfully ");
+toast.success("Address added successfully")
+    // alert("Address added successfully ");
     await fetchAddresses();
 
     resetForm();
   } catch (err) {
     console.error("Failed to save address", err);
-    alert("Failed to save address ");
+    toast.success("Failed to save address")
+    // alert("Failed to save address ");
   } finally {
     loading.value = false;
   }
@@ -567,6 +571,7 @@ const onFileChange = (event) => {
   reader.readAsDataURL(file);
 };
 const saveAvatar = async () => {
+ 
   if (!cropper.value) {
     console.error("No cropper instance!");
     return;
@@ -578,10 +583,14 @@ const saveAvatar = async () => {
 
   const cropData = cropper.value.getData(true);
 
-  cropper.value.getCroppedCanvas().toBlob(async (blob) => {
-    if (!blob) return console.error("Failed to create cropped image blob!");
-
+cropper.value.getCroppedCanvas().toBlob(async (blob) => {
+    if (!blob) {
+      console.error(" Failed to create cropped image blob!");
+      loading.value = false;
+      return;
+    }
     const file = new File([blob], "avatar.jpg", { type: "image/jpeg" });
+console.log("file",file);
 
     const formData = new FormData();
     formData.append("user_id", customer.value.id);
@@ -610,8 +619,8 @@ const saveAvatar = async () => {
       cropper.value = null;
       previewImage.value = null;
       selectedFile.value = null;
-
-      alert("Avatar saved successfully!");
+toast.success("Profile photo uploaded successfully")
+     
     } catch (err) {
       console.error("Upload failed", err.response?.data || err);
     } finally {
@@ -670,10 +679,20 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .form-check-input[type="checkbox"] {
   padding: 5px;
   border-radius: 50% !important;
   margin-right: 6px;
+}
+.user-img{
+      margin: auto;
+    width: 100px;
+}
+#cropper-image{
+  width: 150px !important;
+}
+.upload_img_sec {
+  margin: 30px 0px !important;
 }
 </style>

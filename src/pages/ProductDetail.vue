@@ -92,8 +92,8 @@
               </div>
 
               <div class="d-flex align-items-baseline my-3">
-                <span class="price me-2"> ₹{{ price.original }} </span>
-                <span class="discounted-price"> ₹{{ price.sale }} </span>
+                <span class="price me-2"> ₹{{ product.product.price }} </span>
+                <span class="discounted-price"> ₹{{ product.product.original_price }} </span>
               </div>
 
               <div class="quant-sec mb-4">
@@ -359,9 +359,10 @@
                 </svg> 4.5 (100 reviews)</div>
                 <h5 class="product-title">{{ product.name }}</h5>
                 <p>Smooth | Nourish</p>
-                <div class="product-price">
-                  <del>{{ product.original_price }}</del> <span>{{ product.front_sale_price }}</span>
-                </div>
+              <div class="product-price">
+                            <del v-if="product.sale_price !== null">₹{{ product.price }}</del> <span>₹{{ product.sale_price?product.sale_price:product.price
+                              }}</span>
+                          </div>
                   
               </div>
             </div>
