@@ -1,3 +1,26 @@
+ <style>
+.btn-btn-btns{
+      background: #fff;
+      color: black;
+}
+.btn-btn-btns:hover{
+  background: #09302a;
+      color: #fff;
+}
+
+button.btn.btn-darks {
+    /* margin-top: 3rem; */
+    padding: 10px 30px;
+    border-radius: 4px;
+    padding: 0.6rem 0.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-size: 18px;
+    border-color:  black;
+}
+
+</style>
 <template>
   <section class="page">
     <div class="page__wrapper">

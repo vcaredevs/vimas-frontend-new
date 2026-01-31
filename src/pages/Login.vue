@@ -1,3 +1,15 @@
+<style>
+.btn-btn-secondary{
+ background-color:#0E302A ;
+ color:#fff;
+}
+.btn-btn-secondary:hover{
+   
+    background: #1B6A63;
+    color:#fff;
+
+}
+</style>
 <template>
     <div v-if="pageloader" class="d-flex justify-content-center align-items-center" style="height: 500px">
         <div class="spinner-border text-primary" role="status">
@@ -49,7 +61,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <button v-if="loading" class="btn btn-secondary w-100 d-flex justify-content-center" @click="submitOtp"><div class="loader"></div></button>
-                                            <button v-else id="sendOtp" class="btn btn-secondary w-100 text-center" @click="sendOtp" :disabled="isSubmitDisabled">Send OTP</button>
+                                            <button v-else id="sendOtp" class="btn btn-btn-secondary w-100 text-center" @click="sendOtp" :disabled="isSubmitDisabled">Send OTP</button>
                                         </div>
                                     </div>
                                     <div id="otpDiv" style="" v-else>

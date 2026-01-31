@@ -1,5 +1,83 @@
 
 
+/* literata-500 - latin */
+@font-face {
+  font-family: "Literata";
+  src:
+    url("../fonts/Literata-SemiBold.woff2") format("woff2"),
+    url("../fonts/Literata-SemiBold.woff") format("woff"),
+    url("../fonts/Literata-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Literata";
+  src:
+    url("../fonts/Literata-Bold.woff2") format("woff2"),
+    url("../fonts/Literata-Bold.woff") format("woff"),
+    url("../fonts/Literata-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Literata";
+  src:
+    url("../fonts/Literata-ExtraBold.woff2") format("woff2"),
+    url("../fonts/Literata-ExtraBold.woff") format("woff"),
+    url("../fonts/Literata-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* mulish-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/mulish-v18-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* mulish-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/mulish-v18-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* mulish-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/mulish-v18-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* mulish-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/mulish-v18-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+* {
+  font-family: "Mulish";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Literata";
+  color: #060e0d;
+}
 :root {
   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -10,8 +88,8 @@
     --primary:#0E47A1;
     --secondary:#E4F2FD;
     --white:#fff;
-    --font-body:"Lexend", sans-serif;
-    --font-head:"Inria Serif", serif;
+    --font-body:"Mulish";
+    --font-head:"Literata";
 }
 /* .sticky {
   position: fixed !important;
@@ -55,6 +133,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-head);
+  color: #060e0d;
 }
 p, ul {
   font-family: var(--font-body);
@@ -122,7 +201,7 @@ a.navbar-brand img {
   /* width: 50%; */
 }
 a.nav-link {
-  color: #000;
+  color: #060e0d;
   margin-left: 10px;
 }
 .hero-section h1 {
@@ -400,6 +479,7 @@ section.strip-sec {
   margin: 10px 0;
   font-family: var(--font-body);
   /* line-height: 32px; */
+  color: #060e0d;
 }
 .product-price {
   font-size: 1rem;
@@ -463,8 +543,8 @@ svg.rating__star.icon.icon-rating-star {
   margin-right: 5px;
 }
 .product-rating {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   font-family: var(--font-body);
   letter-spacing: 0.5px;
 }
@@ -1026,13 +1106,14 @@ section.news-sec h5 {
   font-weight: 500;
   letter-spacing: 0.5px;
   padding-bottom: 5px;
+  color:#fff;
 }
 h5.product-title a {
-  color: #000 ;
+  color: #060e0d ;
 }
 p.menu-icon a {
   font-size: 20px;
-  color: #000;
+  color: #060e0d;
 }
 input.form-control.subscribe-input.me {
   padding: 14px;

@@ -1,3 +1,13 @@
+<style>
+section.copy-sec {
+    background: #444631;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0px;
+    background-color: #0E302A;
+    }
+
+</style>
 <template>
     <section class="footer-sec">
   <div class="container">
@@ -53,7 +63,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center mt-3">
-          <p class="copyright">© 2025, Ecologica .</p>
+          <p class="copyright">© 2026, Ecologica .</p>
         </div>
       </div>
     </div>

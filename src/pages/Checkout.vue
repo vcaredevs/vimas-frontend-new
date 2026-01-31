@@ -49,6 +49,7 @@
 
                             <div class="add-new-address" @click="openAddressModal">
                                 <p><span class="add-address-plus">+</span><br>Add new address</p>
+                                
                             </div>
                         </div>
                     </div>
