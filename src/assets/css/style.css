@@ -985,7 +985,10 @@ section.image-sec {
 }
 span {
   font-family: 'Lexend' !important;
+  background-color: #edefe2 ;
+ 
 }
+
 
 
 @media screen and (max-width: 1024px){
@@ -1548,4 +1551,17 @@ height: 430px;
    .topbanner{
           margin-top: 2rem;
         }
+}
+
+
+
+.icon-div{
+  width: 50px !important;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.testimonial-card{
+      background: beige;
+    padding: 0px 23px;
+    border-radius: 13px;
 }

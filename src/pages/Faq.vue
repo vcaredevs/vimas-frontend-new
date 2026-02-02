@@ -59,7 +59,7 @@
           :class="{ show: faqIndex === 0 }"
           :data-bs-parent="`#accordion-${category.id}`"
         >
-          <div class="accordion-body" v-html="faq.answer"></div>
+          <div class="accordion-body " v-html="faq.answer"></div>
         </div>
       </div>
     </div>
