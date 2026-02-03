@@ -632,19 +632,28 @@ section.customer-sec {
 
 .apply-coupon button {
   border-radius: 0 5px 5px 0;
-  background-color: #333;
+  background-color: #09302a;
+  color: #fff;
+}
+.apply-coupon button:hover{
+  background-color: #226a5f;
   color: #fff;
 }
 
 .checkout-btn {
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
+  color: #000 !important;
   width: 100%;
   border-radius: 5px;
   padding: 10px;
   font-weight: 600;
   letter-spacing: 0.4px;
   font-size: 18px;
+  border: 1px solid;
+}
+.checkout-btn:hover{
+  background-color: #09302a;
+  color: #fff !important;
 }
 
 .quantity-btn {
@@ -667,6 +676,7 @@ section.customer-sec {
 
 .table>:not(caption)>*>* {
   padding: 20px 0px !important;
+  color: #060e0d ;
 }
 
 small.p1 {
@@ -687,6 +697,7 @@ small.p1 {
   padding: 20px 20px 10px;
   font-family: var(--font-body);
   font-size: 18px;
+  color: #060e0d;
 }
 
 .order-summary label.form-label {
@@ -733,6 +744,7 @@ button#payNow {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 300;
+  color: #060e0d;
 }
 
 section.cart-sec h2 {
@@ -745,7 +757,7 @@ table.table.cart-table th {
   font-family: 'Lexend' !important;
   font-size: 18px;
   font-weight: 400;
-  color: #3c3a3a;
+  color: #060e0d ;
 }
 
 /***************checkout page css****************/
@@ -1472,14 +1484,14 @@ h2.display-4 {
 
 .pers_info_head {
   font-size: 20px;
-  color: #2d2d2d;
+  color: #060e0d ;
   display: flex;
   align-items: baseline;
 
 }
 .pers_info_head i{
   font-size: 20px;
-  color: #2d2d2d !important;
+  color: #060e0d  !important;
   margin-right: 10px;
 }
 
@@ -1580,14 +1592,14 @@ h2.display-4 {
 .ord_no_status_cancelled {
   font-size: 14px;
   font-weight: 300;
-  color: #323232;
+  color: #060e0d ;
 }
 
 .ord_pro_type,
 .ord_pro_vol {
   font-size: 12px;
   font-weight: 300;
-  color: #323232;
+  color: #060e0d ;
 
 }
 
@@ -1599,7 +1611,7 @@ h2.display-4 {
 
 .ord_no {
   font-size: 14px;
-  color: #323232;
+  color: #060e0d ;
 }
 
 .ord_no_status_completed span,
@@ -1637,15 +1649,17 @@ h2.display-4 {
 }
 
 .track_btn {
-  margin-right: 10px;
-  padding: 6px 14px;
-  border-radius: 4px;
-  background-color: #323232;
-  color: #fff;
-  font-size: 12px;
-  border: none;
-
-
+    margin-right: 10px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    background-color: #fff !important;
+    color: black !important;
+    font-size: 12px;
+    border: 1px solid !important;
+}
+.track_btn:hover{
+  background-color: #0E302A !important;
+  color: #fff !important;
 }
 
 .wish_add_cart_btn {
@@ -1735,12 +1749,15 @@ button#addAddressBtn {
 
   padding: 8px 80px;
   border-radius: 2px;
-  background-color: #323232;
+  background-color: #09302a;
   color: #fff;
   font-size: 16px;
   border: none;
   width: auto !important;
 
+}
+.add_address_btn:hover{
+  background-color: #226a5f;
 }
 
 .def_name {

@@ -838,7 +838,7 @@ button.btn.btn-darks {
           </div>
 
           <Swiper
-            :modules="[Pagination]"
+            :modules="[Autoplay,Pagination]"
             :slides-per-view="3"
             :slides-per-group="1"
             :space-between="30"
