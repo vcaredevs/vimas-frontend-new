@@ -108,9 +108,9 @@
                                                 Order information <i class="bi bi-chevron-down" aria-hidden="true"></i>
                                             </a>
                                         </div>
-                                        <div class="col-3">
+                                        <!-- <div class="col-3">
                                             <p class="text-end mobile-total"> ₹1000 </p>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div id="cart-item-1381" class="collapse collapse-products"> 
                                         <template v-for="(data,index) in successRes.cart_details" :key="index" >
@@ -141,7 +141,7 @@
                                     <p>Subtotal:</p>
                                 </div>
                                 <div class="col-6 float-end">
-                                    <p class="price-text text-end"> ₹{{successRes.order?.sub_total}} </p>
+                                    <p class="price-text text-end"> ₹{{successRes.order?.amount}} </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -149,7 +149,7 @@
                                     <p>Shipping fee:</p>
                                 </div>
                                 <div class="col-6 float-end">
-                                    <p class="price-text text-end"> ₹{{successRes.order?.shipping_amount}} </p>
+                                    <p class="price-text text-end"> ₹{{shippingAmnt}} </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -157,7 +157,7 @@
                                     <p>Discount:</p>
                                 </div>
                                 <div class="col-6 float-end">
-                                    <p class="price-text text-end"> ₹{{successRes.order?.discount_amount}} </p>
+                                    <p class="price-text text-end"> ₹{{discount}} </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -174,7 +174,7 @@
                                     <p>Total:</p>
                                 </div>
                                 <div class="col-6 float-end">
-                                    <p class="total-text raw-total-text text-end"> ₹{{ Math.round(successRes.order?.amount) }} </p>
+                                    <p class="total-text raw-total-text text-end"> ₹{{ total }} </p>
                                 </div>
                             </div>
                         </div>    
@@ -187,14 +187,16 @@
     
 </template>
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { computed, onMounted, ref } from 'vue';
    
   
    import { useRouter } from "vue-router";
 import { getcheckoutSuccess } from '../services/apiService';
 import { image_url } from '../config/api';
 import { resetCartCount } from '../services/cartService';
-
+const subtotal=ref(0)
+const amount=ref(0)
+const shippingAmnt=ref(0)
 const router = useRouter();
 
     const loading = ref(false);
@@ -208,11 +210,23 @@ const router = useRouter();
         }
         const res = await getcheckoutSuccess(id,payload);
         successRes.value = res.data.data
+        amount.value=res.data.data.order?.amount
+        subtotal.value=res.data.data.order?.sub_total
+         shippingAmnt.value=res.data.data.order?.shipping_amount
         resetCartCount();
         
         loading.value = false;
   localStorage.removeItem("orderId");
     }
+//     const shippingAmnt=computed(()=>{
+// return subtotal.value<999?100:0
+// })
+const discount=computed(()=>{
+return amount.value-subtotal.value
+})
+const total=computed(()=>{
+return Number(amount.value)-Number(discount.value)+Number(shippingAmnt.value)
+})
     onMounted(()=>{
        const orderId = localStorage.getItem("orderId")
     ? atob(localStorage.getItem("orderId"))

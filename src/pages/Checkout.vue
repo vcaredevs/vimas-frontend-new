@@ -178,10 +178,10 @@
                                 <span>Shipping cost</span>
                                 <span>₹{{ shippingAmnt }}</span>
                             </div>
-                          <div class="d-flex justify-content-between mt-3">
+                          <!-- <div class="d-flex justify-content-between mt-3">
                                 <span>Coupon</span>
                                 <span>₹{{ couponAmnt }}</span>
-                            </div>
+                            </div> -->
                             <div class="d-flex justify-content-between total-amount mt-3">
                                 <strong>Total</strong>
                                 <strong>{{ total }}</strong>

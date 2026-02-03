@@ -65,7 +65,7 @@ button.btn.btn-darks {
                       nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra
                       nisl.
                     </p>
-                    <p class="btn btn-dark mt-3"><a>Shop now</a></p>
+                 <router-link to="/product"> <p class="btn btn-dark mt-3"><a>Shop now</a></p></router-link>  
                   </div>
                 </div>
 
@@ -93,7 +93,7 @@ button.btn.btn-darks {
                       nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra
                       nisl.
                     </p>
-                    <p class="btn btn-dark mt-3"><a>Shop now</a></p>
+                    <router-link to="/product"> <p class="btn btn-dark mt-3"><a>Shop now</a></p></router-link>
                   </div>
                 </div>
 
@@ -121,7 +121,7 @@ button.btn.btn-darks {
                       nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra
                       nisl.
                     </p>
-                    <p class="btn btn-dark mt-3"><a>Shop now</a></p>
+                    <router-link to="/product"> <p class="btn btn-dark mt-3"><a>Shop now</a></p></router-link>
                   </div>
                 </div>
 
@@ -215,24 +215,7 @@ button.btn.btn-darks {
               />
             </div>
           </div>
-          <!-- <div class="categories_card_main">
-            <div class="category_card"  v-for="(item,index) in categories"  :key="index"> 
-        <router-link class="btn"        :to="{
-        name: 'ProductCategories',
-        params: {
-          slug: item.slugable.key ? item.slugable.key.replace('/product-categories/', '') : '',
-        },
-      }">
-                  <div class="category_image_animation">
-                    <div class="image_1_bg" style="background-color: #edefe1;"></div>
-                    <img :src="image_url+item.image" :alt="item.name">
-                  </div>
-                  <h4 class="h4">{{ item.name }}</h4>
-                </router-link> 
-           </div>
-       
-
-        </div> -->
+          
 
           <div class="categories_card_main">
             <swiper
@@ -264,6 +247,7 @@ button.btn.btn-darks {
                             )
                           : '',
                       },
+                      hash:'#productpage'
                     }"
                   >
                     <div class="category_image_animation">

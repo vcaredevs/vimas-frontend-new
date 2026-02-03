@@ -228,7 +228,7 @@ const userId = atob(localStorage.getItem("user_id"));
         fetchOrderViewDetail(route.params.id);
     })
 </script>
-<style>
+<style scoped>
 .pTop{
     padding-top: 7rem;
 }
