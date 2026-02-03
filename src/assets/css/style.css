@@ -191,7 +191,7 @@ a {
 }
 
 .bg-dark-gray {
-  background-color: #444631;
+  background-color: #09302a;
 }
 section.hero-section {
   background: #EFF0EA;
@@ -600,10 +600,11 @@ button.btn.btn-dark {
   font-weight: 600;
   letter-spacing: 0.6px;
   font-size: 18px;
-
+  color: #000;
  
 
 }
+
 .btn-view-all {
   margin-top: 3rem !important;
 }
@@ -985,7 +986,7 @@ section.image-sec {
 }
 span {
   font-family: 'Lexend' !important;
-  background-color: #edefe2 ;
+  /* background-color: #edefe2 ; */
  
 }
 
@@ -1109,7 +1110,7 @@ section.news-sec h5 {
   font-weight: 500;
   letter-spacing: 0.5px;
   padding-bottom: 5px;
-  color:#fff;
+  color:#fff !important;
 }
 h5.product-title a {
   color: #060e0d ;
@@ -1180,7 +1181,7 @@ margin-top:50px;
   padding-bottom: 15px;
 }
 section.footer-sec h6 {
-  color: #fff;
+  color: #fff !important;
   font-family: var(--font-body);
   font-size: 20px;
   font-weight: 400;
@@ -1209,8 +1210,23 @@ p.copyright {
   color: #fff;
 }
 p.btn.btn-dark.mt-3 a {
+  color: black !important;
+   
+}
+p.btn.btn-dark.mt-3:hover a {
   color: #fff !important;
 }
+
+.btn-dark{
+   background: #fff;
+   
+}
+.btn-dark:hover{
+   background: #09302a;
+   color:#fff !important ;
+}
+
+
 .copy-sec hr{
   color: #fff;
   margin: 1px;
@@ -1565,3 +1581,4 @@ height: 430px;
     padding: 0px 23px;
     border-radius: 13px;
 }
+
