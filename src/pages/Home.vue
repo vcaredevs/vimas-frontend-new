@@ -838,33 +838,56 @@ button.btn.btn-darks {
           </div>
 
           <Swiper
-            :modules="[Autoplay]"
+            :modules="[Pagination]"
             :slides-per-view="3"
             :slides-per-group="1"
             :space-between="30"
             :loop="true"
             :autoplay="{ delay: 3000, disableOnInteraction: false }"
             :pagination="{ clickable: true }"
+            :breakpoints="{
+              0: {
+                slidesPerView: 1,
+           
+              },
+              576: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              }
+            }"
             class="mySwiper"
           >
             <SwiperSlide v-for="(item, index) in 6" :key="index">
               <div class="testimonial-card">
-                <img src="../assets/images/testmi.webp" class="one1" />
-
-                <div class="icon-main122">
-                  <div class="Ellipse">
-                    <h3 class="reviewer_name">Divya</h3>
-                    <img src="../assets/images/client.webp" class="icon-test" />
+                <div>
+              
+                 <h5 class="pt-4">"Finally a Shampoo that actually understand my scalp."</h5>
+                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, expedita.</p>
+                 <div class="row">
+                  <div class="col-md-6">
+                     <div class="d-flex">
+                   <img src="../assets/images/client.webp" alt="" class="icon-div">
+                   <h6 class="pt-3 px-4">Divya</h6>
+                 </div>
                   </div>
-
-                  <div class="main-para">
-                    <img src="../assets/images/review.png" />
-                    <span
-                      >Lorem ipsum dolor sit amet, consectetur adipisicing
-                      elit</span
-                    >
-                  </div>
+                   <div class="col-md-6 text-end pt-2">
+                       <img src="../assets/images/review.png" alt="">
+                   </div>
+                 </div>
+                
                 </div>
+                
+                
+                 
+                
               </div>
             </SwiperSlide>
           </Swiper>
