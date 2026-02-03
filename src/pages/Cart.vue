@@ -42,8 +42,12 @@
                       <div>
                         <strong>{{ item.name }}</strong
                         ><br />
-                        <small class="p1">Skin Type: Oil</small><br />
-                        <small class="p1">Item Volume: 100 Millilitres</small>
+                         <span class="grey-text"
+                                >
+                                   Smooth | Nourish
+                                </span>
+                        <!-- <small class="p1">Skin Type: Oil</small><br />
+                        <small class="p1">Item Volume: 100 Millilitres</small> -->
                       </div>
                     </td>
 
@@ -103,7 +107,7 @@
                     <span>Shipping</span>
                     <span>{{ shippingAmnt }}</span>
                   </div>
-                  <div class="apply-coupon mb-3">
+                  <!-- <div class="apply-coupon mb-3">
                     <label for="coupon" class="form-label"
                       >Apply Coupon codes</label
                     >
@@ -120,7 +124,7 @@
                   
                     </div>
                         <p class="text-success mt-2">{{ message }}</p>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="total d-flex justify-content-between">
                   <strong>Total Payable</strong>
@@ -223,10 +227,19 @@
                     </div>
                     <h5 class="product-title">{{ product.name }}</h5>
                     <p>Smooth | Nourish</p>
-                    <div class="product-price">
-                      <del>{{ product.original_price }}</del>
-                      <span>{{ product.front_sale_price }}</span>
-                    </div>
+                   <div class="product-price">
+                        <del v-if="product.sale_price !== null"
+                          >₹{{ product.price }}</del
+                        >
+                        <span
+                          >₹{{
+                            
+                            product.sale_price
+                              ? product.sale_price
+                              : product.price
+                          }}</span
+                        >
+                      </div>
                   </div>
                 </div>
               </div>
@@ -304,10 +317,13 @@ async function getCartDetails() {
   }
 }
 async function fetchProducts(page = 1, param = null) {
+  
+  
   try {
     const result = await getProducts(page, param);
 
-    productList.value = result.data.data ?? result.data;
+
+    productList.value = result.data.data.data ?? result.data;
   } catch (error) {
     console.error("Error fetching products:", error);
   }

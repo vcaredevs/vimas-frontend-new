@@ -14,7 +14,7 @@
     </div>
    <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container m-auto">
-          <a class="navbar-brand fs-3 fw-bold" href="./"><img src="../assets/images/logo.png" height="50"/></a>
+          <a class="navbar-brand fs-3 fw-bold" ><router-link to="/"><img src="../assets/images/logo.png" height="50"/></router-link></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,10 +40,9 @@
               
               </ul>
            <p class="menu-icon">  <i  @click="goToWishList" style="cursor:pointer;" class="far fa-heart"></i>
-           <span  class="cart-badge" >{{
-                  store.wishlistProd && store.wishlistProd.data
-                    ? store.wishlistProd.data.length
-                    : 0
+           <span  class="cart-badge" v-if="store.wishlistProd?.data?.length>0" >{{
+                  store.wishlistProd.data.length
+                   
                 }}</span>
           </p>
               <p class="menu-icon" ><i @click="$emit('open-search')" class="fas fa-search"></i></p>
