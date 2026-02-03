@@ -39,21 +39,21 @@
 </li>
               
               </ul>
-           <p class="menu-icon" @click="goToWishList" style="cursor:pointer;">  <i class="far fa-heart"></i>
-           <span  class="cart-badge">{{
+           <p class="menu-icon">  <i  @click="goToWishList" style="cursor:pointer;" class="far fa-heart"></i>
+           <span  class="cart-badge" >{{
                   store.wishlistProd && store.wishlistProd.data
                     ? store.wishlistProd.data.length
                     : 0
                 }}</span>
           </p>
-              <p class="menu-icon" @click="$emit('open-search')"><i class="fas fa-search"></i></p>
+              <p class="menu-icon" ><i @click="$emit('open-search')" class="fas fa-search"></i></p>
               <SearchDrawer :open="openSearch" @close="openSearch = false" />
            
-              <p class="menu-icon" @click="goToCart" style="cursor:pointer;">
-  <i class="fas fa-shopping-cart"></i>
+              <p class="menu-icon" >
+  <i @click="goToCart" style="cursor:pointer;" class="fas fa-shopping-cart"></i>
   <span v-if="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
 </p>
- <p class="menu-icon" @click="goToProfile">  <i class="fas fa-user"></i> </p>
+ <p class="menu-icon" >  <i @click="goToProfile" class="fas fa-user"></i> </p>
 
           </div>
       </div>

@@ -160,7 +160,7 @@
                             <div class="ms-3">
                                 <strong>{{ product.product.name }}</strong><br>
                                 Qty:  {{ product.qty}}<br>
-                               {{ product.product.price }}
+                               {{ product.product.sale_price!==null?product.product.sale_price:product.product.price }}
                             </div>
                         </div>
                         <hr>
@@ -174,13 +174,17 @@
                                 <span>Sub Total</span>
                                 <span>{{ subtotal }}</span>
                             </div>
-                            <div class="d-flex justify-content-between">
+                             <div class="d-flex justify-content-between mt-3">
                                 <span>Shipping cost</span>
-                                <span>₹0</span>
+                                <span>₹{{ shippingAmnt }}</span>
+                            </div>
+                          <div class="d-flex justify-content-between mt-3">
+                                <span>Coupon</span>
+                                <span>₹{{ couponAmnt }}</span>
                             </div>
                             <div class="d-flex justify-content-between total-amount mt-3">
                                 <strong>Total</strong>
-                                <strong>{{ subtotal }}</strong>
+                                <strong>{{ total }}</strong>
                             </div>
                             <p style="width: 70%;">including all taxes</p>
                             <button class="pay-now-btn mt-4" id="payNow" @click="payNow()">Pay now</button>
@@ -206,7 +210,11 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { displayCartDetails, getCartCount, getCheckoutDetails, getCustomerAddress, postCustomerAddress, sendPaymentDetails } from '../services/apiService';
 import { image_url, razorpay_key } from '../config/api';
 import { useRouter } from "vue-router";
+import { useUserStore } from '../assets/js/store';
 
+const { store } = useUserStore();
+
+const checkoutData = store.checkoutData;
 const router = useRouter();
  const waitpayment = ref(false);
 const cartIDetails = ref([]);
@@ -216,12 +224,16 @@ const cartIDetails = ref([]);
 const subtotal = computed(() => {
   return cartIDetails.value.reduce((total, item) => {
     const qty = Number(item.qty || 1);
-    const price = Number(item.product?.price || 0);
+    const price = Number((item.product?.sale_price!==null?item.product.sale_price:item.product.price) || 0);
     return total + qty * price;
   }, 0);
 });
-console.log("subtotal",subtotal);
-
+const shippingAmnt=computed(()=>{
+return subtotal.value<999?100:0
+})
+const total=computed(()=>{
+  return (subtotal.value + shippingAmnt.value )
+})
 
 const showAddressModal = ref(false);
 const loading = ref(false);
@@ -314,37 +326,15 @@ async function fetchAddresses() {
     loading.value = false;
   }
 }
- const fetchproductcheckout = async ()=>{
-   
-        let userId = localStorage.getItem("user_id") ? atob(localStorage.getItem("user_id")) :null
-        var payload = {
-            user_id:userId
-        }
-        try{    
-            
-            const res = await getCheckoutDetails(userId,payload);
-           cartIDetails.value=res.data.data.cart_details
-           orderId.value=res.data.data.orderId
-          
-           
-           
-        }
-       catch (err) {
-  console.error("Checkout error:", err);
+const couponcode=ref("")
+ const fetchproductcheckout =  ()=>{
+    
+           if (!checkoutData) return;
 
-  // if (err.response?.status === 401) {
-  //   router.push("/login");
-  // } else {
-  //   alert(
-  //     err.response?.data?.data ||
-  //     err.response?.data?.message ||
-  //     "Unable to proceed to checkout"
-  //   );
-  // }
-}
-
-        finally{
-        }
+  cartIDetails.value = checkoutData.data.cart_details;
+  couponcode.value = checkoutData.data.cart_details;
+  orderId.value = checkoutData.data.orderId;
+  
     }
 const defaultAddress = computed(() => {
   if (!Array.isArray(addresses.value)) return null;
@@ -362,7 +352,14 @@ watch(defaultAddress, (val) => {
 onMounted(() => {
  
   fetchAddresses();
+  
+  if (!store.checkoutData) {
+    router.push("/cart");
+    return;
+  }
   fetchproductcheckout();
+  console.log("checkoutData",checkoutData);
+  
 });
 
 const showDefaultAddress = ref(true);
@@ -414,15 +411,15 @@ const showDefaultAddress = ref(true);
 
                 var payload = {
                     'subTotal':subtotal.value,
-                    'grandTotal':Math.round(subtotal.value),
+                    'grandTotal':Math.round(total.value),
                     'tax':0,
-                    'shipping_amount':0,
+                    'shipping_amount':shippingAmnt.value,
                     'address':normalizedAddress,
-                 
                     'payment':response,
                     'userId':userId,
                     'customer_id':userId,
-                     amount: Math.round(subtotal.value), 
+                     'amount': Math.round(total.value), 
+                    //  'coupon_code':
   currency: "INR",  
 
                     'shipping_method':'default',
