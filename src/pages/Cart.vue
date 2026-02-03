@@ -48,7 +48,7 @@
                     </td>
 
                     <td>
-                      Rs. <span class="price">{{ item.price }}</span>
+                      Rs. <span class="price">{{ item.sale_price!==null? item.sale_price:item.price}}</span>
                     </td>
 
                     <td>
@@ -76,7 +76,7 @@
                     <td>
                       Rs.
                       <span class="total">
-                        {{ (item.price * (item.qty || 1)).toFixed(2) }}
+                        {{ ((item.sale_price !==null?item.sale_price:item.price) * (item.qty || 1)).toFixed(2) }}
                       </span>
                       <a style="cursor: pointer;"
                         class="remove-link d-block mt-2"
@@ -101,7 +101,7 @@
                   </div>
                   <div class="d-flex justify-content-between mb-3">
                     <span>Shipping</span>
-                    <span>Free</span>
+                    <span>{{ shippingAmnt }}</span>
                   </div>
                   <div class="apply-coupon mb-3">
                     <label for="coupon" class="form-label"
@@ -112,23 +112,27 @@
                         type="text"
                         id="coupon"
                         class="form-control"
+                        v-model="couponCode"
                         placeholder="Enter coupon code"
                       />
-                      <button class="btn">Apply</button>
+                      
+                      <button class="btn" @click="applyCoupon">Apply</button>
+                  
                     </div>
+                        <p class="text-success mt-2">{{ message }}</p>
                   </div>
                 </div>
                 <div class="total d-flex justify-content-between">
                   <strong>Total Payable</strong>
-                  <strong>Rs. <span id="totalPayable">{{ subtotal }}</span></strong>
+                  <strong>Rs. <span id="totalPayable">{{ total }}</span></strong>
                 </div>
               </div>
 
-              <router-link to="/checkout">
-                <button class="checkout-btn mt-4 text-white">
+              <!-- <router-link to="/checkout"> -->
+                <button class="checkout-btn mt-4 text-white" @click="checkout()">
                   Check Out
-                </button></router-link
-              >
+                </button>
+                <!-- </router-link> -->
             </div>
           </div>
         </div>
@@ -249,7 +253,9 @@ import {
   deleteCartList,
   displayCartDetails,
   getCartCount,
+  getCheckoutDetails,
   getProducts,
+  postCoupon,
   updateToCartApi,
 } from "../services/apiService";
 import { image_url } from "../config/api";
@@ -265,10 +271,17 @@ import { getOrCreateAuthUserId } from "../utils/authUser";
 const productList = ref([]);
 const cartItems = ref([]);
 const loading = ref(true)
+const message=ref("")
+const {setCheckoutData} = useUserStore();
+import { useRouter } from "vue-router";
+import { useUserStore } from "../assets/js/store";
+
+const router = useRouter();
+const userId = atob(localStorage.getItem("user_id"));
 async function getCartDetails() {
     loading.value = true
   try {
-    const userId = atob(localStorage.getItem("user_id"));
+    
     const payload = {
       user_id: userId,
     };
@@ -364,14 +377,62 @@ async function deleteItem(item) {
 const subtotal = computed(() => {
   return cartItems.value.reduce((sum, item) => {
     const qty = Number(item.qty || 1);
-    const price = Number(item.price || 0);
+    const price = Number((item.sale_price!==null?item.sale_price:item.price) || 0);
     return sum + price * qty;
   }, 0);
 });
 
+const shippingAmnt=computed(()=>{
+return subtotal.value<999?100:0
+})
 
 
+const couponCode = ref("");
+const applyCoupon=async()=>{
+  try {
+    const payload={
+      user_id:userId,
+      coupon_code:couponCode.value
+    }
+    const res=await postCoupon(userId,payload);
+message.value=res.data.message
+  } catch (error) {
+    console.error(error)
+  }
+}
 
+const total=computed(()=>{
+  return (subtotal.value + shippingAmnt.value )
+})
+
+ const checkout = async ()=>{
+   
+        let userId = localStorage.getItem("user_id") ? atob(localStorage.getItem("user_id")) :null
+        var payload = {
+           
+            coupon_code:couponCode.value,
+           
+        }
+        try{    
+            
+            const res = await getCheckoutDetails(userId,payload);
+        if (res.status) {
+     setCheckoutData(res.data);
+      router.push("/checkout");
+    }
+          
+           
+           
+        }
+       catch (err) {
+  console.error("Checkout error:", err);
+
+
+}
+
+        finally{
+        }
+    }
 
 onMounted(() => {
   getCartDetails();

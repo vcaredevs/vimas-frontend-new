@@ -16,9 +16,17 @@ const store = reactive({
   
   wishlistProd:[],
   loading:false,
-  menu:[]
+  menu:[],
+  checkoutData: null,
 
 });
+const setCheckoutData = (data) => {
+  store.checkoutData = data;
+};
+
+const clearCheckoutData = () => {
+  store.checkoutData = null;
+};
 
 const userStore = reactive({
   phone: localStorage.getItem("phone") ? atob(localStorage.getItem("phone")) :null,
@@ -115,6 +123,8 @@ export function useUserStore() {
     fetchwishlistDetails,
    
     userStore,
-    checkLogin
+    checkLogin,
+     setCheckoutData,
+    clearCheckoutData,
   };
 }

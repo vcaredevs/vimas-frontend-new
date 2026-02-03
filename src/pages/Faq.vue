@@ -92,7 +92,11 @@
     </section>
 
 </template>
-
+<style scoped>
+.accordion span{
+  background-color: #af9191 !important;
+}
+</style>
 <script setup>
 import { onMounted, ref } from 'vue';
 import { getFaqDetails } from '../services/apiService';
