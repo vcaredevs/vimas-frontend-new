@@ -10,7 +10,9 @@ import Login from "../pages/Login.vue";
 import Profile from "../pages/customer/Profile.vue";
 import Success from "../pages/Success.vue";
 import OrderView from "../pages/customer/OrderView.vue";
-import Wishlist from "../pages/wishlist.vue";
+import Wishlist from "../pages/Wishlist.vue";
+
+
 
 const routes = [
   { path: "/", name: "Home", component: Home },
