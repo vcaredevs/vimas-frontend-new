@@ -246,7 +246,7 @@
                                <td>{{ index+1 }}</td>
                                  <td>{{ item.code }}</td>
                                  <td>{{ dateTime(item.created_at)}}</td>
-                                <td>Rs. {{ item.amount }}</td>
+                                <td>Rs. {{ item.sub_total }}</td>
                                 <td>
                                   <div class="ord_no_status_pending">
                                     <i class="bi bi-circle-fill"></i>
