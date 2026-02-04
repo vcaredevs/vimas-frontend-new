@@ -33,7 +33,7 @@
                 <div class="d-flex gap-2">
                    <div class="position-relative order_address mb-4">
         <div class="def_add_details" v-if="orderViewDetails && orderViewDetails.address">
-           <h6 class="shippadd ">Shipping Address</h6> 
+           <h6 class="shippadd ">Default Address</h6> 
             <span class="para">{{ orderViewDetails.address.name}}</span><br>
                <span >
                  {{ orderViewDetails.address.address}}<br>
@@ -83,9 +83,9 @@
           </div>
         </div>
 
-            <div class="col-sm-2">Rs.{{ product.price }}</div>
+            <div class="col-sm-2">Rs.{{ product.product.sale_price!==null?product.product.sale_price:product.product.price }}</div>
                 <div class="col-sm-2 text-center">{{ product.qty}}</div>
-               <div class="col-sm-2 text-end">Rs. {{ product.price * product.qty }}</div>
+               <div class="col-sm-2 text-end">Rs. {{ (product.product.sale_price!==null?product.product.sale_price:product.product.price) * product.qty }}</div>
             </div>
 
   
@@ -119,13 +119,13 @@
         
                             </div>
                             <div class="ord_pro_pri">
-                                Rs. {{ product.price }}
+                                Rs. {{ product.product.sale_price!==null?product.product.sale_price:product.product.price }}
                             </div>
                         </div>
-                        <div class="d-flex align-items-center p-3">
+                        <!-- <div class="d-flex align-items-center p-3">
                             <button class="track_btn">Add Cart</button>
                             <button class="cancel_btn">Remove</button>
-                        </div>
+                        </div> -->
         
                     </div>
                     
@@ -143,7 +143,7 @@
                  
                  <div class="d-flex justify-content-between mb-3">
                    <span>Shipping</span>
-                   <span class="text-success">Free</span>
+                   <span class="text-success">{{ orderViewDetails?.sub_total<999?100:0 }}</span>
                  </div>
                </div>
                 <hr class="my-3">
@@ -151,7 +151,7 @@
   
                 <div class="total d-flex justify-content-between">
                    <strong class="total">Total Amount</strong>
-                   <strong class="total">Rs. <span id="totalPayable">{{ orderViewDetails?.amount }}</span></strong>
+                   <strong class="total">Rs. <span id="totalPayable">{{Number(orderViewDetails?.sub_total)+ Number(orderViewDetails?.sub_total<999?100:0) }}</span></strong>
                 </div>
 
 </div>
