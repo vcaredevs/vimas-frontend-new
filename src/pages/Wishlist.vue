@@ -1,3 +1,19 @@
+<style>
+.btn-add-card-card{
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid;
+
+}
+.btn-add-card-card:hover{
+  background-color: #0E302A !important;
+  color: #fff !important;
+}
+.bi-bi-trash{
+  color: red;
+}
+
+</style>
 <template>
   <div class="">
     <section class="breadscrum-sec">
@@ -179,13 +195,10 @@
                         </td>      
     
                         <td>
-                          <button class="btn add-to-cart" @click="handleAddCart(item.variations && item.variations.length ? item.variations : item)">Add to cart</button>
-                          <button class="btn btn-link p-0" @click="deleteWishlist(item.id,'delete')">
-                            <img
-                              src="../../assets/images/icons/delete.svg"
-                              alt="Delete"
-                              style="width: 20px"
-                            />
+                          <button class="btn add-to-cart btn-add-card-card" @click="handleAddCart(item.variations && item.variations.length ? item.variations : item)">Add to cart</button>
+                          <button class="btn btn-link p-0" @click="deleteWishlist(item.id,'delete') ">
+                           <i class="bi bi-trash text-danger "></i>
+
                           </button>
                         </td>
                       </tr>
