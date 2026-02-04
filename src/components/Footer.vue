@@ -17,7 +17,7 @@ section.copy-sec {
 
           <div class="col-md-3">
             <div class="contact-info">
-              <img class="foot-img" src="../assets/images/logo-dark.png" height="100"/>
+              <img class="foot-img" src="../assets/images/footerlogo.png" height="100"/>
               <div class="d-flex">
                 <p><i class="bi bi-geo-alt"></i></p>
                  <p> No.81B Prince Info Park 1st Floor Tower B 2nd<br>
