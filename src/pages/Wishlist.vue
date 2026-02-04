@@ -107,7 +107,7 @@
                         </div>
                         <div class="col-6 col-lg-2 text-center">
                           <div class="d-flex justify-content-between mt-lg-1 align-items-baseline">
-                            <h6 class="cart-price">₹ {{ item && item.price.toFixed(2) }}</h6>
+                            <h6 class="cart-price">₹ {{ item.sale_price !==null?item.sale_price:item.price }}</h6>
                             <p class="delete-btn float-end">
                               <img
                                 src="../assets/images/delete.svg"
@@ -159,7 +159,7 @@
                                 </span>
                             </router-link>
                         </td>
-                        <td>₹ {{ item.price ? (item.price).toFixed(2):'' }}</td>
+                        <td>₹ {{ item.sale_price !==null?item.sale_price:item.price }}</td>
                         <!-- <td>
                           <div class="d-flex align-items-center">
                             <button

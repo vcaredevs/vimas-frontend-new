@@ -41,7 +41,7 @@
 
 <!--------best product section start-------->
 <div class="bestproduct-sec">
-  <div class="row">
+  <div class="row" >
       <div class="col-md-3">
           <div class="filter-sticky">
   <div class="card p-3">
@@ -64,7 +64,7 @@
     data-bs-target="#categoryFilter"
     aria-expanded="true"
   >
-    <label class="form-label mb-0">Category</label>
+    <label class="form-label mb-0" >Category</label>
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M6 9l6 6 6-6" />
     </svg>
@@ -180,7 +180,7 @@
     <div class="col-md-9" >
        <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6">
+      <div class="col-lg-6" id="productpage">
            <div class="paret" v-if="productList.length==0">
           <h6>No Products found</h6>
         </div>
@@ -235,7 +235,24 @@
           
           
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination mt-4 d-flex justify-content-center gap-2">
+    <li class="page-item" :disabled="currentPage === 1"
+    @click="fetchProducts(currentPage - 1)"><a class="page-link"  ><i class="bi bi-arrow-left-circle"></i></a></li>
+    <li   v-for="page in lastPage"
+    :key="page"
+    class="page-item"
+    :class="page === currentPage ? 'activecolor' : 'basiccolor'"
+    @click="fetchProducts(page)"><a class="page-link" > {{ page }}</a></li>
+    <li class="page-item" 
+    :disabled="currentPage === lastPage"
+    @click="fetchProducts(currentPage + 1)"><a class="page-link" ><i class="bi bi-arrow-right-circle"></i></a></li>
+  </ul>
+</nav>  
+   
     </div>
+ 
+
   </div>
    
 <!-------best product section end----------->
@@ -249,8 +266,26 @@
   position: sticky;
   top: 128px;  
 }
-
-
+.page-item{
+  cursor: pointer;
+}
+.page-item i,.page-item a{
+   color: #c9c7c4;
+}
+.activecolor{
+  background-color: rgb(9, 48, 42);
+  
+}
+.activecolor a{
+ 
+  color: #fffaf3 !important;
+}
+.basiccolor{
+ background-color:#fffaf3;
+}
+.page-link{
+  background-color: transparent;
+}
 .filter-sticky .card {
   border-radius: 10px;
   background-color:#fffaf3;
@@ -386,7 +421,7 @@ button[aria-expanded="true"] .filter-arrow {
     </style>
     <script setup>
      
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
 import { getProducts ,getCategoryProducts,getCategory} from '../services/apiService';
 import { image_url } from '../config/api';
 import { addToCart } from '../services/cartService';
@@ -396,6 +431,9 @@ const route=useRoute();
 const router=useRouter();
 const allProducts = ref([])
 const productList=ref([]);
+const currentPage = ref(1)
+const lastPage = ref(1)
+
 let priceDebounceTimer = null;
 const category = computed(() => route.params.slug);
 const filters = ref({
@@ -406,20 +444,58 @@ const filters = ref({
 });
 async function fetchProducts(page = 1) {
   try {
-    let result;
+    let paginator
 
     if (filters.value.category) {
-      result = await getCategoryProducts(filters.value.category, page);
+      
+     const result = await getCategoryProducts(filters.value.category, page)
+      paginator = result.data
     } else {
-      result = await getProducts(page);
+      
+       const result =  await getProducts(page)
+       paginator = result.data.data ?? result.data
     }
 
-    allProducts.value = result.data.data ?? result.data;
-    applyFilters(); 
+    
+
+
+    allProducts.value = Array.isArray(paginator.data)
+      ? paginator.data
+      : []
+
+    currentPage.value = paginator.current_page ?? 1
+    lastPage.value = paginator.last_page ?? 1
+  await nextTick()
+
+    if (route.hash) {
+      document
+        .querySelector(route.hash)
+        ?.scrollIntoView({ behavior: 'smooth' })
+    }
+    applyFilters()
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error("Error fetching products:", error)
+    allProducts.value = []
+    productList.value = []
   }
 }
+
+// async function fetchProducts(page = 1) {
+//   try {
+//     let result;
+
+//     if (filters.value.category) {
+//       result = await getCategoryProducts(filters.value.category, page);
+//     } else {
+//       result = await getProducts(page);
+//     }
+
+//     allProducts.value = result.data.data ?? result.data;
+//     applyFilters(); 
+//   } catch (error) {
+//     console.error("Error fetching products:", error);
+//   }
+// }
 function applyFilters() {
   let filtered = [...allProducts.value];
 
@@ -442,35 +518,12 @@ function applyFilters() {
   productList.value = filtered;
 }
 
-// async function fetchProducts(page = 1,param=null) {
-//   try {
-//     const params = {
-//       page,
-//       min_price: filters.value.minPrice,
-//       max_price: filters.value.maxPrice,
-//       product: filters.value.product,
-//     };
 
-//     let result;
-
-//     if (filters.value.category) {
-//       result = await getCategoryProducts(
-//         filters.value.category,page,
-//         params
-//       );
-//     } else {
-//       result = await getProducts(page,param);
-//     }
-
-//     productList.value = result.data.data ?? result.data;
-//   } catch (error) {
-//     console.error("Error fetching products:", error);
-//   }
-// }
 function onCategoryChange() {
   router.push({
     name: 'ProductCategories',
-    params: { slug: filters.value.category }
+    params: { slug: filters.value.category },
+    hash: '#productpage'
   });
 }
 
@@ -494,19 +547,21 @@ function onCategoryChange() {
     maxPrice: 7500,
   };
 
- await router.replace({ name: 'Product' });
+ await router.replace({ name: 'Product' ,hash: '#productpage'});
 }
-
 watch(
   () => route.params.slug,
   (slug, oldSlug) => {
-    if (slug === oldSlug) return;
+    if (slug === oldSlug) return
 
-    filters.value.category = slug || null;
-    fetchProducts(1);
-  },
-  { immediate: false  }
-);
+    filters.value.category = slug || null
+    currentPage.value = 1
+    fetchProducts(1)
+  }
+)
+
+
+
 
 watch(
   () => [filters.value.minPrice, filters.value.maxPrice, filters.value.product],

@@ -92,8 +92,21 @@
               </div>
 
               <div class="d-flex align-items-baseline my-3">
-                <span class="price me-2"> ₹{{ product.product.price }} </span>
-                <span class="discounted-price"> ₹{{ product.product.original_price }} </span>
+                 <div class="product-price">
+                    <del v-if="product.product.sale_price !== null"
+                          >₹{{ product.product.price }}</del
+                        >
+                        <span
+                          >₹{{
+                            product.product.sale_price
+                              ? product.product.sale_price
+                              : product.product.price
+                          }}</span
+                        >
+                 </div>
+              
+                <!-- <span class="price me-2"> ₹{{ product.product.price }} </span>
+                <span class="discounted-price"> ₹{{ product.product.original_price }} </span> -->
               </div>
 
               <div class="quant-sec mb-4">
@@ -119,7 +132,7 @@
 
                 <button class="buybtn btn btn-dark mt-2">Buy now</button>
               </div>
-               <div class="additional-options">
+               <div class="additional-options" style="cursor:pointer">
                     <a @click="addWishlist(product.product.id,'add')"><i class="bi bi-heart" ></i> Add to wishlist</a>
                     <a class="add-divider"></a>
                     <a href="#"><i class="bi bi-share"></i> Share this product</a>
@@ -704,7 +717,7 @@ async function fetchProducts(page = 1,param=null) {
 
     const result = await getProducts(page,param);
    
-  productList.value = result.data.data ?? result.data;
+  productList.value = result.data.data.data ?? result.data;
   } catch (error) {
     console.error("Error fetching products:", error);
   }
@@ -796,15 +809,14 @@ function toggleSection(section) {
   cursor: pointer;
 }
 .description-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;     
-  -webkit-box-orient: vertical;
+ 
+ max-height: 80px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: max-height 0.4s ease;
 }
 
 .description-text.expanded {
-  -webkit-line-clamp: unset;
+ max-height: 2000px;
 }
 
 </style>
