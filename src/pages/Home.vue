@@ -23,7 +23,7 @@ button.btn.btn-darks {
 .bbtn-bbtn{
   background-color: #09302a;
   color: #fff;
-  border: 1px solid black;
+  border: 1px solid #09302a;
 }
 .bbtn-bbtn:hover{
   background-color: #226a5f;
