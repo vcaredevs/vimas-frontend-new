@@ -1,107 +1,166 @@
-<style>
-.btn-btn-secondary{
- background-color:#0E302A ;
- color:#fff;
-}
-.btn-btn-secondary:hover{
-   
-    background: #1B6A63;
-    color:#fff;
 
-}
-</style>
 <template>
-    <div v-if="pageloader" class="d-flex justify-content-center align-items-center" style="height: 500px">
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+  <!-- Loader -->
+  <div
+    v-if="pageloader"
+    class="d-flex justify-content-center align-items-center vh-100 mt10"
+  >
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
-    <section class="login-sec" v-else>
-        <div class="container-fluid">
-            <div class="row p-0">
-               <div class="col-lg-6 col-md-6  p-0">
-                <div class="loginLeft">
-                    <div class="row justify-content-center justify-content-lg-start">
-                        <div class="col-xl-8 col-lg-8 col-md-10 col-12 col-sm-11 ps-lg-5">
-                            <div class="login-contentbx">
-                                <img src="../assets/images/vcare-light.png" class="login-logo" alt="Vcare ">
-                                <h2 class="sec-title">Welcome to the VCare 
-                                    Customer Portal ! 
-                                </h2>
-                                <p>
-                                    We trust that your journey with VCare has been enjoyable so far.
-                                </p>
-                            </div>
+  </div>
 
-                            <div class="disclaim-text d-lg-block d-md-block d-none d-sm-none">
-                                <p class="">
-                                    Disclaimer: This portal is exclusively for existing clients of VCare Hair &amp; Skin Clinics and is not intended for new or non-customers.
-                                </p>
-                            </div>
-                            
+  <!-- Login Section -->
+  <section v-else class="login-sec-new mt10">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-9 col-lg-10">
+          <div class="login-card shadow-lg rounded-4 overflow-hidden">
+            <div class="row g-0">
 
-                        </div>
-                    </div>
+              <!-- Left Content -->
+              <div class="col-md-6 login-left d-none d-md-flex">
+                <div class="p-5 text-white">
+                  <h2 class="fw-bold mb-3">
+                    Welcome to<br />VCare Customer Portal
+                  </h2>
+                  <p class="opacity-75">
+                    We’re glad to have you back. Manage your treatments and
+                    appointments seamlessly.
+                  </p>
+
+                  <div class="mt-4 small opacity-75">
+                    Disclaimer: This portal is exclusively for existing clients
+                    of VCare Hair & Skin Clinics.
+                  </div>
                 </div>
-               </div>
-               <div class="col-lg-6 col-md-6">
-                    <div class="loginright">
-                    
-                        <div class="row justify-content-center justify-content-lg-start">
-                            <div class="col-xl-7 col-lg-7 col-md-10 col-12 col-sm-11 ps-lg-5">
-                                <div class="loginform-bx">
-                                    <div id="loginDiv" class="" style="" v-if="beforeotp">
-                                        <h2 class="h4-title mb-lg-4 mb-3">Register 
-                                        </h2>
-                                        
-                                        <div class="mb-3">
-                                            <label class="form-label">Mobile Number </label>
-                                            <input type="text" class="form-control" id="mobile" placeholder="+91 989898 7878" v-model="mobileinput" @blur="validatePhone" @keyup.enter="sendOtp">
-                                            <p id="errorMsg" class="mt-lg-2 mt-2 text-danger small-text fw-normal">{{ errorMessage }}</p>
-                                        </div>
-                                        <div class="mb-3">
-                                            <button v-if="loading" class="btn btn-secondary w-100 d-flex justify-content-center" @click="submitOtp"><div class="loader"></div></button>
-                                            <button v-else id="sendOtp" class="btn btn-btn-secondary w-100 text-center" @click="sendOtp" :disabled="isSubmitDisabled">Send OTP</button>
-                                        </div>
-                                    </div>
-                                    <div id="otpDiv" style="" v-else>
-                                        <h2 class="h4-title mb-lg-4 mb-3">OTP Verification 
-                                        </h2>
-                                        <p class="small-text">Enter OTP code sent to the mobile number <span id="displayMaskedMobile">******{{ mobileinumberShow() }}</span></p>
-                                        <div class="row">
-                                            <input :id="'otp-input-'+index" class="input" min="0" max="9" step="1" aria-label="first digit" v-for="(otp,index ) in otpInputs" :key="index" :ref="'otp-input-' + index" type="text" maxlength="1"  v-model="otpInputs[index]" @input="onInput(index)" @paste="onPaste($event)" @keydown="onKeydown($event, index)" :disabled="isSubmitting" autocomplete="off" @keydown.enter="submitOtp">
-                                            <p id="errorMsg" class="mt-lg-2 mt-2 text-danger small-text fw-normal">{{ errorMessage }}</p>
-                                        </div>
+              </div>
 
-                                        <p class="mt-lg-2 mt-1" v-if="timeOut">
-                                            <span class="resendotp float-end  mb-lg-3 mb-2">00:{{ timeInterval }}</span>
-                                        </p>
-                                        <p class="mt-lg-2 mt-1" @click="resendOtp" v-else>
-                                            <a href=""><span class="resendotp float-end  mb-lg-3 mb-2">Resend OTP</span></a>
-                                        </p>
-                                        <p class="mt-lg-3 mt-2">
-                                            <button v-if="loading" class="btn btn-secondary w-100 d-flex justify-content-center" @click="submitOtp"><div class="loader"></div></button>
-                                            <button v-else class="btn btn-secondary w-100" @click="submitOtp" :disabled="isSubmitting || !isOtpComplete">Verify OTP</button>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="disclaim-text d-lg-none d-md-none d-block d-sm-block mt-lg-4 mt-3">
-            
-                                    <p class="">
-                                        Disclaimer: This portal is exclusively for existing clients of VCare Hair &amp; Skin Clinics and is not intended for new or non-customers.
-                                    </p>
-                                       
-                                </div>
-                            </div>
-                        </div>
+              <!-- Right Form -->
+              <div class="col-md-6 bg-white">
+                <div class="p-4 p-lg-5">
 
+                  <!-- Mobile -->
+                  <div v-if="beforeotp">
+                    <h4 class="fw-bold mb-4">Register</h4>
+
+                    <div class="mb-3">
+                      <label class="form-label">Mobile Number</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        placeholder="+91 98989 87878"
+                        v-model="mobileinput"
+                        @blur="validatePhone"
+                        @keyup.enter="sendOtp"
+                      />
+                      <p class="text-danger small mt-2">
+                        {{ errorMessage }}
+                      </p>
                     </div>
-               
-               </div>
+
+                    <button
+                      v-if="loading"
+                      class="btn btn-primary w-100 py-2"
+                    >
+                      <div class="loader"></div>
+                    </button>
+
+                    <button
+                      v-else
+                      class="btn w-100 py-2"
+                      @click="sendOtp"
+                      :disabled="isSubmitDisabled"
+                    >
+                     <span v-if="loading" class="loader"></span>
+  <span v-else>Send OTP</span>
+                    </button>
+                  </div>
+
+                  <!-- OTP -->
+                  <div v-else>
+                    <h4 class="fw-bold mb-3">OTP Verification</h4>
+
+                    <p class="text-muted small mb-4">
+                      Enter OTP sent to ******{{ mobileinumberShow() }}
+                    </p>
+
+                    <div class="d-flex gap-2 justify-content-between mb-3">
+                      <input
+                        v-for="(otp, index) in otpInputs"
+                        :key="index"
+                        :id="'otp-input-' + index"
+                        :ref="'otp-input-' + index"
+                        v-model="otpInputs[index]"
+                        type="text"
+                        maxlength="1"
+                        class="otp-box"
+                        @input="onInput(index)"
+                        @paste="onPaste($event)"
+                        @keydown="onKeydown($event, index)"
+                        :disabled="isSubmitting"
+                        autocomplete="off"
+                        @keydown.enter="submitOtp"
+                      />
+                    </div>
+
+                    <p class="text-danger small">
+                      {{ errorMessage }}
+                    </p>
+
+                    <div class="d-flex justify-content-end mb-3">
+                      <span
+                        v-if="timeOut"
+                        class="text-muted small"
+                      >
+                        00:{{ timeInterval }}
+                      </span>
+                      <a
+                        v-else
+                        href="javascript:void(0)"
+                        class="small"
+                        @click="resendOtp"
+                      >
+                        Resend OTP
+                      </a>
+                    </div>
+
+                    <button
+                      v-if="loading"
+                      class="btn btn-primary w-100 py-2"
+                    >
+                      <div class="loader"></div>
+                    </button>
+
+                    <button
+                      v-else
+                      class="btn btn-primary w-100 py-2"
+                      @click="submitOtp"
+                      :disabled="isSubmitting || !isOtpComplete"
+                    >
+                     <span v-if="loading" class="loader"></span>
+  <span v-else>Verify OTP</span>
+                    </button>
+                  </div>
+
+                  <!-- Mobile Disclaimer -->
+                  <div class="d-block d-md-none mt-4 text-muted small">
+                    Disclaimer: This portal is exclusively for existing clients
+                    of VCare Hair & Skin Clinics.
+                  </div>
+
+                </div>
+              </div>
+
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
+
+
     <script setup>
     import { ref, nextTick, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
@@ -267,156 +326,53 @@
             }, 1000);
         })
     </script>
+
 <style scoped>
-    .login-sec {
-        position: relative;
-        background: #F8F9FA;
-        padding: 0px 0;
-    }
-    .login-sec .container-fluid {
-        margin: 0;
-        max-width: 100%;
-    }
-    .login-sec .loginLeft {
-        width: 100%;
-        background: url('../assets/images/login-bg.webp');
-        height: 100vh;
-        background-position: center;
-        background-size: cover;
-        padding: 20px;
-        padding-top: 20%;
-    }
-    .login-sec .loginLeft .login-contentbx {
-        color: #fff;
-        padding: 0px;
-    }
-    .login-sec .loginLeft .disclaim-text {
-        margin-top: 45%;
-    }
-    .disclaim-text {
-        padding: 10px 0px;
-        width: 100%;
-        color: #fff !important;
-    }
-    .login-sec .loginright {
-        position: relative;
-        margin-top: 35%;
-    }
-    .h4-title {
-        font-size: 20px;
-        text-transform: capitalize;
-        color: #161616;
-        margin-bottom: 16px;
-        font-weight: 500;
-        font-family: "Radio Canada Big", serif;
-    }
-    .login-sec .loginright .loginform-bx #otpDiv p {
-        font-size: 14px;
-    }
-    .login-sec .loginright .loginform-bx #otpDiv input {
-        width: 64px;
-        margin: 0 0 0 12px;
-        padding: 8px 16px;
-        border: #EDEBEB 1px solid;
-        text-align: center;
-    }
-    .btn-secondary {
-        background: #1B79A8;
-        color: #f4f4f4;
-        padding: 8px 14px;
-        font-weight: 400;
-        border: #1B79A8 1px solid !important;
-        font-size: 14px;
-        text-transform: capitalize;
-        box-shadow: none !important;
-    }
-    .btn-secondary:hover{
-        background: #1B79A8;
-    }
-    .login-sec .loginLeft .login-contentbx .login-logo {
-      margin-left: -16px;
-      margin-bottom: 16px; 
-    }
-    @media screen and (min-width: 576px) and (max-width: 991px) {
-        .sec-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            line-height: 36px;
-        }
-    }
-    @media screen and (min-width: 576px) and (max-width: 991px) {
-        .h4-title {
-            font-size: 18px;
-        }
-    }
-    @media screen and (min-width: 576px) and (max-width: 991px) {
-        .h4-title {
-            font-size: 18px;
-        }
-    }
-    @media screen and (max-width: 767px) {
-        .login-sec {
-            width: 100%;
-            padding-bottom: 30px;
-            background: url('../assets/images/login-bg1.webp');
-            padding: 0;
-            height: 100vh;
-            background-position: center;
-            background-size: cover;
-        }
-    }
-    @media screen and (max-width: 767px) {
-        .login-sec .loginLeft {
-            padding-top: 1%;
-            background: none;
-            height: auto;
-        }
-    }
-    @media screen and (max-width: 767px) {
-        .login-sec .loginLeft .login-contentbx {
-            top: auto;
-            height: 100%;
-        }
-    }
-    @media screen and (max-width: 575px) {
-        .sec-title {
-            font-size: 22px;
-            padding: 0 !important;
-            line-height: 26px;
-        }
-    }
-    @media screen and (max-width: 767px) {
-        .login-sec .loginright {
-            margin-top: auto;
-        }
-    }
-    @media screen and (max-width: 767px) {
-        .login-sec .loginright .loginform-bx {
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px 16px 10px 16px;
-        }
-    }
-    @media screen and (max-width: 575px) {
-        .h4-title {
-            font-size: 16px;
-        }
-    }
-    .login-sec .loginLeft .login-contentbx .sec-title {
-        color: #f4f4f4;
-        font-weight: 400;
-        text-transform: inherit;
-    }
-    .loader {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #3490dc;
-        border-radius: 50%;
-        width: 23px;
-        height: 23px;
-        animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
+.btn-btn-secondary{
+ background-color:#0E302A ;
+ color:#fff;
+}
+.btn-btn-secondary:hover{
+   
+    background: #1B6A63;
+    color:#fff;
+
+}
+.loader {
+    margin:auto;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.mt10{
+    margin-top: 10rem;
+}
+
+.login-card {
+  background: #fff;
+}
+
+.login-left ,.btn{
+  background: #0E302A;
+  color: #fff !important;
+}
+
+.otp-box {
+  width: 48px;
+  height: 52px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+h2,p{
+    color: #fff !important;
+}
 </style>
