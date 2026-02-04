@@ -1,5 +1,5 @@
 <template>
-        <div v-if="store.loading" class="d-flex justify-content-center align-items-center mt8git" style="height: 200px">
+        <div v-if="store.loading" class="d-flex justify-content-center align-items-center mt8" style="height: 200px">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
