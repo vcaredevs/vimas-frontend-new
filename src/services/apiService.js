@@ -76,7 +76,8 @@ export const getMenus = (menutype) =>
   api.get(`${API_ENDPOINTS.menus}?type=${menutype}`);
 export const postCoupon = (userId,payload) =>
   api.post(`${API_ENDPOINTS.applycouponcode}${userId}`, payload);
-
+export const getlabelProducts = (id) =>
+  api.get(`${API_ENDPOINTS.labelproducts}${id}`);
 
 
 

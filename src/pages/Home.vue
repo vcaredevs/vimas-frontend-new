@@ -1147,6 +1147,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import {
   getCategory,
+  getlabelProducts,
   getSellingProducts,
   getSummerProducts,
 } from "../services/apiService";
@@ -1195,7 +1196,7 @@ const fetchCategories = async () => {
 };
 const fetchSellingProducts = async () => {
   try {
-    const res = await getSellingProducts();
+    const res = await getlabelProducts(3);
     if (res.data.status) {
       sellingProducts.value = res.data.data;
     }
@@ -1205,9 +1206,9 @@ const fetchSellingProducts = async () => {
 };
 const fetchSummerProducts = async () => {
   try {
-    const res = await getSummerProducts();
+    const res = await getlabelProducts(4);
     if (res.data.status) {
-      summerProducts.value = res.data.data.products;
+      summerProducts.value = res.data.data;
     }
   } catch (error) {
     console.error("Error fetching trending products", error);

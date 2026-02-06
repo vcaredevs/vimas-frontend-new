@@ -32,5 +32,6 @@ export const API_ENDPOINTS = {
   categoryProducts: `/product-categories/`,
   searchProducts: `/fastsearch/`,
    menus: `/menus`,
-   applycouponcode:'/coupon/apply/'
+   applycouponcode:'/coupon/apply/',
+   labelproducts:'/products/label/'
 };
