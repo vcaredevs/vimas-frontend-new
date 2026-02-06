@@ -1,3 +1,19 @@
+<style>
+.btn-add-card-card{
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid;
+
+}
+.btn-add-card-card:hover{
+  background-color: #0E302A !important;
+  color: #fff !important;
+}
+.bi-bi-trash{
+  color: red;
+}
+
+</style>
 <template>
         <div v-if="store.loading" class="d-flex justify-content-center align-items-center mt8" style="height: 200px">
         <div class="spinner-border text-primary" role="status">
@@ -117,6 +133,7 @@
                     
                 </div>
             </div>
+          
 
 
   <div class="row mb-4 text-center" style="width:300px;height:auto;margin:0 auto;" v-if="!store.wishlistProd.data.length">

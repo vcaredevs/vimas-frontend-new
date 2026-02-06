@@ -1,11 +1,11 @@
  <style>
 .btn-btn-btns{
-      background: #fff;
-      color: black;
+      background: #09302a;
+      color: #fff;
 }
 .btn-btn-btns:hover{
-  background: #09302a;
-      color: #fff;
+  background: #226a5f !important;
+      color: #fff !important;
 }
 
 button.btn.btn-darks {
@@ -18,6 +18,16 @@ button.btn.btn-darks {
     letter-spacing: 0.6px;
     font-size: 18px;
     border-color:  black;
+}
+
+.bbtn-bbtn{
+  background-color: #09302a;
+  color: #fff;
+  border: 1px solid #09302a;
+}
+.bbtn-bbtn:hover{
+  background-color: #226a5f;
+  color: #fff;
 }
 
 </style>
@@ -65,7 +75,7 @@ button.btn.btn-darks {
                       nisl. Qu, commodo ipsum tincidunt dolor id dolor viverra
                       nisl.
                     </p>
-                 <router-link to="/product"> <p class="btn btn-dark mt-3"><a>Shop now</a></p></router-link>  
+                 <router-link to="/product"> <p class="btn  mt-3 bbtn-bbtn"><a>Shop now</a></p></router-link>  
                   </div>
                 </div>
 
@@ -391,7 +401,7 @@ button.btn.btn-darks {
             </div>
             <div class="text-center btn-view-all">
               <router-link to="/product"
-                ><button class="btn btn-dark">
+                ><button class="btn btn-dark ">
                   View all products
                 </button></router-link
               >

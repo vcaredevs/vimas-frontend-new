@@ -641,8 +641,8 @@ section.customer-sec {
 }
 
 .checkout-btn {
-  background-color: #fff;
-  color: #000 !important;
+  background-color: #09302a;
+  color: #fff !important;
   width: 100%;
   border-radius: 5px;
   padding: 10px;
@@ -652,7 +652,7 @@ section.customer-sec {
   border: 1px solid;
 }
 .checkout-btn:hover{
-  background-color: #09302a;
+  background-color: #226a5f;
   color: #fff !important;
 }
 
@@ -1652,13 +1652,13 @@ h2.display-4 {
     margin-right: 10px;
     padding: 6px 14px;
     border-radius: 4px;
-    background-color: #fff !important;
-    color: black !important;
+    background-color: #09302a !important;
+    color: #fff !important;
     font-size: 12px;
     border: 1px solid !important;
 }
 .track_btn:hover{
-  background-color: #0E302A !important;
+  background-color: #226a5f !important;
   color: #fff !important;
 }
 

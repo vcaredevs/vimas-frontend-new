@@ -1210,7 +1210,8 @@ p.copyright {
   color: #fff;
 }
 p.btn.btn-dark.mt-3 a {
-  color: black !important;
+ 
+  color: #fff !important;
    
 }
 p.btn.btn-dark.mt-3:hover a {
@@ -1219,6 +1220,7 @@ p.btn.btn-dark.mt-3:hover a {
 
 .btn-dark{
    background: #fff;
+  
    
 }
 .btn-dark:hover{
@@ -1231,6 +1233,7 @@ p.btn.btn-dark.mt-3:hover a {
   color: #fff;
   margin: 1px;
 }
+
 
 
 

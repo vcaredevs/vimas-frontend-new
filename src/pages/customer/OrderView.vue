@@ -1,23 +1,39 @@
+<style>
+@media screen and (width: 1405px) and (height: 459px) {
+  .purchaat {
+    margin-left: 104px;
+  }
+}
+</style>
+
 <template>
-      <div class="container text-center px-4 pTop">
-        <div class="row">
-            <div class="col-md-6 mt-4" v-if="orderViewDetails">
-                <div class="row">
-                    <div class="col-md-4 ">
-                        <p class="purchaat text-center">Purchased At: <span>{{dateTime(orderViewDetails?.created_at)  }}</span></p>
-                    </div>
-                     <div class="col-md-4">
-                        <p class="purchaat text-center paid">Paid On: <span>{{dateTime(orderViewDetails?.payment.created_at)  }}</span></p>
-                     </div>
-                </div>
-               
-            </div>
-          <!--  <div class="col-md-6">
-                <div class="d-flex align-items-center justify-content-end mt-4 container  ">
-                 <button class="btnint d-none d-md-block" @click="downloadInvoice(orderViewDetails?.code)">Download Invoice</button>
-                </div>
-            </div>-->
-        </div>
+    <div class="container text-center px-4 pTop">
+    <div class="row" v-if="orderViewDetails">
+  <div class="col-12  mt-4 mx-auto">
+      <div class="d-flex flex-column flex-md-row 
+            align-items-md-start 
+            justify-content-center justify-content-md-start 
+            gap-3 gap-md-4">
+
+            <p class="purchaat text-center text-md-start mb-0">
+                Purchased At:
+                <span>{{ dateTime(orderViewDetails?.created_at) }}</span>
+            </p>
+
+            <p class="purchaat paid text-center text-md-center mb-0">
+                Paid On:
+                <span>{{ dateTime(orderViewDetails?.payment?.created_at) }}</span>
+            </p>
+
+</div>
+
+
+      
+
+        
+
+    </div>
+    </div>
 
      
     </div>
