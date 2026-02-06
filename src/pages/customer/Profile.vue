@@ -13,7 +13,7 @@
                   <div class="w-100 text-center">
                     <div class="user-img mb-2">
                       <!-- <img src="../../assets/images/ela.png" alt="" /> -->
-                       <img :src="image_url+customer?.avatar" :alt="customer?.name"  class="rounded-circle"/>
+                       <img :src="image_url+customer?.avatar" :alt="customer?.name"  class="rounded-circle w-100"/>
                     </div>
                     <div class="user_name">{{ customer?.name }}</div>
                     <div class="user_mobile">{{ customer?.phone }}</div>
@@ -71,7 +71,7 @@
                        :to="{ name: 'Login' }"
                   @click="logout"
                     >
-                      <span class="tab_icon d-flex align-items-center">
+                      <span class="tab_icon d-flex align-items-center ">
                         <i class="bi bi-box-arrow-right"></i>
                         Logout
                       </span>
@@ -694,5 +694,10 @@ onMounted(() => {
 }
 .upload_img_sec {
   margin: 30px 0px !important;
+}
+@media(max-width:768px) {
+  .personal_info_sec{
+    padding-top: 7rem;
+  }
 }
 </style>

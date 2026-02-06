@@ -1840,9 +1840,9 @@ button#addAddressBtn {
     background-color: #edefe1;
   }
 
-  #myTabContent {
+  /* #myTabContent {
     display: none;
-  }
+  } */
 
   .personal_info_sec {
     padding: 0;

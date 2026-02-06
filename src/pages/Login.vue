@@ -54,7 +54,7 @@
                         @blur="validatePhone"
                         @keyup.enter="sendOtp"
                       />
-                      <p class="text-danger small mt-2">
+                      <p class="text-danger small mt-2 errormsg" >
                         {{ errorMessage }}
                       </p>
                     </div>
@@ -374,5 +374,8 @@
 }
 h2,p{
     color: #fff !important;
+}
+.errormsg{
+    color:#b02a37 !important;
 }
 </style>
