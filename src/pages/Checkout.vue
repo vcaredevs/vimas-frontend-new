@@ -1,239 +1,283 @@
 <template>
-     <section class="page">
-        <div class="page__wrapper">
- <!-- Navbar -->
- <div class="d-flex justify-content-center align-items-center head-start  text-center" >
-    <img src="../assets/images/Trichella Logo-02 2.png" alt="">
- </div>
+        <!-- breadcrumb area start here  -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="breadcrumb-wrap text-center">
+                <h2 class="page-title">Checkout</h2>
+                <ul class="breadcrumb-pages">
+                    <li class="page-item"><a class="page-item-link" href="https://inway.com.in:443..">Home</a></li>
+                    <li class="page-item">Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end here  -->
+       <!-- checkout page area start here  -->
+    <section class="page-content section">
+        <div class="checkout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout-form" >
+                            <div v-if="defaultAddress">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h2 class="checkout-title">Billing Address</h2>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_name" name="c_name" placeholder="Your Name Here"  v-model="defaultAddress.name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_email" name="c_email" placeholder="Email Address" v-model="defaultAddress.email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street Address"  v-model="defaultAddress.address"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_city" name="c_city" placeholder="City"  v-model="defaultAddress.city"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_state" name="c_state" placeholder="State/Country" v-model="defaultAddress.state"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_pin" name="c_pin" placeholder="Zip/Postal Code"  v-model="defaultAddress.zip_code" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number"   v-model="defaultAddress.phone"/>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-lg-12">
 
-<!--------checkout section start------------>
-<section class="check-sec">
-    <div class="container my-5">
-        <div class="checkout-title">CHECK OUT</div>
-        
-        <div class="row mt-4">
-            <!-- Delivery Info -->
-            <div class="col-lg-7">
-                <div class="card1 mb-4">
-                    <div class="delivery-info">
-                        <h5>Delivery Info</h5>
+
+                                        <textarea type="text" name="c_notes" id="c_notes" rows="5" class="form-control" style="font-size:14px;" placeholder="   Write order your notes here..."></textarea>
 
 
-                        <hr>
-                        <div class="d-flex">
-                          <div v-if="defaultAddress" class="address-card">
-  <h6>Default Address</h6>
+                                    </div>
+                                    
+                 
 
-  <p>
-    {{ defaultAddress.name }}<br />
+                                </div>
+                                <div class="payment-method">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="checkout-title">Payment Method</h2>
+                                        </div>
 
-    {{ defaultAddress.address }}<br />
+                                        <div class="col-lg-12">
+                                            <!-- <div class="form-group">
+                                                <div class="form-check card-check">
+                                                    <input class="form-check-input" type="radio" name="payment" id="upi" value="upi">
+                                                    <label class="form-check-label" for="upi">UPI by qr</label>
+                                                    <div class="input-icon">
+                                                        <img src="https://inway.com.in:443../image-118-30/uploads_payment_upi.png" alt="UPI">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <div class="form-check card-check">
+                                                    <input class="form-check-input" type="radio" name="payment" id="razor_pay" value="razor_pay">
+                                                    <label class="form-check-label" for="razor_pay">Razorpay</label>
+                                                    <!-- <div class="input-icon">
+                                                        <img src="https://inway.com.in:443../image-118-30/uploads_payment_razorpay_razorpay.png" alt="razorpay">
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <div class="form-check card-check">
+                                                    <input class="form-check-input" type="radio" name="payment" id="paypal" value="paypal">
+                                                    <label class="form-check-label" for="paypal">Paypal</label>
+                                                    <div class="input-icon">
+                                                        <img src="https://inway.com.in:443../image-118-30/uploads_payment_paypal_paypal.png" alt="Paypal">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="form-group">
+                                                <div class="form-check card-check">
+                                                    <input class="form-check-input" type="radio" name="payment" id="cod" value="cod" checked>
+                                                    <label class="form-check-label" for="cod">Cash On
+																Delivey</label>
+                                                    <div class="input-icon">
+                                                        <img src="https://inway.com.in:443../image-118-30/uploads_payment_cod.jpg" alt="Cash On Delivey">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="modal fade" id="edit-upi-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="edit-upi-form">UPI Payment</h4>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body pt-5 text-center">
 
-    <span v-if="defaultAddress.city">
-      {{ defaultAddress.city }},
-    </span>
+                                                            <img class="border p-5" src="../uploads/payment/upi/qr.jpg" width="60%"></img><br><br>
 
-    <span v-if="defaultAddress.state">
-      {{ defaultAddress.state }},
-    </span>
 
-    {{ defaultAddress.zip_code }}<br />
+                                                            <ul class="summary-list" style="padding: 1rem 8rem;">
+                                                                <li style="display: flex; justify-content: space-between;">
+                                                                    Subtotal <span class="float-right">₹1,050.00</span>
+                                                                </li>
+                                                                <li style="display: flex; justify-content: space-between;">
+                                                                    Tax 0 % <span class="float-right"><b>₹0.00</b></span>
+                                                                </li>
+                                                                <li style="display: flex; justify-content: space-between;">
+                                                                    Shipping <span class="float-right">₹99.00</span>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="total-amount" style="padding: 1rem 8rem;">
+                                                                <h3 style="display: flex; justify-content: space-between;">
+                                                                    Total Cost <span class="float-right text-danger">₹1149.00</span>
+                                                                </h3>
+                                                            </div>
 
-    Ph: {{ defaultAddress.phone }}
-  </p>
-</div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                             <button type="button" class="checkout-btn btn btn-primary submit-order-whatsapp-modal">Place
+																Order On Whatsapp</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group form-check terms-agree pt-3">
+                                                <input type="checkbox" class="form-check-input" id="agree" />
+                                                <label class="form-check-label" for="agree">By clicking the button you
+													agree to our <a href="https://inway.com.in:443../terms">Terms &
+														Conditions</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button class="checkout-btn"  @click="payNow()">Pay now</button>
+                                        </div>
+                                        <!-- <div class="col-lg-12">
+                                            <button type="submit" class="checkout-btn form-btn razorpay-make-payment razorpay-payment-order-whatsapp" style="display:none;">Pay with Razorpay</button>
 
-<div v-else class="address-card">
-  <p>No default address found</p>
-</div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="checkout-btn form-btn paypal-make-payment paypal-payment-order-whatsapp" style="display:none;">Pay with PayPal</button>
+                                            <div id="paypal-button-container" style="display:none;"></div>
 
-                            <div class="add-new-address" @click="openAddressModal">
-                                <p><span class="add-address-plus">+</span><br>Add new address</p>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="checkout-btn form-btn upi-payment-order-whatsapp" style="display:none;">Make UPI Payment</button>
+                                        </div> -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="cart-summary">
+                            <div class="summary-top d-flex gap-3">
+                                <h2>Cart Summary</h2>
+                                <router-link to="/cart">
+                                    <h2>Edit</h2>
+
+                                </router-link>
                                 
                             </div>
-                        </div>
-                    </div>
-                </div>
-<!-- =============== -->
+                            <ul class="cart-product-list">
+                                <li class="single-cart-product d-flex justify-content-between" v-for="product in cartIDetails"
+                    :key="product.id">
+                                    <div class="product-info">
+                                        <h3>{{ product.product.name }}</h3><span>Qty:{{ product.qty }}</span>
+                                        <p>Per Unit  {{
+                        product.product.sale_price !== null
+                          ? product.product.sale_price
+                          : product.product.price
+                      }}</p>
+                                    </div>
+                                    <div class="price-area">
+                                      <h3 class="price">
+  ₹{{
+    (product.product.sale_price !== null
+      ? product.product.sale_price
+      : product.product.price) * product.qty
+  }}
+</h3>
 
-<!-- Modal Overlay -->
-<div v-if="showAddressModal" class="modal-overlay" @click.self="closeAddressModal">
-  <div class="modal-box">
+                                    </div>
+                                </li>
+                               
 
-    <!-- Header -->
-    <div class="d-flex p-3 add_address_head align-items-center">
-     
-      <div class="pers_info_head text-center w-100">Add Address</div>
-       <button @click="closeAddressModal" id="backBtn">
-        X
-      </button>
-    </div>
+                            </ul>
 
-    <!-- Form -->
-    <div class="row g-3 px-4 py-3">
-      <div class="col-sm-6">
-        <input class="form-control" v-model="form.firstName" placeholder="First name" />
-      </div>
-      <div class="col-sm-6">
-        <input class="form-control" v-model="form.lastName" placeholder="Last name" />
-      </div>
-      <div class="col-sm-6">
-        <input class="form-control" v-model="form.phone" placeholder="Mobile No." />
-      </div>
-      <div class="col-sm-6">
-        <input class="form-control" v-model="form.email" placeholder="Email Id" />
-      </div>
-      <div class="col-sm-12">
-        <textarea
-          class="form-control"
-          rows="4"
-          v-model="form.address"
-          placeholder="Address"
-        ></textarea>
-      </div>
-      <div class="col-sm-4">
-        <input class="form-control" v-model="form.city" placeholder="City" />
-      </div>
-      <div class="col-sm-4">
-        <input class="form-control" v-model="form.state" placeholder="State" />
-      </div>
-      <div class="col-sm-4">
-        <input class="form-control" v-model="form.pincode" placeholder="Pincode" />
-      </div>
-<div class="form-check mt-2">
-  <input
-    class="form-check-input"
-     type="checkbox"
-    value="1"
-    v-model="form.is_default"
-    id="defaultAddress"
-  />
-  <label class="form-check-label" for="defaultAddress">
-    Set as default address
-  </label>
-</div>
-
-      <div class="text-center">
-        <button class="add_address_btn my-3" @click="saveAddress">
-          Add address
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ======================= -->
-                <!-- Payment Details -->
-                <div class="card1 ">
-                    <div class="payment-details">
-                        <h5>Payment Details</h5>
-                        <hr>
-
-                        <div class="payment-option d-flex align-items-center">
-                            <input type="radio" name="payment" id="razorpay" checked>
-                            <label for="razorpay" class="ms-3">
-                                Razorpay Secure <span class="text-muted">Free Shipping above Rs.299.00</span>
-                            </label>
-                        </div>
-                        <!-- <div class="payment-option d-flex align-items-center">
-                            <input type="radio" name="payment" id="cod">
-                            <label for="cod" class="ms-3">
-                                Cash on delivery <span class="text-muted">Delivery Charges: Rs.99.00</span>
-                            </label>
-                        </div> -->
-                    </div>
-                </div>
-    
-            </div>
-    
-            <!-- Order Summary -->
-            <div class="col-lg-5">
-                <div class="card1 h-100">
-                    <div class="order-summary">
-                        <h5>Order Summary</h5>
-                        <hr>
-                        <div class="d-flex align-items-center mt-3"  v-for="product in cartIDetails"
-                :key="product.id">
-                            <img :src="image_url + product.product.image" alt="Product Image">
-                            <div class="ms-3">
-                                <strong>{{ product.product.name }}</strong><br>
-                                Qty:  {{ product.qty}}<br>
-                               {{ product.product.sale_price!==null?product.product.sale_price:product.product.price }}
+                            <ul class="summary-list" style="padding: 1rem 2rem;">
+                                <li>Subtotal <span>₹{{ subtotal }}</span></li>
+                                <li>Tax <span>including tax</span></li>
+                                <li>Shipping <span>₹{{ shippingAmnt }}</span></li>
+                            </ul>
+                            <div class="total-amount" style="padding: 1rem 2rem;">
+                                <h3>Total Cost <span class="float-right">------₹{{ total }}</span></h3>
                             </div>
-                        </div>
-                        <hr>
-                    
-    
-                        <div class="mt-4 p-2 w-100 text-muted">
-                            <div class="saving bg-light">You are saving <span>₹0</span> on this order</div> 
-                        </div>
-                        <div class="d-flex justify-content-center flex-column align-items-center">
-                            <div class="d-flex justify-content-between mt-3">
-                                <span>Sub Total</span>
-                                <span>{{ subtotal }}</span>
-                            </div>
-                             <div class="d-flex justify-content-between mt-3">
-                                <span>Shipping cost</span>
-                                <span>₹{{ shippingAmnt }}</span>
-                            </div>
-                          <!-- <div class="d-flex justify-content-between mt-3">
-                                <span>Coupon</span>
-                                <span>₹{{ couponAmnt }}</span>
-                            </div> -->
-                            <div class="d-flex justify-content-between total-amount mt-3">
-                                <strong>Total</strong>
-                                <strong>{{ total }}</strong>
-                            </div>
-                            <p style="width: 70%;">including all taxes</p>
-                            <button class="pay-now-btn mt-4" id="payNow" @click="payNow()">Pay now</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-  
-    <!-- <a href="cart.html" class="back-to-cart mb-3">&lt; Back to cart</a> -->
-
-</section>
-<!------checkout section end------------->
- 
-  
-  
         </div>
     </section>
+    <!-- checkout page area end here  -->
 </template>
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue';
-import { displayCartDetails, getCartCount, getCheckoutDetails, getCustomerAddress, postCustomerAddress, sendPaymentDetails } from '../services/apiService';
-import { image_url, razorpay_key } from '../config/api';
+import { computed, onMounted, ref, watch } from "vue";
+import {
+  displayCartDetails,
+  getCartCount,
+  getCheckoutDetails,
+  getCustomerAddress,
+  postCustomerAddress,
+  sendPaymentDetails,
+} from "../services/apiService";
+import { image_url, razorpay_key } from "../config/api";
 import { useRouter } from "vue-router";
-import { useUserStore } from '../assets/js/store';
-
+import { useUserStore } from "../assets/js/store";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 const { store } = useUserStore();
-
-const checkoutData = store.checkoutData;
+//  const checkoutData=store.checkoutData?.cart_details || []
+// const checkoutData = store.checkoutData;
 const router = useRouter();
- const waitpayment = ref(false);
+const waitpayment = ref(false);
 const cartIDetails = ref([]);
-     const addresses = ref([]);
-         const addressdetails = ref(null);
+let orderId = ref(null);
+const addresses = ref([]);
+const addressdetails = ref(null);
 
 const subtotal = computed(() => {
   return cartIDetails.value.reduce((total, item) => {
     const qty = Number(item.qty || 1);
-    const price = Number((item.product?.sale_price!==null?item.product.sale_price:item.product.price) || 0);
+    const price = Number(
+      (item.product?.sale_price !== null
+        ? item.product.sale_price
+        : item.product.price) || 0,
+    );
     return total + qty * price;
   }, 0);
 });
-const shippingAmnt=computed(()=>{
-return subtotal.value<999?100:0
-})
-const total=computed(()=>{
-  return (subtotal.value + shippingAmnt.value )
-})
+const shippingAmnt = computed(() => {
+  return subtotal.value < 999 ? 100 : 0;
+});
+const total = computed(() => {
+  return subtotal.value + shippingAmnt.value;
+});
 
 const showAddressModal = ref(false);
 const loading = ref(false);
@@ -245,7 +289,7 @@ const form = ref({
   alt_phone: "",
   city: "",
   state: "",
-   pincode: "",
+  pincode: "",
   address: "",
   is_default: 0,
 });
@@ -278,14 +322,13 @@ async function saveAddress() {
 
     const res = await postCustomerAddress(payload);
 
-    alert("Address added successfully ");
-await fetchAddresses();
+    toast.success("Address added successfully ");
+    await fetchAddresses();
 
     closeAddressModal();
     resetForm();
   } catch (err) {
-    console.error("Failed to save address", err);
-    alert("Failed to save address ");
+    toast.error("Failed to save address ");
   } finally {
     loading.value = false;
   }
@@ -306,40 +349,41 @@ function resetForm() {
   };
 }
 
+    async function fetchAddresses() {
+    try {
+     
+        loading.value = true;
+        // const userId = atob(localStorage.getItem("user_id"));
+const userId=7;
+        const res = await getCustomerAddress(userId);
+        console.log("res.data", res.data.data.data);
 
-async function fetchAddresses() {
-   
-    
-  try {
-    loading.value = true;
-    const userId = atob(localStorage.getItem("user_id"));
-
-    const res = await getCustomerAddress(userId );
-    console.log("res.data",res.data.data.data);
-    
-    addresses.value = res.data.data.data; 
-    console.log("addresses.value ",addresses.value );
-    
-  } catch (err) {
-    console.error("Failed to fetch addresses", err);
-  } finally {
-    loading.value = false;
-  }
-}
-const couponcode=ref("")
- const fetchproductcheckout =  ()=>{
-    
-           if (!checkoutData) return;
-
-  cartIDetails.value = checkoutData.data.cart_details;
-  couponcode.value = checkoutData.data.cart_details;
-  orderId.value = checkoutData.data.orderId;
-  
+        addresses.value = res.data.data.data;
+        console.log("addresses.value ", addresses.value);
+    } catch (err) {
+        console.error("Failed to fetch addresses", err);
+    } finally {
+        loading.value = false;
     }
+    }
+const couponcode = ref("");
+const fetchproductcheckout = () => {
+  
+
+  const res = store.checkoutData.data;
+
+  if (!res?.cart_details) return;
+
+  cartIDetails.value = res.cart_details;
+  orderId.value = res.orderId;
+    console.log("cartIDetails.value",cartIDetails.value);
+      console.log("res.orderId",res.orderId);
+};
 const defaultAddress = computed(() => {
   if (!Array.isArray(addresses.value)) return null;
-  return addresses.value.find(addr => addr.is_default === 1) || null;
+  return addresses.value.find((addr) => addr.is_default === 1) || null;
 });
+// console.log("defaultAddress",defaultAddress);
 
 watch(defaultAddress, (val) => {
   if (val) {
@@ -347,139 +391,124 @@ watch(defaultAddress, (val) => {
     showDefaultAddress.value = true;
   }
 });
-
-
 onMounted(() => {
- 
   fetchAddresses();
-  
-  if (!store.checkoutData) {
-    router.push("/cart");
-    return;
-  }
-  fetchproductcheckout();
-  console.log("checkoutData",checkoutData);
-  
 });
 
+watch(
+  () => store.checkoutData,
+  (val) => {
+    // console.log("CheckoutData in checkout page:", val);
+    if (!val) return;
+
+    const cartDetails = val?.data?.cart_details;
+// console.log("cartDetails",cartDetails);
+
+
+    if (cartDetails && cartDetails.length === 0) {
+      router.push("/cart");
+      return;
+    }
+
+    if (cartDetails?.length > 0) {
+      fetchproductcheckout();
+    }
+  },
+  { immediate: true }
+);
+
+
 const showDefaultAddress = ref(true);
-    const addressForm = ref({
-        'address': "",
-        'alt_phone': null,
-        'city': "",
-        'country': "",
-        'customer_id': '',
-        'email': "",
-        'name': "",
-        'phone': "",
-        'state': "",
-        'zip_code': "",
-    });
-      let orderId = ref(null);
-  // let ordersId = ref(null);
+const addressForm = ref({
+  address: "",
+  alt_phone: null,
+  city: "",
+  country: "",
+  customer_id: "",
+  email: "",
+  name: "",
+  phone: "",
+  state: "",
+  zip_code: "",
+});
 
- const payNow = async ()=>{
+// let ordersId = ref(null);
 
-
-      if (!addressdetails.value) {
+const payNow = async () => {
+  if (!addressdetails.value) {
     alert("Please add or select a delivery address");
     return;
   }
-        if(!showDefaultAddress.value){
-            addressdetails.value = addressForm.value     
-        }
-        let status;
-        let tot_amount = Number(Math.round(subtotal.value));
-        const userId = atob(localStorage.getItem("user_id"));
-   
-        const options = {
-            key: razorpay_key, 
-            amount:  tot_amount * 100,
-            currency: "INR",
-            name: "Prabha's Vcare",
-            description: `Pay bill of Rs.${tot_amount * 100}`,
-            order_id: orderId.value,
-            handler: async function  (response) {
-                waitpayment.value = true;
-                if(response){
-                    status = 'completed';
-                }
-                const normalizedAddress = {
-  ...addressdetails.value,
-  pincode: addressdetails.value.zip_code, 
+  if (!showDefaultAddress.value) {
+    addressdetails.value = addressForm.value;
+  }
+  let status;
+  let tot_amount = Number(Math.round(subtotal.value));
+//   const userId = atob(localStorage.getItem("user_id"));
+ const userId =7
+  const options = {
+    key: razorpay_key,
+    amount: tot_amount * 100,
+    currency: "INR",
+    name: "Prabha's Vcare",
+    description: `Pay bill of Rs.${tot_amount * 100}`,
+    order_id: orderId.value,
+    handler: async function (response) {
+      waitpayment.value = true;
+      if (response) {
+        status = "completed";
+      }
+      const normalizedAddress = {
+        ...addressdetails.value,
+        pincode: addressdetails.value.zip_code,
+      };
+
+      var payload = {
+        subTotal: subtotal.value,
+        grandTotal: Math.round(total.value),
+        tax: 0,
+        shipping_amount: shippingAmnt.value,
+        address: normalizedAddress,
+        payment: response,
+        userId: userId,
+        customer_id: userId,
+        amount: Math.round(total.value),
+        //  'coupon_code':
+        currency: "INR",
+
+        shipping_method: "default",
+        payment_channel: "razorpay",
+
+        order_id: orderId.value,
+        payment_method: "razorpay",
+        charge_id: response.razorpay_payment_id,
+        razor_pay_status: status,
+      };
+
+      const res = await sendPaymentDetails(userId, payload);
+
+      if (res?.data?.status && res?.data?.data?.id) {
+        localStorage.setItem("orderId", btoa(res.data.data.id));
+        waitpayment.value = false;
+        router.push({ name: "Success" });
+      }
+    },
+    prefill: {
+      name: addressdetails.value?.name || "",
+      email: addressdetails.value?.email || "",
+      contact: addressdetails.value?.phone || "",
+    },
+    theme: {
+      color: "#3399cc",
+    },
+  };
+
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+
+  rzp.on("payment.failed", function (response) {
+    console.error(" Payment Failed:", response.error);
+    alert(response.error.description);
+  });
 };
-
-                var payload = {
-                    'subTotal':subtotal.value,
-                    'grandTotal':Math.round(total.value),
-                    'tax':0,
-                    'shipping_amount':shippingAmnt.value,
-                    'address':normalizedAddress,
-                    'payment':response,
-                    'userId':userId,
-                    'customer_id':userId,
-                     'amount': Math.round(total.value), 
-                    //  'coupon_code':
-  currency: "INR",  
-
-                    'shipping_method':'default',
-                    'payment_channel':'razorpay',
-                    
-                    'order_id': orderId.value,
-                    'payment_method':'razorpay',
-                    'charge_id':response.razorpay_payment_id,
-                    'razor_pay_status':status
-                }   
-               
-                
-                const res = await sendPaymentDetails(userId,payload);
-                console.log("Checkoutresponse",res.data);
-                
-                if (res?.data?.status && res?.data?.data?.id) {
-                    localStorage.setItem('orderId', btoa(res.data.data.id));
-                    waitpayment.value = false
-                    router.push({name:'Success'});
-                }
-            },
-            prefill: {
-               name: addressdetails.value?.name || "",
-  email: addressdetails.value?.email || "",
-  contact: addressdetails.value?.phone || "",
-            },
-            theme: {
-                color: "#3399cc",
-            },
-        };
-
-        const rzp = new window.Razorpay(options);
-        rzp.open();
-
-        rzp.on("payment.failed", function (response) {
-            console.error(" Payment Failed:", response.error);
-            alert(response.error.description);
-        });
-    };
-
-</script>
-<style>
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
-  z-index: 1000;
-}
-
-.modal-box {
-    background-color: #FFFF;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  max-width: 600px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-x: hidden;
-}
-
-</style>
+</script>   

@@ -1,4 +1,3 @@
-
 <template>
   <!-- Loader -->
   <div
@@ -17,7 +16,6 @@
         <div class="col-xl-9 col-lg-10">
           <div class="login-card shadow-lg rounded-4 overflow-hidden">
             <div class="row g-0">
-
               <!-- Left Content -->
               <div class="col-md-6 login-left d-none d-md-flex">
                 <div class="p-5 text-white">
@@ -39,7 +37,6 @@
               <!-- Right Form -->
               <div class="col-md-6 bg-white">
                 <div class="p-4 p-lg-5">
-
                   <!-- Mobile -->
                   <div v-if="beforeotp">
                     <h4 class="fw-bold mb-4">Register</h4>
@@ -54,15 +51,12 @@
                         @blur="validatePhone"
                         @keyup.enter="sendOtp"
                       />
-                      <p class="text-danger small mt-2 errormsg" >
+                      <p class="text-danger small mt-2 errormsg">
                         {{ errorMessage }}
                       </p>
                     </div>
 
-                    <button
-                      v-if="loading"
-                      class="btn btn-primary w-100 py-2"
-                    >
+                    <button v-if="loading" class="btn btn-primary w-100 py-2">
                       <div class="loader"></div>
                     </button>
 
@@ -72,8 +66,8 @@
                       @click="sendOtp"
                       :disabled="isSubmitDisabled"
                     >
-                     <span v-if="loading" class="loader"></span>
-  <span v-else>Send OTP</span>
+                      <span v-if="loading" class="loader"></span>
+                      <span v-else>Send OTP</span>
                     </button>
                   </div>
 
@@ -109,10 +103,7 @@
                     </p>
 
                     <div class="d-flex justify-content-end mb-3">
-                      <span
-                        v-if="timeOut"
-                        class="text-muted small"
-                      >
+                      <span v-if="timeOut" class="text-muted small">
                         00:{{ timeInterval }}
                       </span>
                       <a
@@ -125,10 +116,7 @@
                       </a>
                     </div>
 
-                    <button
-                      v-if="loading"
-                      class="btn btn-primary w-100 py-2"
-                    >
+                    <button v-if="loading" class="btn btn-primary w-100 py-2">
                       <div class="loader"></div>
                     </button>
 
@@ -138,8 +126,8 @@
                       @click="submitOtp"
                       :disabled="isSubmitting || !isOtpComplete"
                     >
-                     <span v-if="loading" class="loader"></span>
-  <span v-else>Verify OTP</span>
+                      <span v-if="loading" class="loader"></span>
+                      <span v-else>Verify OTP</span>
                     </button>
                   </div>
 
@@ -148,10 +136,8 @@
                     Disclaimer: This portal is exclusively for existing clients
                     of VCare Hair & Skin Clinics.
                   </div>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -160,186 +146,185 @@
   </section>
 </template>
 
+<script setup>
+import { ref, nextTick, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import {
+  addToCartApi,
+  customerlogin,
+  validateloginotp,
+} from "../services/apiService";
 
-    <script setup>
-    import { ref, nextTick, onMounted } from 'vue';
-    import { useRouter } from 'vue-router';
-    import { addToCartApi, customerlogin, validateloginotp } from '../services/apiService';
-    
-        const router = useRouter()
-        const mobileinput = ref('');
-        const errorMessage = ref('');
-        const successMessage = ref('');
-        const beforeotp = ref(true);
-        const loading = ref(false);
-        const pageloader = ref(true);
-        const isSubmitDisabled = ref(false);
-        const otpInputs = ref(['', '', '', '']); 
-        const phoneRegex = /^[0-9]{10}$/;
-        const timeInterval = ref(30);
-        const timeOut = ref(false);
-        let timer = null;
-        const mobileinumberShow = ()=>{
-            return mobileinput.value.toString().slice(-4)
-        }
-        function startInterval() {
-            if (timer) clearInterval(timer);
-            timeInterval.value = 30;
-            timeOut.value = true;
+const router = useRouter();
+const mobileinput = ref("");
+const errorMessage = ref("");
+const successMessage = ref("");
+const beforeotp = ref(true);
+const loading = ref(false);
+const pageloader = ref(true);
+const isSubmitDisabled = ref(false);
+const otpInputs = ref(["", "", "", ""]);
+const phoneRegex = /^[0-9]{10}$/;
+const timeInterval = ref(30);
+const timeOut = ref(false);
+let timer = null;
+const mobileinumberShow = () => {
+  return mobileinput.value.toString().slice(-4);
+};
+function startInterval() {
+  if (timer) clearInterval(timer);
+  timeInterval.value = 30;
+  timeOut.value = true;
 
-            timer = setInterval(() => {
-                if (timeInterval.value > 0) {
-                    timeInterval.value--;
-                } else {
-                    clearInterval(timer);
-                    timeOut.value = false;
-                }
-            }, 1000);
-        }
-        const validatePhone = () => {
-        if (mobileinput.value.trim() === '') {
-            errorMessage.value = 'Enter your mobile number';
-            isSubmitDisabled.value = true;
-        } else if (!phoneRegex.test(mobileinput.value)) {
-            errorMessage.value = 'Please enter a valid 10-digit phone number.';
-            isSubmitDisabled.value = true;
-        } else {
-            isSubmitDisabled.value = false;
-            errorMessage.value = '';
-            // beforeotp.value = false;
-        }
-        };
+  timer = setInterval(() => {
+    if (timeInterval.value > 0) {
+      timeInterval.value--;
+    } else {
+      clearInterval(timer);
+      timeOut.value = false;
+    }
+  }, 1000);
+}
+const validatePhone = () => {
+  if (mobileinput.value.trim() === "") {
+    errorMessage.value = "Enter your mobile number";
+    isSubmitDisabled.value = true;
+  } else if (!phoneRegex.test(mobileinput.value)) {
+    errorMessage.value = "Please enter a valid 10-digit phone number.";
+    isSubmitDisabled.value = true;
+  } else {
+    isSubmitDisabled.value = false;
+    errorMessage.value = "";
+    // beforeotp.value = false;
+  }
+};
 
-        const sendOtp = async ()=>{
-            var val = {
-                'phone':mobileinput.value,
-                'type':'sms'
-            }
-            try{
-                if(!mobileinput.value){
-                    validatePhone()
-                }else{
-                    loading.value = true;
-                    const res = await customerlogin(val);
-                    loading.value = false;
-                    if(res.data.status)beforeotp.value = false;
-                    timeOut.value = true;
-                    startInterval();
-                    if(res.data.status)toast.success('OTP sent successfully!');
-                }
-            }catch(err){
+const sendOtp = async () => {
+  var val = {
+    phone: mobileinput.value,
+    type: "sms",
+  };
+  try {
+    if (!mobileinput.value) {
+      validatePhone();
+    } else {
+      loading.value = true;
+      const res = await customerlogin(val);
+      loading.value = false;
+      if (res.data.status) beforeotp.value = false;
+      timeOut.value = true;
+      startInterval();
+      if (res.data.status) toast.success("OTP sent successfully!");
+    }
+  } catch (err) {}
+};
+const resendOtp = async () => {
+  var val = {
+    phone: mobileinput.value,
+    type: "sms",
+  };
+  const res = await customerlogin(val);
+  if (res.data.status) toast.success("OTP sent successfully!", {});
+};
+const isOtpComplete = () => {
+  return otpInputs.value.every((digit) => digit.length === 1);
+};
 
-            }
-        }
-        const resendOtp = async ()=>{
-            var val = {
-                'phone':mobileinput.value,
-                'type':'sms'
-            }
-            const res = await customerlogin(val);
-            if(res.data.status) toast.success("OTP sent successfully!", {});
+const onInput = (index) => {
+  if (otpInputs.value[index].length === 1 && index < 3) {
+    nextTick(() => {
+      const nextInput = document.querySelector(`#otp-input-${index + 1}`);
+      if (nextInput) nextInput.focus();
+    });
+  }
+};
 
-        }
-        const isOtpComplete = () => {
-        return otpInputs.value.every(digit => digit.length === 1);
-        };
+const onPaste = (event) => {
+  const pastedData = event.clipboardData.getData("text");
+  if (pastedData.length === 4) {
+    otpInputs.value = pastedData.split("");
+    event.preventDefault();
+  }
+};
 
-        const onInput = (index) => {
-        if (otpInputs.value[index].length === 1 && index < 3) {
-            nextTick(() => {
-            const nextInput = document.querySelector(`#otp-input-${index + 1}`);
-            if (nextInput) nextInput.focus();
-            });
-        }
-        };
+const onKeydown = (event, index) => {
+  if (event.key === "Backspace" && otpInputs.value[index] === "") {
+    if (index > 0) {
+      nextTick(() => {
+        const prevInput = document.querySelector(`#otp-input-${index - 1}`);
+        if (prevInput) prevInput.focus();
+      });
+    }
+  }
+};
 
-        const onPaste = (event) => {
-        const pastedData = event.clipboardData.getData('text');
-        if (pastedData.length === 4) {
-            otpInputs.value = pastedData.split('');
-            event.preventDefault();
-        }
-        };
+const submitOtp = async () => {
+  const auth_user_id = localStorage.getItem("auth_user_id");
+  errorMessage.value = "";
+  successMessage.value = "";
+  const otp = otpInputs.value.join("");
+  if (otp.length !== 4) {
+    errorMessage.value = "Please enter a valid 4-digit OTP.";
+    return;
+  }
+  loading.value = true;
+  isSubmitDisabled.value = true;
+  var body = {
+    phone: mobileinput.value,
+    otp: otp,
+    user_id: auth_user_id,
+  };
+  try {
+    const response = await validateloginotp(body);
+    if (response.status == 200) {
+      successMessage.value = "OTP verified successfully!";
+      loading.value = false;
+      localStorage.setItem("phone", btoa(mobileinput.value));
+      localStorage.setItem("authToken", btoa(response.data.data.token));
+      localStorage.setItem(
+        "customerType",
+        btoa(response.data.data.customer_type),
+      );
+      localStorage.setItem("user_id", btoa(response.data.data.user_id));
 
-        const onKeydown = (event, index) => {
-        if (event.key === 'Backspace' && otpInputs.value[index] === '') {
-            if (index > 0) {
-            nextTick(() => {
-                const prevInput = document.querySelector(`#otp-input-${index - 1}`);
-                if (prevInput) prevInput.focus();
-            });
-            }
-        }
-        };
+      localStorage.removeItem("auth_user_id");
 
-        const submitOtp = async () => {
-        
-        const auth_user_id=  localStorage.getItem("auth_user_id")
-        errorMessage.value = ''; 
-        successMessage.value = ''; 
-        const otp = otpInputs.value.join('');
-            if (otp.length !== 4) {
-                errorMessage.value = 'Please enter a valid 4-digit OTP.';
-                return;
-            }
-            loading.value = true;
-            isSubmitDisabled.value = true;
-            var body = {
-                'phone':mobileinput.value,
-                'otp':otp,
-                "user_id": auth_user_id
-            }
-            try {
-                
-                const response = await validateloginotp(body);
-                if (response.status == 200) {
-                    
-                    successMessage.value = 'OTP verified successfully!';
-                    loading.value = false;
-                    localStorage.setItem("phone", btoa(mobileinput.value));
-                    localStorage.setItem("authToken", btoa(response.data.data.token));
-                    localStorage.setItem("customerType", btoa(response.data.data.customer_type));                
-                    localStorage.setItem("user_id", btoa(response.data.data.user_id));        
-                
-
- localStorage.removeItem("auth_user_id");
-
-    router.push({ name: "Cart" });      
-                } else {
-                    errorMessage.value = 'Invalid OTP. Please try again.';
-                    loading.value = false;
-                }
-            } catch (error) {
-                errorMessage.value = error.response.data.msg;
-                loading.value = false;
-            } finally {
-                isSubmitDisabled.value = false;
-            }
-        };
-        onMounted(()=>{
-            const userId = localStorage.getItem("user_id") ? atob(localStorage.getItem("user_id")) : null; 
-            if(userId){
-                router.push({ name: "Cart" });
-            }
-            setTimeout(() => {
-                pageloader.value = false;
-            }, 1000);
-        })
-    </script>
+      router.push({ name: "Cart" });
+    } else {
+      errorMessage.value = "Invalid OTP. Please try again.";
+      loading.value = false;
+    }
+  } catch (error) {
+    errorMessage.value = error.response.data.msg;
+    loading.value = false;
+  } finally {
+    isSubmitDisabled.value = false;
+  }
+};
+onMounted(() => {
+  const userId = localStorage.getItem("user_id")
+    ? atob(localStorage.getItem("user_id"))
+    : null;
+  if (userId) {
+    router.push({ name: "Cart" });
+  }
+  setTimeout(() => {
+    pageloader.value = false;
+  }, 1000);
+});
+</script>
 
 <style scoped>
-.btn-btn-secondary{
- background-color:#0E302A ;
- color:#fff;
+.btn-btn-secondary {
+  background-color: #0e302a;
+  color: #fff;
 }
-.btn-btn-secondary:hover{
-   
-    background: #1B6A63;
-    color:#fff;
-
+.btn-btn-secondary:hover {
+  background: #1b6a63;
+  color: #fff;
 }
 .loader {
-    margin:auto;
+  margin: auto;
   width: 20px;
   height: 20px;
   border: 2px solid #fff;
@@ -349,18 +334,25 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.mt10{
-    margin-top: 10rem;
+.mt10 {
+  margin-top: 20rem;
 }
-
+@media(max-width:991px){
+ .mt10 {
+  margin-top: 10rem;
+}   
+}
 .login-card {
   background: #fff;
 }
 
-.login-left ,.btn{
-  background: #0E302A;
+.login-left,
+.btn {
+  background: #0e302a;
   color: #fff !important;
 }
 
@@ -372,10 +364,11 @@
   border: 1px solid #ddd;
   border-radius: 10px;
 }
-h2,p{
-    color: #fff !important;
+h2,
+p {
+  color: #fff !important;
 }
-.errormsg{
-    color:#b02a37 !important;
+.errormsg {
+  color: #b02a37 !important;
 }
 </style>

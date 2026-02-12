@@ -1,771 +1,182 @@
 <template>
-  <section class="page">
-    <div class="page__wrapper">
-      <section class="details-sec" v-if="product">
+     <!-- breadcrumb area start here  -->
+    <div class="breadcrumb-area" v-if="product">
         <div class="container">
-          <div class="row align-items-center">
-           <div class="col-lg-7 scrollable-section">
-  <div class="row">
-
-    <!-- BIG IMAGE -->
-    <div class="col-lg-8">
-      <div class="main-image">
-        <img
-          :src="activeImage"
-          class="img-fluid"
-        />
-      </div>
+            <div class="breadcrumb-wrap text-center">
+                <h2 class="page-title">{{ product.product.name }}</h2>
+                <ul class="breadcrumb-pages">
+                    <li class="page-item"><a class="page-item-link" href="https://inway.com.in:443../shop/skin-care">{{ product.product.product_collections[0].name }}</a></li>
+                    <li class="page-item">{{ product.product.name }}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <!-- THUMBNAILS -->
-    <div class="col-lg-4">
-      <div class="thumbnail-container">
-        <img
-          v-for="(img, index) in images"
-          :key="index"
-          :src="img"
-          class="thumbnail"
-          :class="{ active: index === activeIndex }"
-          @click="setImage(index)"
-        />
-      </div>
-    </div>
 
-  </div>
+
+    <!-- breadcrumb area end here  -->
+     <!-- Product Loader -->
+<div v-if="pageLoading" class="page-loader">
+  <div class="main-spinner"></div>
 </div>
-
-            <!-- <div class="col-lg-7 scrollable-section">
-              <div class="row">
-              
-                <div class="col-lg-8 mySlides-container">
-                  <div
-                    class="mySlides"
-                    v-for="(img, index) in product.productImages"
-                    :key="img.id"
-                    v-show="slideIndex === index"
-                  >
-                    <img
-                      :src="`${baseUrl}/storage${img}`"
-                      style="width: 100%"
-                    />
+        <!-- product-single-area start here  -->
+    <div class="product-single-area section-top pb-5" v-else>
+        <div class="container">
+            <div class="product-single-details">
+                <div class="row"  v-if="product">
+                    <div class="col-lg-6">
+                         <div class="row">
+                <!-- BIG IMAGE -->
+                <div class="col-lg-8">
+                  <div class="main-image">
+                    <img :src="activeImage" class="img-fluid" />
                   </div>
                 </div>
 
-            
+                <!-- THUMBNAILS -->
                 <div class="col-lg-4">
                   <div class="thumbnail-container">
                     <img
-                      v-for="(img, index) in product.productImages"
-                      :key="img.id"
-                      class="demo cursor"
-                      :class="{ active: slideIndex === index }"
-                      :src="`${baseUrl}/storage${img}`"
-                      @click="slideIndex = index"
+                      v-for="(img, index) in images"
+                      :key="index"
+                      :src="img"
+                      class="thumbnail"
+                      :class="{ active: index === activeIndex }"
+                      @click="setImage(index)"
                     />
                   </div>
                 </div>
               </div>
-            </div> -->
+                       
+                    </div>
 
-            <div class="col-lg-5">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item">Best Sellers</li>
-                <li class="breadcrumb-item active">
-                  {{ product.product.name }}
-                </li>
-              </ol>
 
-              <h3>{{ product.product.name }}</h3>
-<p class="text-muted" v-html="product.product.short_description"></p>
-
-            
-              <div class="offer-zone">
-                <span>Offer zone</span>
-                <p>
-                  <img
-                    class="offer"
-                    src="./assets/images/product/offer.png"
-                  />Get 10% off on your first order
-                  <strong class="stro">Use code: V6HAIR</strong>
-                </p>
-              </div>
-
-              <div class="d-flex align-items-baseline my-3">
-                 <div class="product-price">
-                    <del v-if="product.product.sale_price !== null"
-                          >₹{{ product.product.price }}</del
-                        >
-                        <span
-                          >₹{{
-                            product.product.sale_price
-                              ? product.product.sale_price
-                              : product.product.price
-                          }}</span
-                        >
-                 </div>
               
-                <!-- <span class="price me-2"> ₹{{ product.product.price }} </span>
-                <span class="discounted-price"> ₹{{ product.product.original_price }} </span> -->
-              </div>
+                    <div class="col-lg-6">
+                        <div class="product-single-right">
+                            <div class="product-info">
+                                <h4 class="product-catagory"> {{ product.product.product_collections[0].name }}</h4>
+                                <h3 class="product-name"> {{ product.product.name }}</h3>
 
-              <div class="quant-sec mb-4">
-                <label class="form-label">Quantity</label>
-                <div class="input-group" style="width: 120px">
-                  <button class="btn btn-outline-secondary" @click="decrement">
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    class="form-control text-center"
-                    v-model="quantity"
-                    min="1"
-                  />
-                  <button class="btn btn-outline-secondary" @click="increment">
-                    +
-                  </button>
+                                <div class="product-price">
+                                    <span class="price price-var"><del v-if="product.product.sale_price !== null"
+                    >₹{{ product.product.price }}</del
+                  >
+                  <span
+                    >₹{{
+                      product.product.sale_price
+                        ? product.product.sale_price
+                        : product.product.price
+                    }}</span
+                  ></span>
+                                </div>
+                                <div class="product-size-area">
+                                    <h4 class="size-title size-title-wt">WEIGHT : {{ product.product.weight }} grams</h4>
+
+                                    <ul class="size-switch">
+                                        <li class="single-size single-size-wt  active
+			" data-var-size="300 grams" data-var-price="350">{{ product.product.weight }} grams</li>
+                                    </ul>
+                                </div>
+                                <div class="prdouct-btn-wrapper d-flex align-items-center">
+                                    <div class="cart-plus-minus">
+                                        <div   @click="decrement" style="cursor: pointer;">-</div>
+                                        <input class="cart-plus-minus-box cart-number" type="number" name="qtybutton" value="1" v-model="quantity" />
+                                        <div  @click="increment" style="cursor: pointer;">+</div>
+                                    </div>
+
+                                </div>
+                                <div class="stock-status pb-4">
+                                    <span class="badge bg-info">In Stock</span>
+                                </div>
+
+                                <div class="product-bottom-button d-flex" style="cursor: pointer;">
+                                    <!-- <a href="https://inway.com.in:443../checkout" class="primary-btn">Buy Now</a> -->
+                                    <a  class="primary-btn addtocartbtn-prod"   @click="handleAddToCart(product)">
+                                      	<span v-if="cartStore.loadingProductId === product.id" class="custom-spinner"></span>
+  <span v-else>Add To Bag  <i class="icon fas fa-plus-circle" ></i></span>
+                                     </a>
+                                </div>
+                            </div>
+                            <div class="product-right-bottom">
+                                <ul class="features">
+                                    <li class="single-feature"><img class="icon" src="@/assets/ui/images/delivery-van-icon.svg" alt="icon" /><strong class="feature-title">Estimated Delivery:</strong><span class="feature-text">From 2 to 10 Working Days</span></li>
+                                    <li class="single-feature"><img class="icon" src="@/assets/ui/images/shipping-return.svg" alt="icon" /><strong class="feature-title">Free Shipping :</strong><span class="feature-text">On all orders over 999 INR</span></li>
+                                </ul>
+                                <div class="guarantee-checkout-area">
+                                    <h3 class="guarantee-title">Guarantee safe & secure checkout</h3>
+                                    <img src="@/assets/ui/images/payment-method-image.webp" alt="payment-method-image" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="actions mb-3">
-                <button class="btn btn-dark mt-2" @click="handleAddToCart(product)" >Add to cart</button>
-
-                <button class="buybtn btn btn-dark mt-2">Buy now</button>
-              </div>
-               <div class="additional-options" style="cursor:pointer">
-                    <a @click="addWishlist(product.product.id,'add')"><i class="bi bi-heart" ></i> Add to wishlist</a>
-                    <a class="add-divider"></a>
-                    <a href="#"><i class="bi bi-share"></i> Share this product</a>
-                  </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Loader -->
-      <div v-else class="text-center py-5">Loading product...</div>
-
-      <!--------details section start------------->
-      <!-- <section class="details-sec">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7 scrollable-section">
-                <div class="row">
-                  <div class="col-lg-8 mySlides-container">
-                  
-                    <div class="mySlides">
-                      <img src="../assets/images/product/v6product22.png" style="width:100%">
-                    </div>
-                  
-                    <div class="mySlides">
-                      <img src="../assets/images/product/v6product22.png" style="width:100%">
-                    </div>
-                  
-                    <div class="mySlides">
-                      <img src="../assets/images/product/v6product33.png" style="width:100%">
-                    </div>
-                      
-                    <div class="mySlides">
-                      <img src="../assets/images/product/v6product44.png" style="width:100%">
-                    </div>
-                  </div>
-            
-               
-                  <div class="col-lg-4">
-                    <div class="thumbnail-container">
-                      <img class="demo cursor" src="../assets/images/product/v6product11.png" onclick="currentSlide(1)" alt="The Woods">
-                      <img class="demo cursor" src="../assets/images/product/v6product22.png" onclick="currentSlide(2)" alt="Cinque Terre">
-                      <img class="demo cursor" src="../assets/images/product/v6product33.png" onclick="currentSlide(3)" alt="Mountains and fjords">
-                      <img class="demo cursor" src="../assets/images/product/v6product44.png" onclick="currentSlide(4)" alt="Northern Lights">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <div class="col-lg-5">
-                <div aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">Home</a><i class="bi bi-chevron-right"></i></li>
-                      <li class="breadcrumb-item"><a href="#">Best Sellers</a><i class="bi bi-chevron-right"></i></li>
-                      <li class="breadcrumb-item active" aria-current="page">{{ product.product.name }}</li>
-                    </ol>
-                  </div>
-                  <h3>{{ product.product.name }}</h3>
-                  <p class="text-muted">Reduces Hair Fall | Strengthens Hair | Softens Hair</p>
-                  <div class="underline d-flex align-items-center mb-3">
-                    <span class="badge  text-dark me-2"><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                        <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                      </svg><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                        <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                      </svg><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                        <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                      </svg><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                        <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                      </svg><svg role="presentation" fill="none" focusable="false" width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                        <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                      </svg></span>
-                    <span class="spenter">4.68 (100 reviews)</span>
-                  </div>
-                  <div class="offer-zone">
-                    <span>Offer zone</span>
-                    <p><img class="offer" src="./assets/images/product/offer.png" />Get 10% off on your first order <strong class="stro">Use code: V6HAIR</strong></p>
-                  </div>
-                  <div class="d-flex align-items-baseline my-3">
-                    <span class="price me-2">₹450.00</span>
-                    <span class="discounted-price">₹350.00</span>
-                  </div>
-                  <div class="quant-sec mb-4">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <div class="input-group" style="width: 120px;">
-                      <button class="btn btn-outline-secondary qun_min" type="button" onclick="decrementQuantity()">-</button>
-                      <input type="number" id="quantity" class="form-control text-center" value="1" min="1">
-                      <button class="btn btn-outline-secondary qun_add" type="button" onclick="incrementQuantity()">+</button>
-                    </div>
-                  </div>
-                  <div class="actions mb-3">
-                    <button class="btn btn-dark mt-2">
-                        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                            <div class="button-text">Add to cart</div>
-                          </div>
-                    </button> 
-                    <button class="buybtn btn btn-dark mt-2">
-                        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                            <div class="button-text">Buy now</div>
-                          </div>
-                    </button> 
-                  </div>
-                  <div class="additional-options">
-                    <a href="#"><i class="bi bi-heart"></i> Add to wishlist</a>
-                    <a class="add-divider"></a>
-                    <a href="#"><i class="bi bi-share"></i> Share this product</a>
-                  </div>
             </div>
         </div>
-          </div>
-</section> -->
 
-      <!--------details section end----------------->
+        <div class="product-bottom-info mt-2">
+            <div class="nav-tabs-menu">
+                <ul class="nav nav-tabs" id="ProductTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="Description-tab" data-bs-toggle="tab" data-bs-target="#Description" type="button" role="tab" aria-controls="Description" aria-selected="true">Description</button>
+                    </li>
 
-      <!-------content section start------->
-        <section class="content-sec">
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                <div class="section-item"  :class="{ active: openSections.description }"
-  @click="toggleSection('description')">
-                    <h4>
-                    Description
-                    <span class="toggle-icon"
-                        ><i class="bi bi-chevron-down"></i
-                    ></span>
-                    </h4>
-                    <div
-    class="description-text"
-      :class="{ expanded: openSections.description }"
-    v-html="product?.product?.description"
-    ></div>
 
-                </div>
-                </div>
-                <div class="col-lg-4">
-                <div class="section-item"  :class="{ active: openSections.description }"
-  @click="toggleSection('description')">
-                    <h4>
-                    Benefits
-                    <span class="toggle-icon"
-                        ><i class="bi bi-chevron-down"></i
-                    ></span>
-                    </h4>
-                    <div
-    class="description-text"
-      :class="{ expanded: openSections.description }"
-    v-html="product?.product?.description"
-    ></div>
-
-                </div>
-                </div>
-                 <div class="col-lg-4">
-               <div
-  class="section-item"
-  :class="{ active: openSections.ingredients }"
-  @click="toggleSection('ingredients')"
->
-  <h4>
-    Ingredients
-    <span class="toggle-icon">
-      <i
-        class="bi"
-        :class="openSections.ingredients ? 'bi-chevron-up' : 'bi-chevron-down'"
-      ></i>
-    </span>
-  </h4>
-
-  <div
-    class="description-text"
-    :class="{ expanded: openSections.ingredients }"
-    v-html="product?.product?.ingredients"
-  ></div>
-</div>
-
-                </div>
+                </ul>
             </div>
-            </div>
-        </section>
-      <!-------content section end------->
 
-      <!----------how section start----------->
-      <section class="how-sec">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <img src="../assets/images/product/v6-use.png" />
-                </div>
-                <div class="col-lg-6">
-                  <div class="px-lg-4">
-                    <div class="how-des">
-                      <h4>How to use?</h4>
-                   <div
-  class="description-text"
-  :class="{ expanded: isOpen }"
-  v-html="product?.product?.howtouse"
-></div>
+            <div class="tab-content" id="ProductTabContent" v-if="product">
+
+                <div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
+                    <div class="product-description">
+                        <p class="description-text">
+                            <section class="product-description">
+                                <h2>{{ product.product.name }}</h2>
+                                <p  v-html="product?.product?.short_description"></p>
+                                <h3>Ingredients:</h3>
+                                <p v-html="product?.product?.ingredients"></p>
+                                <h3>Direction of Use:</h3>
+                                <p v-html="product?.product?.howtouse "></p>
+                               
+                            </section>
+                        </p>
                     </div>
-                  </div>
                 </div>
-              </div>
+
+
+                <div class="tab-pane fade" id="Shipping-Return" role="tabpanel" aria-labelledby="Shipping-Return-tab">
+                    <div class="shipping-return-area">
+
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
-      </section>
-
-      <!----------how section end----------->
-
-      <!---------related products section start---------->
-      <section class="related-sec">
-        <div class="container">
-          <div class="row">
-            <div class="section_header">
-              <h2>Related Products</h2>
-              <img
-                src="../assets/images/heading-underline.png"
-                class="heading_image"
-              />
-            </div>
-          </div>
-         <div class="row justify-content-center">
-          
-          <div class="col-md-3 "   v-for="product in limitedProducts"  :key="product.id">
-            <div class="product-card">
-              <div class="product-image">
-               
-              <router-link :to="product.slug?{name: 'ProductDetail',params :{slug:product.slug.key}}:''">  <img class="zoom_image" :src="image_url+product.image" :alt="product.name" ></router-link>
-              </div>
-              <button @click="addToCart(product)" class="btn btn-dark mt-2" style="background-color: #09302a !important;">
-                <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.03857 2.29251C2.8508 2.22647 2.64448 2.23773 2.46501 2.32381C2.28554 2.40989 2.14761 2.56374 2.08157 2.75151C2.01553 2.93928 2.02679 3.1456 2.11287 3.32507C2.19895 3.50454 2.3528 3.64247 2.54057 3.70851L2.80257 3.79951C3.46957 4.03451 3.90857 4.18951 4.23157 4.34851C4.53457 4.49751 4.66857 4.61851 4.75657 4.74651C4.84657 4.87851 4.91657 5.06051 4.95657 5.42351C4.99657 5.80351 4.99757 6.29851 4.99757 7.03851V9.64051H20.7226C21.0526 7.98251 21.2076 7.14051 20.7746 6.57751C20.3306 6.00051 18.8136 6.00051 17.1286 6.00051H6.49057C6.48599 5.75401 6.47131 5.50781 6.44657 5.26251C6.39357 4.76551 6.27657 4.31251 5.99457 3.90051C5.71057 3.48451 5.33257 3.21851 4.89257 3.00151C4.48057 2.79951 3.95657 2.61551 3.33957 2.39851L3.03857 2.29251Z" fill="white"></path><path opacity="0.5" d="M20.2 12.1876L20.7 9.76362L20.724 9.64062H5C5 12.5816 5.063 13.5526 5.93 14.4666C6.796 15.3806 8.19 15.3806 10.98 15.3806H16.282C17.843 15.3806 18.624 15.3806 19.175 14.9306C19.727 14.4806 19.885 13.7166 20.2 12.1876Z" fill="white"></path><path d="M7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18ZM16.5 18C16.8978 18 17.2794 18.158 17.5607 18.4393C17.842 18.7206 18 19.1022 18 19.5C18 19.8978 17.842 20.2794 17.5607 20.5607C17.2794 20.842 16.8978 21 16.5 21C16.1022 21 15.7206 20.842 15.4393 20.5607C15.158 20.2794 15 19.8978 15 19.5C15 19.1022 15.158 18.7206 15.4393 18.4393C15.7206 18.158 16.1022 18 16.5 18Z" fill="white"></path></svg>
-                    <div class="button-text" >Add to cart</div>
-                  </div>
-            </button> 
-              <div class="product-details">
-                <div class="product-rating"><svg role="presentation" fill="none" focusable="false"  width="20" height="20" class="rating__star icon icon-rating-star" viewBox="0 0 15 15">
-                  <path d="M7.5 0L9.58587 5.2731L15 5.72949L10.875 9.44483L12.1353 15L7.5 12.0231L2.86475 15L4.125 9.44483L0 5.72949L5.41414 5.2731L7.5 0Z" fill="currentColor"></path>
-                </svg> 4.5 (100 reviews)</div>
-                <h5 class="product-title">{{ product.name }}</h5>
-                <p>Smooth | Nourish</p>
-              <div class="product-price">
-                            <del v-if="product.sale_price !== null">₹{{ product.price }}</del> <span>₹{{ product.sale_price?product.sale_price:product.price
-                              }}</span>
-                          </div>
-                  
-              </div>
-            </div>
-          </div>
-        
-        </div>
-        </div>
-      </section>
-      <!---------related products section end---------->
-      <!------strip section start--------->
-      <section class="promo-banner d-flex align-items-center">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-5">
-              <div class="content">
-                <h5>Existing Deals on</h5>
-                <h2>Psoriasis Care Kit</h2>
-                <p>
-                  Ultrices gravida dictum fusce ut placerat orci. Accumsan lacus
-                  vel facilisis volutpat est velit egestas. Vehicula ipsum a
-                  arcu cursus.
-                </p>
-                <p class="btn-product">
-                  <button class="btn btn-light">Shop Now</button>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-----strip section end-------------->
-
-      <!-------customer reviews section start----------->
-      <section class="customer-sec">
-        <div class="container">
-          <div class="section_header">
-            <h2>Customer Reviews</h2>
-            <img
-              src="./assets/images/heading-underline.png"
-              class="heading_image"
-            />
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-8 colmebt">
-              <div class="row align-items-center">
-                <div class="col-lg-3">
-                  <div class="customer-rate">
-                    <div class="rating">
-                      <span>⭐️⭐️⭐️⭐️⭐️</span> <strong>4.75 out of 5</strong>
-                    </div>
-                    <small>Based on the reviews</small>
-                  </div>
-                </div>
-                <div class="col-lg-1">
-                  <div class="col-divider"></div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="review__wrapper">
-                    <div class="single__progress__bar">
-                      <div class="rating__text">⭐⭐⭐⭐⭐</div>
-                      <div class="progress">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 100%"
-                          aria-valuenow="100"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <span class="rating-value">10</span>
-                    </div>
-                    <div class="single__progress__bar">
-                      <div class="rating__text">⭐⭐⭐⭐</div>
-                      <div class="progress">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 80%"
-                          aria-valuenow="80"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <span class="rating-value">5</span>
-                    </div>
-                    <div class="single__progress__bar">
-                      <div class="rating__text">⭐⭐⭐</div>
-                      <div class="progress">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 60%"
-                          aria-valuenow="60"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <span class="rating-value">3</span>
-                    </div>
-                    <div class="single__progress__bar">
-                      <div class="rating__text">⭐⭐</div>
-                      <div class="progress">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 30%"
-                          aria-valuenow="30"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <span class="rating-value">2</span>
-                    </div>
-                    <div class="single__progress__bar">
-                      <div class="rating__text">⭐</div>
-                      <div class="progress">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 10%"
-                          aria-valuenow="10"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <span class="rating-value">1</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-1">
-                  <div class="col-divider1"></div>
-                </div>
-                <div class="col-lg-3">
-                  <button class="btn write-review-btn">Write a review</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="d-flex drett justify-content-between align-items-center mt-4 mb-3"
-          >
-            <div class="dropdown">
-              <button
-                class="btn btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-              >
-                Most recent
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Most recent</a></li>
-                <li><a class="dropdown-item" href="#">Highest rating</a></li>
-                <li><a class="dropdown-item" href="#">Lowest rating</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Card 1 -->
-            <div class="col-md-6">
-              <div class="review-card p-3">
-                <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <span class="profile-icon me-2">👤</span>
-                    <div>
-                      <h6>Leela</h6>
-                      <p class="mb-1 review-title">Goodbye Dryness</p>
-                    </div>
-                  </div>
-                  <span class="review-date">06/04/24</span>
-                </div>
-                <p class="review-text">
-                  I've been using V6 hair lotion as a part of my haircare
-                  routine and now my hair feels smooth and soft. This duo
-                  cleanses scalp and rejuvenates it and keeps my hair on point.
-                </p>
-              </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="col-md-6">
-              <div class="review-card p-3">
-                <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <span class="profile-icon me-2">👤</span>
-                    <div>
-                      <h6>Hema</h6>
-                      <p class="mb-1 review-title">Excellent Product</p>
-                    </div>
-                  </div>
-                  <span class="review-date">06/04/24</span>
-                </div>
-                <p class="review-text">
-                  I've been using V6 hair lotion as a part of my haircare
-                  routine and now my hair feels smooth and soft.
-                </p>
-              </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col-md-6">
-              <div class="review-card p-3">
-                <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <span class="profile-icon me-2">👤</span>
-                    <div>
-                      <h6>Uma</h6>
-                      <p class="mb-1 review-title">Goodbye Dryness</p>
-                    </div>
-                  </div>
-                  <span class="review-date">06/04/24</span>
-                </div>
-                <p class="review-text">Excellent product</p>
-                <img
-                  src="./assets/images/product/product11.png"
-                  alt="Product image"
-                />
-              </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="col-md-6">
-              <div class="review-card p-3">
-                <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <span class="profile-icon me-2">👤</span>
-                    <div>
-                      <h6>Leela</h6>
-                      <p class="mb-1 review-title">Nice product</p>
-                    </div>
-                  </div>
-                  <span class="review-date">06/04/24</span>
-                </div>
-                <p class="review-text">
-                  This duo cleanses scalp and rejuvenates it and keeps my hair
-                  on point.
-                </p>
-                <img
-                  src="./assets/images/product/product12.png"
-                  alt="Product image"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-------customer reviews section end----------->
-
-      <!------shipping section start----------->
-      <section class="shipping-sec">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="ship-des">
-                    <img src="../assets/images/shipp1.webp" />
-                    <h4>Free shipping</h4>
-                    <p>Free shipping for orders above 500</p>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="ship-des">
-                    <img src="../assets/images/shipp.webp" />
-                    <h4>Return</h4>
-                    <p>within 10 days exchange</p>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="ship-des">
-                    <img src="../assets/images/shipp2.webp" />
-                    <h4>Flexible Payment</h4>
-                    <p>pay with multiple credit cards</p>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="ship-des">
-                    <img src="../assets/images/shipp3.webp" />
-                    <h4>Online Support</h4>
-                    <p>7 days a week</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!------shipping section end----------->
     </div>
-  </section>
+    <!-- product-single-area end here  -->
 </template>
-<script setup>
-import { computed, onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
-import { getProductDetails, getProducts } from "../services/apiService";
-import { image_url } from "../config/api";
-import { addOrUpdateCart, addToCart } from "../services/cartService";
-import { useUserStore } from "../assets/js/store";
- const {addDeleteWishlist  } = useUserStore();
-const route = useRoute();
-const slug = route.params.slug;
-const product = ref(null);
-const imageUrl = "http://127.0.0.1:8000";
- const products = ref([]);
-const slideIndex = ref(0);
-const quantity = ref(1);
-const productList=ref([]);
-const openSections = ref({
-  description: false,
-  benefits: false,
-  ingredients: false,
-})
-const increment = () => quantity.value++;
-const decrement = () => {
-  if (quantity.value > 1) quantity.value--;
-};
-const handleAddToCart = (product) => {
-  addOrUpdateCart(product, quantity.value);
-};
-
-
-async function fetchProducById() {
-  try {
-    const res = await getProductDetails(slug);
-    
-    product.value = res.data.data ?? res.data;
-    
-    console.log(" product.value", product.value);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
+<style scoped>
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px; /* height of product section */
+  width: 100%;
 }
 
-async function fetchProducts(page = 1,param=null) {
-  try {
-
-    const result = await getProducts(page,param);
-   
-  productList.value = result.data.data.data ?? result.data;
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
-}
-const limitedProducts = computed(() => {
-  return productList.value.slice(0, 4)
-})
-onMounted(() => {
-  fetchProducById();
-  fetchProducts()
-});
-const price = computed(() => {
-  if (product.value?.productVariation) {
-    return {
-      original: product.value.productVariation.original_price,
-      sale: product.value.productVariation.front_sale_price,
-    };
-  }
-
-  return {
-    original: product.value?.product?.original_price,
-    sale: product.value?.product?.front_sale_price,
-  };
-});
-
-
-const activeIndex = ref(0)
-const images = computed(() => {
-  if (!product.value?.productImages?.length) return []
-
-  return product.value.productImages.map(img =>
-    `${imageUrl}/storage/${img.split('#')[0]}`
-  )
-})
-const activeImage = computed(() => images.value[activeIndex.value])
-
-function setImage(index) {
-  activeIndex.value = index
+.main-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e5e5e5;
+  border-top: 5px solid #0d6efd; /* primary color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-function toggleSection(section) {
-  openSections.value[section] = !openSections.value[section]
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-  const addWishlist = (id, type) => {
-     addDeleteWishlist(id, type);
-    };
-</script>
-<style>
 .demo {
   opacity: 0.6;
   cursor: pointer;
@@ -785,9 +196,10 @@ function toggleSection(section) {
   gap: 12px;
 }
 @media (max-width: 768px) {
-    .thumbnail-container {
-        flex-direction: row;
-    }}
+  .thumbnail-container {
+    flex-direction: row;
+  }
+}
 .thumbnail {
   width: 130px;
   cursor: pointer;
@@ -801,22 +213,131 @@ function toggleSection(section) {
   opacity: 1;
   border: 2px solid #1b5e20;
 }
-.section-item p {
-  margin-top: 10px;
+    .custom-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgb(0, 0, 0);
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
 }
 
-.section-item {
-  cursor: pointer;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-.description-text {
- 
- max-height: 80px;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-
-.description-text.expanded {
- max-height: 2000px;
-}
-
 </style>
+<script setup>
+import { computed, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
+import { getProductDetails, getProducts } from "../services/apiService";
+import { image_url } from "../config/api";
+
+import { useUserStore } from "../assets/js/store";
+import { useCartStore } from "../cartStore";
+const { addDeleteWishlist } = useUserStore();
+const route = useRoute();
+const cartStore=useCartStore();
+const slug = route.params.slug;
+const product = ref(null);
+const imageUrl = "http://127.0.0.1:8000";
+const products = ref([]);
+const slideIndex = ref(0);
+const pageLoading = ref(true);  
+const quantity = ref(1);
+const productList = ref([]);
+const openSections = ref({
+  description: false,
+  benefits: false,
+  ingredients: false,
+});
+const increment = () => quantity.value++;
+const decrement = () => {
+  if (quantity.value > 1) quantity.value--;
+};
+const handleAddToCart = (product) => {
+
+  
+ cartStore.addOrUpdateCart (product, quantity.value);
+};
+
+async function fetchProducById() {
+  try {
+    const res = await getProductDetails(slug);
+
+    product.value = res.data.data ?? res.data;
+
+    console.log(" product.value", product.value);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+
+async function fetchProducts(page = 1, param = null) {
+  try {
+    const result = await getProducts(page, param);
+
+    productList.value = result.data.data.data ?? result.data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+const limitedProducts = computed(() => {
+  return productList.value.slice(0, 4);
+});
+onMounted(async () => {
+  try {
+    pageLoading.value = true;
+
+    await Promise.all([
+      fetchProducById(),
+      fetchProducts()
+    ]);
+
+  } catch (error) {
+    console.error(error);
+  } finally {
+    pageLoading.value = false;
+  }
+});
+const price = computed(() => {
+  if (product.value?.productVariation) {
+    return {
+      original: product.value.productVariation.original_price,
+      sale: product.value.productVariation.front_sale_price,
+    };
+  }
+
+  return {
+    original: product.value?.product?.original_price,
+    sale: product.value?.product?.front_sale_price,
+  };
+});
+
+const activeIndex = ref(0);
+const images = computed(() => {
+  if (!product.value?.productImages?.length) return [];
+
+  return product.value.productImages.map(
+    (img) => `${imageUrl}/storage/${img.split("#")[0]}`,
+  );
+});
+const activeImage = computed(() => images.value[activeIndex.value]);
+
+function setImage(index) {
+  activeIndex.value = index;
+}
+
+function toggleSection(section) {
+  openSections.value[section] = !openSections.value[section];
+}
+const addWishlist = (id, type) => {
+  addDeleteWishlist(id, type);
+};
+</script>

@@ -13,7 +13,11 @@
                   <div class="w-100 text-center">
                     <div class="user-img mb-2">
                       <!-- <img src="../../assets/images/ela.png" alt="" /> -->
-                       <img :src="image_url+customer?.avatar" :alt="customer?.name"  class="rounded-circle w-100"/>
+                      <img
+                        :src="image_url + customer?.avatar"
+                        :alt="customer?.name"
+                        class="rounded-circle w-100"
+                      />
                     </div>
                     <div class="user_name">{{ customer?.name }}</div>
                     <div class="user_mobile">{{ customer?.phone }}</div>
@@ -56,7 +60,7 @@
                       role="tab"
                       aria-controls="Address"
                       aria-selected="false"
-                       @click="fetchAddresses"
+                      @click="fetchAddresses"
                       ><span class="tab_icon d-flex align-items-center"
                         ><i class="bi bi-geo-alt"></i> Address</span
                       ><i class="bi bi-chevron-right"></i
@@ -65,20 +69,16 @@
 
                   <div class="personal_info_nav_menu" role="presentation">
                     <router-link
-
                       class="tab-link d-flex align-items-center justify-content-between"
                       href="#"
-                       :to="{ name: 'Login' }"
-                  @click="logout"
+                      :to="{ name: 'Login' }"
+                      @click="logout"
                     >
-                      <span class="tab_icon d-flex align-items-center ">
+                      <span class="tab_icon d-flex align-items-center">
                         <i class="bi bi-box-arrow-right"></i>
                         Logout
                       </span>
-                
-
                     </router-link>
-                   
                   </div>
                 </div>
               </div>
@@ -94,9 +94,7 @@
                   >
                     <div class="row g-3">
                       <div class="pers_info_head">
-                        <button class="bck_tab_link">
-                          <i class="bi bi-chevron-left"></i>
-                        </button>
+                     
                         Personal Information
                       </div>
                       <div class="col-sm-6">
@@ -162,52 +160,57 @@
                     </div>
                     <!-- ========= -->
                     <div class="pt-5">
-    <div class="pers_info_head">Upload image</div>
+                      <div class="pers_info_head">Upload image</div>
 
-    <div class="upload_img_sec">
-      <div class="d-flex align-items-center">
-        
-        <div class="up_img">
-          <img
-            id="cropper-image"
-            :src="previewImage || (image_url + customer?.avatar)"
-            class="avatar-img"
-          />
-        </div>
+                      <div class="upload_img_sec">
+                        <div class="d-flex align-items-center">
+                          <div class="up_img">
+                            <img
+                              id="cropper-image"
+                              :src="
+                                previewImage || image_url + customer?.avatar
+                              "
+                              class="avatar-img"
+                            />
+                          </div>
 
-        <div>
-          <div class="upload_head">Upload file</div>
-          <div class="upload_size py-2">JPG 120×120px</div>
+                          <div>
+                            <div class="upload_head">Upload file</div>
+                            <div class="upload_size py-2">JPG 120×120px</div>
 
-          <div class="choose_file">
-            <button class="choose_file_btn" @click="triggerFile">
-              Choose file
-            </button>
+                            <div class="choose_file">
+                              <button
+                                class="choose_file_btn"
+                                @click="triggerFile"
+                              >
+                                Choose file
+                              </button>
 
-            <span v-if="selectedFile">{{ selectedFile.name }}</span>
-            <span v-else>No file chosen</span>
+                              <span v-if="selectedFile">{{
+                                selectedFile.name
+                              }}</span>
+                              <span v-else>No file chosen</span>
 
-            <input
-              type="file"
-              ref="fileInput"
-              accept="image/*"
-              hidden
-              @change="onFileChange"
-            />
-          </div>
+                              <input
+                                type="file"
+                                ref="fileInput"
+                                accept="image/*"
+                                hidden
+                                @change="onFileChange"
+                              />
+                            </div>
 
-        
-          <button
-            v-if="previewImage"
-            class="btn btn-primary mt-2"
-            @click="saveAvatar"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+                            <button
+                              v-if="previewImage"
+                              class="btn btn-primary mt-2"
+                              @click="saveAvatar"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div
@@ -217,49 +220,129 @@
                     aria-labelledby="Order-tab"
                   >
                     <div class="pers_info_head mb-4">
-                      <button class="bck_tab_link">
-                        <i class="bi bi-chevron-left"></i>
-                      </button>
+                      
                       Your Orders
                     </div>
                     <div class="row justify-content-center">
                       <div class="col-md-11 col-sm-11 col-12">
-                        <div class="table-responsive">
-                          <table class="table">
-                            <thead>
-                              <tr>
-                                <td scope="col">#</td>
-                                <td scope="col">
-                                  <div class="ord_no">Order no</div>
-                                </td>
-                                <td scope="col">Purchase Date</td>
-                                <td scope="col">Total</td>
-                                <td scope="col">Status</td>
-                                <td scope="col">Action</td>
-                              </tr>
-                            </thead>
-                             <div v-if="orders.data && orders.data.length === 0">   
-                    <p>No orders found</p>
-                </div>
-                            <tbody  v-else>
-                              <tr v-for="(item,index) in orders.data" :key="item.id">
-                               <td>{{ index+1 }}</td>
-                                 <td>{{ item.code }}</td>
-                                 <td>{{ dateTime(item.created_at)}}</td>
-                                <td>Rs. {{ item.sub_total }}</td>
-                                <td>
-                                  <div class="ord_no_status_pending">
-                                    <i class="bi bi-circle-fill"></i>
-                                    <span class="text-capitalize">{{ item.status }}</span>
+                        <div v-if="orders.data && orders.data.length === 0">
+                          <p>No orders found</p>
+                        </div>
+                        <div v-else>
+                          <div class="table-responsive d-none d-sm-block">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <td scope="col">#</td>
+                                  <td scope="col">
+                                    <div class="ord_no">Order no</div>
+                                  </td>
+                                  <td scope="col">Purchase Date</td>
+                                  <td scope="col">Total</td>
+                                  <td scope="col">Status</td>
+                                  <td scope="col">Action</td>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr
+                                  v-for="(item, index) in orders.data"
+                                  :key="item.id"
+                                >
+                                  <td>{{ index + 1 }}</td>
+                                  <td>{{ item.code }}</td>
+                                  <td>{{ dateTime(item.created_at) }}</td>
+                                  <td>Rs. {{ item.sub_total }}</td>
+                                  <td>
+                                    <div class="ord_no_status_pending">
+                                      <i class="bi bi-circle-fill"></i>
+                                      <span class="text-capitalize">{{
+                                        item.status
+                                      }}</span>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <router-link :to="`order/${item.id}`"
+                                      ><button class="track_btn">
+                                        Track Order
+                                      </button></router-link
+                                    >
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="d-block d-sm-none">
+                            <div
+                              class="order_status_wrap"
+                              v-for="(item, index) in orders.data"
+                              :key="item.id"
+                            >
+                              <div
+                                class="d-flex justify-content-between p-3 ord_pro_details"
+                              >
+                                <div class="d-flex">
+                                  <div>
+                                    <div class="ord_pro_name">
+                                      <b>Order no</b>: {{ item.code }}
+                                    </div>
+                                    <div class="ord_pro_name">
+                                      <b> Purchase Date</b>:
+                                      {{ dateTime(item.created_at) }}
+                                    </div>
+                                    <div class="ord_pro_name">
+                                      <b>Total</b>: Rs. {{ item.sub_total }}
+                                    </div>
                                   </div>
-                                </td>
-                                <td>
-                               <router-link :to="`order/${item.id}`"><button class="track_btn">Track Order</button></router-link>   
-                                </td>
-                              </tr>
-                             
-                            </tbody>
-                          </table>
+                                </div>
+                                <div
+                                  class="ord_no_status_completed align-items-start"
+                                >
+                                  <i class="bi bi-circle-fill"></i>
+                                  <span>{{ item.status }}</span>
+                                </div>
+                              </div>
+                              <div class="d-flex align-items-center p-3">
+                                <router-link :to="`order/${item.id}`">
+                                  <button class="track_btn w-100">
+                                    View Details
+                                  </button></router-link
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="pagination-wrap"
+                            v-if="orders.last_page > 1"
+                          >
+                            <button
+                              class="page-btn"
+                              :disabled="orders.current_page === 1"
+                              @click="changePage(orders.current_page - 1)"
+                            >
+                              Prev
+                            </button>
+
+                            <button
+                              v-for="page in orders.last_page"
+                              :key="page"
+                              class="page-btn"
+                              :class="{ active: page === orders.current_page }"
+                              @click="changePage(page)"
+                            >
+                              {{ page }}
+                            </button>
+
+                            <button
+                              class="page-btn"
+                              :disabled="
+                                orders.current_page === orders.last_page
+                              "
+                              @click="changePage(orders.current_page + 1)"
+                            >
+                              Next
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -272,9 +355,7 @@
                     aria-labelledby="Address-tab"
                   >
                     <div class="pers_info_head mb-4">
-                      <button class="bck_tab_link">
-                        <i class="bi bi-chevron-left"></i>
-                      </button>
+                     
                       Address
                     </div>
                     <div class="order_status_wrap">
@@ -292,17 +373,19 @@
                             alt=""
                           />
                           <div v-if="defaultAddress" class="def_add_details">
-  <span class="def_name">{{ defaultAddress.name }}</span><br />
-  Ph: {{ defaultAddress.phone }} <br />
-  {{ defaultAddress.address }} <br />
-  {{ defaultAddress.city }}, {{ defaultAddress.zip_code }} <br />
-  {{ defaultAddress.state }} <br />
-  {{ defaultAddress.country }}
-</div>
+                            <span class="def_name">{{
+                              defaultAddress.name
+                            }}</span
+                            ><br />
+                            Ph: {{ defaultAddress.phone }} <br />
+                            {{ defaultAddress.address }} <br />
+                            {{ defaultAddress.city }},
+                            {{ defaultAddress.zip_code }} <br />
+                            {{ defaultAddress.state }} <br />
+                            {{ defaultAddress.country }}
+                          </div>
 
-<div v-else>
-  No default address found.
-</div>
+                          <div v-else>No default address found.</div>
 
                           <!-- <div class="def_add_details" >
                             <span class="def_name">Durga V</span><br />
@@ -312,7 +395,6 @@
                             Ambit, Sai nagar, <br />
                             12, Prince info park <br />
                           </div> -->
-        
                         </div>
                       </div>
 
@@ -449,12 +531,47 @@ const customer = ref(null);
 const loading = ref(false);
 const uploading = ref(false);
 const addresses = ref([]);
+const route = useRoute();
+const openOrderTab = () => {
+  const orderTab = document.querySelector("#Order-tab");
+
+  if (!orderTab) return;
+
+  if (window.bootstrap && window.bootstrap.Tab) {
+    const tab = new window.bootstrap.Tab(orderTab);
+    tab.show();
+    fetchOrderDetails();
+  } else {
+    console.error("Bootstrap Tab not available");
+  }
+};
+
+onMounted(() => {
+  if (route.query.tab === "order") {
+    openOrderTab();
+  }
+});
+
+watch(
+  () => route.query.tab,
+  (tab) => {
+    if (tab === "order") {
+      openOrderTab();
+    }
+  },
+);
 const userId = atob(localStorage.getItem("user_id"));
-const orders = ref([]);
+const orders = ref({
+  data: [],
+  current_page: 1,
+  last_page: 1,
+});
+
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-const currentPage = ref(null)
-const lastPage = ref(null)
+import { useRoute } from "vue-router";
+const currentPage = ref(null);
+const lastPage = ref(null);
 const form = ref({
   firstName: "",
   lastName: "",
@@ -487,14 +604,14 @@ async function saveAddress() {
     };
 
     const res = await postCustomerAddress(payload);
-toast.success("Address added successfully")
+    toast.success("Address added successfully");
     // alert("Address added successfully ");
     await fetchAddresses();
 
     resetForm();
   } catch (err) {
     console.error("Failed to save address", err);
-    toast.success("Failed to save address")
+    toast.error("Failed to save address");
     // alert("Failed to save address ");
   } finally {
     loading.value = false;
@@ -521,7 +638,6 @@ async function fetchAddresses() {
 
     const res = await getCustomerAddress(userId);
 
-
     addresses.value = res.data.data.data;
     console.log("addresses.value ", addresses.value);
   } catch (err) {
@@ -532,11 +648,8 @@ async function fetchAddresses() {
 }
 const defaultAddress = computed(() => {
   if (!Array.isArray(addresses.value)) return null;
-  return addresses.value.find(addr => addr.is_default === 1) || null;
+  return addresses.value.find((addr) => addr.is_default === 1) || null;
 });
-
-
-
 
 // =================================
 const triggerFile = () => {
@@ -571,7 +684,6 @@ const onFileChange = (event) => {
   reader.readAsDataURL(file);
 };
 const saveAvatar = async () => {
- 
   if (!cropper.value) {
     console.error("No cropper instance!");
     return;
@@ -583,14 +695,14 @@ const saveAvatar = async () => {
 
   const cropData = cropper.value.getData(true);
 
-cropper.value.getCroppedCanvas().toBlob(async (blob) => {
+  cropper.value.getCroppedCanvas().toBlob(async (blob) => {
     if (!blob) {
       console.error(" Failed to create cropped image blob!");
       loading.value = false;
       return;
     }
     const file = new File([blob], "avatar.jpg", { type: "image/jpeg" });
-console.log("file",file);
+    console.log("file", file);
 
     const formData = new FormData();
     formData.append("user_id", customer.value.id);
@@ -619,8 +731,7 @@ console.log("file",file);
       cropper.value = null;
       previewImage.value = null;
       selectedFile.value = null;
-toast.success("Profile photo uploaded successfully")
-     
+      toast.success("Profile photo uploaded successfully");
     } catch (err) {
       console.error("Upload failed", err.response?.data || err);
     } finally {
@@ -641,21 +752,20 @@ async function getCustomerDetails() {
     loading.value = false;
   }
 }
-const fetchOrderDetails = async(user,page=1)=>{
-    if (!orders.value.length) {
-      loading.value = true;
-    }
-    try {
-      const orderDetailRes = await getOrderDetails(userId,page);
-      orders.value = orderDetailRes.data.data;
-      // currentPage.value = orderDetailRes.data.data.current_page;
-      // lastPage.value = orderDetailRes.data.data.last_page;
-    } catch (err) {
-        console.error('Error fetching faq details:', err)
-    }finally {
-      if (loading.value) loading.value = false;
-    }
-}
+const fetchOrderDetails = async (user, page = 1) => {
+  loading.value = true;
+
+  try {
+    const orderDetailRes = await getOrderDetails(userId, page);
+    orders.value = orderDetailRes.data.data;
+    // currentPage.value = orderDetailRes.data.data.current_page;
+    // lastPage.value = orderDetailRes.data.data.last_page;
+  } catch (err) {
+    console.error("Error fetching faq details:", err);
+  } finally {
+    loading.value = false;
+  }
+};
 const dateTime = (date) => {
   if (!date) return "-";
 
@@ -666,15 +776,18 @@ const dateTime = (date) => {
 
   return `${day}-${month}-${year}`;
 };
-const logout = ()=>{
+const logout = () => {
+  localStorage.removeItem("authToken");
+  localStorage.removeItem("phone");
+  localStorage.removeItem("user_id");
+  localStorage.removeItem("customerType");
+};
+const changePage = (page) => {
+  if (page < 1 || page > orders.value.last_page) return;
+  fetchOrderDetails(userId, page);
+};
 
-  localStorage.removeItem('authToken');
-  localStorage.removeItem('phone');
-  localStorage.removeItem('user_id');
-  localStorage.removeItem('customerType');          
-}
 onMounted(() => {
- 
   getCustomerDetails();
 });
 </script>
@@ -685,19 +798,25 @@ onMounted(() => {
   border-radius: 50% !important;
   margin-right: 6px;
 }
-.user-img{
-      margin: auto;
-    width: 100px;
+.user-img {
+  margin: auto;
+  width: 100px;
 }
-#cropper-image{
+#cropper-image {
   width: 150px !important;
 }
 .upload_img_sec {
   margin: 30px 0px !important;
 }
-@media(max-width:768px) {
-  .personal_info_sec{
+@media (max-width: 768px) {
+  .personal_info_sec {
     padding-top: 7rem;
   }
 }
+@media(max-width:768px){
+.personal_info_nav_menu .tab-link{
+padding: 20px 0px;
+}
+}
+
 </style>

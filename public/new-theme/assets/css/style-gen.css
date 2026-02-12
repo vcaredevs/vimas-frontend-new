@@ -1,0 +1,57 @@
+:root {
+    --primary-color: black;
+    --hover-color: #fffff;
+    --black: #000000;
+}
+
+.header-area .header-middle .header-middle-wrap .header-right .single-btn .header-btn.cart-btn .btn-left .count {
+    background-color: black !important;
+}
+
+.header-area .header-bottom .menu-area .main-menu .menu-item.mega-menu-parent .mega-menu .mega-menu-item .menu-items .mega-menu-items .mega-menu-link .menu-item-badge.new {
+    background-color: black !important;
+}
+
+.mobile-header-area .header-right .header-btn.cart-btn .btn-left .count {
+    background-color: black !important;
+}
+
+.menu-offcanvas .mobile-menu-area .main-menu .menu-list .menu-item .sub-menu .sub-menu-link .menu-item-badge.new {
+    background-color: black !important;
+}
+
+.main_nav_container {
+    background-color: white !important;
+}
+
+.footer-area {
+    background-color: white !important;
+}
+
+.primary-btn:hover,
+.red_button:hover {
+    background-color: var(--hover-color) !important;
+    color: var(--black) !important;
+    border: 1px solid var(--black) !important;
+}
+
+.red_button {
+    background-color: black !important;
+}
+
+.primary-btn,
+.grid_sorting_button.active,
+.section_title::after,
+.footer-area .footer-widget-area .newsletter-widget .newsletter-form .form-group .subscribe-btn,
+.footer-area .footer-widget-area .social-media li a {
+    background-color: black !important;
+}
+
+.benefit_icon i {
+    color: black !important;
+}
+
+.product-single-area .product-single-details .product-right-bottom .share-area .social-media .media-item .media-link:hover {
+    color: var(--white);
+    background-color: black !important;
+}

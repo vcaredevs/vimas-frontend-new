@@ -1,11 +1,13 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+// import "@/assets/css/service.css";
+// import "@/assets/css/profile.css";
 
-import './assets/css/style.css'
-import './assets/css/service.css'
-import './assets/css/owl-carousal.css'
 
-import App from './App.vue'
-import router from './router';
-createApp(App)
-.use(router)
-.mount('#app')
+
+
+import App from "./App.vue";
+import router from "./router";
+const app = createApp(App);
+app.use(createPinia());
+app.use(router).mount("#app");
