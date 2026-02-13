@@ -18,6 +18,25 @@ export const useCartStore = defineStore("cart", () => {
   const loading = ref(false);
   const checkoutData = ref(null);
   const loadingProductId=ref(null) ;
+const checkoutLoading = ref(false);
+
+  const fetchCheckoutData = async () => {
+  const userId = getOrCreateAuthUserId();
+  checkoutLoading.value = true;
+  try {
+     const payload = {
+    coupon_code: null,
+  };
+
+  const res = await getCheckoutDetails(userId, payload);
+
+  if (res?.data) {
+    checkoutData.value = res.data;
+  }
+  } finally {
+    checkoutLoading.value = false;
+  }
+};
 
   /* ===============================
       FETCH CART
@@ -209,7 +228,7 @@ if (res?.data?.status) {
         (sum, i) => sum + Number(i.qty || 1),
         0
       );
-
+await fetchCheckoutData();
       toast.success(res.data.msg || "Item removed from cart!");
     } else {
       toast.error(res?.data?.msg || "Failed to remove item!");
@@ -230,9 +249,11 @@ if (res?.data?.status) {
       return sum + price * item.qty;
     }, 0);
   });
-function resetCartCount() {
+function clearCart () {
   cartCount.value = 0;
+   cartItems.value = [];
 }
+
 // =====Checkout==========
 const checkout = async (couponCode = null) => {
   let userId = localStorage.getItem("user_id")
@@ -242,7 +263,7 @@ const checkout = async (couponCode = null) => {
   const payload = {
     coupon_code: couponCode,
   };
-
+  checkoutLoading.value = true;
   try {
     const res = await getCheckoutDetails(userId, payload);
 
@@ -258,6 +279,9 @@ const checkout = async (couponCode = null) => {
     toast.error("Failed to load checkout details");
     return false;
   }
+  finally {
+    checkoutLoading.value = false;
+  }
 };
 
   return {
@@ -270,9 +294,10 @@ const checkout = async (couponCode = null) => {
     updateQty,
     removeItem,
     addOrUpdateCart,
-    resetCartCount,
+    clearCart,
     checkout,
     checkoutData,
-    loadingProductId
+    loadingProductId,
+    checkoutLoading
   };
 });

@@ -8196,6 +8196,13 @@ ul {
     min-height: 200px;
     margin-top: 150px;
 }
+@media(max-width:991px){
+.breadcrumb-area {
+    margin-top: 76px !important;
+}
+
+}
+
 
 .breadcrumb-area .page-title {
     margin-top: 0;

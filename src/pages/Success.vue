@@ -271,7 +271,8 @@ const checkoutSuccess = async (id) => {
   amount.value = res.data.data.order?.amount;
   subtotal.value = res.data.data.order?.sub_total;
   shippingAmnt.value = res.data.data.order?.shipping_amount;
- cartStore.resetCartCount();
+ cartStore.clearCart();
+ cartStore.cartItems;
 
   loading.value = false;
   localStorage.removeItem("orderId");

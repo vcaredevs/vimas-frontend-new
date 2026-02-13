@@ -394,7 +394,7 @@ const handleCheckout = async () => {
   const success = await cartStore.checkout(couponCode.value);
 
   if (success) {
-    userStore.setCheckoutData(cartStore.checkoutData);
+    // userStore.setCheckoutData({ ...cartStore.checkoutData });
     router.push("/checkout");
   }
 };

@@ -176,8 +176,6 @@ const handleCheckout = async () => {
   const success = await cartStore.checkout(couponCode.value);
 
   if (success) {
-    userStore.setCheckoutData(cartStore.checkoutData);
-    console.log("Checkout data before push:", cartStore.checkoutData);
     router.push("/checkout");
   }
 };

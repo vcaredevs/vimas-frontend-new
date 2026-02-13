@@ -156,6 +156,12 @@
     .section{
         padding: 17rem 0 !important;
     }
+    @media(max-width:991px){
+
+.section{
+    padding: 10rem 0 !important;
+}
+}
         .product-item {
             border-radius: 12px;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
