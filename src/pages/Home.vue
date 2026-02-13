@@ -307,7 +307,11 @@
             font-family: 'Cream Cake';
             /* SERVES YOUR NEEDS */
         }
-
+@media(max-width:991px){
+    .hero-section {
+    padding-top: 74px !important;
+}
+}
         #popular-category .section-title {
             font-weight: 800;
             margin: .25rem 0 1rem;

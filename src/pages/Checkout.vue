@@ -1,4 +1,11 @@
 <template>
+    <div v-if="waitpayment" class="payment-loader">
+  <div class="loader-box">
+    <div class="spinner-border text-light"></div>
+    <p class="mt-3">loading...</p>
+  </div>
+</div>
+
         <!-- breadcrumb area start here  -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -14,7 +21,11 @@
     <!-- breadcrumb area end here  -->
        <!-- checkout page area start here  -->
     <section class="page-content section">
-        <div class="checkout">
+        <div v-if="cartStore.checkoutLoading" class="checkout-loader">
+  <div class="spinner-border text-dark" role="status"></div>
+  <p class="mt-3">Loading checkout...</p>
+</div>
+        <div class="checkout" v-else>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
@@ -251,7 +262,10 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../assets/js/store";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-const { store } = useUserStore();
+import { useCartStore } from "../cartStore";
+const { store,setCheckoutData } = useUserStore();
+
+
 //  const checkoutData=store.checkoutData?.cart_details || []
 // const checkoutData = store.checkoutData;
 const router = useRouter();
@@ -260,7 +274,7 @@ const cartIDetails = ref([]);
 let orderId = ref(null);
 const addresses = ref([]);
 const addressdetails = ref(null);
-
+const cartStore=useCartStore();
 const subtotal = computed(() => {
   return cartIDetails.value.reduce((total, item) => {
     const qty = Number(item.qty || 1);
@@ -369,15 +383,14 @@ const userId=7;
 const couponcode = ref("");
 const fetchproductcheckout = () => {
   
-
-  const res = store.checkoutData.data;
+ const res = cartStore.checkoutData.data;
+//   const res = store.checkoutData.data;
 
   if (!res?.cart_details) return;
 
   cartIDetails.value = res.cart_details;
   orderId.value = res.orderId;
-    console.log("cartIDetails.value",cartIDetails.value);
-      console.log("res.orderId",res.orderId);
+  
 };
 const defaultAddress = computed(() => {
   if (!Array.isArray(addresses.value)) return null;
@@ -393,10 +406,11 @@ watch(defaultAddress, (val) => {
 });
 onMounted(() => {
   fetchAddresses();
+//  fetchproductcheckout();
 });
 
 watch(
-  () => store.checkoutData,
+  () =>cartStore.checkoutData,
   (val) => {
     // console.log("CheckoutData in checkout page:", val);
     if (!val) return;
@@ -416,7 +430,7 @@ watch(
   },
   { immediate: true }
 );
-
+  
 
 const showDefaultAddress = ref(true);
 const addressForm = ref({
@@ -435,7 +449,8 @@ const addressForm = ref({
 // let ordersId = ref(null);
 
 const payNow = async () => {
-  if (!addressdetails.value) {
+    try {
+        if (!addressdetails.value) {
     alert("Please add or select a delivery address");
     return;
   }
@@ -489,7 +504,7 @@ const payNow = async () => {
 
       if (res?.data?.status && res?.data?.data?.id) {
         localStorage.setItem("orderId", btoa(res.data.data.id));
-        waitpayment.value = false;
+    
         router.push({ name: "Success" });
       }
     },
@@ -509,6 +524,39 @@ const payNow = async () => {
   rzp.on("payment.failed", function (response) {
     console.error(" Payment Failed:", response.error);
     alert(response.error.description);
-  });
+  });  
+    } catch (error) {
+    console.error(error);
+  } finally {
+    waitpayment.value = false; 
+  }
+
 };
 </script>   
+<style scoped>
+.payment-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-box {
+  text-align: center;
+  color: white;
+}
+.checkout-loader {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>

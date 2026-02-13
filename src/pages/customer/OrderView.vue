@@ -289,8 +289,8 @@ onMounted(() => {
 }
 .purchaat {
   border: 1px solid #cfcfcf;
-  color: #0e302a;
-  background-color: #fffaf3;
+  color: #000;
+  background-color: #ececea;
   height: 42px;
   width: 227px;
   padding: 0 5px;
@@ -306,7 +306,7 @@ onMounted(() => {
 .shippadd {
   font-size: 15px;
   font-weight: 800;
-  color: #0e302a;
+  color: #000;
 }
 .para {
   font-size: 14px;
@@ -322,7 +322,7 @@ onMounted(() => {
   width: 337px;
   border-radius: 10px;
   border: solid 1px #ebebeb;
-  background-color: #edefe1;
+  background-color: #ececea;
   margin: 15px 0;
   font-weight: 300;
   font-size: 14px;
@@ -356,6 +356,35 @@ onMounted(() => {
   color: #323232;
 }
 .mt2 {
-  margin-top: 2rem;
+  margin-top: 11rem;
 }
+@media (max-width:991px){
+  .mt2 {
+  margin-top: 5rem;
+}
+}
+#backBtn {
+  background-color: transparent;
+  border: none;
+  color: #323232;
+  margin-right: 15px;
+  font-size: 12px;
+}
+.track_btn {
+    margin-right: 10px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    background-color: #000 !important;
+    color: #fff !important;
+    font-size: 12px;
+    border: 1px solid !important;
+}
+
+.ord_pro_img {
+  height: 80px;
+  width: auto;
+  margin-right: 15px;
+
+}
+
 </style>
