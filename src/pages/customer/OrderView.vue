@@ -28,15 +28,15 @@
             <div class="position-relative order_address mb-4">
               <div
                 class="def_add_details"
-                v-if="orderViewDetails && orderViewDetails.address"
+                v-if="orderViewDetails && orderViewDetails.default_address"
               >
                 <h6 class="shippadd">Default Address</h6>
-                <span class="para">{{ orderViewDetails.address.name }}</span
+                <span class="para">{{ orderViewDetails.default_address.name }}</span
                 ><br />
                 <span>
-                  {{ orderViewDetails.address.address }}<br />
-                  {{ orderViewDetails.address.city }}<br />
-                  {{ orderViewDetails.address.state }}<br />
+                  {{ orderViewDetails.default_address.address }}<br />
+                  {{ orderViewDetails.default_address.city }}<br />
+                  {{ orderViewDetails.default_address.state }}<br />
                 </span>
               </div>
             </div>
@@ -44,15 +44,15 @@
             <div class="position-relative order_address mb-4">
               <div
                 class="def_add_details"
-                v-if="orderViewDetails && orderViewDetails.address"
+                v-if="orderViewDetails && orderViewDetails.shipment_address"
               >
                 <h3 class="shippadd">Shipping Address</h3>
-                <span class="para">{{ orderViewDetails.address.name }}</span
+                <span class="para">{{ orderViewDetails.shipment_address.name }}</span
                 ><br />
                 <span>
-                  {{ orderViewDetails.address.address }}<br />
-                  {{ orderViewDetails.address.city }}<br />
-                  {{ orderViewDetails.address.state }}<br />
+                  {{ orderViewDetails.shipment_address.address }}<br />
+                  {{ orderViewDetails.shipment_address.city }}<br />
+                  {{ orderViewDetails.shipment_address.state }}<br />
                 </span>
               </div>
             </div>
