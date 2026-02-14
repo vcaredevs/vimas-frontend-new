@@ -7,7 +7,7 @@
     <div class="page__wrapper">
       <div class="row justify-content-center mt2">
         <div class="col-12 col-sm-12 col-md-11">
-          <div class="d-flex gap-2">
+          <div class="d-flex gap-2" id="mobview">
             <button id="backBtn" @click="goBack">
               <i class="bi bi-chevron-left"></i>
             </button>
@@ -316,6 +316,18 @@ onMounted(() => {
   padding: 16px;
   border-radius: 8px;
 }
+@media(max-width:767px){
+#mobview{
+    display: flex !important;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.pTop {
+    padding-top: 2rem;
+}
+}
 
 .order_address {
   height: 194px;
@@ -362,6 +374,7 @@ onMounted(() => {
   .mt2 {
   margin-top: 5rem;
 }
+
 }
 #backBtn {
   background-color: transparent;

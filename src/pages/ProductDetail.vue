@@ -5,7 +5,9 @@
             <div class="breadcrumb-wrap text-center">
                 <h2 class="page-title">{{ product.product.name }}</h2>
                 <ul class="breadcrumb-pages">
-                    <li class="page-item"><a class="page-item-link" href="https://inway.com.in:443../shop/skin-care">{{ product.product.product_collections[0].name }}</a></li>
+                 
+                  <li class="page-item"><router-link to="/shop"><a class="page-item-link" href="https://inway.com.in:443../shop/skin-care">{{ product.product.product_collections[0].name }}</a></router-link></li>
+            
                     <li class="page-item">{{ product.product.name }}</li>
                 </ul>
             </div>
