@@ -90,7 +90,7 @@
                 </div>
                
                 <nav aria-label="Page navigation example ">
-              <ul class="pagination mt-4 d-flex justify-content-center gap-2">
+              <ul class="pagination  d-flex justify-content-center gap-2">
                 <li
                   class="page-item"
                   :disabled="currentPage === 1"
@@ -190,6 +190,9 @@
         .add_to_cart_button:hover {
             background: black;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        .pagination{
+          padding-top: 8rem;
         }
     .custom-spinner {
   width: 20px;

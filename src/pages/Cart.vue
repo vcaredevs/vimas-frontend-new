@@ -145,14 +145,21 @@
                 <!-- Totals -->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                     <div class="cart-page-bottom-box cart-page-sub-total-box">
+        
 
-     <div class="form-button text-center" @click="handleCheckout()" style="cursor: pointer;">
-                            <a  class="form-btn proceed-to-checkout-btn">Proceed To Checkout</a>
+     <div class="form-button text-center" @click="handleCheckout()" :style="{cursor: checkoutLoading? 'not-allowed': 'pointer'}">
+                            <a  class="form-btn proceed-to-checkout-btn">     <span v-if="checkoutLoading">
+    <span class="loader"></span> Processing...
+  </span>
+
+  <span v-else>
+    Proceed To Checkout
+  </span></a>
                         </div>
 
                        
                     </div>
-                </div>
+                </div>  
                 <!-- Cart page bottom box -->
             </div>
             <!-- Cart Page Bottom box area End -->
@@ -161,6 +168,25 @@
     </div>
     <!-- wish-list area end here  -->
 </template>
+<style scoped>
+ .loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useCartStore } from '../cartStore';
@@ -169,15 +195,25 @@ import { useRouter } from "vue-router";
 import { useUserStore } from '../assets/js/store';
 const cartStore=useCartStore();
 const couponCode = ref("");
+const checkoutLoading=ref(false);
 const router=useRouter();
 const loading = ref(true);
 const userStore=useUserStore()
 const handleCheckout = async () => {
-  const success = await cartStore.checkout(couponCode.value);
+   if (checkoutLoading.value) return;
+     checkoutLoading.value = true;
+     try {
+        const success = await cartStore.checkout(couponCode.value);
 
   if (success) {
     router.push("/checkout");
   }
+     } catch (error) {
+     console.error(error);
+  } finally {
+    checkoutLoading.value = false;
+  }
+
 };
 onMounted(async () => {
   loading.value = true;

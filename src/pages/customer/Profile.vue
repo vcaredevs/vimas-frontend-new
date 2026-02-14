@@ -533,6 +533,10 @@ import {
 } from "../../services/apiService";
 import { image_url } from "../../config/api";
 const cropperImage = ref(null);
+const activeMobileTab = ref(null);
+const windowWidth = ref(window.innerWidth);
+
+const isMobile = computed(() => windowWidth.value < 768);
 
 const fileInput = ref(null);
 const selectedFile = ref(null);
@@ -547,21 +551,47 @@ const route = useRoute();
 const openOrderTab = () => {
   const orderTab = document.querySelector("#Order-tab");
 
-  if (!orderTab) return;
-
-  if (window.bootstrap && window.bootstrap.Tab) {
-    const tab = new window.bootstrap.Tab(orderTab);
-    tab.show();
-    fetchOrderDetails();
-  } else {
-    console.error("Bootstrap Tab not available");
+  if (window.bootstrap?.Tab && orderTab) {
+    new window.bootstrap.Tab(orderTab).show();
   }
+
+  fetchOrderDetails();
+  openMobileTab("Order"); 
+};
+
+// const openOrderTab = () => {
+//   const orderTab = document.querySelector("#Order-tab");
+
+//   if (!orderTab) return;
+
+//   if (window.bootstrap && window.bootstrap.Tab) {
+//     const tab = new window.bootstrap.Tab(orderTab);
+//     tab.show();
+//     fetchOrderDetails();
+//   } else {
+//     console.error("Bootstrap Tab not available");
+//   }
+// };
+const openMobileTab = (tab) => {
+  if (isMobile.value) {
+    activeMobileTab.value = tab;
+  }
+};
+
+const goBackMenu = () => {
+  activeMobileTab.value = null;
 };
 
 onMounted(() => {
   if (route.query.tab === "order") {
     openOrderTab();
   }
+  
+});
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    windowWidth.value = window.innerWidth;
+  });
 });
 
 watch(
@@ -832,6 +862,7 @@ onMounted(() => {
   margin: auto;
   width: 100px;
 }
+
 #cropper-image {
   width: 150px !important;
 }
@@ -931,6 +962,7 @@ button.btn.btn-dark.mt-2 {
   .promo-banner h2 {
     font-size: 1.5rem;
   }
+
 }
 
 
@@ -1853,7 +1885,12 @@ button.btn.btn-outline-secondary.qun_min {
   text-align: left;
 
 }
+@media (max-width:991px){
+.personal_info_sec{
+    padding-top: 10rem !important;
+}
 
+}
 .faq_sub_head {
   font-size: 30px;
   color: #2d2d2d;
@@ -2611,9 +2648,7 @@ button#addAddressBtn {
   width: auto !important;
 
 }
-.add_address_btn:hover{
-  background-color: #226a5f;
-}
+
 
 .def_name {
   font-weight: 400;

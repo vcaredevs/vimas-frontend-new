@@ -30,19 +30,19 @@
                             <ul class="navbar_menu">
 
 <router-link to="/">
- <li class="menu-item"><a class="menu-link" href="./index.html" id="13">	HOME</a></li>
+ <li class="menu-item"><a class="menu-link"  id="13">	HOME</a></li>
 </router-link>
                                
 <router-link to="/about-us">
 
-                                <li class="menu-item"><a class="menu-link" href="./page/about-us.html" id="14">	ABOUT US</a></li>
+                                <li class="menu-item"><a class="menu-link"  id="14">	ABOUT US</a></li>
 </router-link>
 <router-link to="/shop">
-                                <li class="menu-item"><a class="menu-link" href="./page/shop.html" id="39">	SHOP</a></li>
+                                <li class="menu-item"><a class="menu-link"  id="39">	SHOP</a></li>
 
 </router-link>
 <router-link to="/contact-us">
-                                <li class="menu-item"><a class="menu-link" href="./page/contact.html" id="44">	CONTACT</a></li>
+                                <li class="menu-item"><a class="menu-link"  id="44">	CONTACT</a></li>
                             </router-link>
                             </ul>
                             <div class="hamburger_container">
@@ -95,20 +95,28 @@
 
             <ul class="menu_top_nav">
 
-
-                <li class="menu-item" id="menu-item"><a class="menu-link" href="https://inway.com.in:443./home" id="13">	HOME</a></li>
+<router-link to="/">
+<li class="menu-item" id="menu-item"><a class="menu-link"  id="13">	HOME</a></li>
+</router-link>
+                
                 <hr>
 
-
-                <li class="menu-item" id="menu-item"><a class="menu-link" href="https://inway.com.in:443./page/about-us" id="14">	ABOUT US</a></li>
+<router-link to="/about-us">
+<li class="menu-item" id="menu-item"><a class="menu-link"  id="14">	ABOUT US</a></li>
+</router-link>
+                
                 <hr>
 
-
-                <li class="menu-item" id="menu-item"><a class="menu-link" href="https://inway.com.in:443./shop" id="39">	SHOP</a></li>
+<router-link to="/shop">
+ <li class="menu-item" id="menu-item"><a class="menu-link" id="39">	SHOP</a></li>
+</router-link>
+               
                 <hr>
 
-
-                <li class="menu-item" id="menu-item"><a class="menu-link" href="https://inway.com.in:443./contact" id="44">	CONTACT</a></li>
+<router-link to="/contact-us">
+ <li class="menu-item" id="menu-item"><a class="menu-link"  id="44">	CONTACT</a></li>
+</router-link>
+               
                 <hr>
 
             </ul>
@@ -243,8 +251,14 @@
                     <h3>Total</h3>
                     <h4><span class="side-cart-prod-over-totals">₹{{ cartStore.subtotal }}</span></h4>
                 </div>
-                  <a  @click="handleCheckout()" class="proceed-to-btn d-block text-center" style="cursor: pointer;">
-          Proceed To Checkout
+                  <a  @click="handleCheckout()" class="proceed-to-btn d-block text-center" :style="{ cursor: checkoutLoading ? 'not-allowed' : 'pointer' }">
+          <span v-if="checkoutLoading">
+    <span class="loader"></span> Processing...
+  </span>
+
+  <span v-else>
+    Proceed To Checkout
+  </span>
         </a>
                 <div class="view-cart-go">
                 <router-link to="/cart">
@@ -371,6 +385,37 @@ View Cart
   border-radius: 50%;
   text-align: center;
 }
+@media(max-width:991px){
+  .cart-wrapper .btn-icon,.fa-user{
+        font-size: 25px;
+  }
+}
+@media (max-width: 480px) {
+    #selector-menu {
+      margin-left:0 !important; 
+      margin-top: 0 !important;
+    }
+    .cart-wrapper .btn-icon,.fa-user{
+        font-size: 20px;
+  }
+  }
+  .loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 </style>
 <script setup>
@@ -381,7 +426,7 @@ import { useCartStore } from "../cartStore";
 import { onMounted, ref } from "vue";
 import { useUserStore } from "../assets/js/store";
 
-
+const checkoutLoading=ref(false);
 const router=useRouter();
 const cartStore=useCartStore();
 const couponCode = ref("");
@@ -391,12 +436,20 @@ const isLoggedIn = () => {
 };
 
 const handleCheckout = async () => {
-  const success = await cartStore.checkout(couponCode.value);
+   if (checkoutLoading.value) return;
+     checkoutLoading.value = true;
+     try {
+        const success = await cartStore.checkout(couponCode.value);
 
   if (success) {
-    // userStore.setCheckoutData({ ...cartStore.checkoutData });
     router.push("/checkout");
   }
+     } catch (error) {
+     console.error(error);
+  } finally {
+    checkoutLoading.value = false;
+  }
+
 };
 
 

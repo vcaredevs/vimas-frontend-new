@@ -261,7 +261,10 @@ const checkout = async (couponCode = null) => {
     : null;
 
   const payload = {
-    coupon_code: couponCode,
+    id:userId,
+     coupon_code: "",
+  shipping_method: "default",
+  shipping_option: "standard"
   };
   checkoutLoading.value = true;
   try {

@@ -309,7 +309,7 @@
         }
 @media(max-width:991px){
     .hero-section {
-    padding-top: 74px !important;
+    padding-top: 48px !important;
 }
 }
         #popular-category .section-title {
