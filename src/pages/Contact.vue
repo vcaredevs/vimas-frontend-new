@@ -28,7 +28,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single-contact-info border-0 text-center">
-                                    <img class="contact-info-icon" src="../ui/images/contact-info-1.webp" alt="contact-info" />
+                                    <img class="contact-info-icon" src="@/assets/ui/images/contact-info-1.webp" alt="contact-info" />
                                     <h3 class="contact-info-title">Message</h3>
                                     <p class="contact-info-content">Send us a text & an ambassador will respond +919944536363</p>
                                 </div>
@@ -36,7 +36,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single-contact-info text-center">
-                                    <img class="contact-info-icon" src="../ui/images/contact-info-2.webp" alt="contact-info" />
+                                    <img class="contact-info-icon" src="@/assets/ui/images/contact-info-2.webp" alt="contact-info" />
                                     <h3 class="contact-info-title">Address</h3>
                                     <p class="contact-info-content">no.15,new giri road, T nagar, ,Chennai, 600017,India</p>
                                 </div>
@@ -44,7 +44,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single-contact-info text-center">
-                                    <img class="contact-info-icon" src="../ui/images/contact-info-3.webp" alt="contact-info" />
+                                    <img class="contact-info-icon" src="@/assets/ui/images/contact-info-3.webp" alt="contact-info" />
                                     <h3 class="contact-info-title">We're Open</h3>
                                     <p class="contact-info-content">Our store has opened for shopping, exchanges Every day 11am to 7pm</p>
                                 </div>

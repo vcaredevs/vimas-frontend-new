@@ -126,9 +126,9 @@
     <div class="mobile-header-area d-block d-lg-none  bg-light">
         <div class="container">
             <div class="menu-wrap">
-                <div class="header-left">
-                    <a class="brand-logo" href="https://inway.com.in:443."><img class="brand-image" src="./image-250-78/uploads_setting_uploads-setting-vimas-logo-png-1.png" alt="Quick Ecommerce" /></a>
-                </div>
+                <!-- <div class="header-left">
+                    <a class="brand-logo" ><img class="brand-image" src="./image-250-78/uploads_setting_uploads-setting-vimas-logo-png-1.png" alt="Quick Ecommerce" /></a>
+                </div> -->
                 <div class="header-right">
                     <a data-bs-toggle="offcanvas" href="#cartOffcanvasSidebar" role="button" aria-controls="cartOffcanvasSidebar" class="cart-btn header-btn">
                         <div class="btn-left selector menu">
@@ -439,6 +439,10 @@ const handleCheckout = async () => {
    if (checkoutLoading.value) return;
      checkoutLoading.value = true;
      try {
+       if (!isLoggedIn()) {
+    router.push("/login");
+      return;
+  } 
         const success = await cartStore.checkout(couponCode.value);
 
   if (success) {

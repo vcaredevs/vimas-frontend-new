@@ -6951,7 +6951,7 @@ ul {
     height: 5.4rem;
     border-radius: 50%;
     background-color: var(--black);
-    color: var(--white);
+    /* color: var(--white); */
     font-size: 2.5rem;
     line-height: 1;
     -webkit-transition: all 0.3s linear;

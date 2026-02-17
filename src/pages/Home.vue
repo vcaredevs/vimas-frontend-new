@@ -206,7 +206,7 @@
                         <div class="product-item category-31">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <a :href="`/product/${product.slugable.key}`">
+                                    <a :href="`/vimas/product/${product.slugable.key}`">
                     <img class="product-thumbnail" :src="image_url+product.image" :alt="product.name" />
                   </a>
                                 </div>

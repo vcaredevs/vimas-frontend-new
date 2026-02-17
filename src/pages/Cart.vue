@@ -199,10 +199,17 @@ const checkoutLoading=ref(false);
 const router=useRouter();
 const loading = ref(true);
 const userStore=useUserStore()
+const isLoggedIn = () => {
+  return !!localStorage.getItem("authToken");
+};
 const handleCheckout = async () => {
    if (checkoutLoading.value) return;
      checkoutLoading.value = true;
      try {
+        if (!isLoggedIn()) {
+    router.push("/login");
+      return;
+  } 
         const success = await cartStore.checkout(couponCode.value);
 
   if (success) {
