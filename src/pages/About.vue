@@ -175,13 +175,13 @@
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-1.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-1.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-1.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                     <div class="single-gallery big-height">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-2.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-2.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-2.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                 </div>
@@ -189,19 +189,19 @@
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-3.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-3.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-3.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-4.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-4.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-4.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-5.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-5.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-5.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                 </div>
@@ -209,13 +209,13 @@
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-6.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-6.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-6.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                     <div class="single-gallery">
                         <img class="gallery-image" src="@/assets/ui/images/gallery-7.webp" alt="gallery" />
                         <div class="popuo-overlay">
-                            <a class="popup-image" href="@/assets/ui/images/gallery-7.webp"><i class="view-icon flaticon-view"></i></a>
+                            <a class="popup-image" href="src/assets/ui/images/gallery-7.webp"><i class="view-icon flaticon-view"></i></a>
                         </div>
                     </div>
                 </div>

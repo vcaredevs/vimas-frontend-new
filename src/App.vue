@@ -13,6 +13,7 @@ const openSearch = ref(false);
 
     <SearchDrawer :open="openSearch" @close="openSearch = false" />
     <v-main>
+      
       <router-view />
     </v-main>
 

@@ -115,10 +115,10 @@ const addOrUpdateCart = async (product, qty = 1) => {
     
   const userId = getOrCreateAuthUserId();
   console.log("userId=====>",userId);
-
+ loadingProductId.value= product.id; 
   try {
 
- loadingProductId.value= product.id; 
+
     const res = await addToCartApi({
       user_id: userId,
       product_id: product.product.id,
@@ -160,14 +160,16 @@ const addOrUpdateCart = async (product, qty = 1) => {
       } catch (updateError) {
         toast.error("Failed to update cart!");
       }
-       finally {
-        loadingProductId.value= null; 
-      }
+     
 
     } else {
       toast.error(error?.response?.data?.msg || "Something went wrong!");
     }
+      
   }
+  finally {
+        loadingProductId.value= null; 
+      }
 };
 
   /* ===============================

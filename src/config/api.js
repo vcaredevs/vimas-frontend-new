@@ -1,5 +1,8 @@
-export const BASE_URL = "http://127.0.0.1:8000/api";
-export const image_url = "http://127.0.0.1:8000/storage/";
+// export const BASE_URL = "http://127.0.0.1:8000/api";
+// export const image_url = "http://127.0.0.1:8000/storage/";
+export const BASE_URL = "https://192.168.1.120/vimas-backend/public/api";
+export const image_url = "https://192.168.1.120/vimas-backend/storage/";
+export const imageUrl = "http://127.0.0.1:8000";
 export const razorpay_key = "rzp_test_S3klEShimc5g8E";
 export const razorpay_secret = "3NnpfJogmmBmUwPh7whLXWg5";
 export const API_ENDPOINTS = {

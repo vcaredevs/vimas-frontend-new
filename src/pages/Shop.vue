@@ -44,8 +44,8 @@
                  >
 
                         <!-- Product Image -->
-                         <!-- <a :href="`/product/${product.slug.key?product.slug.key:slugable.key}`" class="product_image d-block text-center p-3"> -->
-                        <a  class="product_image d-block text-center p-3">
+                         <a :href="`/vimas/product/${product.slug?.key || product.slugable?.key}`" class="product_image d-block text-center p-3">
+                        <!-- <a  class="product_image d-block text-center p-3"> -->
 							<img class="product-thumbnal img-fluid rounded" 
                              :src="image_url + product.image"
                           :alt="product.name"
@@ -88,8 +88,12 @@
                         </div>
                     </div>
                 </div>
-               
-                <nav aria-label="Page navigation example ">
+               <nav
+  v-if="lastPage > 1 && !selectedCategory"
+  aria-label="Page navigation example "
+>
+
+                <!-- <nav aria-label="Page navigation example "> -->
               <ul class="pagination  d-flex justify-content-center gap-2">
                 <li
                   class="page-item"
@@ -255,6 +259,8 @@ console.log("category products",res);
 
     // this API usually returns plain array
     productList.value = res.data.data ?? res.data;
+      currentPage.value = 1;
+    lastPage.value = 1;
   } catch (err) {
     console.error("Error fetching category products:", err);
     productList.value = [];

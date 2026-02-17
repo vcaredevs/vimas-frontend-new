@@ -293,6 +293,7 @@ const total = computed(() => {
   return subtotal.value + shippingAmnt.value;
 });
 
+
 const showAddressModal = ref(false);
 const loading = ref(false);
 const form = ref({
@@ -483,6 +484,7 @@ const payNow = async () => {
         grandTotal: Math.round(total.value),
         tax: 0,
         shipping_amount: shippingAmnt.value,
+
         address: normalizedAddress,
         payment: response,
         userId: userId,

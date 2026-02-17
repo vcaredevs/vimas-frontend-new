@@ -6,7 +6,7 @@
                 <h2 class="page-title">{{ product.product.name }}</h2>
                 <ul class="breadcrumb-pages">
                  
-                  <li class="page-item"><router-link to="/shop"><a class="page-item-link" href="https://inway.com.in:443../shop/skin-care">{{ product.product.product_collections[0].name }}</a></router-link></li>
+                  <li class="page-item"><router-link to="/shop"><a class="page-item-link" href="https://inway.com.in:443../shop/skin-care">{{ product.product.product_collections[0]?.name }}</a></router-link></li>
             
                     <li class="page-item">{{ product.product.name }}</li>
                 </ul>
@@ -57,7 +57,7 @@
                     <div class="col-lg-6">
                         <div class="product-single-right">
                             <div class="product-info">
-                                <h4 class="product-catagory"> {{ product.product.product_collections[0].name }}</h4>
+                                <h4 class="product-catagory"> {{ product.product.product_collections[0]?.name }}</h4>
                                 <h3 class="product-name"> {{ product.product.name }}</h3>
 
                                 <div class="product-price">
@@ -239,7 +239,7 @@
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { getProductDetails, getProducts } from "../services/apiService";
-import { image_url } from "../config/api";
+import { image_url,imageUrl } from "../config/api";
 
 import { useUserStore } from "../assets/js/store";
 import { useCartStore } from "../cartStore";
@@ -248,7 +248,7 @@ const route = useRoute();
 const cartStore=useCartStore();
 const slug = route.params.slug;
 const product = ref(null);
-const imageUrl = "http://127.0.0.1:8000";
+// const imageUrl = "http://127.0.0.1:8000";
 const products = ref([]);
 const slideIndex = ref(0);
 const pageLoading = ref(true);  
