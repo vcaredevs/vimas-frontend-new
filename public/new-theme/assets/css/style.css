@@ -6947,12 +6947,12 @@ ul {
     -webkit-box-direction: normal;
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
-    width: 5.4rem;
-    height: 5.4rem;
+    /* width: 5.4rem;
+    height: 5.4rem; */
     border-radius: 50%;
-    background-color: var(--black);
+    /* background-color: var(--black); */
     /* color: var(--white); */
-    font-size: 2.5rem;
+    font-size:0rem;
     line-height: 1;
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;

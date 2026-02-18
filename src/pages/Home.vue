@@ -90,9 +90,9 @@
                 <div class="col-md-4" v-for="(item, index) in categories" :key="index">
                     
                     <div class="banner_item">
-                      
-                        <div class="card category-card">
-                          <router-link to="/shop">   <a class="single-categorie" href="https://inway.com.in:443./shop/skin-care">
+                           <!-- <div class="card category-card">
+                          <router-link to="/shop" class="single-categorie">   
+                           
                                 <div class="image-container">
                                     <img :src="image_url + item.image" :alt="item.name"  class="img-fluid">
                                 </div>
@@ -100,8 +100,22 @@
                                     <h1 class="categorie-name">{{ item.name }}</h1>
                                     <h1 class="categorie-subtitle">Beauty is the fashion</h1>
                                 </div>
-                            </a>
+                          
                             </router-link> 
+                        </div> -->
+                      
+                        <div class="card category-card" style="cursor: pointer;"  @click="goToCategory(item)">
+                          <!-- <router-link to="/shop">    -->
+                            <div class="single-categorie" >
+                                <div class="image-container">
+                                    <img :src="image_url + item.image" :alt="item.name"  class="img-fluid">
+                                </div>
+                                <div class="categorie-wrap">
+                                    <h1 class="categorie-name">{{ item.name }}</h1>
+                                    <h1 class="categorie-subtitle">Beauty is the fashion</h1>
+                                </div>
+                            </div>
+                            <!-- </router-link>  -->
                         </div>
                       
                     </div>
@@ -719,12 +733,14 @@ import { getCategory, getCollectionList, getCollectionListById} from '../service
 import { image_url } from '../config/api'
 
 import { useCartStore } from '../cartStore'
+import { useRouter } from 'vue-router'
 const modules = [Autoplay]
 const categories = ref([]);
 const collectionList=ref([])
 const productList=ref([])
 const cartStore=useCartStore();
-const activeCollection = ref(null)
+const activeCollection = ref(null);
+const router=useRouter();
 const stories = [
   { title: "Beginning", year: "2016", content: "Vimas was born with a vision." },
   { title: "Expansion", year: "2017", content: "Expanded into local markets." },
@@ -770,6 +786,11 @@ console.log("productList.value",productList.value);
     }
     
 }
+const goToCategory = (item) => {
+    console.log("item",item);
+    
+ router.push(`/shop/product-categories/${item.slugable.key}`);
+};
 watch(collectionList, (newList) => {
   if (newList.length && !activeCollection.value) {
     const firstCollection = newList[0];

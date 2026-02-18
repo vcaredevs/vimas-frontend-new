@@ -3,401 +3,397 @@
     <div class="page__wrapper">
       <section class="personal_info_sec container-fluid">
         <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-11 col-sm-11 col-12">
-            <div class="row">
-              <div
-                class="col-lg-3 col-md-4 d-flex align-items-center flex-column"
-                role="tablist"
-              >
-                <div id="myTab" class="w-100">
-                  <div class="w-100 text-center">
-                    <div class="user-img mb-2">
-                      <!-- <img src="../../assets/images/ela.png" alt="" /> -->
-                      <img
-                        :src="image_url + customer?.avatar"
-                        :alt="customer?.name"
-                        class="rounded-circle w-100"
-                      />
+          <div class="row justify-content-center">
+            <div class="col-md-11 col-sm-11 col-12">
+              <div class="row">
+                <div
+                  class="col-lg-3 col-md-4 d-flex align-items-center flex-column"
+                  role="tablist"
+                >
+                  <div id="myTab" class="w-100">
+                    <div class="w-100 text-center">
+                      <div class="user-img mb-2">
+                        <!-- <img src="../../assets/images/ela.png" alt="" /> -->
+                        <img
+                          :src="image_url + customer?.avatar"
+                          :alt="customer?.name"
+                          class="rounded-circle w-100"
+                        />
+                      </div>
+                      <div class="user_name">{{ customer?.name }}</div>
+                      <div class="user_mobile">{{ customer?.phone }}</div>
                     </div>
-                    <div class="user_name">{{ customer?.name }}</div>
-                    <div class="user_mobile">{{ customer?.phone }}</div>
-                  </div>
-                  <div class="personal_info_nav_menu" role="presentation">
-                    <a
-                      class="tab-link active d-flex align-items-center justify-content-between"
-                      id="Information-tab"
-                      data-bs-toggle="pill"
-                      href="#Information"
-                      role="tab"
-                      aria-controls="Information"
-                      aria-selected="true"
-                      ><span class="tab_icon d-flex align-items-center"
-                        ><i class="bi bi-person"></i> Personal Information</span
-                      ><i class="bi bi-chevron-right"></i
-                    ></a>
-                  </div>
-                  <div class="personal_info_nav_menu" role="presentation">
-                    <a
-                      class="tab-link d-flex align-items-center justify-content-between"
-                      id="Order-tab"
-                      data-bs-toggle="pill"
-                      href="#Order"
-                      role="tab"
-                      aria-controls="Order"
-                      aria-selected="false"
-                      @click="fetchOrderDetails"
-                      ><span class="tab_icon d-flex align-items-center"
-                        ><i class="bi bi-box"></i> Order History</span
-                      ><i class="bi bi-chevron-right"></i
-                    ></a>
-                  </div>
-                  <div class="personal_info_nav_menu" role="presentation">
-                    <a
-                      class="tab-link d-flex align-items-center justify-content-between"
-                      id="Address-tab"
-                      data-bs-toggle="pill"
-                      href="#Address"
-                      role="tab"
-                      aria-controls="Address"
-                      aria-selected="false"
-                      @click="fetchAddresses"
-                      ><span class="tab_icon d-flex align-items-center"
-                        ><i class="bi bi-geo-alt"></i> Address</span
-                      ><i class="bi bi-chevron-right"></i
-                    ></a>
-                  </div>
+                    <div class="personal_info_nav_menu" role="presentation">
+                      <a
+                        class="tab-link active d-flex align-items-center justify-content-between"
+                        id="Information-tab"
+                        data-bs-toggle="pill"
+                        href="#Information"
+                        role="tab"
+                        aria-controls="Information"
+                        aria-selected="true"
+                        ><span class="tab_icon d-flex align-items-center"
+                          ><i class="bi bi-person"></i> Personal
+                          Information</span
+                        ><i class="bi bi-chevron-right"></i
+                      ></a>
+                    </div>
+                    <div class="personal_info_nav_menu" role="presentation">
+                      <a
+                        class="tab-link d-flex align-items-center justify-content-between"
+                        id="Order-tab"
+                        data-bs-toggle="pill"
+                        href="#Order"
+                        role="tab"
+                        aria-controls="Order"
+                        aria-selected="false"
+                        @click="fetchOrderDetails"
+                        ><span class="tab_icon d-flex align-items-center"
+                          ><i class="bi bi-box"></i> Order History</span
+                        ><i class="bi bi-chevron-right"></i
+                      ></a>
+                    </div>
+                    <div class="personal_info_nav_menu" role="presentation">
+                      <a
+                        class="tab-link d-flex align-items-center justify-content-between"
+                        id="Address-tab"
+                        data-bs-toggle="pill"
+                        href="#Address"
+                        role="tab"
+                        aria-controls="Address"
+                        aria-selected="false"
+                        @click="fetchAddresses"
+                        ><span class="tab_icon d-flex align-items-center"
+                          ><i class="bi bi-geo-alt"></i> Address</span
+                        ><i class="bi bi-chevron-right"></i
+                      ></a>
+                    </div>
 
-                  <div class="personal_info_nav_menu" role="presentation">
-                    <router-link
-                      class="tab-link d-flex align-items-center justify-content-between logout"
-                      href="#"
-                      :to="{ name: 'Login' }"
-                      @click="logout"
-                    >
-                      <span class="tab_icon d-flex align-items-center">
-                        <i class="bi bi-box-arrow-right"></i>
-                        Logout
-                      </span>
-                    </router-link>
+                    <div class="personal_info_nav_menu" role="presentation">
+                      <router-link
+                        class="tab-link d-flex align-items-center justify-content-between logout"
+                        href="#"
+                        :to="{ name: 'Login' }"
+                        @click="logout"
+                      >
+                        <span class="tab_icon d-flex align-items-center">
+                          <i class="bi bi-box-arrow-right"></i>
+                          Logout
+                        </span>
+                      </router-link>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Tab content -->
-              <div class="col-lg-9 col-md-8">
-                <div id="myTabContent" class="tab-content">
-                  <div
-                    class="tab-pane fade show active"
-                    id="Information"
-                    role="tabpanel"
-                    aria-labelledby="Information-tab"
-                  >
-                    <div class="row g-3">
-                      <div class="pers_info_head">
-                     
-                        Personal Information
+                <!-- Tab content -->
+                <div class="col-lg-9 col-md-8">
+                  <div id="myTabContent" class="tab-content">
+                    <div
+                      class="tab-pane fade show active"
+                      id="Information"
+                      role="tabpanel"
+                      aria-labelledby="Information-tab"
+                    >
+                      <div class="row g-3">
+                        <div class="pers_info_head">Personal Information</div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="First name"
+                            aria-label="First name"
+                            :value="customer?.name"
+                            readonly
+                          />
+                        </div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Mobile No."
+                            aria-label="Mobile"
+                            :value="customer?.phone"
+                            readonly
+                          />
+                        </div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Mobile No."
+                            aria-label="Mobile"
+                            :value="customer?.phone"
+                            readonly
+                          />
+                        </div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Email Id"
+                            aria-label="Email"
+                            :value="customer?.email"
+                            readonly
+                          />
+                        </div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Gender"
+                            aria-label="Gender"
+                            :value="customer?.gender"
+                            readonly
+                          />
+                        </div>
+                        <div class="col-sm-6">
+                          <input
+                            type="text"
+                            class="form-control custom-select-date"
+                            placeholder="Date of Birth"
+                            aria-label="Date of Birth"
+                            :value="customer?.dob"
+                            readonly
+                          />
+                        </div>
                       </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="First name"
-                          aria-label="First name"
-                          :value="customer?.name"
-                          readonly
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mobile No."
-                          aria-label="Mobile"
-                          :value="customer?.phone"
-                          readonly
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mobile No."
-                          aria-label="Mobile"
-                          :value="customer?.phone"
-                          readonly
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Email Id"
-                          aria-label="Email"
-                          :value="customer?.email"
-                          readonly
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Gender"
-                          aria-label="Gender"
-                          :value="customer?.gender"
-                          readonly
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control custom-select-date"
-                          placeholder="Date of Birth"
-                          aria-label="Date of Birth"
-                          :value="customer?.dob"
-                          readonly
-                        />
-                      </div>
-                    </div>
-                    <!-- ========= -->
-                  <div class="pt-5">
-                      <div class="pers_info_head">Upload image</div>
+                      <!-- ========= -->
+                      <div class="pt-5">
+                        <div class="pers_info_head">Upload image</div>
 
-                      <div class="upload_img_sec">
-                        <div class="d-flex align-items-center">
-                          <div class="up_img">
-                            <img
-                              id="cropper-image"
-                             
-                              :src="
-                                previewImage || image_url + customer?.avatar
-                              "
-                              class="avatar-img"
-                            />
-                          </div>
-
-                          <div>
-                            <div class="upload_head">Upload file</div>
-                            <div class="upload_size py-2">JPG 120×120px</div>
-
-                            <div class="choose_file">
-                              <button
-                                class="choose_file_btn"
-                                @click="triggerFile"
-                              >
-                           
-                                Choose file
-                              </button>
-
-                              <span v-if="selectedFile">{{
-                                selectedFile.name
-                              }}</span>
-                              <span v-else>No file chosen</span>
-
-                              <input
-                                type="file"
-                                ref="fileInput"
-                                accept="image/*"
-                                hidden
-                                @change="onFileChange"
+                        <div class="upload_img_sec">
+                          <div class="d-flex align-items-center">
+                            <div class="up_img">
+                              <img
+                                id="cropper-image"
+                                :src="
+                                  previewImage || image_url + customer?.avatar
+                                "
+                                class="avatar-img"
                               />
                             </div>
 
-                            <button
-                              v-if="previewImage"
-                              class="btn btn-primary mt-2"
-                              @click="saveAvatar"
-                              :disabled="uploading"
-                            >
-                             <span v-if="uploading">
-    <span class="spinner-border spinner-border-sm me-2"></span>
-    Uploading...
-  </span>
-  <span v-else>
-    Save
-  </span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                            <div>
+                              <div class="upload_head">Upload file</div>
+                              <div class="upload_size py-2">JPG 120×120px</div>
 
-                  <div
-                    class="tab-pane fade"
-                    id="Order"
-                    role="tabpanel"
-                    aria-labelledby="Order-tab"
-                  >
-                    <div class="pers_info_head mb-4">
-                      
-                      Your Orders
-                    </div>
-                    <div class="row justify-content-center">
-                      <div class="col-md-11 col-sm-11 col-12">
-                        <div v-if="orders.data && orders.data.length === 0">
-                          <p>No orders found</p>
-                        </div>
-                        <div v-else>
-                          <div class="table-responsive d-none d-sm-block">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <td scope="col">#</td>
-                                  <td scope="col">
-                                    <div class="ord_no">Order no</div>
-                                  </td>
-                                  <td scope="col">Purchase Date</td>
-                                  <td scope="col">Total</td>
-                                  <td scope="col">Status</td>
-                                  <td scope="col">Action</td>
-                                </tr>
-                              </thead>
-
-                              <tbody>
-                                <tr
-                                  v-for="(item, index) in orders.data"
-                                  :key="item.id"
+                              <div class="choose_file">
+                                <button
+                                  class="choose_file_btn"
+                                  @click="triggerFile"
                                 >
-                                  <td>{{ index + 1 }}</td>
-                                  <td>{{ item.code }}</td>
-                                  <td>{{ dateTime(item.created_at) }}</td>
-                                  <td>Rs. {{ item.sub_total }}</td>
-                                  <td>
-                                    <div class="ord_no_status_pending">
-                                      <i class="bi bi-circle-fill"></i>
-                                      <span class="text-capitalize">{{
-                                        item.status
-                                      }}</span>
-                                    </div>
-                                  </td>
-                                  <td>
-                                    <router-link :to="`order/${item.id}`"
-                                      ><button class="track_btn">
-                                        Track Order
-                                      </button></router-link
-                                    >
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <div class="d-block d-sm-none">
-                            <div
-                              class="order_status_wrap"
-                              v-for="(item, index) in orders.data"
-                              :key="item.id"
-                            >
-                              <div
-                                class="d-flex justify-content-between p-3 ord_pro_details"
+                                  Choose file
+                                </button>
+
+                                <span v-if="selectedFile">{{
+                                  selectedFile.name
+                                }}</span>
+                                <span v-else>No file chosen</span>
+
+                                <input
+                                  type="file"
+                                  ref="fileInput"
+                                  accept="image/*"
+                                  hidden
+                                  @change="onFileChange"
+                                />
+                              </div>
+
+                              <button
+                                v-if="previewImage"
+                                class="btn btn-primary mt-2"
+                                @click="saveAvatar"
+                                :disabled="uploading"
                               >
-                                <div class="d-flex">
-                                  <div>
-                                    <div class="ord_pro_name">
-                                      <b>Order no</b>: {{ item.code }}
-                                    </div>
-                                    <div class="ord_pro_name">
-                                      <b> Purchase Date</b>:
-                                      {{ dateTime(item.created_at) }}
-                                    </div>
-                                    <div class="ord_pro_name">
-                                      <b>Total</b>: Rs. {{ item.sub_total }}
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  class="ord_no_status_completed align-items-start"
-                                >
-                                  <i class="bi bi-circle-fill"></i>
-                                  <span>{{ item.status }}</span>
-                                </div>
-                              </div>
-                              <div class="d-flex align-items-center p-3">
-                                <router-link :to="`order/${item.id}`">
-                                  <button class="track_btn w-100">
-                                    View Details
-                                  </button></router-link
-                                >
-                              </div>
+                                <span v-if="uploading">
+                                  <span
+                                    class="spinner-border spinner-border-sm me-2"
+                                  ></span>
+                                  Uploading...
+                                </span>
+                                <span v-else> Save </span>
+                              </button>
                             </div>
                           </div>
-                          <div
-                            class="pagination-wrap"
-                            v-if="orders.last_page > 1"
-                          >
-                            <button
-                              class="page-btn"
-                              :disabled="orders.current_page === 1"
-                              @click="changePage(orders.current_page - 1)"
-                            >
-                              Prev
-                            </button>
+                        </div>
+                      </div>
+                    </div>
 
-                            <button
-                              v-for="page in orders.last_page"
-                              :key="page"
-                              class="page-btn"
-                              :class="{ active: page === orders.current_page }"
-                              @click="changePage(page)"
-                            >
-                              {{ page }}
-                            </button>
+                    <div
+                      class="tab-pane fade"
+                      id="Order"
+                      role="tabpanel"
+                      aria-labelledby="Order-tab"
+                    >
+                      <div class="pers_info_head mb-4">Your Orders</div>
+                        <div v-if="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Loading orders...</p>
+  </div>
+                      <div class="row justify-content-center" v-else>
+                        <div class="col-md-11 col-sm-11 col-12">
+                          <div v-if="orders.data && orders.data.length === 0">
+                            <p>No orders found</p>
+                          </div>
+                          <div v-else>
+                            <div class="table-responsive d-none d-sm-block">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <td scope="col">#</td>
+                                    <td scope="col">
+                                      <div class="ord_no">Order no</div>
+                                    </td>
+                                    <td scope="col">Purchase Date</td>
+                                    <td scope="col">Total</td>
+                                    <td scope="col">Status</td>
+                                    <td scope="col">Action</td>
+                                  </tr>
+                                </thead>
 
-                            <button
-                              class="page-btn"
-                              :disabled="
-                                orders.current_page === orders.last_page
-                              "
-                              @click="changePage(orders.current_page + 1)"
+                                <tbody>
+                                  <tr
+                                    v-for="(item, index) in orders.data"
+                                    :key="item.id"
+                                  >
+                                    <td>{{ index + 1 }}</td>
+                                    <td>{{ item.code }}</td>
+                                    <td>{{ dateTime(item.created_at) }}</td>
+                                    <td>Rs. {{ item.sub_total }}</td>
+                                    <td>
+                                      <div class="ord_no_status_pending">
+                                        <i class="bi bi-circle-fill"></i>
+                                        <span class="text-capitalize">{{
+                                          item.status
+                                        }}</span>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <router-link :to="`order/${item.id}`"
+                                        ><button class="track_btn">
+                                          Track Order
+                                        </button></router-link
+                                      >
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="d-block d-sm-none">
+                              <div
+                                class="order_status_wrap"
+                                v-for="(item, index) in orders.data"
+                                :key="item.id"
+                              >
+                                <div
+                                  class="d-flex justify-content-between p-3 ord_pro_details"
+                                >
+                                  <div class="d-flex">
+                                    <div>
+                                      <div class="ord_pro_name">
+                                        <b>Order no</b>: {{ item.code }}
+                                      </div>
+                                      <div class="ord_pro_name">
+                                        <b> Purchase Date</b>:
+                                        {{ dateTime(item.created_at) }}
+                                      </div>
+                                      <div class="ord_pro_name">
+                                        <b>Total</b>: Rs. {{ item.sub_total }}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="ord_no_status_completed align-items-start"
+                                  >
+                                    <i class="bi bi-circle-fill"></i>
+                                    <span>{{ item.status }}</span>
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center p-3">
+                                  <router-link :to="`order/${item.id}`">
+                                    <button class="track_btn w-100">
+                                      View Details
+                                    </button></router-link
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pagination-wrap"
+                              v-if="orders.last_page > 1"
                             >
-                              Next
-                            </button>
+                              <button
+                                class="page-btn"
+                                :disabled="orders.current_page === 1"
+                                @click="changePage(orders.current_page - 1)"
+                              >
+                                Prev
+                              </button>
+
+                              <button
+                                v-for="page in orders.last_page"
+                                :key="page"
+                                class="page-btn"
+                                :class="{
+                                  active: page === orders.current_page,
+                                }"
+                                @click="changePage(page)"
+                              >
+                                {{ page }}
+                              </button>
+
+                              <button
+                                class="page-btn"
+                                :disabled="
+                                  orders.current_page === orders.last_page
+                                "
+                                @click="changePage(orders.current_page + 1)"
+                              >
+                                Next
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div
-                    class="tab-pane fade"
-                    id="Address"
-                    role="tabpanel"
-                    aria-labelledby="Address-tab"
-                  >
-                    <div class="pers_info_head mb-4">
-                     
-                      Address
-                    </div>
-                    <div class="order_status_wrap">
-                      <!-- Default address view -->
-                      <div v-if="!showForm" id="addressSelect">
-                        <button @click="showForm = true" id="addAddressBtn">
-                          <i class="bi bi-geo-alt"></i>
-                          <span>Add Address</span>
-                        </button>
+                    <div
+                      class="tab-pane fade"
+                      id="Address"
+                      role="tabpanel"
+                      aria-labelledby="Address-tab"
+                    >
+                      <div class="pers_info_head mb-4">Address</div>
+                      <div class="order_status_wrap">
+                        <!-- Default address view -->
+                        <div v-if="!showForm" id="addressSelect">
+                          <button @click="showForm = true" id="addAddressBtn">
+                            <i class="bi bi-geo-alt"></i>
+                            <span>Add Address</span>
+                          </button>
 
-                        <div class="position-relative default_address">
-                          <img
-                            class="default_img"
-                            src="@/assets/images/Default.png"
-                            alt=""
-                          />
-                          <div v-if="defaultAddress" class="def_add_details">
-                            <span class="def_name">{{
-                              defaultAddress.name
-                            }}</span
-                            ><br />
-                            Ph: {{ defaultAddress.phone }} <br />
-                            {{ defaultAddress.address }} <br />
-                            {{ defaultAddress.city }},
-                            {{ defaultAddress.zip_code }} <br />
-                            {{ defaultAddress.state }} <br />
-                            {{ defaultAddress.country }}
-                          </div>
+                          <div class="position-relative default_address">
+                            <img
+                              class="default_img"
+                              src="@/assets/images/Default.png"
+                              alt=""
+                            />
+                            <div v-if="defaultAddress" class="def_add_details">
+                              <span class="def_name">{{
+                                defaultAddress.name
+                              }}</span
+                              ><br />
+                              Ph: {{ defaultAddress.phone }} <br />
+                              {{ defaultAddress.address }} <br />
+                              {{ defaultAddress.city }},
+                              {{ defaultAddress.zip_code }} <br />
+                              {{ defaultAddress.state }} <br />
+                              {{ defaultAddress.country }}
+                            </div>
 
-                          <div v-else>No default address found.</div>
+                            <div v-else>No default address found.</div>
 
-                          <!-- <div class="def_add_details" >
+                            <!-- <div class="def_add_details" >
                             <span class="def_name">Durga V</span><br />
                             Ph: 9790488818 <br />
                             Chennai, 600058 <br />
@@ -405,108 +401,109 @@
                             Ambit, Sai nagar, <br />
                             12, Prince info park <br />
                           </div> -->
-                        </div>
-                      </div>
-
-                      <!-- Add Address Form -->
-                      <div v-else id="addressInput">
-                        <div class="d-flex p-3 mb-4 add_address_head">
-                          <button @click="showForm = false" id="backBtn">
-                            <i class="bi bi-chevron-left"></i>
-                          </button>
-                          <div class="pers_info_head text-center w-100">
-                            Add Address
                           </div>
                         </div>
 
-                        <div class="row g-3 px-5 px-sm-2">
-                          <div class="col-sm-6">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.firstName"
-                              placeholder="First name"
-                            />
-                          </div>
-                          <div class="col-sm-6">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.lastName"
-                              placeholder="Last name"
-                            />
-                          </div>
-                          <div class="col-sm-6">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.phone"
-                              placeholder="Mobile No."
-                            />
-                          </div>
-                          <div class="col-sm-6">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.email"
-                              placeholder="Email Id"
-                            />
-                          </div>
-                          <div class="col-sm-12">
-                            <textarea
-                              class="form-control"
-                              id="exampleTextarea"
-                              v-model="form.address"
-                              rows="5"
-                              placeholder="Address"
-                            ></textarea>
-                          </div>
-                          <div class="col-sm-4">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.city"
-                              placeholder="City"
-                            />
-                          </div>
-                          <div class="col-sm-4">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.state"
-                              placeholder="State"
-                            />
-                          </div>
-                          <div class="col-sm-4">
-                            <input
-                              class="form-control"
-                              type="text"
-                              v-model="form.pincode"
-                              placeholder="Pincode"
-                            />
-                          </div>
-                          <div class="col-sm-4 mt-4 ml-3">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value="1"
-                              v-model="form.is_default"
-                              id="defaultAddress"
-                            />
-                            <label
-                              class="form-check-label  ml-3"
-                              for="defaultAddress"
-                            >
-                              Set as default address
-                            </label>
-                          </div>
-                          <div class="d-flex justify-content-center m-0">
-                            <button
-                              class="add_address_btn my-4"
-                              @click="saveAddress"
-                            >
-                              Add address
+                        <!-- Add Address Form -->
+                        <div v-else id="addressInput">
+                          <div class="d-flex p-3 mb-4 add_address_head">
+                            <button @click="showForm = false" id="backBtn">
+                              <i class="bi bi-chevron-left"></i>
                             </button>
+                            <div class="pers_info_head text-center w-100">
+                              Add Address
+                            </div>
+                          </div>
+
+                          <div class="row g-3 px-5 px-sm-2">
+                            <div class="col-sm-6">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.firstName"
+                                placeholder="First name"
+                              />
+                            </div>
+                            <div class="col-sm-6">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.lastName"
+                                placeholder="Last name"
+                              />
+                            </div>
+                            <div class="col-sm-6">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.phone"
+                                placeholder="Mobile No."
+                              />
+                            </div>
+                            <div class="col-sm-6">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.email"
+                                placeholder="Email Id"
+                              />
+                            </div>
+                            <div class="col-sm-12">
+                              <textarea
+                                class="form-control"
+                                id="exampleTextarea"
+                                v-model="form.address"
+                                rows="5"
+                                placeholder="Address"
+                              ></textarea>
+                            </div>
+                            <div class="col-sm-4">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.city"
+                                placeholder="City"
+                              />
+                            </div>
+                            <div class="col-sm-4">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.state"
+                                placeholder="State"
+                              />
+                            </div>
+                            <div class="col-sm-4">
+                              <input
+                                class="form-control"
+                                type="text"
+                                v-model="form.pincode"
+                                placeholder="Pincode"
+                              />
+                            </div>
+                            <div class="col-sm-4 mt-4 ml-3">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value="1"
+                                v-model="form.is_default"
+                                id="defaultAddress"
+                              />
+                              <label
+                                class="form-check-label ml-3"
+                                for="defaultAddress"
+                              >
+                                Set as default address
+                              </label>
+                            </div>
+                            <div class="d-flex justify-content-center m-0">
+                              <button
+                                class="add_address_btn my-4"
+                                @click="saveAddress"
+                              >
+                                Add address
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -516,7 +513,6 @@
               </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
     </div>
@@ -556,7 +552,7 @@ const openOrderTab = () => {
   }
 
   fetchOrderDetails();
-  openMobileTab("Order"); 
+  openMobileTab("Order");
 };
 
 // const openOrderTab = () => {
@@ -586,7 +582,6 @@ onMounted(() => {
   if (route.query.tab === "order") {
     openOrderTab();
   }
-  
 });
 onMounted(() => {
   window.addEventListener("resize", () => {
@@ -651,16 +646,15 @@ async function saveAddress() {
     await fetchAddresses();
 
     resetForm();
-   
   } catch (err) {
     console.error("Failed to save address", err);
-   
-        const message =
-    err?.response?.data?.msg ||
-    err?.response?.data?.message ||
-    "Failed to save address";
 
-  toast.error(message);
+    const message =
+      err?.response?.data?.msg ||
+      err?.response?.data?.message ||
+      "Failed to save address";
+
+    toast.error(message);
     // alert("Failed to save address ");
   } finally {
     loading.value = false;
@@ -702,7 +696,6 @@ const defaultAddress = computed(() => {
 
 // =================================
 const triggerFile = () => {
-  
   fileInput.value.click();
 };
 const onFileChange = (event) => {
@@ -717,29 +710,28 @@ const onFileChange = (event) => {
 
     await nextTick();
 
-    if (cropper.value){
-cropper.value.destroy();
-     cropper.value = null;
-    } 
-
+    if (cropper.value) {
+      cropper.value.destroy();
+      cropper.value = null;
+    }
 
     const image = document.getElementById("cropper-image");
- 
-    image.onload = () => {
-  if (cropper.value) {
-    cropper.value.destroy();
-    cropper.value = null;
-  }
 
-  cropper.value = new Cropper(image, {
-    aspectRatio: 1,
-    viewMode: 1,
-    autoCropArea: 1,
-    background: false,
-    responsive: true,
-    zoomOnWheel: false,
-  });
-};
+    image.onload = () => {
+      if (cropper.value) {
+        cropper.value.destroy();
+        cropper.value = null;
+      }
+
+      cropper.value = new Cropper(image, {
+        aspectRatio: 1,
+        viewMode: 1,
+        autoCropArea: 1,
+        background: false,
+        responsive: true,
+        zoomOnWheel: false,
+      });
+    };
   };
   reader.readAsDataURL(file);
 };
@@ -862,6 +854,10 @@ onMounted(() => {
   margin: auto;
   width: 100px;
 }
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
 
 #cropper-image {
   width: 150px !important;
@@ -874,10 +870,10 @@ onMounted(() => {
     padding-top: 10rem !important;
   }
 }
-@media(max-width:768px){
-.personal_info_nav_menu .tab-link{
-padding: 20px 0px;
-}
+@media (max-width: 768px) {
+  .personal_info_nav_menu .tab-link {
+    padding: 20px 0px;
+  }
 }
 li.breadcrumb-item a {
   color: #000;
@@ -900,7 +896,7 @@ h1.besrt {
 
 /*********banner section css************/
 .promo-banner {
-  background-image: url('../images/product/product-banner.webp');
+  background-image: url("../images/product/product-banner.webp");
   background-size: cover;
   background-position: center;
   padding: 90px 20px;
@@ -962,10 +958,7 @@ button.btn.btn-dark.mt-2 {
   .promo-banner h2 {
     font-size: 1.5rem;
   }
-
 }
-
-
 
 /**********products details page css*************/
 section.related-sec {
@@ -973,7 +966,7 @@ section.related-sec {
 }
 
 section.how-sec {
-  background: #F3F3F3;
+  background: #f3f3f3;
   padding: 60px 0px;
 }
 
@@ -1023,7 +1016,7 @@ section.how-sec img {
 
 section.content-sec {
   /* background-image: url(../images/product/contentt-bck.png); */
-   background-image: url("../images/product/content-back.png");
+  background-image: url("../images/product/content-back.png");
   background-size: cover;
   background-position: center;
   padding: 50px 20px;
@@ -1113,7 +1106,7 @@ section.details-sec {
   padding-bottom: 80px;
 }
 
-.details-sec .breadcrumb-item+.breadcrumb-item::before {
+.details-sec .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: var(--bs-breadcrumb-item-padding-x);
   color: var(--bs-breadcrumb-divider-color);
@@ -1344,7 +1337,7 @@ button.btn.btn-outline-secondary.dropdown-toggle {
 }
 
 .review__wrapper .single__progress__bar .progress .progress-bar {
-  background-color:#0E302A;
+  background-color: #0e302a;
 }
 
 .review__wrapper .single__progress__bar span {
@@ -1386,7 +1379,7 @@ button.btn.write-review-btn {
   background: #332929;
   font-weight: 500;
   float: inline-end;
-     background-color: #0E302A;
+  background-color: #0e302a;
 }
 
 button.btn.write-review-btn:hover {
@@ -1404,7 +1397,7 @@ button.btn.write-review-btn:hover {
 
 .rating strong {
   padding-left: 10px;
-  color: #6D6D6D;
+  color: #6d6d6d;
   letter-spacing: 0.3px;
   font-weight: 500;
   padding-bottom: 26px;
@@ -1414,7 +1407,7 @@ button.btn.write-review-btn:hover {
   font-size: 18px;
   line-height: 32px;
   font-weight: 400;
-  color: #6D6D6D;
+  color: #6d6d6d;
   margin-top: 10px !important;
 }
 
@@ -1480,7 +1473,6 @@ section.customer-sec {
   margin-top: 20px;
 }
 
-
 /*****************cart page css**********/
 .section_header1 h2 {
   font-size: 36px;
@@ -1517,7 +1509,7 @@ section.customer-sec {
   background-color: #09302a;
   color: #fff;
 }
-.apply-coupon button:hover{
+.apply-coupon button:hover {
   background-color: #226a5f;
   color: #fff;
 }
@@ -1533,7 +1525,7 @@ section.customer-sec {
   font-size: 18px;
   border: 1px solid;
 }
-.checkout-btn:hover{
+.checkout-btn:hover {
   background-color: #226a5f;
   color: #fff !important;
 }
@@ -1556,13 +1548,13 @@ section.customer-sec {
   color: #333;
 }
 
-.table>:not(caption)>*>* {
+.table > :not(caption) > * > * {
   padding: 20px 0px !important;
-  color: #060e0d ;
+  color: #060e0d;
 }
 
 small.p1 {
-  font-family: 'Lexend' !important;
+  font-family: "Lexend" !important;
   color: #3a3838;
   font-size: 15px;
   letter-spacing: 0.4px;
@@ -1636,10 +1628,10 @@ section.cart-sec h2 {
 }
 
 table.table.cart-table th {
-  font-family: 'Lexend' !important;
+  font-family: "Lexend" !important;
   font-size: 18px;
   font-weight: 400;
-  color: #060e0d ;
+  color: #060e0d;
 }
 
 /***************checkout page css****************/
@@ -1651,7 +1643,6 @@ table.table.cart-table th {
 }
 
 .card1 {
-
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1684,7 +1675,6 @@ table.table.cart-table th {
 }
 
 .address-card h6 {
-
   font-size: 14px;
   font-family: Lexend;
   color: #2d2d2d;
@@ -1754,10 +1744,7 @@ span.text-muted {
 }
 
 .payment-option {
-
   padding: 0 15px;
-
-
 }
 
 .total-amount {
@@ -1773,7 +1760,7 @@ span.text-muted {
   border-radius: 4px;
   cursor: pointer;
 }
-.logout{
+.logout {
   color: red !important;
 }
 .back-to-cart {
@@ -1805,12 +1792,11 @@ span.text-muted {
   accent-color: black;
 }
 
-[type=radio] {
+[type="radio"] {
   font-size: inherit;
   width: 0.75em;
   height: 0.75em;
 }
-
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -1855,10 +1841,9 @@ button.btn.btn-outline-secondary.qun_min {
   position: relative;
   font-size: 30px;
   display: inline-block;
-  font-family: 'Inria Serif';
+  font-family: "Inria Serif";
   color: #fff;
   text-align: left;
-
 }
 
 .faq_banner {
@@ -1867,7 +1852,6 @@ button.btn.btn-outline-secondary.qun_min {
   height: 40vh;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .faq-breadcrumb,
@@ -1878,18 +1862,15 @@ button.btn.btn-outline-secondary.qun_min {
 }
 
 .general-queries {
-
   font-size: 15px;
   font-weight: 300;
   color: #999;
   text-align: left;
-
 }
-@media (max-width:991px){
-.personal_info_sec{
+@media (max-width: 991px) {
+  .personal_info_sec {
     padding-top: 10rem !important;
-}
-
+  }
 }
 .faq_sub_head {
   font-size: 30px;
@@ -1947,7 +1928,7 @@ button.accordion-button.collapsed {
   opacity: 1;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
   .faq_head {
     font-size: 18px;
   }
@@ -1964,7 +1945,6 @@ button.accordion-button.collapsed {
   .faq_sub_head {
     text-align: center;
     font-size: 25px;
-
   }
 }
 
@@ -1978,7 +1958,6 @@ button.accordion-button.collapsed {
   align-items: center;
   background-color: #f3f3f3;
   height: 60px;
-
 }
 
 .result-breadcrumb a,
@@ -1990,7 +1969,7 @@ button.accordion-button.collapsed {
 
 .testi_head {
   font-size: 30px;
-  font-family: 'Inria Serif';
+  font-family: "Inria Serif";
   color: #2d2d2d;
   padding: 20px 0 30px;
 }
@@ -1998,8 +1977,6 @@ button.accordion-button.collapsed {
 .testimonial_sec {
   padding: 0 100px !important;
 }
-
-
 
 .owl-theme .owl-nav {
   display: flex;
@@ -2011,7 +1988,6 @@ button.accordion-button.collapsed {
 
 button.owl-prev,
 button.owl-next {
-
   height: 30px;
   width: 30px;
   border-radius: 50% !important;
@@ -2024,7 +2000,6 @@ button.owl-next {
 
 .tab-link {
   color: #000;
-
 }
 
 p.review_location {
@@ -2049,12 +2024,12 @@ img.img-fluid.dp_img {
 .para::-webkit-scrollbar-track {
   /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .para::-webkit-scrollbar {
   width: 5px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .para::-webkit-scrollbar-thumb {
@@ -2062,8 +2037,6 @@ img.img-fluid.dp_img {
   /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
   background-color: #555;
 }
-
-
 
 .testimonial-sec .owl-nav .owl-prev {
   top: 100% !important;
@@ -2099,13 +2072,11 @@ img.img-fluid.dp_img {
   background-color: #ededed !important;
 }
 
-
-
 h2.display-4 {
   font-size: 35px;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
   .vcgmbpara {
     font-size: 14px;
   }
@@ -2122,7 +2093,7 @@ h2.display-4 {
   height: 125px !important;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
   .testimonial_sec {
     padding: 0 !important;
   }
@@ -2133,31 +2104,17 @@ h2.display-4 {
   }
 
   .results_sec #myTab a {
-
     height: 45px;
     font-size: 12px;
   }
 }
 
-
-
-
 /* pending upload */
-
-
-
-
-
-
-
-
-
 
 .contact_detail_card {
   background-color: #fff;
   height: 150px;
   padding: 25px;
-
 }
 
 .contact_detail_card p {
@@ -2205,7 +2162,6 @@ h2.display-4 {
   padding: 20px !important;
   border: 1px solid #e9e9e9 !important;
   border-radius: 2px !important;
-
 }
 
 .sent_btn {
@@ -2229,15 +2185,12 @@ h2.display-4 {
 }
 
 .personal_info_nav_menu .tab-link.active[data-v-7e425539] {
-    background-color: #ececea;
-    transition: 0.5s;
+  background-color: #ececea;
+  transition: 0.5s;
 }
 
 .personal_info_sec {
-
-  padding-top:17rem;
-
-
+  padding-top: 17rem;
 }
 
 .user_name {
@@ -2254,7 +2207,6 @@ h2.display-4 {
   text-align: center;
   border-bottom: solid 1px #d3d3d3;
   padding-bottom: 20px;
-
 }
 
 .personal_info_nav_menu {
@@ -2267,16 +2219,12 @@ h2.display-4 {
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px #d3d3d3;
-
 }
 
 .personal_info_nav_menu .tab-link {
-
   width: 100%;
   padding: 20px 30px;
   margin: 0;
-
-
 }
 
 .personal_info_nav_menu .tab_icon i {
@@ -2291,15 +2239,12 @@ h2.display-4 {
   justify-content: center;
   margin-right: 10px;
   padding: 0 !important;
-
 }
 
 .personal_info_sec #myTab {
   background-color: #fff;
   border-radius: 10px;
   padding: 30px 0 0;
-
-
 }
 
 .personal_info_nav_menu .tab-link.active {
@@ -2320,8 +2265,6 @@ h2.display-4 {
   padding: 40px;
   border-radius: 10px;
   height: 100%;
-
-
 }
 
 .personal_info_sec #myTabContent {
@@ -2332,17 +2275,13 @@ h2.display-4 {
   background-color: #fff;
   border-radius: 10px;
   height: 100%;
-
 }
 
 .personal_info_sec #myTabContent #Tracking .row {
   background-color: #edefe1;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-
-
 }
-
 
 /* Custom dropdown arrow */
 .custom-select {
@@ -2351,7 +2290,7 @@ h2.display-4 {
   appearance: none;
   padding-right: 30px;
   /* Adjust to leave space for the arrow */
-  background-image: url('../images/drop-arw.png');
+  background-image: url("../images/drop-arw.png");
   /* Bootstrap icon chevron-down */
   background-repeat: no-repeat;
   background-position: right 10px center;
@@ -2366,7 +2305,7 @@ h2.display-4 {
   appearance: none;
   padding-right: 30px;
   /* Adjust to leave space for the arrow */
-  background-image: url('../images/calendar.svg');
+  background-image: url("../images/calendar.svg");
   /* Bootstrap icon chevron-down */
   background-repeat: no-repeat;
   background-position: right 10px center;
@@ -2377,17 +2316,15 @@ h2.display-4 {
 
 .pers_info_head {
   font-size: 20px;
-  color: #060e0d ;
+  color: #060e0d;
   display: flex;
   align-items: baseline;
-
 }
-.pers_info_head i{
+.pers_info_head i {
   font-size: 20px;
-  color: #060e0d  !important;
+  color: #060e0d !important;
   margin-right: 10px;
 }
-
 
 .upload_img_sec {
   margin: 30px 20px;
@@ -2403,8 +2340,6 @@ h2.display-4 {
   font-weight: 300;
   color: #999;
   font-size: 13px;
-
-
 }
 
 .choose_file {
@@ -2421,7 +2356,6 @@ h2.display-4 {
   font-size: 13px;
   color: #323232;
   font-weight: 300;
-
 }
 
 .up_img {
@@ -2432,7 +2366,6 @@ h2.display-4 {
   font-size: 14px;
   color: #2d2d2d;
 }
-
 
 .underline {
   position: absolute;
@@ -2457,7 +2390,6 @@ h2.display-4 {
 }
 
 #myTabContainer {
-
   border-bottom: solid 2px #e9e9e9;
   padding: 0 10px;
 }
@@ -2466,15 +2398,12 @@ h2.display-4 {
   border: 1px solid #e9e9e9;
   margin: 20px 0;
   /* padding: 15px; */
-
 }
-
 
 .ord_pro_img {
   height: 80px;
   width: auto;
   margin-right: 15px;
-
 }
 
 .in_stock,
@@ -2485,15 +2414,14 @@ h2.display-4 {
 .ord_no_status_cancelled {
   font-size: 14px;
   font-weight: 300;
-  color: #060e0d ;
+  color: #060e0d;
 }
 
 .ord_pro_type,
 .ord_pro_vol {
   font-size: 12px;
   font-weight: 300;
-  color: #060e0d ;
-
+  color: #060e0d;
 }
 
 .ord_no_status_completed {
@@ -2504,21 +2432,19 @@ h2.display-4 {
 
 .ord_no {
   font-size: 14px;
-  color: #060e0d ;
+  color: #060e0d;
 }
 
 .ord_no_status_completed span,
 .ord_no_status_completed i {
   color: #608d16 !important;
   font-weight: 400;
-
 }
 
 .ord_no_status_pending span,
 .ord_no_status_pending i {
   color: #e87b38 !important;
   font-weight: 400;
-
 }
 
 .ord_no_status_cancelled span,
@@ -2537,21 +2463,19 @@ h2.display-4 {
 .ord_pro_details {
   border-bottom: 1px solid #e9e9e9;
   border-top: 1px solid #e9e9e9;
-
-
 }
 
 .track_btn {
-    margin-right: 10px;
-    padding: 6px 14px;
-    border-radius: 4px;
-    background-color: #000 !important;
-    color: #fff !important;
-    font-size: 12px;
-    border: 1px solid !important;
+  margin-right: 10px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #000 !important;
+  color: #fff !important;
+  font-size: 12px;
+  border: 1px solid !important;
 }
-.track_btn:hover{
-scale: 1.1;
+.track_btn:hover {
+  scale: 1.1;
 }
 
 .wish_add_cart_btn {
@@ -2562,7 +2486,6 @@ scale: 1.1;
   color: #fff;
   font-size: 12px;
   border: none;
-
 }
 
 .cancel_btn,
@@ -2578,7 +2501,6 @@ scale: 1.1;
 
 .view_btn {
   margin-right: 10px;
-
 }
 
 .cancel_date {
@@ -2591,7 +2513,6 @@ scale: 1.1;
   font-size: 12px;
   font-weight: 300;
   color: #323232;
-
 }
 
 #addressSelect {
@@ -2629,16 +2550,13 @@ button#addAddressBtn {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
 }
 
 .add_address_head {
   border-bottom: solid 1px #ebebeb;
-
 }
 
 .add_address_btn {
-
   padding: 8px 80px;
   border-radius: 2px;
   background-color: #000;
@@ -2646,9 +2564,7 @@ button#addAddressBtn {
   font-size: 16px;
   border: none;
   width: auto !important;
-
 }
-
 
 .def_name {
   font-weight: 400;
@@ -2672,19 +2588,17 @@ button#addAddressBtn {
 }
 
 #Wishlist i {
-  color: #C30010;
+  color: #c30010;
 }
 
 #Wishlist .ord_pro_img {
   height: 100px;
   width: auto;
   margin-right: 15px;
-
 }
 
 #Wishlist .mar_bottom {
   border-bottom: solid 1px #ebebeb;
-
 }
 
 .ord_track_head span {
@@ -2700,7 +2614,6 @@ button#addAddressBtn {
   width: auto;
   overflow: hidden;
   height: 239px;
-
 }
 
 #Tracking .track_btn {
@@ -2719,7 +2632,7 @@ button#addAddressBtn {
   font-size: 18px;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
   .personal_info_nav_menu .tab-link.active {
     background-color: #fff;
     transition: 0.5s;
@@ -2736,13 +2649,11 @@ button#addAddressBtn {
 
   .personal_info_sec {
     padding: 0;
-
   }
 
   .bck_tab_link {
     display: block;
     margin: 20px 0 10px;
-
   }
 
   .personal_info_sec #myTabContent #Information,
@@ -2751,25 +2662,19 @@ button#addAddressBtn {
   #myTabContent #Wishlist {
     padding: 0;
     height: auto;
-
-
   }
 
   .personal_info_sec #myTabContent #Tracking {
-
     height: auto;
     padding: 20px;
-
   }
 
   .personal_info_sec {
     background-color: #fff;
   }
-
-
 }
 
-@media(max-width:650px){
+@media (max-width: 650px) {
   .pers_info_head {
     margin-bottom: 0 !important;
   }
@@ -2778,8 +2683,7 @@ button#addAddressBtn {
     height: auto;
   }
 }
-@media(max-width:500px) {
-
+@media (max-width: 500px) {
   #addressSelect {
     display: flex;
     flex-direction: column;
@@ -2795,20 +2699,16 @@ button#addAddressBtn {
     width: 75%;
   }
 
- 
-
-
   .ord_track_head span {
     font-size: 16px;
   }
-  
 
-.ord_track_head {
+  .ord_track_head {
     font-size: 10px;
-}
-.personal_info_sec input{
-  width: 100% !important;
-}
+  }
+  .personal_info_sec input {
+    width: 100% !important;
+  }
 }
 .pagination-wrap {
   display: flex;
@@ -2850,12 +2750,12 @@ button#addAddressBtn {
   background-color: #f3f4f6;
 }
 
-.page{
+.page {
   background-color: #fdf9f9;
   padding-bottom: 3rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .tab_icon {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 </style>

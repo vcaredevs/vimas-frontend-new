@@ -59,7 +59,84 @@
                             <h2 class="form-title">Got any questions?</h2>
                             <p class="form-subtitle">Use the form below to get in touch with the sales team</p>
                         </div>
-                        <form method="POST" action="https://inway.com.in:443../contacts" id="contactForm" role="form" novalidate class="row">
+                        <form
+  id="contactForm"
+  class="row"
+  @submit.prevent="submitForm"
+>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="First Name"
+        v-model="form.first_name"
+      />
+     
+      <small class="text-danger">{{ errors.first_name }}</small>
+       </div>
+    </div>
+
+    <div class="col-md-6">
+         <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Last Name"
+        v-model="form.last_name"
+      />
+      
+      <small class="text-danger">{{ errors.last_name }}</small>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+         <div class="form-group">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Email Address"
+        v-model="form.email"
+      />
+     
+      <small class="text-danger">{{ errors.email }}</small>
+       </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Contact Number"
+        v-model="form.contact_number"
+      />
+      
+      <small class="text-danger">{{ errors.contact_number }}</small>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <!-- textarea NOT required -->
+      <textarea
+        class="form-control message-box"
+        rows="8"
+        placeholder="Type Message Here...."
+        v-model="form.message"
+      ></textarea>
+
+      <div class="form-button text-center mt-3">
+        <button type="submit" class="form-btn submit" :disabled="loading">
+          <span v-if="loading">Sending...</span>
+          <span v-else>Send Message</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+                        <!-- <form method="POST"  id="contactForm" role="form" novalidate class="row">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -90,7 +167,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -99,3 +176,68 @@
     <!-- contact us area end here  -->
 
 </template>
+
+<script setup>
+import { ref } from "vue";
+import axios from "axios";
+import { BASE_URL } from "../config/api";
+
+const loading = ref(false);
+
+const form = ref({
+  first_name: "",
+  last_name: "",
+  email: "",
+  contact_number: "",
+  message: "",
+});
+
+const errors = ref({});
+
+const validate = () => {
+  errors.value = {};
+
+  if (!form.value.first_name)
+    errors.value.first_name = "First name is required";
+
+  if (!form.value.last_name)
+    errors.value.last_name = "Last name is required";
+
+  if (!form.value.email)
+    errors.value.email = "Email is required";
+  else if (!/^\S+@\S+\.\S+$/.test(form.value.email))
+    errors.value.email = "Invalid email";
+
+  if (!form.value.contact_number)
+    errors.value.contact_number = "Contact number is required";
+
+  return Object.keys(errors.value).length === 0;
+};
+
+const submitForm = async () => {
+  if (!validate()) return;
+
+  loading.value = true;
+
+  try {
+    await axios.post(
+      `${BASE_URL}/contact-submit`,
+      form.value
+    );
+
+    alert("Message sent successfully!");
+
+    form.value = {
+      first_name: "",
+      last_name: "",
+      email: "",
+      contact_number: "",
+      message: "",
+    };
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+};
+</script>

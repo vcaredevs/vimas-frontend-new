@@ -111,6 +111,8 @@
                   @click="fetchAllProducts(page)"
                 >
                   <a class="page-link"> {{ page }}</a>
+
+                  
                 </li>
                 <li
                   class="page-item"
@@ -224,9 +226,9 @@
 }
     </style>
     <script setup>
-import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import {  getCategoryList, getCategoryListById, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
+import { onMounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import {  getCategory, getCategoryList, getCategoryListById, getCategoryProducts, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
 import { image_url } from '../config/api';
 import { useCartStore } from '../cartStore';
 const cartStore=useCartStore();
@@ -238,6 +240,7 @@ const selectedCategory = ref("");
 const currentPage = ref(1);
 const lastPage = ref(1);
 const route = useRoute();
+const router=useRouter();
 const fetchAllProducts = async (page = 1) => {
   try {
     const res = await getProducts(page);
@@ -257,7 +260,7 @@ const fetchCategoryProducts = async (categoryId) => {
     const res = await getCategoryListById(categoryId);
 console.log("category products",res);
 
-    // this API usually returns plain array
+
     productList.value = res.data.data ?? res.data;
       currentPage.value = 1;
     lastPage.value = 1;
@@ -266,38 +269,93 @@ console.log("category products",res);
     productList.value = [];
   }
 };
-
 const onCategoryChange = () => {
-  if (selectedCategory.value) {
+  const categoryId = selectedCategory.value;
+
+  if (categoryId) {
    
-    fetchCategoryProducts(selectedCategory.value);
+    const category = categoryList.value.find(
+      c => c.id === categoryId
+    );
+    console.log("category",category);
+    
+  if (!category || !category.slugable) {
+    console.warn("Category slug not found", category);
+    return;
+  }
+    router.push({
+      name: "ShopCategory",
+      params: {
+        slug: category.slugable.key
+      }
+    });
+
   } else {
   
-    fetchAllProducts(1);
+    router.push("/shop");
   }
-};
+}
 
-    const getCategory = async () => {
+
+    const getCategories = async () => {
     
   try {
-    const res = await getCategoryList();
+    const res = await getCategory();
     categoryList.value = res.data.data;
+    console.log("CATEGORY+>", categoryList.value);
     
   } catch (error) {
     console.error("Error fetching categories:", error);
   }
 };
     
+const loadProducts=async()=>{
+  const slug=route.params.slug;
+  console.log("slug=>",slug);
+  
+try {
+   if (!slug) {
+      await fetchAllProducts(1);
+      return;
+    }
+  const res=await getCategoryProducts(slug,1,null)
+   productList.value = res.data.data ?? res.data;
+    currentPage.value = 1;
+    lastPage.value = 1;
+} catch (error) {
+   console.error(error);
+    productList.value = [];
+}
+}
+watch(
+  [() => route.params.slug, categoryList],
+  ([slug, categories]) => {
+
+    if (!slug || !categories.length) {
+      selectedCategory.value = "";
+      return;
+    }
+
+    const category = categories.find(
+      c => c.slugable?.key === slug
+    );
+
+    selectedCategory.value = category?.id || "";
+    loadProducts();
+  },
+  { immediate: true }
+);
+
+
+
 
 onMounted(async () => {
   try {
-    await Promise.all([
-      fetchAllProducts(1),
-      getCategory()
-    ]);
-      // await new Promise(resolve => setTimeout(resolve, 1500));
+    await getCategories();  
+    await loadProducts();   
   } finally {
     pageLoading.value = false;
   }
+ 
 });
 </script>

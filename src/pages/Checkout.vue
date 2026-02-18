@@ -100,7 +100,7 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <div class="form-check card-check">
-                                                    <input class="form-check-input" type="radio" name="payment" id="razor_pay" value="razor_pay">
+                                                    <input class="form-check-input" type="radio" name="payment" id="razor_pay" value="razor_pay" checked>
                                                     <label class="form-check-label" for="razor_pay">Razorpay</label>
                                                     <!-- <div class="input-icon">
                                                         <img src="https://inway.com.in:443../image-118-30/uploads_payment_razorpay_razorpay.png" alt="razorpay">

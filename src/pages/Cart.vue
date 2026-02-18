@@ -186,6 +186,10 @@
     transform: rotate(360deg);
   }
 }
+.quantity-btn{
+    background: none !important;
+    border: none !important;
+}
 </style>
 <script setup>
 import { onMounted, ref } from 'vue';

@@ -180,7 +180,14 @@ const addOrUpdateCart = async (product, qty = 1) => {
     let newQty = item.qty;
 
     if (type === "increment") newQty++;
-    if (type === "decrement" && item.qty > 1) newQty--;
+     if (type === "decrement") {
+    if (item.qty <= 1) {
+      toast.error("Quantity cannot be less than 1");
+      return; 
+    }
+    newQty--;
+  }
+    // if (type === "decrement" && item.qty > 1) newQty--;
     if (type === "input") newQty = Number(item.qty) || 1;
 
     try {

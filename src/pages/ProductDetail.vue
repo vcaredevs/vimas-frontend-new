@@ -139,7 +139,8 @@
                                 <p v-html="product?.product?.ingredients"></p>
                                 <h3>Direction of Use:</h3>
                                 <p v-html="product?.product?.howtouse "></p>
-                               
+                                <h3>Benefits:</h3>
+                                <p v-html="product?.product?.for_whom "></p>
                             </section>
                         </p>
                     </div>

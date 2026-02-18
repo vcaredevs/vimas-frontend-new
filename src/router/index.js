@@ -22,7 +22,11 @@ const routes = [
     { path: "/customer/order/:id", name: "OrderView", component:OrderView  },
     { path: "/customer/profile", name: "Profile", component: Profile },
      { path: "/product/:slug", name: "ProductDetail", component: ProductDetail },
- 
+ {
+  path: '/shop/product-categories/:slug',
+  name: 'ShopCategory',
+  component: Shop
+}
 ];
 const router = createRouter({
   history: createWebHistory("/vimas/"),
