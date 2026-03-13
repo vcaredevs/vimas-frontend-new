@@ -1,0 +1,186 @@
+$font-main: "Poppins",
+sans-serif;
+$font-anta: "Anta",
+sans-serif;
+$font-barlow: "Barlow",
+sans-serif;
+$font-inter_tight: "Inter Tight",
+sans-serif;
+$font-instrument: "Instrument Serif",
+serif;
+$font-instrument_sans: "Instrument Sans",
+sans-serif;
+$font-inter: "Inter",
+sans-serif;
+$font-red_hat: "Red Hat Display",
+sans-serif;
+$font-cover_by: "Covered By Your Grace",
+cursive;
+$font-geist:"Geist",
+sans-serif;
+$font-dm_sans:"DM Sans",
+sans-serif;
+$font-bellefair:"Bellefair",
+serif;
+$font-archivo:"Archivo",
+sans-serif;
+
+$fontIcon: "icomoon";
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --primary: #1A79FF;
+
+    --white-2: #FFFFFFB3; //Opacity 70%
+
+    /* Text */
+    --text: #A6A6A6;
+    --text-2: #F9F9F9;
+    --text-3: #808080;
+    --text-4: #CCCCCC;
+    --text-5: #666666;
+    --text-6: #7E8695;
+    --text-7: #9DA5B4;
+    --text-8: #666666CC;
+    --text-9: #999999;
+    --text-10: #001533;
+    --text-11: #E6E6E6B2;
+    --text-12: #001634;
+    --text-13: #4D4D4D;
+    --text-14: #1A1A1A;
+    --text-15: #6B7280;
+    --text-16: #FFFFFF29;
+    --text-17: #00000099;
+    --text-18: #000000E5;
+    --text-19: #282828;
+    --text-20: #FFFDF7CC;
+    --text-21: #5F697C;
+    --text-22: #020202;
+    --text-23: #BBC1CE;
+
+    /* Border */
+    --line: #333333;
+    --line-2: #E5F0FF0D;
+    --line-3: #494949;
+    --line-4: #2B303B;
+    --line-5: #11111180;
+    --line-6: #2E2E2E;
+    --line-7: #DDDDDD;
+    --line-8: #FFFFFF33;
+    --line-9: #E3E3E3;
+    --line-10: #BBBBBB;
+    --line-11: #0000001A;
+    --line-12: #C7C4BC;
+    --line-13: #D9D9D9;
+    --line-14: #E9F6DC33;
+    --line-15: #FFFFFF4D;
+    --line-16: #CEDEEF;
+    --line-17: #DAE8F5;
+
+    /* Background */
+    --bg: #0C0C0C;
+    --bg-2: #333333;
+    --bg-3: #171717;
+    --bg-4: #474E5C;
+    --bg-5: #1F1F1F;
+    --bg-6: #111111;
+    --bg-7: #262626;
+    --bg-8: #20334D;
+    --bg-9: #1A1A1ACC;
+    --bg-10: #F5F5F5;
+    --bg-11: #FDFDFD;
+    --bg-12: #FFFFFF99;
+    --bg-13: #E9E9E9;
+    --bg-14: #FFFFFF1A;
+    --bg-15: #1F2021;
+    --bg-16: #F9F5EB;
+    --bg-17: #151515;
+    --bg-18: #E0DBCF;
+    --bg-19: #4F3D35;
+    --bg-20: #0000004D;
+    --bg-21: #0D0D0D;
+    --bg-22: #141414;
+    --bg-23: #FFFFFF26;
+    --bg-24: #C4C0B6B2;
+    --bg-25: #1D7363;
+    --bg-26: #F3F3F3;
+    --bg-27: #E6E6E6;
+    --bg-28: #222222;
+    --bg-29: #FBFBFB;
+    --bg-30: #272727;
+    --bg-31: #EEEEEED1;
+    --bg-32: #FAFAFA;
+    --bg-33: #252525;
+
+    /* Orther */
+    --down-color: #FC3F43;
+    --color-1: #FF0000;
+    --color-2: #FFFFFF80;
+    --color-3: #0160A0;
+    --gray-10: #EEEEEE;
+    --gray-20: #DDDDDD;
+    --gray-30: #BBBBBB;
+    --gray-40: #999999;
+    --gray-50: #707070;
+    --gray-60: #666666;
+    --gray-70: #494949;
+    --gray-80: #333333;
+    --gray-90: #111111;
+    --gray-100: #E7E9E9;
+    --gray-200: #C9CFCF;
+    --gray-300: #B7BEBE;
+    --gray-400: #A1AAAA;
+    --gray-500: #899494;
+    --gray-600: #6F7B7B;
+    --gray-700: #525B5B;
+    --gray-800: #303636;
+    --gray-900: #181B1B;
+    --surface: #F2F2F2;
+    --surface-2: #F0EEE8;
+    --surface-3: #EFEFEF;
+    --dark-90: #151515;
+    --white-3: rgba(255, 255, 255, 0.03);
+    --white-4: rgba(255, 255, 255, 0.04);
+    --white-7: rgba(255, 255, 255, 0.07);
+    --white-8: rgba(255, 255, 255, 0.08);
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-12: rgba(255, 255, 255, 0.12);
+    --white-16: rgba(255, 255, 255, 0.16);
+    --white-20: #FFFFFF33;
+    --white-30: rgba(255, 255, 255, 0.3);
+    --white-40: rgba(255, 255, 255, 0.4);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --white-60: rgba(255, 255, 255, 0.6);
+    --white-70: #FFFFFFB2;
+    --white-80: rgba(255, 255, 255, 0.8);
+    --white-90: rgba(255, 255, 255, 0.9);
+    --black-6: rgba(0, 0, 0, 0.06);
+    --black-8: rgba(0, 0, 0, 0.08);
+    --black-10: rgba(0, 0, 0, 0.1);
+    --black-12: rgba(0, 0, 0, 0.12);
+    --black-20: rgba(0, 0, 0, 0.2);
+    --black-30: rgba(0, 0, 0, 0.3);
+    --black-40: rgba(0, 0, 0, 0.4);
+    --black-50: rgba(0, 0, 0, 0.5);
+    --black-60: rgba(0, 0, 0, 0.6);
+    --black-90: rgba(0, 0, 0, 0.9);
+    --success: #2A9C00;
+
+    --light-green: #E9F6DC;
+    --light-beige: #FFFDF7;
+    --beige: #F0EEE8;
+    --yellow: #F69401;
+    --orange: #FF5700;
+
+    --shadow: 0px 3px 8px 0px #0000001A,
+        0px 6px 14px 0px #0000000D,
+        0px 31px 19px 0px #0000000D,
+        0px 55px 22px 0px #00000003,
+        0px 87px 24px 0px #00000000,
+        0px 2px 0px 0px #DADADA;
+}
+
+.body-landing {
+    --primary: var(--orange);
+}

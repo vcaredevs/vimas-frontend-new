@@ -1,0 +1,507 @@
+@use "../abstracts/index"as *;
+
+/* Typography
+============================================================== */
+
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-main;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    margin-bottom: 0;
+    letter-spacing: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: $font-main;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    margin-bottom: 0;
+    letter-spacing: 0;
+}
+
+h1,
+.h1 {
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: clamp(56px, 6.5vw, 88px);
+}
+
+h2,
+.h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: clamp(36px, 5.5vw, 72px);
+}
+
+h3,
+.h3 {
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: clamp(44px, 5vw, 56px);
+}
+
+h4,
+.h4 {
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: clamp(34px, 4vw, 52px);
+}
+
+h5,
+.h5 {
+    font-size: clamp(24px, 2.6vw, 36px);
+    line-height: clamp(32px, 3.5vw, 48px);
+}
+
+h6,
+.h6 {
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: clamp(24px, 3vw, 36px);
+}
+
+/* Text Design */
+.text-sub-head {
+    font-size: clamp(20px, 2vw, 24px);
+    line-height: clamp(24px, 2.5vw, 30px);
+}
+
+.text-body-1 {
+    font-size: clamp(18px, 1.5vw, 20px);
+    line-height: clamp(22px, 2vw, 24px);
+}
+
+.text-body-2 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.text-body-3 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.text-body-4 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.text-link {
+    font-size: 14px;
+    line-height: normal;
+}
+
+.text-caption {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.fw-4 {
+    font-weight: 400 !important;
+}
+
+.fw-5 {
+    font-weight: 500 !important;
+}
+
+.fw-6 {
+    font-weight: 600 !important;
+}
+
+.fw-7 {
+    font-weight: 700 !important;
+}
+
+.fw-8 {
+    font-weight: 800 !important;
+}
+
+/* Font custom */
+.font-main {
+    font-family: $font-main !important;
+}
+
+.font-anta {
+    font-family: $font-anta;
+}
+
+.font-barlow {
+    font-family: $font-barlow;
+}
+
+.font-inter {
+    font-family: $font-inter !important;
+}
+
+.font-inter_tight {
+    font-family: $font-inter_tight !important;
+}
+
+.font-instrument {
+    font-family: $font-instrument !important;
+}
+
+.font-instrument_sans {
+    font-family: $font-instrument_sans !important;
+}
+
+.font-inter {
+    font-family: $font-inter;
+}
+
+.font-red_hat {
+    font-family: $font-red_hat;
+}
+
+.font-cover_by {
+    font-family: $font-cover_by;
+}
+
+.font-geist {
+    font-family: $font-geist;
+}
+
+.text-32 {
+    font-size: clamp(20px, 3vw, 32px);
+    line-height: clamp(20px, 3vw, 32px);
+}
+
+.text-56 {
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: clamp(34px, 5vw, 56px);
+}
+
+.text-64 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: clamp(36px, 5vw, 64px);
+}
+
+.text-72 {
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: clamp(36px, 5.5vw, 72px);
+}
+
+.text-80 {
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: clamp(48px, 6.6vw, 88px);
+    letter-spacing: -0.03em !important;
+}
+
+.text-96 {
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: clamp(48px, 7vw, 96px);
+}
+
+.text-112 {
+    font-size: clamp(42px, 9vw, 112px);
+    line-height: clamp(42px, 9vw, 112px);
+}
+
+.text-125 {
+    font-size: clamp(60px, 13vw, 180px);
+    line-height: clamp(60px, 9vw, 125px);
+    letter-spacing: -0.04em;
+}
+
+.text-128 {
+    font-size: clamp(40px, 8vw, 128px);
+    line-height: clamp(40px, 8vw, 128px);
+}
+
+.text-180 {
+    font-size: clamp(56px, calc(10.97px + 12vw), 180px);
+    line-height: clamp(48px, calc(9.23px + 10vw), 150px);
+}
+
+.text-132 {
+    font-size: clamp(48px, 10vw, 132px);
+    line-height: clamp(48px, 10vw, 132px);
+}
+
+.text-210 {
+    font-size: clamp(50px, 15vw, 210px);
+    line-height: clamp(60px, 12.5vw, 220px);
+    letter-spacing: -0.04em;
+}
+
+
+.text-28-32 {
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: clamp(24px, 2.3vw, 32px);
+}
+
+.text-28-36 {
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: clamp(24px, 2.3vw, 36px);
+}
+
+.text-28-40 {
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: clamp(26px, 2.3vw, 40px);
+}
+
+.text-72-76 {
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: clamp(38px, 5.3vw, 76px);
+}
+
+.text-80-84 {
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: clamp(48px, 6.6vw, 84px);
+}
+
+/* Font size */
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fs-12 {
+    font-size: 12px !important;
+}
+
+.fs-14 {
+    font-size: 14px !important;
+}
+
+.fs-16 {
+    font-size: 16px !important;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-24 {
+    font-size: clamp(20px, 1.8vw, 24px) !important;
+}
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.fs-35 {
+    font-size: 35px;
+}
+
+.fs-36 {
+    font-size: clamp(20px, 3vw, 36px);
+}
+
+.fs-52 {
+    font-size: clamp(32px, 4vw, 52px);
+}
+
+.fs-72 {
+    font-size: clamp(36px, 5vw, 72px);
+}
+
+.fs-76 {
+    font-size: clamp(32px, 5vw, 76px);
+}
+
+/* Line height */
+.lh-100per {
+    line-height: 100%;
+}
+
+.lh-8 {
+    line-height: 8px !important;
+}
+
+.lh-10 {
+    line-height: 10px !important;
+}
+
+.lh-11 {
+    line-height: 11px !important;
+}
+
+.lh-12 {
+    line-height: 12px !important;
+}
+
+.lh-13 {
+    line-height: 13px !important;
+}
+
+.lh-13 {
+    line-height: 13px !important;
+}
+
+.lh-16 {
+    line-height: 16px !important;
+}
+
+.lh-19 {
+    line-height: 19px !important;
+}
+
+.lh-20 {
+    line-height: 20px !important;
+}
+
+.lh-22 {
+    line-height: 22px !important;
+}
+
+.lh-24 {
+    line-height: 24px !important;
+}
+
+.lh-25 {
+    line-height: 25px !important;
+}
+
+.lh-26 {
+    line-height: 26px !important;
+}
+
+.lh-28 {
+    line-height: clamp(25px, 2.2vw, 28px) !important;
+}
+
+.lh-30 {
+    line-height: 30px !important;
+}
+
+.lh-32 {
+    line-height: 32px !important;
+}
+
+.lh-34 {
+    line-height: clamp(28px, 2.5vw, 34px) !important;
+}
+
+.lh-38 {
+    line-height: clamp(28px, 4vw, 38px);
+}
+
+.lh-40 {
+    line-height: clamp(28px, 4vw, 40px);
+}
+
+.lh-44 {
+    line-height: clamp(28px, 4vw, 44px);
+}
+
+.lh-58 {
+    line-height: clamp(40px, 4vw, 58px) !important;
+}
+
+.lh-59 {
+    line-height: clamp(40px, 4vw, 59px);
+}
+
+.lh-76 {
+    line-height: clamp(38px, 5.3vw, 76px);
+}
+
+.lh-96 {
+    line-height: clamp(48px, 7vw, 96px);
+}
+
+/* Letter spacing */
+.letter-space-0 {
+    letter-spacing: 0 !important;
+}
+
+.letter-space-1 {
+    letter-spacing: 0.01em !important;
+}
+
+.letter-space-2 {
+    letter-spacing: 0.02em !important;
+}
+
+.letter-space-3 {
+    letter-spacing: 0.03em !important;
+}
+
+.letter-space--1 {
+    letter-spacing: -0.01em !important;
+}
+
+.letter-space--2 {
+    letter-spacing: -0.02em !important;
+}
+
+.letter-space--3 {
+    letter-spacing: -0.03em !important;
+}
+
+.letter-space--4 {
+    letter-spacing: -0.04em !important;
+}
+
+.letter-space--5 {
+    letter-spacing: -0.05em !important;
+}
+
+.letter-space--6 {
+    letter-spacing: -0.06em !important;
+}
+
+/* Responsive */
+@include res(xxl, min) {
+    .lh-xxl-11 {
+        line-height: 11px !important;
+    }
+
+    .lh-xxl-19 {
+        line-height: 19px !important;
+    }
+
+    .lh-xxl-22 {
+        line-height: 22px !important;
+    }
+
+    .lh-xxl-56 {
+        line-height: 56px !important;
+    }
+
+    .lh-xxl-72 {
+        line-height: 72px !important;
+    }
+}
+
+@include res(xl, min) {
+    .fs-xl-20 {
+        font-size: 20px !important;
+    }
+
+    .lh-xl-24 {
+        line-height: 24px !important;
+    }
+
+    .lh-xl-54 {
+        line-height: 54px !important;
+    }
+
+    .lh-xl-36 {
+        line-height: 36px !important;
+    }
+}
+
+@include res(lg, min) {
+    .lh-lg-56 {
+        line-height: 56px !important;
+    }
+}

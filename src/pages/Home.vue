@@ -1,815 +1,3047 @@
 <template>
-    <!-- hero-section area start here  -->
-         <div class="hero-section">
-        <div class="hero-slider">
-     <swiper
-    :modules="modules"
-    :autoplay="{
-      delay: 3000,
-      disableOnInteraction: false
-    }"
-   :pagination="{ clickable: true }"
-    :loop="true"
-    class="mySwiper"
-  >
-    <swiper-slide>
-         <div class="signle-slide"  :style="{ backgroundImage: `url(${heroBg})` }">
-                <div class="container">
-          <div class="row align-items-center">
-                        <div class="col-lg-6 col-6">
-                            <div class="hero-slider-content text-center">
-                                <h2 class="slider-sub-title">Glow Naturally</h2>
-                                <h1 class="slider-title">Vimas Professionals</h1>
-                                <p class="slider-text">Experience the soothing touch of Aloe Vera with our refreshing facial gels and daily care essentials designed for radiant skin.</p>
-                                
-<div class="slider-btn">
-  <router-link to="/shop"><a class="primary-btn">Shop Now!</a> </router-link>  
-    <a href="#collection" class="secondary-btn" >Explore Collection</a>
-</div>
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-5 offset-lg-1 col-6">
-                            <div class="hero-slider-image text-center"><img class="hero-image img-fluid" src="@/assets/ui/images/hero-banner-image-1.webp" alt="Aloe Vera Care" /></div>
-                        </div>
-                    </div>
-                         </div>
-                    </div>
-    </swiper-slide>
-    <swiper-slide>
-         <div class="signle-slide"  :style="{ backgroundImage: `url(${heroBg})` }">
-                <div class="container">
-          <div class="row align-items-center">
-                        <div class="col-lg-6 col-6">
-                            <div class="hero-slider-content text-center">
-                                <h2 class="slider-sub-title">Glow Naturally</h2>
-                                <h1 class="slider-title">Vimas Professionals</h1>
-                                <p class="slider-text">Experience the soothing touch of Aloe Vera with our refreshing facial gels and daily care essentials designed for radiant skin.</p>
-                                
-<div class="slider-btn">
-  <router-link to="/shop"><a class="primary-btn">Shop Now!</a> </router-link>  
-    <a href="#collection" class="secondary-btn" >Explore Collection</a>
-</div>
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-5 offset-lg-1 col-6">
-                            <div class="hero-slider-image text-center"><img class="hero-image img-fluid" src="@/assets/ui/images/hero-banner-image-1.webp" alt="Aloe Vera Care" /></div>
-                        </div>
-                    </div>
-                         </div>
-                    </div>
-    </swiper-slide>
-   
-  </swiper>
-   </div>
-   </div>
-    <!-- hero-section area end here  -->
-         <p>&nbsp;</p>
-    <!-- Google Fonts -->
-    <link href="https://fonts.cdnfonts.com/css/cream-cake" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/futura-md-bt" rel="stylesheet">
-
-    
-   
-
-    <div class="banner pt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" id="popular-category">
-                    <h3 class="sub-title">SERVES YOUR NEEDS</h3>
-                    <h2 class="section-title">VIMAS PROFESSIONALS</h2>
-                </div>
-                
-                <div class="col-md-6 align-self-end text-md-end" id="all-category">
-              <router-link to="/shop"> <a  class="primary-btn">View All Categories</a></router-link>     
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-md-4" v-for="(item, index) in categories" :key="index">
-                    
-                    <div class="banner_item">
-                           <!-- <div class="card category-card">
-                          <router-link to="/shop" class="single-categorie">   
-                           
-                                <div class="image-container">
-                                    <img :src="image_url + item.image" :alt="item.name"  class="img-fluid">
-                                </div>
-                                <div class="categorie-wrap">
-                                    <h1 class="categorie-name">{{ item.name }}</h1>
-                                    <h1 class="categorie-subtitle">Beauty is the fashion</h1>
-                                </div>
-                          
-                            </router-link> 
-                        </div> -->
-                      
-                        <div class="card category-card" style="cursor: pointer;"  @click="goToCategory(item)">
-                          <!-- <router-link to="/shop">    -->
-                            <div class="single-categorie" >
-                                <div class="image-container">
-                                    <img :src="image_url + item.image" :alt="item.name"  class="img-fluid">
-                                </div>
-                                <div class="categorie-wrap">
-                                    <h1 class="categorie-name">{{ item.name }}</h1>
-                                    <h1 class="categorie-subtitle">Beauty is the fashion</h1>
-                                </div>
-                            </div>
-                            <!-- </router-link>  -->
-                        </div>
-                      
-                    </div>
-                    
-                </div>
-             
-            </div>
-        </div>
-    </div>
-    <!-- Popular Categories area end here  -->
-
-     <!-- How It Works – VIMAS PROFESSIONAL -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <section class="vimas-hiw">
-        <div class="vimas-hiw__head">
-            <h2>How It Works</h2>
-            <p>The VIMAS PROFESSIONAL Experience</p>
-        </div>
-
-        <div class="vimas-hiw__wrap">
-            <!-- Step 1 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">1</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">shopping_bag</span></div>
-                <h3>Discover Your Favorites</h3>
-                <p>Browse our curated collection of premium beauty products and add your must-haves to the cart.</p>
-            </article>
-
-            <!-- Step 2 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">2</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">fact_check</span></div>
-                <h3>Learn More Before You Buy</h3>
-                <p>Explore detailed product descriptions, ingredients, and usage tips to make confident choices.</p>
-            </article>
-
-            <!-- Step 3 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">3</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">lock</span></div>
-                <h3>Secure Your Order</h3>
-                <p>Complete your purchase through our smooth and secure checkout process.</p>
-            </article>
-
-            <!-- Step 4 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">4</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">local_shipping</span></div>
-                <h3>Fast & Reliable Dispatch</h3>
-                <p>Your order is packed with care and dispatched within 2 working days.</p>
-            </article>
-
-            <!-- Step 5 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">5</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">schedule</span></div>
-                <h3>Timely Delivery</h3>
-                <p>Receive your beauty essentials at your doorstep within 3–6 working days.</p>
-            </article>
-
-            <!-- Step 6 -->
-            <article class="vimas-hiw__card">
-                <div class="vimas-hiw__badge">6</div>
-                <div class="vimas-hiw__icon"><span class="material-icons">spa</span></div>
-                <h3>Indulge & Inspire</h3>
-                <p>Enjoy the VIMAS PROFESSIONAL touch. We’re here to empower your beauty journey and serve you with excellence.</p>
-            </article>
-        </div>
-    </section>
-    <!-- New arrivals -->
-         <div class="new_arrivals">
-        <div class="container">
-            <div class="row" >
-                <div class="col text-center">
-                    <div class="section_title new_arrivals_title">
-                        <h2 id="collection">New Arrivals</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row align-items-center">
-                <div class="col text-center">
-                    <div class="new_arrivals_sorting">
-                        <ul class="arrivals_grid_sorting clearfix button-group filters-button-group"  >
-                      
-                             <li v-for="(item,index) in collectionList" :key="item.id"
-                             :class="{ 'active is-checked': activeCollection === item.id }"
-  @click="productListById(item.id)"
-                            class="grid_sorting_button button" data-filter="*">{{ item.name }}</li>
-  
-                           
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-grid mt-4">
+   <!-- Hero -->
+        <section class="section-cosmetic-hero-shop style-home flat-spacing-5 slider-hero-wrap">
+            <ul class="hero-image">
+    <li
+      v-for="(image, index) in images"
+      :key="index"
+      class="img-thumbs"
+      :class="{ active: currentIndex === index }"
+    >
+      <img
+        loading="lazy"
+        width="1416"
+        height="595"
+        :src="image"
+        alt="Image"
+      />
+    </li>
+  </ul>
+            <div class="container-5 position-relative z-5">
                 <div class="row">
-                    <div class="col-md-3 pt-4"   v-for="product in productList"
-      :key="product.id">
-                        <div class="product-item category-31">
-                            <div class="product discount product_filter">
-                                <div class="product_image">
-                                    <a :href="`/vimas/product/${product.slugable.key}`">
-                    <img class="product-thumbnail" :src="image_url+product.image" :alt="product.name" />
-                  </a>
-                                </div>
-                                <div class="product_info mt-3">
-                                    <h5 class="product-name">
-                                        <a class="product-link" >{{ product.name }}</a>
-                                    </h5>
-                                    <div class="product_price">
-                                        <span class="price">
-                      {{ product.sale_price!==null?product.sale_price:product.price }}                                             </span>
-                                    </div>
+                    <div class="col-sm-6 col-md-7 col-xl-9">
+        <Swiper
+    :modules="[Autoplay, Pagination, EffectFade]"
+    effect="fade"
+    :autoplay="{ delay: 3000 }"
+    :pagination="{ clickable: true }"
+    @slideChange="animateContent"
+    class="swiper-hero-main-thumb"
+  >
+    <SwiperSlide v-for="(slide, i) in slides" :key="i">
+      <div class="col-left hero-content">
+        <h2 class="title-slide">
+          <span>Exquisite Grace,</span> Accuracy
+        </h2>
 
-                                    <div class="stock-status pb-4">
-                                        <span class="badge bg-info">In Stock</span>
+        <a href="#" class="btn-wrap">
+          Explore Now
+        </a>
+      </div>
+    </SwiperSlide>
+  </Swiper>
+                        <!-- <div dir="ltr" class="swiper swiper-hero-main-thumb slider_effect_fade">
+                            <div class="swiper-wrapper">
+                              
+                                <div class="swiper-slide">
+                                    <div class="col-left">
+                                        <h2 class="title-slide text-display-1 fw-normal text-white fade-item fade-item-1">
+                                            <span>Exquisite Grace,</span> Accuracy
+                                        </h2>
+                                        <div class="fade-item fade-item-2">
+                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                                <span class="text-body-4 fw-medium text-primary">Explore Now</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="swiper-slide">
+                                    <div class="col-left">
+                                        <h2 class="title-slide text-display-1 fw-normal text-white fade-item fade-item-1">
+                                            <span>Exquisite Grace,</span> Accuracy
+                                        </h2>
+                                        <div class="fade-item fade-item-2">
+                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                                <span class="text-body-4 fw-medium text-primary">Explore Now</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="swiper-slide">
+                                    <div class="col-left">
+                                        <h2 class="title-slide text-display-1 fw-normal text-white fade-item fade-item-1">
+                                            <span>Exquisite Grace,</span> Accuracy
+                                        </h2>
+                                        <div class="fade-item fade-item-2">
+                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                                <span class="text-body-4 fw-medium text-primary">Explore Now</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-<button class="red_button cart_button add_to_cart_button" @click="cartStore.addToCartList(product)">
+                            <div class="sw-dot-default tf-sw-pagination"></div>
+                        </div> -->
+                    </div>
 
-    	<span v-if="cartStore.loadingProductId === product.id" class="custom-spinner"></span>
-  <span v-else>Add To Bag</span>
-</button>
-                            <!-- <a href="" class="red_button add_to_cart_button cart_button"  title="Add To Bag" @click="addToCart(product)">Add To Bag</a> -->
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-sm-6 col-xl-4">
+                        <ul class="environment-list">
+                          <li><i class="fas fa-leaf"></i></li>
+<li><i class="fas fa-spa"></i></li>
+<li><i class="fas fa-seedling"></i></li>
+                        </ul>
+                        <p class="text-white text-body-1">
+                            Transform your look, elevate your confidence with Ametic, unlocking your true potential and inner glow.
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-xl-3 ms-auto">
+                        <div class="">
+                            <div dir="ltr" class="swiper swiper-hero-thumb">
+                                <div class="swiper-wrapper">
+                                    <!-- item 1 -->
+                                    <div class="swiper-slide">
+                                        <div class="card-product card-product-v02 type-2 bg-white">
+                                            <div class="card-product_wrapper">
+                                                <a href="shop-detail.html" class="product-img">
+                                                    <img class="img-product" width="277" height="239"
+                                                        src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                    <img class="img-hover" width="277" height="239"
+                                                        src="../assets/images/vimas/FACIAL-CREAM.png" alt="Product">
+                                                </a>
+                                                <ul class="product-badge-list">
+                                                    <li class="product-badge text-body-4">
+                                                        New
+                                                    </li>
+                                                    <li class="product-badge text-body-4 sale">
+                                                        Sale
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-product_info">
+                                                <div class="info-left">
+                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                        Bio Retinol</a>
+                                                    <div class="product__price price-wrap text-black">
+                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="action-shop-list">
+                                                    <div class="btn-add-shop">
+                                                        <!-- <i class="fa-solid fa-plus fs-24 plus-icon"></i> -->
+                                                         <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                    </div>
+                                                    <ul class="product-action-list">
+                                                        <li>
+                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <!-- <span class="icon"><img src="../assets/images/cart.svg" alt=""></span> -->
+                                                                <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to cart</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="wishlist">
+                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                <!-- <span class="icon"><img src="../assets/images/heart.svg" alt=""></span> -->
+                                                                 <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to Wishlist</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="compare">
+                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <!-- <span class="icon"><img src="../assets/images/eye.svg" alt=""></span> -->
+                                                                 <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                <span class="tooltip">Compare</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                <!-- <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span> -->
+                                                                 <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                <span class="tooltip">Quick view</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item 2 -->
+                                    <div class="swiper-slide">
+                                        <div class="card-product card-product-v02 type-2 bg-white">
+                                            <div class="card-product_wrapper">
+                                                <a href="shop-detail.html" class="product-img">
+                                                    <img class="img-product" width="277" height="239"
+                                                        src="../assets/images/product/product-9.jpg" alt="Product">
+                                                    <img class="img-hover" width="277" height="239"
+                                                        src="../assets/images/product/product-9.jpg" alt="Product">
+                                                </a>
+                                                <ul class="product-badge-list">
+                                                    <li class="product-badge text-body-4">
+                                                        New
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-product_info">
+                                                <div class="info-left">
+                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                        Bio Retinol</a>
+                                                    <div class="product__price price-wrap text-black">
+                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="action-shop-list">
+                                                    <div class="btn-add-shop">
+                                                       <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                    </div>
+                                                    <ul class="product-action-list">
+                                                        <li>
+                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to cart</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="wishlist">
+                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to Wishlist</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="compare">
+                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                <span class="tooltip">Compare</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                <span class="tooltip">Quick view</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item 3 -->
+                                    <div class="swiper-slide">
+                                        <div class="card-product card-product-v02 type-2 bg-white">
+                                            <div class="card-product_wrapper">
+                                                <a href="shop-detail.html" class="product-img">
+                                                    <img class="img-product" width="277" height="239"
+                                                        src="../assets/images/product/product-8.jpg" alt="Product">
+                                                    <img class="img-hover" width="277" height="239"
+                                                        src="../assets/images/product/product-8.jpg" alt="Product">
+                                                </a>
+                                                <ul class="product-badge-list">
+                                                    <li class="product-badge text-body-4">
+                                                        New
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-product_info">
+                                                <div class="info-left">
+                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                        Bio Retinol</a>
+                                                    <div class="product__price price-wrap text-black">
+                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="action-shop-list">
+                                                    <div class="btn-add-shop">
+                                                       <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                    </div>
+                                                    <ul class="product-action-list">
+                                                        <li>
+                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to cart</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="wishlist">
+                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                <span class="tooltip">Add to Wishlist</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="compare">
+                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                <span class="tooltip">Compare</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                <span class="tooltip">Quick view</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sw-line-vertical style-2 tf-sw-pagination"></div>
+                            </div>
                         </div>
                     </div>
-                  
+                </div>
+            </div>
+        </section>
+        <!-- /Hero -->
+        <!-- Image Text -->
+        <div class="section-cosmetic-text-image flat-spacing-4">
+            <div class="container-5">
+                <div class="box-text-image-wrap h3 letter-space--3 text-color-change-3">
+                    We are dedicated to
+                    <div class="image">
+                        <img loading="lazy" width="112" height="48" src="../assets/images/section/story-1.jpg" alt="Image">
+                    </div>
+                    elevating
+                    <div class="break"></div>
+                    standards in
+                    <div class="image">
+                        <img loading="lazy" width="112" height="48" src="../assets/images/section/story-2.jpg" alt="Image">
+                    </div>
+                    beauty and care, creating
+                    <div class="break"></div>
+                    confidence and timeless
+                    <div class="image">
+                        <img loading="lazy" width="112" height="48" src="../assets/images/section/story-3.jpg" alt="Image">
+                    </div>
+                    elegance
+                    <div class="break"></div>
+                    for everyone
+                </div>
+                <div class="text-center">
+                    <a href="demo-camping-about-us.html" class="action btn-wrap btn-4 btn-fill-primary animate-btn animate-dark">
+                        <span class="text-body-4 fw-medium"> Read Our Story</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-       <!-- Featured Products area start here  -->
- <div class="mt-4">
-        <!-- About Area start here  -->
-        <div class="about-area section">
-            <div class="container">
-                <div class="section-header-area">
+        <!-- Image Text -->
+        <!-- Banner Image Text -->
+        <section class="section-cosmetic">
+            <div class="container-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box-image-v01 hover-img mb-md-0">
+                            <div class="box-image_image img-style">
+                                <img loading="lazy" width="646" height="520" src="../assets/images/section/box-1.jpg" alt="Image">
+                            </div>
+                            <div class="box-image_content">
+                                <div class="flex-1">
+                                    <p class="mini-title text-body-1 text-white">Happy Mother’s day</p>
+                                </div>
+                                <h2 class="title letter-space--3 text-white">
+                                    <span>Best gifts for </span>
+                                    <br> Your Mom
+                                </h2>
+                                <div class="flex-1 d-flex align-items-end">
+                                    <a href="about.html" class="action btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                        <span class="text-body-4 fw-medium text-primary">Real Our Story</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box-image-v01 hover-img mb-0">
+                            <div class="box-image_image img-style">
+                                <img loading="lazy" width="646" height="520" src="../assets/images/section/box-2.jpg" alt="Image">
+                            </div>
+                            <div class="box-image_content ">
+                                <div class="flex-1">
+                                    <p class="mini-title text-body-1 text-white">Discover our creative universe</p>
+                                </div>
+                                <h2 class="title letter-space--3 text-white">
+                                    <span>50% OFF</span>
+                                    <br> Mother’s day
+                                </h2>
+                                <div class="flex-1 d-flex align-items-end">
+                                    <a href="about.html" class="action btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                        <span class="text-body-4 fw-medium text-primary">Real Our Story</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infiniteslide_wrap" style="overflow: hidden;">
+            <div class="infiniteSlide infiniteSlide-text-cosmetic" data-clone="3">
+                <!-- clone 1 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+                <!-- clone 2 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+                <!-- clone 3 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+            </div>
+            </div>
+            <div class="container-5">
+                <div class="br-line d-flex bg-gray-20"></div>
+            </div>
+        </section>
+        <!-- Banner Image Text -->
+        <!-- Tab Product -->
+        <div class="section-comestic-tab-product flat-animate-tab flat-spacing-4">
+            <div class="container-5">
+                <div class="s-header-2 align-items-end">
+                    <ul class="tab-btn-product_list" role="tablist">
+                        <li class="nav-tab-item" role="presentation">
+                            <a href="#hot" data-bs-toggle="tab" class="tf-btn-tab h4 letter-space--2 fw-medium active">
+                                What’s Hot
+                            </a>
+                            <a href="#new" data-bs-toggle="tab" class="tf-btn-tab h4 letter-space--2 fw-medium">
+                                New Arrivals
+                            </a>
+                            <a href="#best" data-bs-toggle="tab" class="tf-btn-tab h4 letter-space--2 fw-medium">
+                                Best Seller
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="shop-default.html" class="tf-btn-line d-none d-md-inline-flex">
+                        <span class="text-body-1 fw-medium">Shop All Products</span>
+                    </a>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="hot" role="tabpanel">
+                        <div class="tf-grid-layout ssm-col-2 lg-col-3">
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                            <span class="price-old text-decoration-line-through">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="new" role="tabpanel">
+                        <div class="tf-grid-layout ssm-col-2 lg-col-3">
+
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-5.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-5.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-6.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-6.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-1.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-1.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-3.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-3.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                            <span class="price-old text-decoration-line-through">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="best" role="tabpanel">
+                        <div class="tf-grid-layout ssm-col-2 lg-col-3">
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-6.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-6.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-1.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-5.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-5.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-product card-product-v02">
+                                <div class="card-product_wrapper">
+                                    <a href="shop-detail.html" class="product-img">
+                                        <img class="img-product" width="384" height="332"
+                                            src="../assets/images/product/product-3.jpg" alt="Product">
+                                        <img class="img-hover" width="384" height="332"
+                                            src="../assets/images/product/product-3.jpg" alt="Product">
+                                    </a>
+                                    <ul class="product-badge-list">
+                                        <li class="product-badge">
+                                            New
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-product_info">
+                                    <div class="info-left">
+                                        <p class="product__cate text-uppercase text-body-4">moisturize</p>
+                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream Bio
+                                            Retinol</a>
+                                        <div class="product__price price-wrap text-black">
+                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                            <span class="price-old text-decoration-line-through">$56.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="action-shop-list">
+                                        <div class="btn-add-shop">
+                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                        </div>
+                                        <ul class="product-action-list">
+                                            <li>
+                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to cart</span>
+                                                </a>
+                                            </li>
+                                            <li class="wishlist">
+                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                    <span class="tooltip">Add to Wishlist</span>
+                                                </a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                    <span class="tooltip">Compare</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                    <span class="tooltip">Quick view</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Tab Product -->
+        <!-- Beautiful -->
+        <section class="section-cosmetic-beautiful flat-spacing-4 bg-linear mx-12 radius-28">
+            <div class="container-5">
+                <div class="s-header-3">
+                    <div class="ic-head wow fadeIn">
+                      <i class="fa-solid fa-spa wellness-icon fs-24"></i>
+                    </div>
+                    <h2 class="title fw-normal letter-space--3 text-black text-center wow fadeZoom">
+                        <span>Conscious Beauty,</span><br> Compomised
+                    </h2>
+                </div>
+            </div>
+            <div class="wrap">
+                <div class="img-item item-1">
+                    <!-- <img loading="lazy" width="685" height="480" src="../assets/images/item/box-cosmetic.png" alt="Image"> -->
+                     <img loading="lazy" width="685" height="480" src="../assets/images/item/box-cosmetic.png" alt="Image">
+                </div>
+                <div class="img-item item-2">
+                    <img loading="lazy" width="424" height="345" src="../assets/images/item/leave-1.png" alt="Image">
+                </div>
+                <div class="img-item item-3">
+                    <img loading="lazy" width="424" height="345" src="../assets/images/item/leave-2.png" alt="Image">
+                </div>
+                <div class="img-item item-4">
+                    <img loading="lazy" width="423" height="610" src="../assets/images/item/inner-jar.png" alt="Image">
+                </div>
+                <div class="container-5 position-relative z-5">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h3 class="sub-title">About Us</h3>
-                            <h2 class="section-title">The Journey of <br />Vimas Beauty Products</h2>
+                        <div class="col-sm-6 col-md-5 col-xl-3">
+                            <div class="wg-icon-2 s1">
+                                <div class="ic-wrap">
+                                      <i class="fa-solid fa-seedling fs-24 seedling-icon"></i>
+                                </div>
+                                <p class="title text-sub-head text-black">
+                                    Five ingredients. <br class="d-none d-sm-block"> Nothing more
+                                </p>
+                                <p class="sub-title text-body-4 cl-gray-50">
+                                    Targeted essentials deliver <br class="d-none d-sm-block"> real results: Repair, renew, calm, <br class="d-none d-sm-block"> hydrate, protect. No irritation, <br class="d-none d-sm-block"> no wasted money.
+                                </p>
+                            </div>
                         </div>
-                         
-                        <div class="col-md-6 align-self-end text-md-end">
-                         <router-link to="/about-us"><a class="primary-btn" >Know More About Us</a> </router-link>  
+                        <div class="col-sm-6 col-md-5 col-xl-3">
+                            <div class="wg-icon-2 s2">
+                                <div class="ic-wrap">
+                                    <i class="fa-solid fa-seedling fs-24 seedling-icon"></i>
+                                </div>
+                                <p class="title text-sub-head text-black">
+                                    Proven by <br class="d-none d-sm-block"> people like you
+                                </p>
+                                <p class="sub-title text-body-4 cl-gray-50">
+                                    In real-world tests, 94% of users <br class="d-none d-sm-block"> experienced dramatic, noticeable <br class="d-none d-sm-block"> improvements in 28 days, leading to <br class="d-none d-sm-block"> comments from friends
+                                    <br class="d-none d-sm-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-s2">
+                        <div class="col-sm-6 col-md-5 col-xl-3 ms-auto">
+                            <div class="wg-icon-2 s1">
+                                <div class="ic-wrap">
+                                      <i class="fa-solid fa-seedling fs-24 seedling-icon"></i>
+                                </div>
+                                <p class="title text-sub-head text-black">
+                                    Quality over <br class="d-none d-sm-block"> quantity
+                                </p>
+                                <p class="sub-title text-body-4 cl-gray-50">
+                                    We use higher concentrations <br class="d-none d-sm-block"> of effective ingredients, not cheap <br class="d-none d-sm-block"> fillers, delivering what your skin <br class="d-none d-sm-block"> needs, precisely where
+                                    it needs it. <br class="d-none d-sm-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col-xl-3">
+                            <div class="wg-icon-2 s2 mb-0">
+                                <div class="ic-wrap">
+                                      <i class="fa-solid fa-seedling fs-24 seedling-icon"></i>
+                                </div>
+                                <p class="title text-sub-head text-black">
+                                    The last skincare <br class="d-none d-sm-block"> you'll ever need
+                                </p>
+                                <p class="sub-title text-body-4 cl-gray-50">
+                                    Essence uses five powerful, effective<br class="d-none d-sm-block"> ingredients, chosen for proven results,<br class="d-none d-sm-block"> not trends or irritants, to transform<br class="d-none d-sm-block"> your skin.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="story-box-slide">
-                    <div class="single-story-box">
-                        <h3 class="story-title">Beginning <span class="story-year">2016</span></h3>
-                        <p class="story-content">Vimas was born with a simple vision &mdash; to bring natural beauty solutions that are safe, effective, and rooted in tradition. Our first formulations focused on skin and hair wellness using pure herbal extracts.</p>
+            </div>
+        </section>
+        <!-- /Beautiful -->
+        <!-- Lookbook -->
+        <section class="section-cosmetic-lookbook flat-spacing-4 swiper-action-wrap">
+            <div class="container-5">
+                <div class="row flex-wrap-reverse">
+                    <div class="col-md-6">
+                        <div class="col-left">
+                            <div class="s-header-3">
+                                <h3 class="title letter-space--4 text-black text-center wow fadeZoom">
+                                    <span>Dermal</span> <br>
+                                    <span class="letter-space--3 fw-medium">
+                                        Repair Cream
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="tf-btn-swiper-main">
+                                <div class="nav-prev-swiper">
+                                   <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                                  
+                                </div>
+                                <div dir="ltr" class="swiper tf-swiper swiper-lookbook" data-space="12">
+                                    <div class="swiper-wrapper">
+                                        <!-- item 1 -->
+                                        <div class="swiper-slide">
+                                            <div class="card-product card-product-v02 bg-white">
+                                                <div class="card-product_wrapper">
+                                                    <a href="shop-detail.html" class="product-img">
+                                                        <img class="img-product" width="384" height="332"
+                                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                        <img class="img-hover" width="384" height="332"
+                                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                    </a>
+                                                    <ul class="product-badge-list">
+                                                        <li class="product-badge small">
+                                                            New
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card-product_info">
+                                                    <div class="info-left">
+                                                        <p class="product__cate text-uppercase text-body-4">moisturize
+                                                        </p>
+                                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                            Bio Retinol</a>
+                                                        <div class="product__price price-wrap text-black">
+                                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="action-shop-list">
+                                                        <div class="btn-add-shop">
+                                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                        </div>
+                                                        <ul class="product-action-list">
+                                                            <li>
+                                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to cart</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="wishlist">
+                                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to Wishlist</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="compare">
+                                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                    <span class="tooltip">Compare</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                    <span class="tooltip">Quick view</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- item 2 -->
+                                        <div class="swiper-slide">
+                                            <div class="card-product card-product-v02 bg-white">
+                                                <div class="card-product_wrapper">
+                                                    <a href="shop-detail.html" class="product-img">
+                                                        <img class="img-product" width="277" height="239"
+                                                            src="../assets/images/product/product-8.jpg" alt="Product">
+                                                        <img class="img-hover" width="277" height="239"
+                                                            src="../assets/images/product/product-8.jpg" alt="Product">
+                                                    </a>
+                                                    <ul class="product-badge-list">
+                                                        <li class="product-badge">
+                                                            New
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card-product_info">
+                                                    <div class="info-left">
+                                                        <p class="product__cate text-uppercase text-body-4">moisturize
+                                                        </p>
+                                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                            Bio Retinol</a>
+                                                        <div class="product__price price-wrap text-black">
+                                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="action-shop-list">
+                                                        <div class="btn-add-shop">
+                                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                        </div>
+                                                        <ul class="product-action-list">
+                                                            <li>
+                                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to cart</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="wishlist">
+                                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to Wishlist</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="compare">
+                                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                    <span class="tooltip">Compare</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                    <span class="tooltip">Quick view</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- item 3 -->
+                                        <div class="swiper-slide">
+                                            <div class="card-product card-product-v02 bg-white">
+                                                <div class="card-product_wrapper">
+                                                    <a href="shop-detail.html" class="product-img">
+                                                        <img class="img-product" width="277" height="239"
+                                                            src="../assets/images/product/product-9.jpg" alt="Product">
+                                                        <img class="img-hover" width="277" height="239"
+                                                            src="../assets/images/product/product-9.jpg" alt="Product">
+                                                    </a>
+                                                    <ul class="product-badge-list">
+                                                        <li class="product-badge">
+                                                            New
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card-product_info">
+                                                    <div class="info-left">
+                                                        <p class="product__cate text-uppercase text-body-4">moisturize
+                                                        </p>
+                                                        <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
+                                                            Bio Retinol</a>
+                                                        <div class="product__price price-wrap text-black">
+                                                            <span class="price-new text-sub-head fw-medium">$56.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="action-shop-list">
+                                                        <div class="btn-add-shop">
+                                                            <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                        </div>
+                                                        <ul class="product-action-list">
+                                                            <li>
+                                                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to cart</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="wishlist">
+                                                                <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                                    <span class="tooltip">Add to Wishlist</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="compare">
+                                                                <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                                    <span class="tooltip">Compare</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                                    <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                                    <span class="tooltip">Quick view</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sw-line-vertical style-2 tf-sw-pagination"></div>
+                                </div>
+                                <div class="nav-next-swiper">
+                                      <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                    <!--  <i class="fa-solid fa-chevron-right arrow-icon"> -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="single-story-box">
-                        <h3 class="story-title">Expansion <span class="story-year">2017</span></h3>
-                        <p class="story-content">We introduced our first range of face washes and hair oils, carefully crafted with ingredients like aloe vera, neem, and essential oils. The trust of our customers helped us expand across local markets.</p>
+                    <div class="col-md-6">
+                        <div class="col-right">
+                            <div class="banner-image-lookbook">
+                                <div class="image-lookbook">
+                                    <img loading="lazy" width="646" height="720" src="../assets/images/section/lookbook.jpg" alt="Image">
+                                </div>
+                                <div class="lookbook-item position1">
+                                    <div role="dialog" class="tf-pin-btn swiper-button" data-slide="0" id="pin1">
+                                        <span></span>
+                                    </div>
+                                    <div class="loobook-product-wrap">
+                                        <div class="loobook-product">
+                                            <div class="img-style">
+                                                <img loading="lazy" width="108" height="108" src="../assets/images/product/product-7.jpg" alt="Image">
+                                            </div>
+                                            <div class="content">
+                                                <div class="info">
+                                                    <a href="product-detail.html" class="text-title text-line-clamp-1 text-black link">Dream Bio
+                                                        Retinol</a>
+                                                    <div class="price fw-medium text-black">$56.99</div>
+                                                </div>
+                                                <a href="#quickView" data-bs-toggle="modal" class="btn-lookbook text-black link-2">
+                                                    Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lookbook-item position2">
+                                    <div role="dialog" class="tf-pin-btn swiper-button" data-slide="1" id="pin2">
+                                        <span></span>
+                                    </div>
+                                    <div class="loobook-product-wrap">
+                                        <div class="loobook-product">
+                                            <div class="img-style">
+                                                <img loading="lazy" width="108" height="108" src="../assets/images/product/product-8.jpg" alt="Image">
+                                            </div>
+                                            <div class="content">
+                                                <div class="info">
+                                                    <a href="product-detail.html" class="text-title text-line-clamp-1 text-black link">Dream Bio
+                                                        Retinol</a>
+                                                    <div class="price fw-medium text-black">$56.99</div>
+                                                </div>
+                                                <a href="#quickView" data-bs-toggle="modal" class="btn-lookbook text-black link-2">
+                                                    Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lookbook-item position3">
+                                    <div role="dialog" class="tf-pin-btn swiper-button" data-slide="2" id="pin3">
+                                        <span></span>
+                                    </div>
+                                    <div class="loobook-product-wrap">
+                                        <div class="loobook-product">
+                                            <div class="img-style">
+                                                <img loading="lazy" width="108" height="108" src="../assets/images/product/product-9.jpg" alt="Image">
+                                            </div>
+                                            <div class="content">
+                                                <div class="info">
+                                                    <a href="product-detail.html" class="text-title text-line-clamp-1 text-black link">Dream Bio
+                                                        Retinol</a>
+                                                    <div class="price fw-medium text-black">$56.99</div>
+                                                </div>
+                                                <a href="#quickView" data-bs-toggle="modal" class="btn-lookbook text-black link-2">
+                                                    Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="single-story-box">
-                        <h3 class="story-title">Innovation <span class="story-year">2018</span></h3>
-                        <p class="story-content">Innovation became our focus &mdash; we launched facial kits and scrubs designed to suit every skin type. Our promise of quality and affordability made Vimas a household name in beauty care.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /Lookbook -->
+        <!-- Restock -->
+        <section class="section-cosmetic-restock ">
+            <div class="img-item d-none d-md-flex">
+                <img loading="lazy" width="1312" height="938" src="../assets/images/section/retock.jpg" alt="Image">
+            </div>
+            <div class="container-5 position-relative z-5">
+                <div class="s-header-3">
+                    <h3 class="title letter-space--4 text-black wow fadeInUp">
+                        <span>Best Seller Product</span> <br> Now Re-Stock
+                    </h3>
+                    <a href="shop-default.html" class="text-black text-decoration-underline link fw-medium wow fadeInUp" data-wow-delay="0.1s">
+                        <span class="text-body-1">
+                            Shop All Products
+                        </span>
+                    </a>
+                </div>
+                <div class="row d-flex align-items-end">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="col-left mb-md-0">
+                            <div class="tag-list">
+                                <a href="#" class="text-body-2">Niacinamide</a>
+                                <a href="#" class="text-body-2">Rafinose</a>
+                                <a href="#" class="text-body-2">Adenosine</a>
+                                <a href="#" class="text-body-2">Agar Extract</a>
+                                <a href="#" class="text-body-2">Korean Pearl Extract</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="single-story-box">
-                        <h3 class="story-title">Recognition <span class="story-year">2019</span></h3>
-                        <p class="story-content">By 2019, Vimas Beauty Products gained recognition for blending Ayurveda with modern science. Our products were widely appreciated for delivering visible results without harmful chemicals.</p>
+                    <div class="col-md-4 col-xl-3 ms-auto tf-btn-swiper-main">
+                        <div dir="ltr" class="swiper tf-swiper swiper-product-wrap" data-preview="1" data-tablet="1" data-mobile-sm="2" data-mobile="1" data-space="12">
+                            <div class="swiper-wrapper">
+                                <!-- item 1 -->
+                                <div class="swiper-slide">
+                                    <div class="card-product card-product-v02 type-2 ">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge">
+                                                    New
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html" class="product__name link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                            <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- item 2 -->
+                                <div class="swiper-slide">
+                                    <div class="card-product card-product-v02 type-2 bg-white">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/product/product-9.jpg" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/product/product-9.jpg" alt="Product">
+                                            </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge">
+                                                    New
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html" class="product__name link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                            <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- item 3 -->
+                                <div class="swiper-slide">
+                                    <div class="card-product card-product-v02 type-2 bg-white">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/product/product-8.jpg" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/product/product-8.jpg" alt="Product">
+                                            </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge">
+                                                    New
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html" class="product__name link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
+                                                            <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-nav">
+                                <div class="nav-action nav-prev-swiper">
+                                     <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                                </div>
+                                <div class="nav-action nav-next-swiper">
+                                     <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                </div>
+                            </div>
+                            <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
+                        </div>
                     </div>
-                    <div class="single-story-box">
-                        <h3 class="story-title">Growth <span class="story-year">2020</span></h3>
-                        <p class="story-content">Even during challenging times, we grew stronger by introducing hygiene and daily care ranges. Our shampoos, conditioners, and sunscreens became a trusted part of everyday routines.</p>
+                </div>
+            </div>
+        </section>
+        <!-- /Restock -->
+        <!-- Before After -->
+        <section class="section-cosmetic-befor-after flat-spacing-4">
+            <!-- <div class="container-5">
+                <div class="s-header-3 wow fadeZoom">
+                    <h3 class="fw-medium letter-space--3 text-black text-center">Before & After</h3>
+                </div>
+                <div class="banner-image-compare img-viewer-compare-wrap image-compare" id="image-compare">
+                    <img class="img-comp" loading="lazy" width="1312" height="680" src="../assets/images/section/skin-before.jpg" alt="Image">
+                    <img class="img-comp" loading="lazy" width="1312" height="680" src="../assets/images/section/skin-after.jpg" alt="Image">
+                </div>
+            </div> -->
+  <div class="compare-wrapper">
+
+  <div class="compare-container" id="compare">
+
+    <img src="../assets/images/section/skin-before.jpg" class="img-before">
+
+    <div class="img-overlay" id="overlay">
+      <img src="../assets/images/section/skin-after.jpg">
+    </div>
+
+    <div class="slider" id="slider"></div>
+
+    <span class="label before">Before</span>
+    <span class="label after">After</span>
+
+  </div>
+
+</div>
+            <div class="infiniteSlide infiniteSlide-text-cosmetic" data-clone="3">
+                <!-- clone 1 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+                <!-- clone 2 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+                <!-- clone 3 -->
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Rescue Your Skin</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">Made with love</h2>
+                <div class="br-dot"></div>
+                <h2 class="letter-space--3 cl-gray-20 fw-normal">New Season Essential</h2>
+                <div class="br-dot"></div>
+            </div>
+            <div class="container-5">
+                <div class="br-line d-flex bg-gray-20"></div>
+            </div>
+        </section>
+        <!-- /Before After -->
+        <!-- Best Product -->
+        <section class="section-cosmetic-best-product">
+            <div class="container-5">
+                <div class="s-header-3">
+                    <h3 class="title fw-normal letter-space--4 text-black text-center wow fadeZoom">
+                        <span>Best Skincare</span>
+                        <span class="fw-medium letter-space--3">
+                            Products
+                        </span>
+                    </h3>
+                </div>
+            </div>
+            <div dir="ltr" class="swiper swiper-best">
+                <div class="swiper-wrapper">
+                    <!-- item 1 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="single-story-box">
-                        <h3 class="story-title">Today <span class="story-year">2021 - Now</span></h3>
-                        <p class="story-content">Vimas continues to evolve as a complete beauty and wellness brand. With a growing range of skincare, haircare, and facial kits, we remain committed to enhancing natural beauty with products you can trust.</p>
+                    <!-- item 2 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-5.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-8.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 3 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-9.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 4 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-10.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 5 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- item 1 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 2 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-5.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-8.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 3 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-9.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 4 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-10.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 5 -->
+                    <div class="swiper-slide">
+                        <div class="card-best-product">
+                            <div class="product-image-preview">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="../assets/images/video/best-1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="product-content">
+                                <div class="left">
+                                    <div class="product_image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                    </div>
+                                    <div class="product_info">
+                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                            Dream Bio Retinol
+                                        </a>
+                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                    </div>
+                                </div>
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
+            </div>
+        </section>
+        <!-- /Best Product -->
+        <!-- Testimonial -->
+        <div class="section-cosmetic-testimonial flat-spacing-4">
+            <div class="text-item wow fadeZoom">
+                What they <br> are saying
+            </div>
+            <div class="container-5">
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                        <div class="testimonial-v05 s1">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 ms-auto">
+                        <div class="testimonial-v05 s2">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-1 offset-xl-4 d-none d-xl-block"></div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto m-xl-0">
+                        <div class="testimonial-v05 s3">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                        <div class="testimonial-v05 s4">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 ms-auto">
+                        <div class="testimonial-v05 s5">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-1 offset-xl-4 d-none d-xl-block"></div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto m-xl-0">
+                        <div class="testimonial-v05 s6">
+                            <ul class="rate-wrap">
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                                <li><i class="fa-regular fa-star star-icon "></i></li>
+                            </ul>
+                            <p class="tes-text cl-gray-60">
+                                I'm on planes constantly and my skin was so dehydrated and angry. The travel size is perfect for my carry-on and actually WORKS, unlike all the other travel-sized stuff I've tried.
+                            </p>
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="48" height="48" src="../assets/images/avatar/avatar-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <p class="info__name text-body-2 text-black">Kai Tanaka</p>
+                                    <p class="info__duty text-body-4 cl-gray-50">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About Area  end here  -->
-        <p>&nbsp;</p>
-    </div>
-      <!-- Featured Products area end here  -->
+        <!-- /Testimonial -->
+        <!-- Blog -->
+        <section class="section-cosmetic-article">
+            <div class="container-5">
+                <div class="tf-grid-layout sm-col-2 gap-20">
+                    <div class="article-blog-v04 style-large hover-img wd-full">
+                        <a href="blog-single.html" class="blog-image img-style">
+                            <img loading="lazy" width="1312" height="560" src="../assets/images/blog/blog-large.jpg" alt="Image">
+                        </a>
+                        <div class="blog-content">
+                            <div class="entry-badge_list">
+                                <div class="tag-badge style-2 bg-white">
+                                    <span class="text-body-4 fw-medium text-black">Trends</span>
+                                </div>
+                            </div>
+                            <div class="blog_entry">
+                                <p class="entry-date text-white">Mar 18, 2025</p>
+                                <h6 class="fw-normal letter-space--1">
+                                    <a href="blog-single.html" class="entry-name text-white link-2">Why
+                                        fewer ingredients work
+                                        better.</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-blog-v04 hover-img">
+                        <a href="blog-single.html" class="blog-image img-style">
+                            <img loading="lazy" width="646" height="400" src="../assets/images/blog/blog-1.jpg" alt="Image">
+                        </a>
+                        <div class="blog-content">
+                            <div class="entry-badge_list">
+                                <div class="tag-badge style-2 bg-white">
+                                    <span class="text-body-4 fw-medium text-black">Trends</span>
+                                </div>
+                            </div>
+                            <div class="blog_entry">
+                                <p class="entry-date text-white">Mar 18, 2025</p>
+                                <h6 class="fw-normal letter-space--1">
+                                    <a href="blog-single.html" class="entry-name text-white link">The
+                                        power of simplifying routine.</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-blog-v04 hover-img">
+                        <a href="blog-single.html" class="blog-image img-style">
+                            <img loading="lazy" width="646" height="400" src="../assets/images/blog/blog-2.jpg" alt="Image">
+                        </a>
+                        <div class="blog-content">
+                            <div class="entry-badge_list">
+                                <div class="tag-badge style-2 bg-white">
+                                    <span class="text-body-4 fw-medium text-black">Trends</span>
+                                </div>
+                            </div>
+                            <div class="blog_entry">
+                                <p class="entry-date text-white">Mar 18, 2025</p>
+                                <h6 class="fw-normal letter-space--1">
+                                    <a href="blog-single.html" class="entry-name text-white link">Fewer
+                                        products, Better skin.</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Blog -->
+        <!-- FAQ -->
+        <section class="section-cosmetic-faq flat-spacing-4">
+            <div class="container-5">
+                <div class="s-header-3">
+                    <h3 class="title fw-normal letter-space--3 text-black text-center wow fadeZoom">
+                        <span>Got Questions?</span><br>
+                        <span class="fw-medium letter-space--3">
+                            We’ve Got Answers
+                        </span>
+                    </h3>
+                </div>
+
+                <div class="cosmetic-faq" id="cosmetic-faq">
+                    <div class="faq-accordion_item-5 " role="presentation">
+                        <div class="accordion-action" data-bs-target="#faq-1" role="button" data-bs-toggle="collapse" aria-controls="faq-1" aria-expanded="true">
+                            <p class="text">
+                                What types of skin conditions can your clinic help with, and are your treatments customized?
+                            </p>
+                            <div class="ic-wrap">
+                                <span class="icon ic-accordion-custom"></span>
+                            </div>
+                        </div>
+                        <div id="faq-1" class="collapse show" data-bs-parent="#cosmetic-faq">
+                            <div class="accordion-content cl-gray-60">
+                                <p class="text-body-4">
+                                    We treat a comprehensive range of skin conditions, including acne, eczema, psoriasis, rosacea, and skin cancer, alongside addressing cosmetic concerns such as wrinkles, dark spots, uneven skin tone, and scars. Our expert team ensures personalized care
+                                    for every need.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion_item-5 " role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#faq-2" role="button" data-bs-toggle="collapse" aria-controls="faq-2" aria-expanded="true">
+                            <p class="text">
+                                How do I book an appointment at your clinic, and what is the process?
+                            </p>
+                            <div class="ic-wrap">
+                                <span class="icon ic-accordion-custom"></span>
+                            </div>
+                        </div>
+                        <div id="faq-2" class="collapse" data-bs-parent="#cosmetic-faq">
+                            <div class="accordion-content cl-gray-60">
+                                <p class="text-body-4">
+                                    We treat a comprehensive range of skin conditions, including acne, eczema, psoriasis, rosacea, and skin cancer, alongside addressing cosmetic concerns such as wrinkles, dark spots, uneven skin tone, and scars. Our expert team ensures personalized care
+                                    for every need.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion_item-5 " role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#faq-3" role="button" data-bs-toggle="collapse" aria-controls="faq-3" aria-expanded="true">
+                            <p class="text">
+                                Do I need to follow any special instructions to prepare for my treatment?
+                            </p>
+                            <div class="ic-wrap">
+                                <span class="icon ic-accordion-custom"></span>
+                            </div>
+                        </div>
+                        <div id="faq-3" class="collapse" data-bs-parent="#cosmetic-faq">
+                            <div class="accordion-content cl-gray-60">
+                                <p class="text-body-4">
+                                    We treat a comprehensive range of skin conditions, including acne, eczema, psoriasis, rosacea, and skin cancer, alongside addressing cosmetic concerns such as wrinkles, dark spots, uneven skin tone, and scars. Our expert team ensures personalized care
+                                    for every need.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion_item-5 " role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#faq-4" role="button" data-bs-toggle="collapse" aria-controls="faq-4" aria-expanded="true">
+                            <p class="text">
+                                Are the treatments safe for people with sensitive or reactive skin types?
+                            </p>
+                            <div class="ic-wrap">
+                                <span class="icon ic-accordion-custom"></span>
+                            </div>
+                        </div>
+                        <div id="faq-4" class="collapse" data-bs-parent="#cosmetic-faq">
+                            <div class="accordion-content cl-gray-60">
+                                <p class="text-body-4">
+                                    We treat a comprehensive range of skin conditions, including acne, eczema, psoriasis, rosacea, and skin cancer, alongside addressing cosmetic concerns such as wrinkles, dark spots, uneven skin tone, and scars. Our expert team ensures personalized care
+                                    for every need.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion_item-5 " role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#faq-5" role="button" data-bs-toggle="collapse" aria-controls="faq-5" aria-expanded="true">
+                            <p class="text">
+                                How long does it usually take to see noticeable results?
+                            </p>
+                            <div class="ic-wrap">
+                                <span class="icon ic-accordion-custom"></span>
+                            </div>
+                        </div>
+                        <div id="faq-5" class="collapse" data-bs-parent="#cosmetic-faq">
+                            <div class="accordion-content cl-gray-60">
+                                <p class="text-body-4">
+                                    We treat a comprehensive range of skin conditions, including acne, eczema, psoriasis, rosacea, and skin cancer, alongside addressing cosmetic concerns such as wrinkles, dark spots, uneven skin tone, and scars. Our expert team ensures personalized care
+                                    for every need.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /FAQ -->
+        <!-- Gallery -->
+        <section class="section-cosmetic-gallery flat-spacing-4 pt-0">
+            <div class="container-5">
+                <div class="cosmetic-gallery-grid tf-grid-layout sm-col-2 md-col-3">
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-1.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-2.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-3.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-4.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-ins">
+                        <h6 class="fw-normal title wow fadeZoom">
+                            <span>Join Us for Skincare</span> <br class="d-none d-xl-block"> Tips on Instagram
+                        </h6>
+                        <a href="#" class=" action btn-wrap btn-4 stroke wow fadeInUp">
+                            <span class="text-body-4">
+                                Visit Instagram
+                            </span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-5.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-6.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-7.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                    <div class="gallery-item hover-img hover-overlay">
+                        <div class="image img-style">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-8.jpg" alt="Image">
+                        </div>
+                        <a href="product-detail.html" class="box-icon hover-tooltip">
+                            <span class="icon icon-instagram"></span>
+                            <span class="tooltip">View product</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Gallery -->
+        <!-- Brand -->
+        <div class="section-brand-2">
+            <div class="container-5">
+                <div class="br-line bg-black-10 d-flex"></div>
+            </div>
+            <div class="inf-slide-brand-2">
+                <div class="infiniteSlide">
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-1.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-2.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-3.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-4.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-5.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-6.svg" alt="brand">
+                    </div>
+                    <div class="img-brand">
+                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-7.svg" alt="brand">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Brand -->
 </template>
- 
-    <style scoped>
-        :root {
-            --ink: #30343a;
-            --muted: #6b7077;
-            --card-shadow: 0 6px 20px rgba(0, 0, 0, .06);
-            --brand: #2f74ff;
-            /* button color */
-        }
+<script setup>
+import { ref, onMounted } from "vue";
+import hero1 from "@/assets/images/section/hero-1.jpg"
+import hero2 from "@/assets/images/section/hero-2.jpg"
+const images = [
+  hero1,
+  hero2
+];
 
-        /* Section header */
+const currentIndex = ref(0);
 
-        #popular-category .sub-title {
-            font-weight: 600;
-            letter-spacing: .2px;
-            margin: 0;
-            color: #8a8f98;
-            font-family: 'Cream Cake';
-            /* SERVES YOUR NEEDS */
-        }
-@media(max-width:991px){
-    .hero-section {
-    padding-top: 48px !important;
-}
-}
-        #popular-category .section-title {
-            font-weight: 800;
-            margin: .25rem 0 1rem;
-            color: var(--ink);
-            font-family: 'Futura Md BT';
-            /* PURE N SURE */
-        }
-        
-
-.grid_sorting_button.active {
-  background: #ff3f3f;   
-  color: #fff;
-  font-weight: 600;
-}
-
-
-        #all-category .primary-btn {
-            display: inline-block;
-            padding: .6rem 1.2rem;
-            border-radius: 999px;
-            background: var(--brand);
-            color: #fff;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(47, 116, 255, .2);
-            transition: .2s ease;
-        }
-
-        #all-category .primary-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 12px 26px rgba(47, 116, 255, .25);
-        }
-
-        /* card grid */
-
-        .banner .row .col-md-4 {
-            margin-bottom: 24px;
-        }
-
-        /* card */
-
-        .category-card {
-            border: 0;
-            border-radius: 18px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: var(--card-shadow);
-            height: 100%;
-            transition: .2s ease;
-        }
-
-        .category-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, .1);
-        }
-
-        /* link takes whole card */
-
-        .single-categorie {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            height: 100%;
-            padding: 16px;
-        }
-
-        /* big image on top */
-
-        .image-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 160px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 14px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
-            background: #f9fafb;
-            padding: 10px;
-        }
-
-        /* text under image */
-
-        .categorie-wrap {
-            text-align: center;
-        }
-.product-name {
-  margin: 0;
-  width: 100%;
-}
-
-.product-link {
-  display: block;          /* must be block */
-  width: 100%;
-  white-space: nowrap;     /* single line */
-  overflow: hidden;        
-  text-overflow: ellipsis; 
-}
-        .categorie-name {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--ink);
-            margin: 0 0 .25rem;
-            font-family: 'Futura Md BT';
-            /* PURE N SURE */
-        }
-
-        .categorie-subtitle {
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--muted);
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            font-family: 'Cream Cake';
-            /* SERVES YOUR NEEDS */
-        }
-
-        @media(max-width:575.98px) {
-            .image-container img {
-                max-width: 120px;
-            }
-        }
-         .vimas-hiw {
-            font-family: 'Arial', sans-serif;
-            color: white;
-        }
-
-        .vimas-hiw__head {
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 48px 16px 84px;
-        }
-
-        .vimas-hiw__head h2 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            color: white;
-        }
-
-        .vimas-hiw__head p {
-            margin: 8px 0 0;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .vimas-hiw__wrap {
-            max-width: 1200px;
-            margin: -56px auto 48px;
-            padding: 0 16px;
-            display: grid;
-            gap: 22px;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        @media (max-width: 991px) {
-            .vimas-hiw__wrap {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 575px) {
-            .vimas-hiw__wrap {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .vimas-hiw__card {
-            background: #fff;
-            border-radius: 14px;
-            border: 1px solid #000;
-            padding: 30px 20px 24px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-        }
-
-        .vimas-hiw__badge {
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #000;
-            color: #fff;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
-        }
-
-        .vimas-hiw__icon {
-            width: 72px;
-            height: 72px;
-            margin: 6px auto 14px;
-            border-radius: 50%;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .vimas-hiw__icon .material-icons {
-            font-size: 36px;
-        }
-
-        .vimas-hiw__card h3 {
-            font-size: 16px;
-            margin: 8px 0 6px;
-            font-weight: 700;
-        }
-
-        .vimas-hiw__card p {
-            font-size: 14px;
-            line-height: 1.55;
-            margin: 0;
-        }
-         .new_arrivals_title h2 {
-            margin: .25rem 0 0;
-            color: var(--ink);
-            font-weight: 800;
-            font-size: clamp(22px, 2.6vw, 32px);
-        }
-
-        /* Centered filter buttons, wrap on small screens */
-
-        .filters-button-group {
-            margin: 12px 0 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .filters-button-group .button {
-            list-style: none;
-            cursor: pointer;
-            user-select: none;
-            padding: 10px 16px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: #fff;
-            color: var(--ink);
-            font-weight: 700;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        /* keep active state, but no hover transitions */
-
-        .filters-button-group .button.active,
-        .filters-button-group .button.is-checked {
-            background: var(--ink);
-            color: #fff;
-            border-color: transparent;
-        }
-
-        /* Card shell: tidy, no hover transforms */
-
-        .product-item {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            gap: 12px;
-        }
-
-        .product.discount.product_filter {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 14px;
-        }
-
-        /* Image: consistent square, crisp crop */
-
-        .product_image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #f8fafc;
-            border: 1px solid var(--line);
-        }
-
-        .product-thumbnail {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Text */
-
-        .product_info .product-name {
-            margin: 6px 0 2px;
-            font-size: 15px;
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        .product_info .product-name a {
-            color: var(--ink);
-            text-decoration: none;
-        }
-
-        .product_price .price {
-            color: #111827;
-            font-weight: 800;
-            font-size: 16px;
-        }
-
-        .stock-status .badge {
-            font-weight: 600;
-        }
-
-        /* Add to cart: visible, full-width, no hover color change */
-
-        .add_to_cart_button.cart_button {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 12px 16px;
-            border-radius: 12px;
-            background: #111827;
-            color: #fff !important;
-            font-weight: 800;
-            font-size: 15px;
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            margin-top: 8px;
-        }
-
-        /* Mobile refinements */
-
-        @media (max-width: 575.98px) {
-            .col-md-3 {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            .product.discount.product_filter {
-                padding: 12px;
-            }
-            .add_to_cart_button.cart_button {
-                padding: 12px 14px;
-                font-size: 14px;
-            }
-        }
-
-        /* When filtering elsewhere, ensure hidden items collapse space (if used) */
-
-        .product-item.hidden {
-            display: none !important;
-        }
-         .custom-spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #ffffff;
-  border-right: 3px solid #ffffff;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  display: inline-block;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.btn:disabled {
-  background-color: #0d6efd !important; /* your primary color */
-  border-color: #0d6efd !important;
-  opacity: 0.9;
-}
-    </style>
-    <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay,Navigation,Pagination  } from 'swiper/modules'
-import heroBg from '@/assets/ui/images/hero-banner-bg.webp'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
-import "swiper/css/navigation"
-import { nextTick, onMounted, ref, watch } from 'vue'
-import { getCategory, getCollectionList, getCollectionListById} from '../services/apiService'
-import { image_url } from '../config/api'
-
-import { useCartStore } from '../cartStore'
-import { useRouter } from 'vue-router'
-const modules = [Autoplay]
-const categories = ref([]);
-const collectionList=ref([])
-const productList=ref([])
-const cartStore=useCartStore();
-const activeCollection = ref(null);
-const router=useRouter();
-const stories = [
-  { title: "Beginning", year: "2016", content: "Vimas was born with a vision." },
-  { title: "Expansion", year: "2017", content: "Expanded into local markets." },
-  { title: "Innovation", year: "2018", content: "Launched new facial kits." },
-  { title: "Recognition", year: "2019", content: "Gained brand recognition." },
-  { title: "Growth", year: "2020", content: "Expanded hygiene range." },
-  { title: "Today", year: "2021 - Now", content: "A complete beauty brand." }
-]
-
-const breakpoints = {
-  320: { slidesPerView: 1 },
-  768: { slidesPerView: 2 },
-  1024: { slidesPerView: 3 }
-}
-const fetchCategories = async () => {
-  try {
-    const res = await getCategory();
-    categories.value = res.data.data;
-    console.log("categories.value", categories.value);
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-  }
-};
-const getCollection = async () => {
-    
-  try {
-    const res = await getCollectionList();
-    collectionList.value = res.data.data;
-    
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-  }
-};
-const productListById=async(collectionId)=>{
-    try {
-        activeCollection.value = collectionId
-        const res=await getCollectionListById(collectionId);
-productList.value=res.data.data
-console.log("productList.value",productList.value);
-
-    } catch (error) {
-        console.error("Error fetching products:", error);
-    }
-    
-}
-const goToCategory = (item) => {
-    console.log("item",item);
-    
- router.push(`/shop/product-categories/${item.slugable.key}`);
-};
-watch(collectionList, (newList) => {
-  if (newList.length && !activeCollection.value) {
-    const firstCollection = newList[0];
-
-   if (firstCollection) {
-      productListById(firstCollection.id);
-    }
-  }
-})
-onMounted(async () => {
-  await nextTick()
-
-  if (window.initStorySlider) {
-    window.initStorySlider()
-  }
-})
 onMounted(() => {
-  fetchCategories();
-  getCollection();
+  setInterval(() => {
+    currentIndex.value =
+      (currentIndex.value + 1) % images.length;
+  }, 3500); 
+});
+
+
+onMounted(() => {
+
+  const slider = document.getElementById("slider");
+const overlay = document.getElementById("overlay");
+const container = document.getElementById("compare");
+
+let active = false;
+
+slider.addEventListener("mousedown", () => active = true);
+window.addEventListener("mouseup", () => active = false);
+
+window.addEventListener("mousemove", (e) => {
+
+  if(!active) return;
+
+  const rect = container.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+
+  if(x < 0) x = 0;
+  if(x > rect.width) x = rect.width;
+
+  const percent = (x / rect.width) * 100;
+
+  overlay.style.width = percent + "%";
+  slider.style.left = percent + "%";
+
+});
 
 });
 </script>
+<style scoped>
+
+
+.hero-image li {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.hero-image li.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+.hero-content {
+  opacity: 0;
+}
+
+.slide-up {
+  animation: slideUp 0.9s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.plus-icon{
+  color:#e9471a;
+  transition: all 0.3s ease;
+}
+
+.plus-icon:hover{
+  rotate: 45deg;
+}
+.wishlist-icon{
+  color: black;
+  
+}
+.seedling-icon{
+  color: #5b5858;
+  text-shadow: 0 0 6px #e9471a;
+}
+.arrow-icon{
+    color: #918c87;
+}
+.compare-wrapper{
+  max-width:1200px;
+  margin:auto;
+}
+
+.compare-container{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.compare-container img{
+  width:100%;
+  display:block;
+}
+
+.img-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:50%;
+  height:100%;
+  overflow:hidden;
+}
+
+.img-overlay img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.slider{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:2px;
+  height:100%;
+  background:white;
+  cursor:ew-resize;
+}
+
+.slider::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:-15px;
+  width:30px;
+  height:30px;
+  background:white;
+  border-radius:50%;
+  transform:translateY(-50%);
+}
+
+.label{
+  position:absolute;
+  top:20px;
+  background:white;
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:14px;
+}
+
+.before{
+  left:20px;
+}
+
+.after{
+  right:20px;
+}
+</style>
