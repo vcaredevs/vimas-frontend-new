@@ -76,16 +76,16 @@
                         <div class="footer-bottom_cont">
                             <div class="ft-bottom-left">
                                 <div class="tf-currencies d-flex">
-                                    <select class="tf-dropdown-select style-default style-2 type-currencies">
+                                    <!-- <select class="tf-dropdown-select style-default style-2 type-currencies">
                                         <option>United States (USD $)</option>
                                         <option>France (EUR €)</option>
                                         <option>Germany (EUR €)</option>
                                         <option>Vietnam (VND ₫)</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="ft-bottom-center">
-                                <p class="text-copy text-black text-caption">Copyright © 2025 Ametic. All Rights Reserved
+                                <p class="text-copy text-black text-caption">Copyright © 2026 Vimas. All Rights Reserved
                                 </p>
                             </div>
                             <div class="ft-bottom-right">

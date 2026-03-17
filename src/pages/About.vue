@@ -50,10 +50,11 @@
                     </div>
                     elevating
                     <div class="break"></div>
-                    standards in
+                    standards in    
                     <div class="image">
                         <img loading="lazy" width="112" height="48" src="../assets/images/section/story-2.jpg" alt="Image">
                     </div>
+
                     beauty and care, creating
                     <div class="break"></div>
                     confidence and timeless
@@ -298,7 +299,7 @@
                                                         Retinol</a>
                                                     <div class="price fw-medium text-black">$56.99</div>
                                                 </div>
-                                                <a href="#quickView" data-bs-toggle="modal" class="btn-lookbook text-black link-2">
+                                                <a href="#quickView" data-bs-toggle=    "modal" class="btn-lookbook text-black link-2">
                                                     Add to Cart
                                                 </a>
                                             </div>

@@ -3705,7 +3705,7 @@ header.normal.header-sticky {
     box-shadow: 0 1px 5px rgba(255, 255, 255, 0.1);
 }
 .tf-header-5.style-abs.header-fixed.scrolling a{ 
-    color: #2B2B2B;
+    color: #2B2B2B  ;
 }
 .tf-header-5 .header-right {
     display: flex;
@@ -8404,6 +8404,7 @@ form .fieldset-ip .fieldset_label {
     border: none !important;
     color: var(--black);
     z-index: 3000;
+    height: 100vh;
 }
 
 .offcanvas .icon-close-popup {
@@ -8844,7 +8845,7 @@ form .fieldset-ip .fieldset_label {
 }
 
 .offcanvas-shop-cart.type-2 {
-    background-color: var(--white);
+    background-color: var(--white) !important;
 }
 
 .offcanvas-shop-cart.type-2 .tf-mini-cart-threshold {
@@ -10164,18 +10165,18 @@ button.animate-btn::after,
 
 .btn-wrap.btn-1 {
     height: 48px;
-    background-color: var(--primary);
+    background-color: #e9471a;
     color: var(--white);
 }
 
 .btn-wrap.btn-1.stroke {
-    border: 1px solid var(--primary);
-    background-color: var(--white);
+    border: 1px solid #e9471a;
+    background-color: #e9471a;
     color: var(--primary);
 }
 
 .btn-wrap.btn-1.stroke:hover {
-    background-color: var(--primary);
+    background-color: #e9471a;
     color: var(--white);
 }
 
@@ -20985,7 +20986,7 @@ button.animate-btn::after,
 }
 
 .gallery-item .box-icon:hover {
-    background-color: var(--black);
+    /* background-color: var(--black); */
     color: var(--white);
 }
 

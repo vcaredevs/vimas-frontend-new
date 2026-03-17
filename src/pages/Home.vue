@@ -2074,18 +2074,21 @@
 
   <div class="compare-container" id="compare">
 
-    <img src="../assets/images/section/skin-before.jpg" class="img-before">
+    <img src="../assets/images/section/skin-before.jpg" >
 
     <div class="img-overlay" id="overlay">
-      <img src="../assets/images/section/skin-after.jpg">
+         <img src="../assets/images/section/skin-after.jpg" class="img-before">
+        
+     
     </div>
 
     <div class="slider" id="slider"></div>
 
-    <span class="label before">Before</span>
-    <span class="label after">After</span>
+    <span class="label before">After</span>
+    <span class="label after">Before</span>
 
   </div>
+  
 
 </div>
             <div class="infiniteSlide infiniteSlide-text-cosmetic" data-clone="3">
@@ -2126,7 +2129,8 @@
                             Products
                         </span>
                     </h3>
-                </div>
+                </div>  
+                
             </div>
             <div dir="ltr" class="swiper swiper-best">
                 <div class="swiper-wrapper">
@@ -2153,7 +2157,8 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                    <!--  <img src="../assets/images/cart.svg" alt=""> -->
+                                  <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2164,7 +2169,7 @@
                             <div class="product-image-preview">
                                 <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-5.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
@@ -2181,7 +2186,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2192,7 +2197,7 @@
                             <div class="product-image-preview">
                                 <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-3.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
@@ -2209,7 +2214,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2220,7 +2225,7 @@
                             <div class="product-image-preview">
                                 <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-4.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
@@ -2237,7 +2242,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2248,7 +2253,7 @@
                             <div class="product-image-preview">
                                 <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-1.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
@@ -2265,7 +2270,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2294,7 +2299,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2322,7 +2327,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2350,7 +2355,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2378,7 +2383,7 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -2406,13 +2411,13 @@
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
+                                     <img src="../assets/images/cart.svg" alt="">
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
+                
             </div>
         </section>
         <!-- /Best Product -->
@@ -2756,7 +2761,8 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-1.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <!-- <img src="../assets/images/instagram.svg" alt=""> -->
+                                <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2765,7 +2771,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-2.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2774,7 +2780,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-3.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2783,7 +2789,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-4.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2802,7 +2808,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-5.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2811,7 +2817,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-6.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2820,7 +2826,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-7.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2829,7 +2835,7 @@
                             <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-8.jpg" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
-                            <span class="icon icon-instagram"></span>
+                            <img src="../assets/images/instagram.svg" alt="">
                             <span class="tooltip">View product</span>
                         </a>
                     </div>
@@ -2887,7 +2893,16 @@ onMounted(() => {
       (currentIndex.value + 1) % images.length;
   }, 3500); 
 });
-
+onMounted(() => {
+ new Swiper(".swiper-best", {
+    slidesPerView: 4.5,
+    spaceBetween: 20,
+    loop: true,
+     centeredSlides: true,
+    initialSlide: 2,
+   slideToClickedSlide: true, 
+ })
+})
 
 onMounted(() => {
 
@@ -3043,5 +3058,8 @@ window.addEventListener("mousemove", (e) => {
 
 .after{
   right:20px;
+}
+.product-image-preview{
+    cursor: pointer;
 }
 </style>
