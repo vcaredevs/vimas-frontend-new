@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { routerKey } from 'vue-router';
+
+</script>
+
 <template>
      <div class="tf-header-block-height d-none"></div>
         <header class="tf-header-5 style-abs header-fixed scrolling">  
@@ -14,39 +19,67 @@
                                 <nav class="box-navigation">
                                     <ul class="box-nav-menu">
                                         <li class="menu-item">
-                                            <a href="index.html" class="item-link">
+                                            <router-link to="/">
+                                            <a href="#" class="item-link">
                                                 Home
                                             </a>
+                                            </router-link>
                                         </li>
                                         <li class="menu-item has-sub_menu">
-                                            <a href="shop-default.html" class="item-link">
+                                             <router-link to="/shop-default">
+                                            <a href="#" class="item-link">
                                                 Shop
                                             </a>
+                                            </router-link>
                                             <div class="sub-menu">
                                                 <ul class="sub-menu_list">
-                                                    <li><a href="shop-default.html" class="sub-menu_link">Shop
-                                                            Default</a></li>
-                                                    <li><a href="shop-detail.html" class="sub-menu_link">Shop
-                                                            Details</a></li>
-                                                    <li><a href="shop-cart.html" class="sub-menu_link">Shop
-                                                            Cart</a></li>
+                                                    <li>
+                                                        <router-link to="/shop-default">
+                                                        <a href="#" class="sub-menu_link">Shop
+                                                            Default</a>
+                                                            </router-link>
+                                                        </li>
+                                                    <li>
+                                                        <router-link to="/shop-detail">
+                                                        <a href="#" class="sub-menu_link">Shop
+                                                            Details</a>
+                                                            </router-link>
+                                                        </li>
+                                                    <li>
+                                                        <router-link to="/shop-cart">
+                                                        <a href="#" class="sub-menu_link">Shop
+                                                            Cart</a>
+                                                            </router-link>
+                                                        </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="about.html" class="item-link">
+                                              <router-link to="/about-us">
+                                            <a href="#" class="item-link">
                                                 About
                                             </a>
+                                            </router-link>
                                         </li>
                                         <li class="menu-item has-sub_menu">
-                                            <a href="blog.html" class="item-link">
+                                              <router-link to="/blog">
+                                            <a href="#" class="item-link">
                                                 Blog
                                             </a>
+                                            </router-link>
                                             <div class="sub-menu">
                                                 <ul class="sub-menu_list">
-                                                    <li><a href="blog.html" class="sub-menu_link">Blog
-                                                            Stardard</a></li>
-                                                    <li><a href="blog-single.html" class="sub-menu_link">Blog Single</a>
+                                                    <li>
+                                                        
+                                                          <router-link to="/blog">
+                                                        <a href="#" class="sub-menu_link">Blog
+                                                            Stardard</a>
+                                                            </router-link>
+                                                        </li>
+                                                    <li>
+                                                          <router-link to="/blog-detail">
+                                                        <a href="#" class="sub-menu_link">Blog Single</a>
+                                                        </router-link>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -91,7 +124,7 @@
                     Your Cart
                 </p>
                 <span class="icon-close-popup" data-bs-dismiss="offcanvas">
-                    <i class="icon-close"></i>
+                <img src="../assets/images/close.svg" alt="">
                 </span>
             </div>
             <div class="wrap list-file-delete">
@@ -121,11 +154,13 @@
                                         </p>
                                         <div class="prd-quantity">
                                             <div class="wg-quantity style-3 radius-60">
-                                                <button class="btn-quantity minus-btn"><i
-                                                        class="icon-bx-minus"></i></button>
+                                                <button class="btn-quantity minus-btn">
+                                               <img src="../assets/images/dash.svg" alt="">
+                                                    </button>
                                                 <input class="quantity-product fw-normal" type="number" name="number" value="1">
-                                                <button class="btn-quantity plus-btn"><i
-                                                        class="icon-bx-plus"></i></button>
+                                                <button class="btn-quantity plus-btn">
+                                                    <img src="../assets/images/plus.svg" alt="">
+                                                    </button>
                                             </div>
                                             <div class="remove cs-pointer d-flex cl-gray-60">
                                                 <span class="text-decoration-underline text-caption">
@@ -151,11 +186,11 @@
                                         </p>
                                         <div class="prd-quantity">
                                             <div class="wg-quantity style-3 radius-60">
-                                                <button class="btn-quantity minus-btn"><i
-                                                        class="icon-bx-minus"></i></button>
+                                                <button class="btn-quantity minus-btn">   <img src="../assets/images/dash.svg" alt=""></button>
                                                 <input class="quantity-product fw-normal" type="number" name="number" value="1">
-                                                <button class="btn-quantity plus-btn"><i
-                                                        class="icon-bx-plus"></i></button>
+                                                <button class="btn-quantity plus-btn">
+                                                  <img src="../assets/images/plus.svg" alt="">
+                                                    </button>
                                             </div>
                                             <div class="remove cs-pointer d-flex cl-gray-60">
                                                 <span class="text-decoration-underline text-caption">
