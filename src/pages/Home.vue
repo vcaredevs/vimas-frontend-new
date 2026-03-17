@@ -1838,7 +1838,7 @@
         <!-- Restock -->
         <section class="section-cosmetic-restock ">
             <div class="img-item d-none d-md-flex">
-                <img loading="lazy" width="1312" height="938" src="../assets/images/section/retock.jpg" alt="Image">
+                <img loading="lazy" width="1312" height="938" src="../assets/images/vimas/product.png" alt="Image" class="prodimg">
             </div>
             <div class="container-5 position-relative z-5">
                 <div class="s-header-3">
@@ -2969,6 +2969,9 @@ window.addEventListener("mousemove", (e) => {
     transform: translateY(0);
     opacity: 1;
   }
+}
+.prodimg{
+    width: 50%;
 }
 .plus-icon{
   color:#e9471a;
