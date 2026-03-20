@@ -108,9 +108,9 @@
                                             <div class="card-product_wrapper">
                                                 <a href="shop-detail.html" class="product-img">
                                                     <img class="img-product" width="277" height="239"
-                                                        src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                        src="../assets/images/product/facialpack.png" alt="Product">
                                                     <img class="img-hover" width="277" height="239"
-                                                        src="../assets/images/vimas/FACIAL-CREAM.png" alt="Product">
+                                                        src="../assets/images/product/facialpack.png" alt="Product">
                                                 </a>
                                                 <ul class="product-badge-list">
                                                     <li class="product-badge text-body-4">
@@ -434,9 +434,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/dtan.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/dtan.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -490,9 +490,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -546,9 +546,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/aloevera.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/aloevera.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -603,9 +603,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialcream.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialcream.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -659,9 +659,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/dtan.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/dtan.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -715,9 +715,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialpack.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialpack.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -1173,9 +1173,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/product/product-1.jpg" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -1229,9 +1229,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/product/product-2.jpg" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -1285,9 +1285,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="shop-detail.html" class="product-img">
                                         <img class="img-product" width="384" height="332"
-                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                         <img class="img-hover" width="384" height="332"
-                                            src="../assets/images/product/product-4.jpg" alt="Product">
+                                            src="../assets/images/product/facialscrub.png" alt="Product">
                                     </a>
                                     <ul class="product-badge-list">
                                         <li class="product-badge">
@@ -1471,7 +1471,7 @@
             <div class="wrap">
                 <div class="img-item item-1">
                     <!-- <img loading="lazy" width="685" height="480" src="../assets/images/item/box-cosmetic.png" alt="Image"> -->
-                     <img loading="lazy" width="685" height="480" src="../assets/images/item/box-cosmetic.png" alt="Image">
+                     <img loading="lazy" width="685" height="480" src="../assets/images/vimas/product.png" alt="Image">
                 </div>
                 <div class="img-item item-2">
                     <img loading="lazy" width="424" height="345" src="../assets/images/item/leave-1.png" alt="Image">
@@ -1572,9 +1572,9 @@
                                                 <div class="card-product_wrapper">
                                                     <a href="shop-detail.html" class="product-img">
                                                         <img class="img-product" width="384" height="332"
-                                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                            src="../assets/images/product/facialcream.png" alt="Product">
                                                         <img class="img-hover" width="384" height="332"
-                                                            src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                            src="../assets/images/product/facialcream.png" alt="Product">
                                                     </a>
                                                     <ul class="product-badge-list">
                                                         <li class="product-badge small">
@@ -1632,9 +1632,9 @@
                                                 <div class="card-product_wrapper">
                                                     <a href="shop-detail.html" class="product-img">
                                                         <img class="img-product" width="277" height="239"
-                                                            src="../assets/images/product/product-8.jpg" alt="Product">
+                                                            src="../assets/images/product/dtan.png" alt="Product">
                                                         <img class="img-hover" width="277" height="239"
-                                                            src="../assets/images/product/product-8.jpg" alt="Product">
+                                                            src="../assets/images/product/dtan.png" alt="Product">
                                                     </a>
                                                     <ul class="product-badge-list">
                                                         <li class="product-badge">
@@ -1692,9 +1692,9 @@
                                                 <div class="card-product_wrapper">
                                                     <a href="shop-detail.html" class="product-img">
                                                         <img class="img-product" width="277" height="239"
-                                                            src="../assets/images/product/product-9.jpg" alt="Product">
+                                                            src="../assets/images/product/facialpack.png" alt="Product">
                                                         <img class="img-hover" width="277" height="239"
-                                                            src="../assets/images/product/product-9.jpg" alt="Product">
+                                                            src="../assets/images/product/facialpack.png" alt="Product">
                                                     </a>
                                                     <ul class="product-badge-list">
                                                         <li class="product-badge">
@@ -1760,7 +1760,7 @@
                         <div class="col-right">
                             <div class="banner-image-lookbook">
                                 <div class="image-lookbook">
-                                    <img loading="lazy" width="646" height="720" src="../assets/images/section/lookbook.jpg" alt="Image">
+                                    <img loading="lazy" width="646" height="720" src="../assets/images/section/lookbook.png" alt="Image">
                                 </div>
                                 <div class="lookbook-item position1">
                                     <div role="dialog" class="tf-pin-btn swiper-button" data-slide="0" id="pin1">
@@ -1791,7 +1791,7 @@
                                     <div class="loobook-product-wrap">
                                         <div class="loobook-product">
                                             <div class="img-style">
-                                                <img loading="lazy" width="108" height="108" src="../assets/images/product/product-8.jpg" alt="Image">
+                                                <img loading="lazy" width="108" height="108" src="../assets/images/product/facialpack.jpg" alt="Image">
                                             </div>
                                             <div class="content">
                                                 <div class="info">
@@ -1872,9 +1872,9 @@
                                         <div class="card-product_wrapper">
                                             <a href="shop-detail.html" class="product-img">
                                                 <img class="img-product" width="277" height="239"
-                                                    src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                    src="../assets/images/product/facialcream.png" alt="Product">
                                                 <img class="img-hover" width="277" height="239"
-                                                    src="../assets/images/vimas/FACIAL-SCRUB-removebg-preview.png" alt="Product">
+                                                    src="../assets/images/product/facialcream.png" alt="Product">
                                             </a>
                                             <ul class="product-badge-list">
                                                 <li class="product-badge">
@@ -2138,15 +2138,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2167,15 +2167,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-8.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2195,15 +2195,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-9.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2223,15 +2223,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-10.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2251,15 +2251,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2280,15 +2280,15 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                                    <source src="../assets/images/video/best-2.mp4 " type="video/mp4">
                                 </video>
                             </div>
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2308,7 +2308,7 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
                                     <source src="../assets/images/video/best-5.mp4" type="video/mp4">
                                 </video>
@@ -2316,7 +2316,7 @@
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-8.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2336,7 +2336,7 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
                                     <source src="../assets/images/video/best-3.mp4" type="video/mp4">
                                 </video>
@@ -2344,7 +2344,7 @@
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-9.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2364,7 +2364,7 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
                                     <source src="../assets/images/video/best-4.mp4" type="video/mp4">
                                 </video>
@@ -2372,7 +2372,7 @@
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-10.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2392,7 +2392,7 @@
                     <div class="swiper-slide">
                         <div class="card-best-product">
                             <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
+                                <img loading="lazy" width="424" height="600" src="../assets/images/section/aloveralook.png" alt="Image">
                                 <video autoplay muted loop playsinline>
                                     <source src="../assets/images/video/best-1.mp4" type="video/mp4">
                                 </video>
@@ -2400,7 +2400,7 @@
                             <div class="product-content">
                                 <div class="left">
                                     <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
+                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/aloevera.png" alt="Image">
                                     </div>
                                     <div class="product_info">
                                         <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
@@ -2758,7 +2758,7 @@
                 <div class="cosmetic-gallery-grid tf-grid-layout sm-col-2 md-col-3">
                     <div class="gallery-item hover-img hover-overlay">
                         <div class="image img-style">
-                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-1.jpg" alt="Image">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-1.png" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
                             <!-- <img src="../assets/images/instagram.svg" alt=""> -->
@@ -2768,7 +2768,7 @@
                     </div>
                     <div class="gallery-item hover-img hover-overlay">
                         <div class="image img-style">
-                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-2.jpg" alt="Image">
+                            <img loading="lazy" width="424" height="424" src="../assets/images/gallery/gallery-2.png" alt="Image">
                         </div>
                         <a href="product-detail.html" class="box-icon hover-tooltip">
                             <img src="../assets/images/instagram.svg" alt="">
