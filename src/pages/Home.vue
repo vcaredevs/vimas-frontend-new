@@ -2973,18 +2973,7 @@ window.addEventListener("mousemove", (e) => {
 .prodimg{
     width: 50%;
 }
-.plus-icon{
-  color:#e9471a;
-  transition: all 0.3s ease;
-}
 
-.plus-icon:hover{
-  rotate: 45deg;
-}
-.wishlist-icon{
-  color: black;
-  
-}
 .seedling-icon{
   color: #5b5858;
   text-shadow: 0 0 6px #e9471a;

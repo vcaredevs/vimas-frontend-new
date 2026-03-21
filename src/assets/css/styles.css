@@ -3699,7 +3699,7 @@ header.normal.header-sticky {
 
 .tf-header-5.style-abs.header-fixed.scrolling {
     /* background-color: #FFF1EC; */
- background-color: #ffc2ac;
+ /* background-color: #ffc2ac; */
     /* background-color: #FAF7F4; */
     /* background-color: var(--black-30); */
     box-shadow: 0 1px 5px rgba(255, 255, 255, 0.1);
@@ -3789,12 +3789,16 @@ header.normal.header-sticky {
 }
 
 .tf-header-5.style-abs .header-inner {
+        background-color: var(--white-40);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     padding-top: 31px;
 }
 
 .tf-header-5.style-abs .item-link {
     /* color: #2B2B2B; */
-    color: var(--white);
+    color: #000000;
+    /* color: var(--white); */
 }
 
 .tf-header-5.style-abs .nav-icon {
@@ -3819,6 +3823,7 @@ header.normal.header-sticky {
     }
     .tf-header-5.header-fixed.scrolling .header-inner {
         padding-top: 15px;
+        border-radius: 50px;
     }
 }
 
@@ -38287,6 +38292,18 @@ ul.list-check li .icon {
 }
 .card-product-v02{
     /* background: linear-gradient(180deg, #FFF5F2 0%, #FFE2DA 100%); */
+}
+.plus-icon{
+  color:#e9471a;
+  transition: all 0.3s ease;
+}
+
+.plus-icon:hover{
+  rotate: 45deg;
+}
+.wishlist-icon{
+  color: black;
+  
 }
 
 /*# sourceMappingURL=styles.css.map */
