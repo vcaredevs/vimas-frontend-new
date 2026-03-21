@@ -4,13 +4,13 @@
         <section class="section-cosmetic-hero-shop type-2 flat-spacing-5 slider-hero-wrap">
             <ul class="hero-image">
                 <li class="img-thumbs active">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-1.jpg" alt="Image">
+                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
                 </li>
                 <li class="img-thumbs">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.jpg" alt="Image">
+                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
                 </li>
                 <li class="img-thumbs">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.jpg" alt="Image">
+                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
                 </li>
             </ul>
             <div class="container-5 position-relative z-5">
@@ -71,9 +71,9 @@
                                             <div class="card-product_wrapper">
                                                 <a href="shop-detail.html" class="product-img">
                                                     <img class="img-product" width="277" height="239"
-                                                        src="../assets/images/product/product-10.jpg" alt="Product">
+                                                        src="../assets/images/product/whiteningmaskrose.png" alt="Product">
                                                     <img class="img-hover" width="277" height="239"
-                                                        src="../assets/images/product/product-10.jpg" alt="Product">
+                                                        src="../assets/images/product/whiteningmaskrose.png" alt="Product">
                                                 </a>
                                                 <ul class="product-badge-list">
                                                     <li class="product-badge text-body-4">
@@ -95,30 +95,30 @@
                                                 </div>
                                                 <div class="action-shop-list">
                                                     <div class="btn-add-shop">
-                                                        <i class="icon icon-plus-solid"></i>
+                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
                                                     </div>
                                                     <ul class="product-action-list">
                                                         <li>
                                                             <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-add-cart"></span>
+                                                               <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to cart</span>
                                                             </a>
                                                         </li>
                                                         <li class="wishlist">
                                                             <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-heart"></span>
+                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to Wishlist</span>
                                                             </a>
                                                         </li>
                                                         <li class="compare">
                                                             <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-compare1"></span>
+                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
                                                                 <span class="tooltip">Compare</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-view"></span>
+                                                                 <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
                                                                 <span class="tooltip">Quick view</span>
                                                             </a>
                                                         </li>
@@ -154,30 +154,30 @@
                                                 </div>
                                                 <div class="action-shop-list">
                                                     <div class="btn-add-shop">
-                                                        <i class="icon icon-plus-solid"></i>
+                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
                                                     </div>
                                                     <ul class="product-action-list">
                                                         <li>
                                                             <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-add-cart"></span>
+                                                                <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to cart</span>
                                                             </a>
                                                         </li>
                                                         <li class="wishlist">
                                                             <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-heart"></span>
+                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to Wishlist</span>
                                                             </a>
                                                         </li>
                                                         <li class="compare">
                                                             <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-compare1"></span>
+                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
                                                                 <span class="tooltip">Compare</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-view"></span>
+                                                               <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
                                                                 <span class="tooltip">Quick view</span>
                                                             </a>
                                                         </li>
@@ -213,30 +213,30 @@
                                                 </div>
                                                 <div class="action-shop-list">
                                                     <div class="btn-add-shop">
-                                                        <i class="icon icon-plus-solid"></i>
+                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
                                                     </div>
                                                     <ul class="product-action-list">
                                                         <li>
                                                             <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-add-cart"></span>
+                                                               <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to cart</span>
                                                             </a>
                                                         </li>
                                                         <li class="wishlist">
                                                             <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-heart"></span>
+                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
                                                                 <span class="tooltip">Add to Wishlist</span>
                                                             </a>
                                                         </li>
                                                         <li class="compare">
                                                             <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-compare1"></span>
+                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
                                                                 <span class="tooltip">Compare</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon icon-view"></span>
+                                                                < <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
                                                                 <span class="tooltip">Quick view</span>
                                                             </a>
                                                         </li>
@@ -277,7 +277,7 @@
                                 <div class="tf-dropdown-sort style-2" data-bs-toggle="dropdown">
                                     <div class="btn-select">
                                         <span class="text-sort-value font-main">Best Selling</span>
-                                        <span class="icon icon-arrow-caret-down"></span>
+                                        <i class="bi bi-caret-down-fill"></i>
                                     </div>
                                     <div class="dropdown-menu">
                                         <div class="select-item active remove-all-filters" data-sort-value="best-selling">
@@ -298,17 +298,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                         <div class="wrapper-control-shop gridLayout-wrapper">
                             <div class="wrapper-shop tf-grid-layout tf-col-2" id="gridLayout">
                                 <!-- product 1 -->
-                                <div class="card-product card-product-v02 grid" data-availability="In stock" data-skin="Acne Skin">
+                                <div class="card-product card-product-v02 grid" v-for="product in productList"
+    :key="product.id" >
                                     <div class="card-product_wrapper">
                                         <a href="shop-detail.html" class="product-img">
                                             <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-1.jpg" alt="Product">
+                                               :src="image_url + product.image">
                                             <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-1.jpg" alt="Product">
+                                                   :alt="product.name">
                                         </a>
                                         <ul class="product-badge-list">
                                             <li class="product-badge text-body-4">
@@ -320,38 +321,48 @@
                                         <div class="info-left">
                                             <p class="product__size d-none">6 Oz</p>
                                             <p class="product__cate text-uppercase text-body-4">moisturize</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Lunéva Pure
-                                                Collagen</a>
+                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">	{{ product.name }}</a>
                                             <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$26.00</span>
+                                                <span class="price-new text-sub-head fw-medium">
+                                                   <del v-if="product.sale_price !== null"
+                          >₹{{ product.price }}</del
+                        >
+                        <span
+                          >₹{{
+                            product.sale_price
+                              ? product.sale_price
+                              : product.price
+                          }}</span
+                        >
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="action-shop-list">
                                             <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
+                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                    </div>
                                             <ul class="product-action-list">
                                                 <li>
                                                     <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
+                                                       <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
                                                         <span class="tooltip">Add to cart</span>
                                                     </a>
                                                 </li>
                                                 <li class="wishlist">
                                                     <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
+                                                        <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
                                                         <span class="tooltip">Add to Wishlist</span>
                                                     </a>
                                                 </li>
                                                 <li class="compare">
                                                     <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
+                                                        <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
                                                         <span class="tooltip">Compare</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
+                                                        < <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
                                                         <span class="tooltip">Quick view</span>
                                                     </a>
                                                 </li>
@@ -360,307 +371,23 @@
                                     </div>
                                 </div>
                                 <!-- product 2 -->
-                                <div class="card-product card-product-v02 grid" data-availability="In stock" data-skin="Oily Skin">
-                                    <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
-                                            <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-2.jpg" alt="Product">
-                                            <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-2.jpg" alt="Product">
-                                        </a>
-                                        <ul class="product-badge-list">
-                                            <li class="product-badge text-body-4">
-                                                New
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="card-product_info">
-                                        <div class="info-left">
-                                            <p class="product__cate text-uppercase text-body-4">Moisturize</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Ophira Vita
-                                                Serum</a>
-                                            <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$23.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="action-shop-list">
-                                            <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
-                                            <ul class="product-action-list">
-                                                <li>
-                                                    <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
-                                                        <span class="tooltip">Add to cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="wishlist">
-                                                    <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product 3 -->
-                                <div class="card-product card-product-v02 grid" data-availability="Out of stock" data-skin="Sensitive">
-                                    <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
-                                            <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-3.jpg" alt="Product">
-                                            <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-3.jpg" alt="Product">
-                                        </a>
-                                        <ul class="product-badge-list">
-                                            <li class="product-badge text-body-4">
-                                                New
-                                            </li>
-                                            <li class="product-badge text-body-4 sale">
-                                                Sale
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-product_info">
-                                        <div class="info-left">
-                                            <p class="product__cate text-uppercase text-body-4">Body Lotions</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Nuvéne Glow
-                                                Essence</a>
-                                            <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$43.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="action-shop-list">
-                                            <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
-                                            <ul class="product-action-list">
-                                                <li>
-                                                    <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
-                                                        <span class="tooltip">Add to cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="wishlist">
-                                                    <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product 4 -->
-                                <div class="card-product card-product-v02 grid" data-availability="In stock" data-skin="Dry Skin">
-                                    <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
-                                            <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-4.jpg" alt="Product">
-                                            <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-4.jpg" alt="Product">
-                                        </a>
-                                        <ul class="product-badge-list">
-                                            <li class="product-badge text-body-4">
-                                                New
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-product_info">
-                                        <div class="info-left">
-                                            <p class="product__cate text-uppercase text-body-4">moisturize</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Theralux Skin
-                                                Elixir</a>
-                                            <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$56.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="action-shop-list">
-                                            <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
-                                            <ul class="product-action-list">
-                                                <li>
-                                                    <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
-                                                        <span class="tooltip">Add to cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="wishlist">
-                                                    <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product 5 -->
-                                <div class="card-product card-product-v02 grid" data-availability="In stock" data-skin="Sensitive">
-                                    <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
-                                            <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-5.jpg" alt="Product">
-                                            <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-5.jpg" alt="Product">
-                                        </a>
-                                        <ul class="product-badge-list">
-                                            <li class="product-badge text-body-4">
-                                                New
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-product_info">
-                                        <div class="info-left">
-                                            <p class="product__cate text-uppercase text-body-4">moisturize</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Auréon Deep
-                                                Renewal</a>
-                                            <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$12.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="action-shop-list">
-                                            <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
-                                            <ul class="product-action-list">
-                                                <li>
-                                                    <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
-                                                        <span class="tooltip">Add to cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="wishlist">
-                                                    <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product 6 -->
-                                <div class="card-product card-product-v02 grid" data-availability="In stock" data-skin="Acne Skin">
-                                    <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
-                                            <img class="img-product" width="277" height="239"
-                                                src="../assets/images/product/product-6.jpg" alt="Product">
-                                            <img class="img-hover" width="277" height="239"
-                                                src="../assets/images/product/product-6.jpg" alt="Product">
-                                        </a>
-                                        <ul class="product-badge-list">
-                                            <li class="product-badge text-body-4">
-                                                New
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-product_info">
-                                        <div class="info-left">
-                                            <p class="product__cate text-uppercase text-body-4">moisturize</p>
-                                            <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Velisse Hydra
-                                                Complex</a>
-                                            <div class="product__price price-wrap text-black">
-                                                <span class="price-new text-sub-head fw-medium">$89.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="action-shop-list">
-                                            <div class="btn-add-shop">
-                                                <i class="icon icon-plus-solid"></i>
-                                            </div>
-                                            <ul class="product-action-list">
-                                                <li>
-                                                    <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-add-cart"></span>
-                                                        <span class="tooltip">Add to cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="wishlist">
-                                                    <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-compare1"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                        <span class="icon icon-view"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                           
                                 <!-- pagination -->
                                 <div class="wd-full wg-pagination wd-pagination style-4 mt-20">
                                     <ul class="pagination-list justify-content-center">
-                                        <li>
+                                        <li   :disabled="currentPage === 1"
+                  @click="fetchAllProducts(currentPage - 1)">
                                             <a href="#" class="btn-direc direc-left"><i
                                                     class="icon icon-arrow-caret-left"></i></a>
                                         </li>
-                                        <li><a href="#" class="pagination-item">1</a></li>
-                                        <li><span class="pagination-item active">2</span></li>
-                                        <li><a href="#" class="pagination-item">...</a></li>
-                                        <li><a href="#" class="pagination-item">8</a></li>
-                                        <li><a href="#" class="pagination-item">9</a></li>
-                                        <li>
+                                        <li  v-for="page in lastPage"
+                  :key="page"
+                
+                  :class="page === currentPage ? 'activecolor' : 'basiccolor'"
+                  @click="fetchAllProducts(page)"><a href="#" class="pagination-item">{{ page }}</a></li>
+                                  
+                                        <li  :disabled="currentPage === lastPage"
+                  @click="fetchAllProducts(currentPage + 1)">
                                             <a href="#" class="btn-direc direc-right"><i
                                                     class="icon icon-arrow-caret-right"></i></a>
                                         </li>
@@ -1189,3 +916,142 @@
         </div>
         <!-- /Brand -->
 </template>
+    <script setup>
+import { onMounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import {  getCategory, getCategoryList, getCategoryListById, getCategoryProducts, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
+import { image_url } from '../config/api';
+import { useCartStore } from '../cartStore';
+const cartStore=useCartStore();
+const productList = ref([]);
+const collectionList = ref([]);
+const pageLoading = ref(true);
+const categoryList=ref([]);
+const selectedCategory = ref("");
+const currentPage = ref(1);
+const lastPage = ref(1);
+const route = useRoute();
+const router=useRouter();
+const fetchAllProducts = async (page = 1) => {
+  try {
+    const res = await getProducts(page);
+    const paginator = res.data.data ?? res.data;
+
+    productList.value = paginator.data ?? [];
+    currentPage.value = paginator.current_page ?? 1;
+    lastPage.value = paginator.last_page ?? 1;
+  } catch (err) {
+    console.error("Error fetching products:", err);
+    productList.value = [];
+  }
+};
+const fetchCategoryProducts = async (categoryId) => {
+
+  try {
+    const res = await getCategoryListById(categoryId);
+console.log("category products",res);
+
+
+    productList.value = res.data.data ?? res.data;
+      currentPage.value = 1;
+    lastPage.value = 1;
+  } catch (err) {
+    console.error("Error fetching category products:", err);
+    productList.value = [];
+  }
+};
+const onCategoryChange = () => {
+  const categoryId = selectedCategory.value;
+
+  if (categoryId) {
+   
+    const category = categoryList.value.find(
+      c => c.id === categoryId
+    );
+    console.log("category",category);
+    
+  if (!category || !category.slugable) {
+    console.warn("Category slug not found", category);
+    return;
+  }
+    router.push({
+      name: "ShopCategory",
+      params: {
+        slug: category.slugable.key
+      }
+    });
+
+  } else {
+  
+    router.push("/shop");
+  }
+}
+
+
+    const getCategories = async () => {
+    
+  try {
+    const res = await getCategory();
+    categoryList.value = res.data.data;
+    console.log("CATEGORY+>", categoryList.value);
+    
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+};
+    
+const loadProducts=async()=>{
+  const slug=route.params.slug;
+  console.log("slug=>",slug);
+  
+try {
+   if (!slug) {
+      await fetchAllProducts(1);
+      return;
+    }
+  const res=await getCategoryProducts(slug,1,null)
+   productList.value = res.data.data ?? res.data;
+    currentPage.value = 1;
+    lastPage.value = 1;
+} catch (error) {
+   console.error(error);
+    productList.value = [];
+}
+}
+watch(
+  [() => route.params.slug, categoryList],
+  ([slug, categories]) => {
+
+    if (!slug || !categories.length) {
+      selectedCategory.value = "";
+      return;
+    }
+
+    const category = categories.find(
+      c => c.slugable?.key === slug
+    );
+
+    selectedCategory.value = category?.id || "";
+    loadProducts();
+  },
+  { immediate: true }
+);
+
+
+
+
+onMounted(async () => {
+  try {
+    await getCategories();  
+    await loadProducts();   
+  } finally {
+    pageLoading.value = false;
+  }
+ 
+});
+</script>
+<style scoped>
+.card-product-v02 .product-img img {
+    max-height: 402px;
+}
+</style>
