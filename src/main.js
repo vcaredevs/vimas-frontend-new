@@ -16,6 +16,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 
+
 import App from "./App.vue";
 import router from "./router";
 const app = createApp(App);
