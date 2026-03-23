@@ -3796,8 +3796,13 @@ header.normal.header-sticky {
 
 .tf-header-5.style-abs .item-link {
   /* color: #2B2B2B; */
-  color: var(--white);
+   color: #000000;
+           background-color: var(--white-40);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding-top: 31px;
 }
+
 
 .tf-header-5.style-abs .nav-icon {
   background-color: var(--white);
@@ -3816,12 +3821,13 @@ header.normal.header-sticky {
 }
 
 @media (min-width: 992px) {
-  .tf-header-5 .logo-site {
-    /* margin-top: 8px; */
-  }
-  .tf-header-5.header-fixed.scrolling .header-inner {
-    padding-top: 15px;
-  }
+    .tf-header-5 .logo-site {
+        /* margin-top: 8px; */
+    }
+    .tf-header-5.header-fixed.scrolling .header-inner {
+        padding-top: 15px;
+        border-radius: 50px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -38971,3 +38977,17 @@ ul.list-check li .icon {
     flex-direction: column;
   }
 }
+.plus-icon{
+  color:#e9471a;
+  transition: all 0.3s ease;
+}
+
+.plus-icon:hover{
+  rotate: 45deg;
+}
+.wishlist-icon{
+  color: black;
+  
+}
+
+/*# sourceMappingURL=styles.css.map */
