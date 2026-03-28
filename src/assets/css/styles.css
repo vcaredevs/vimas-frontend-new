@@ -3685,6 +3685,8 @@ header.normal.header-sticky {
 }
 
 .tf-header-5 .header-inner {
+   background-color: rgb(253 253 253 / 80%);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding-top: 49px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -3824,6 +3826,8 @@ header.normal.header-sticky {
     /* margin-top: 8px; */
   }
   .tf-header-5.header-fixed.scrolling .header-inner {
+    background-color: #ffffff;
+
     padding-top: 15px;
     border-radius: 50px;
   }
