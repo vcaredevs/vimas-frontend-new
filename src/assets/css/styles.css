@@ -6416,8 +6416,8 @@ form .fieldset-ip .fieldset_label {
 }
 
 .tf-check.style-4:checked {
-  border-color: var(--primary);
-  background-color: var(--primary);
+    border-color: #e9471a;
+    background-color: #e9471a;
 }
 
 .tf-check.style-4:checked ~ label {
