@@ -1,254 +1,287 @@
 <template>
 
-     <!-- Hero Shop -->
-        <section class="section-cosmetic-hero-shop type-2 flat-spacing-5 slider-hero-wrap">
-            <ul class="hero-image">
-                <li class="img-thumbs active">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
-                </li>
-                <li class="img-thumbs">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
-                </li>
-                <li class="img-thumbs">
-                    <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png" alt="Image">
-                </li>
-            </ul>
-            <div class="container-5 position-relative z-5">
-                <div class="row">
-                    <div class="col-sm-6 col-md-7 col-xl-9">
-                        <div dir="ltr" class="swiper swiper-hero-main-thumb slider_effect_fade">
+    <!-- Hero Shop -->
+    <section class="section-cosmetic-hero-shop type-2 flat-spacing-5 slider-hero-wrap">
+        <ul class="hero-image">
+            <li class="img-thumbs active">
+                <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png"
+                    alt="Image">
+            </li>
+            <li class="img-thumbs">
+                <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png"
+                    alt="Image">
+            </li>
+            <li class="img-thumbs">
+                <img loading="lazy" width="1416" height="595" src="../assets/images/section/hero-shop-2.png"
+                    alt="Image">
+            </li>
+        </ul>
+        <div class="container-5 position-relative z-5">
+            <div class="row">
+                <div class="col-sm-6 col-md-7 col-xl-9">
+                    <div dir="ltr" class="swiper swiper-hero-main-thumb slider_effect_fade">
+                        <div class="swiper-wrapper">
+                            <!-- item 1 -->
+                            <div class="swiper-slide">
+                                <div class="col-left">
+                                    <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
+                                        <span>Exquisite Grace,</span><br> Accuracy
+                                    </h1>
+                                    <div class="fade-item fade-item-2">
+                                        <a href="shop-default.html"
+                                            class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                            <span class="text-body-4 fw-medium">Explore Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 2 -->
+                            <div class="swiper-slide">
+                                <div class="col-left">
+                                    <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
+                                        <span>Exquisite Grace,</span><br> Accuracy
+                                    </h1>
+                                    <div class="fade-item fade-item-2">
+                                        <a href="shop-default.html"
+                                            class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                            <span class="text-body-4 fw-medium">Explore Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 3 -->
+                            <div class="swiper-slide">
+                                <div class="col-left">
+                                    <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
+                                        <span>Exquisite Grace,</span><br> Accuracy
+                                    </h1>
+                                    <div class="fade-item fade-item-2">
+                                        <a href="shop-default.html"
+                                            class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
+                                            <span class="text-body-4 fw-medium">Explore Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sw-dot-default tf-sw-pagination"></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-xl-3">
+                    <div class="">
+                        <div dir="ltr" class="swiper swiper-hero-thumb">
                             <div class="swiper-wrapper">
                                 <!-- item 1 -->
                                 <div class="swiper-slide">
-                                    <div class="col-left">
-                                        <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
-                                            <span>Exquisite Grace,</span><br> Accuracy
-                                        </h1>
-                                        <div class="fade-item fade-item-2">
-                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
-                                                <span class="text-body-4 fw-medium">Explore Now</span>
+                                    <div class="card-product card-product-v02 type-2 bg-white">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/product/whiteningmaskrose.png" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/product/whiteningmaskrose.png" alt="Product">
                                             </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge text-body-4">
+                                                    New
+                                                </li>
+                                                <li class="product-badge text-body-4 sale">
+                                                    Sale
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html"
+                                                    class="product__name text-body-2 link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img
+                                                                    src="../assets/images/arrow-clockwise.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- item 2 -->
                                 <div class="swiper-slide">
-                                    <div class="col-left">
-                                        <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
-                                            <span>Exquisite Grace,</span><br> Accuracy
-                                        </h1>
-                                        <div class="fade-item fade-item-2">
-                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
-                                                <span class="text-body-4 fw-medium">Explore Now</span>
+                                    <div class="card-product card-product-v02 type-2 bg-white">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/product/product-9.jpg" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/product/product-9.jpg" alt="Product">
                                             </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge text-body-4">
+                                                    New
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html"
+                                                    class="product__name text-body-2 link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img
+                                                                    src="../assets/images/arrow-clockwise.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- item 3 -->
                                 <div class="swiper-slide">
-                                    <div class="col-left">
-                                        <h1 class="hero-title fw-normal text-white fade-item fade-item-1">
-                                            <span>Exquisite Grace,</span><br> Accuracy
-                                        </h1>
-                                        <div class="fade-item fade-item-2">
-                                            <a href="shop-default.html" class="btn-wrap btn-4 btn-fill-white animate-btn animate-dark">
-                                                <span class="text-body-4 fw-medium">Explore Now</span>
+                                    <div class="card-product card-product-v02 type-2 bg-white">
+                                        <div class="card-product_wrapper">
+                                            <a href="shop-detail.html" class="product-img">
+                                                <img class="img-product" width="277" height="239"
+                                                    src="../assets/images/product/product-8.jpg" alt="Product">
+                                                <img class="img-hover" width="277" height="239"
+                                                    src="../assets/images/product/product-8.jpg" alt="Product">
                                             </a>
+                                            <ul class="product-badge-list">
+                                                <li class="product-badge text-body-4">
+                                                    New
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-product_info">
+                                            <div class="info-left">
+                                                <p class="product__cate text-uppercase text-caption">moisturize</p>
+                                                <a href="shop-detail.html"
+                                                    class="product__name text-body-2 link-2 text-black">Dream
+                                                    Bio Retinol</a>
+                                                <div class="product__price price-wrap text-black">
+                                                    <span class="price-new text-body-2 fw-semibold">$56.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="action-shop-list">
+                                                <div class="btn-add-shop">
+                                                    <i class="fa-solid fa-plus fs-24 plus-icon"></i>
+                                                </div>
+                                                <ul class="product-action-list">
+                                                    <li>
+                                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/cart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to cart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="wishlist">
+                                                        <a href="#;" class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/heart.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="compare">
+                                                        <a href="#compare" data-bs-toggle="offcanvas"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            <span class="icon"><img src="../assets/images/eye.svg"
+                                                                    alt=""></span>
+                                                            <span class="tooltip">Compare</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#quickView" data-bs-toggle="modal"
+                                                            class="action-card hover-tooltip tooltip-left">
+                                                            < <span class="icon"><img
+                                                                    src="../assets/images/arrow-clockwise.svg"
+                                                                    alt=""></span>
+                                                                <span class="tooltip">Quick view</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="sw-dot-default tf-sw-pagination"></div>
+                            <div class="sw-line-vertical style-2 tf-sw-pagination"></div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-5 col-xl-3">
-                        <div class="">
-                            <div dir="ltr" class="swiper swiper-hero-thumb">
-                                <div class="swiper-wrapper">
-                                    <!-- item 1 -->
-                                    <div class="swiper-slide">
-                                        <div class="card-product card-product-v02 type-2 bg-white">
-                                            <div class="card-product_wrapper">
-                                                <a href="shop-detail.html" class="product-img">
-                                                    <img class="img-product" width="277" height="239"
-                                                        src="../assets/images/product/whiteningmaskrose.png" alt="Product">
-                                                    <img class="img-hover" width="277" height="239"
-                                                        src="../assets/images/product/whiteningmaskrose.png" alt="Product">
-                                                </a>
-                                                <ul class="product-badge-list">
-                                                    <li class="product-badge text-body-4">
-                                                        New
-                                                    </li>
-                                                    <li class="product-badge text-body-4 sale">
-                                                        Sale
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="card-product_info">
-                                                <div class="info-left">
-                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
-                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
-                                                        Bio Retinol</a>
-                                                    <div class="product__price price-wrap text-black">
-                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="action-shop-list">
-                                                    <div class="btn-add-shop">
-                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
-                                                    </div>
-                                                    <ul class="product-action-list">
-                                                        <li>
-                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                               <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to cart</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="wishlist">
-                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to Wishlist</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="compare">
-                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
-                                                                <span class="tooltip">Compare</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                                 <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
-                                                                <span class="tooltip">Quick view</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- item 2 -->
-                                    <div class="swiper-slide">
-                                        <div class="card-product card-product-v02 type-2 bg-white">
-                                            <div class="card-product_wrapper">
-                                                <a href="shop-detail.html" class="product-img">
-                                                    <img class="img-product" width="277" height="239"
-                                                        src="../assets/images/product/product-9.jpg" alt="Product">
-                                                    <img class="img-hover" width="277" height="239"
-                                                        src="../assets/images/product/product-9.jpg" alt="Product">
-                                                </a>
-                                                <ul class="product-badge-list">
-                                                    <li class="product-badge text-body-4">
-                                                        New
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="card-product_info">
-                                                <div class="info-left">
-                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
-                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
-                                                        Bio Retinol</a>
-                                                    <div class="product__price price-wrap text-black">
-                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="action-shop-list">
-                                                    <div class="btn-add-shop">
-                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
-                                                    </div>
-                                                    <ul class="product-action-list">
-                                                        <li>
-                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to cart</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="wishlist">
-                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to Wishlist</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="compare">
-                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
-                                                                <span class="tooltip">Compare</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                               <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
-                                                                <span class="tooltip">Quick view</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- item 3 -->
-                                    <div class="swiper-slide">
-                                        <div class="card-product card-product-v02 type-2 bg-white">
-                                            <div class="card-product_wrapper">
-                                                <a href="shop-detail.html" class="product-img">
-                                                    <img class="img-product" width="277" height="239"
-                                                        src="../assets/images/product/product-8.jpg" alt="Product">
-                                                    <img class="img-hover" width="277" height="239"
-                                                        src="../assets/images/product/product-8.jpg" alt="Product">
-                                                </a>
-                                                <ul class="product-badge-list">
-                                                    <li class="product-badge text-body-4">
-                                                        New
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="card-product_info">
-                                                <div class="info-left">
-                                                    <p class="product__cate text-uppercase text-caption">moisturize</p>
-                                                    <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">Dream
-                                                        Bio Retinol</a>
-                                                    <div class="product__price price-wrap text-black">
-                                                        <span class="price-new text-body-2 fw-semibold">$56.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="action-shop-list">
-                                                    <div class="btn-add-shop">
-                                                        <i class="fa-solid fa-plus fs-24 plus-icon"></i>
-                                                    </div>
-                                                    <ul class="product-action-list">
-                                                        <li>
-                                                            <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                               <span class="icon"><img src="../assets/images/cart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to cart</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="wishlist">
-                                                            <a href="#;" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/heart.svg" alt=""></span>
-                                                                <span class="tooltip">Add to Wishlist</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="compare">
-                                                            <a href="#compare" data-bs-toggle="offcanvas" class="action-card hover-tooltip tooltip-left">
-                                                                <span class="icon"><img src="../assets/images/eye.svg" alt=""></span>
-                                                                <span class="tooltip">Compare</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#quickView" data-bs-toggle="modal" class="action-card hover-tooltip tooltip-left">
-                                                                < <span class="icon"><img src="../assets/images/arrow-clockwise.svg" alt=""></span>
-                                                                <span class="tooltip">Quick view</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sw-line-vertical style-2 tf-sw-pagination"></div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -733,195 +766,210 @@
                         </div>
                     </div>
 
-                    <!-- item 1 -->
-                    <div class="swiper-slide">
-                        <div class="card-best-product">
-                            <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg" alt="Image">
-                                <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="product-content">
-                                <div class="left">
-                                    <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
-                                    </div>
-                                    <div class="product_info">
-                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
-                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
-                                            Dream Bio Retinol
-                                        </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
-                                    </div>
-                                </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
-                                </a>
-                            </div>
+                <!-- item 1 -->
+                <div class="swiper-slide">
+                    <div class="card-best-product">
+                        <div class="product-image-preview">
+                            <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-1.jpg"
+                                alt="Image">
+                            <video autoplay muted loop playsinline>
+                                <source src="../assets/images/video/best-2.mp4" type="video/mp4">
+                            </video>
                         </div>
-                    </div>
-                    <!-- item 2 -->
-                    <div class="swiper-slide">
-                        <div class="card-best-product">
-                            <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg" alt="Image">
-                                <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-5.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="product-content">
-                                <div class="left">
-                                    <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-8.jpg" alt="Image">
-                                    </div>
-                                    <div class="product_info">
-                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
-                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
-                                            Dream Bio Retinol
-                                        </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
-                                    </div>
+                        <div class="product-content">
+                            <div class="left">
+                                <div class="product_image">
+                                    <img loading="lazy" width="92" height="92"
+                                        src="../assets/images/product/product-7.jpg" alt="Image">
                                 </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- item 3 -->
-                    <div class="swiper-slide">
-                        <div class="card-best-product">
-                            <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg" alt="Image">
-                                <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-3.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="product-content">
-                                <div class="left">
-                                    <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-9.jpg" alt="Image">
-                                    </div>
-                                    <div class="product_info">
-                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
-                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
-                                            Dream Bio Retinol
-                                        </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
-                                    </div>
+                                <div class="product_info">
+                                    <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                    <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                        Dream Bio Retinol
+                                    </a>
+                                    <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
                                 </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
-                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <!-- item 4 -->
-                    <div class="swiper-slide">
-                        <div class="card-best-product">
-                            <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg" alt="Image">
-                                <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-4.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="product-content">
-                                <div class="left">
-                                    <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-10.jpg" alt="Image">
-                                    </div>
-                                    <div class="product_info">
-                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
-                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
-                                            Dream Bio Retinol
-                                        </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
-                                    </div>
-                                </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- item 5 -->
-                    <div class="swiper-slide">
-                        <div class="card-best-product">
-                            <div class="product-image-preview">
-                                <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg" alt="Image">
-                                <video autoplay muted loop playsinline>
-                                    <source src="../assets/images/video/best-1.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="product-content">
-                                <div class="left">
-                                    <div class="product_image">
-                                        <img loading="lazy" width="92" height="92" src="../assets/images/product/product-7.jpg" alt="Image">
-                                    </div>
-                                    <div class="product_info">
-                                        <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
-                                        <a href="shop-detail.html" class="info__name text-body-2 text-black link">
-                                            Dream Bio Retinol
-                                        </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
-                                    </div>
-                                </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
-                                    <i class="icon icon-shopping-cart"></i>
-                                </a>
-                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="action tf-btn-icon rounded-circle">
+                                <i class="icon icon-shopping-cart"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
+                <!-- item 2 -->
+                <div class="swiper-slide">
+                    <div class="card-best-product">
+                        <div class="product-image-preview">
+                            <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-2.jpg"
+                                alt="Image">
+                            <video autoplay muted loop playsinline>
+                                <source src="../assets/images/video/best-5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="product-content">
+                            <div class="left">
+                                <div class="product_image">
+                                    <img loading="lazy" width="92" height="92"
+                                        src="../assets/images/product/product-8.jpg" alt="Image">
+                                </div>
+                                <div class="product_info">
+                                    <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                    <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                        Dream Bio Retinol
+                                    </a>
+                                    <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                </div>
+                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="action tf-btn-icon rounded-circle">
+                                <i class="icon icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- item 3 -->
+                <div class="swiper-slide">
+                    <div class="card-best-product">
+                        <div class="product-image-preview">
+                            <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-3.jpg"
+                                alt="Image">
+                            <video autoplay muted loop playsinline>
+                                <source src="../assets/images/video/best-3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="product-content">
+                            <div class="left">
+                                <div class="product_image">
+                                    <img loading="lazy" width="92" height="92"
+                                        src="../assets/images/product/product-9.jpg" alt="Image">
+                                </div>
+                                <div class="product_info">
+                                    <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                    <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                        Dream Bio Retinol
+                                    </a>
+                                    <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                </div>
+                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="action tf-btn-icon rounded-circle">
+                                <i class="icon icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- item 4 -->
+                <div class="swiper-slide">
+                    <div class="card-best-product">
+                        <div class="product-image-preview">
+                            <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-4.jpg"
+                                alt="Image">
+                            <video autoplay muted loop playsinline>
+                                <source src="../assets/images/video/best-4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="product-content">
+                            <div class="left">
+                                <div class="product_image">
+                                    <img loading="lazy" width="92" height="92"
+                                        src="../assets/images/product/product-10.jpg" alt="Image">
+                                </div>
+                                <div class="product_info">
+                                    <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                    <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                        Dream Bio Retinol
+                                    </a>
+                                    <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                </div>
+                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="action tf-btn-icon rounded-circle">
+                                <i class="icon icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- item 5 -->
+                <div class="swiper-slide">
+                    <div class="card-best-product">
+                        <div class="product-image-preview">
+                            <img loading="lazy" width="424" height="600" src="../assets/images/section/skin-5.jpg"
+                                alt="Image">
+                            <video autoplay muted loop playsinline>
+                                <source src="../assets/images/video/best-1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="product-content">
+                            <div class="left">
+                                <div class="product_image">
+                                    <img loading="lazy" width="92" height="92"
+                                        src="../assets/images/product/product-7.jpg" alt="Image">
+                                </div>
+                                <div class="product_info">
+                                    <p class="info__cate text-body-4 cl-gray-40">MOISTURIZE</p>
+                                    <a href="shop-detail.html" class="info__name text-body-2 text-black link">
+                                        Dream Bio Retinol
+                                    </a>
+                                    <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                </div>
+                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="action tf-btn-icon rounded-circle">
+                                <i class="icon icon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!-- /Best Product -->
-        <!-- Brand -->
-        <div class="section-brand-2">
-            <div class="container-5">
-                <div class="br-line bg-black-10 d-flex"></div>
-            </div>
-            <div class="inf-slide-brand-2">
-                <div class="infiniteSlide">
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-1.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-2.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-3.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-4.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-5.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-6.svg" alt="brand">
-                    </div>
-                    <div class="img-brand">
-                        <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-7.svg" alt="brand">
-                    </div>
+            <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
+        </div>
+    </section>
+    <!-- /Best Product -->
+    <!-- Brand -->
+    <div class="section-brand-2">
+        <div class="container-5">
+            <div class="br-line bg-black-10 d-flex"></div>
+        </div>
+        <div class="inf-slide-brand-2">
+            <div class="infiniteSlide">
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-1.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-2.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-3.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-4.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-5.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-6.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-7.svg" alt="brand">
                 </div>
             </div>
         </div>
-        <!-- /Brand -->
+    </div>
+    <!-- /Brand -->
 </template>
     <script setup>
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import {  getCategory, getCategoryList, getCategoryListById, getCategoryProducts, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
+import { getCategory, getCategoryList, getCategoryListById, getCategoryProducts, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
 import { image_url } from '../config/api';
 import { useCartStore } from '../cartStore';
-const cartStore=useCartStore();
+const cartStore = useCartStore();
 const productList = ref([]);
 const collectionList = ref([]);
 const pageLoading = ref(true);
-const categoryList=ref([]);
+const categoryList = ref([]);
 const selectedCategory = ref("");
 const currentPage = ref(1);
 const lastPage = ref(1);
@@ -931,58 +979,58 @@ const minPrice = ref(0);
 const maxPrice = ref(0);
 const selectedCollection = ref("");
 const fetchAllProducts = async (page = 1) => {
-  try {
-    const res = await getProducts(page);
-    const paginator = res.data.data ?? res.data;
+    try {
+        const res = await getProducts(page);
+        const paginator = res.data.data ?? res.data;
 
-    productList.value = paginator.data ?? [];
-    currentPage.value = paginator.current_page ?? 1;
-    lastPage.value = paginator.last_page ?? 1;
-  } catch (err) {
-    console.error("Error fetching products:", err);
-    productList.value = [];
-  }
+        productList.value = paginator.data ?? [];
+        currentPage.value = paginator.current_page ?? 1;
+        lastPage.value = paginator.last_page ?? 1;
+    } catch (err) {
+        console.error("Error fetching products:", err);
+        productList.value = [];
+    }
 };
 const fetchCategoryProducts = async (categoryId) => {
 
-  try {
-    const res = await getCategoryListById(categoryId);
-console.log("category products",res);
+    try {
+        const res = await getCategoryListById(categoryId);
+        console.log("category products", res);
 
 
-    productList.value = res.data.data ?? res.data;
-      currentPage.value = 1;
-    lastPage.value = 1;
-  } catch (err) {
-    console.error("Error fetching category products:", err);
-    productList.value = [];
-  }
+        productList.value = res.data.data ?? res.data;
+        currentPage.value = 1;
+        lastPage.value = 1;
+    } catch (err) {
+        console.error("Error fetching category products:", err);
+        productList.value = [];
+    }
 };
 const onCategoryChange = () => {
-  const categoryId = selectedCategory.value;
+    const categoryId = selectedCategory.value;
 
-  if (categoryId) {
-   
-    const category = categoryList.value.find(
-      c => c.id === categoryId
-    );
-    console.log("category",category);
-    
-  if (!category || !category.slugable) {
-    console.warn("Category slug not found", category);
-    return;
-  }
-    router.push({
-      name: "ShopCategory",
-      params: {
-        slug: category.slugable.key
-      }
-    });
+    if (categoryId) {
 
-  } else {
-  
-    router.push("/shop");
-  }
+        const category = categoryList.value.find(
+            c => c.id === categoryId
+        );
+        console.log("category", category);
+
+        if (!category || !category.slugable) {
+            console.warn("Category slug not found", category);
+            return;
+        }
+        router.push({
+            name: "ShopCategory",
+            params: {
+                slug: category.slugable.key
+            }
+        });
+
+    } else {
+
+        router.push("/shop");
+    }
 }
 const onCollectionChange=async()=>{
  const id= selectedCollection.value;
@@ -995,16 +1043,16 @@ const onCollectionChange=async()=>{
 
 }
 
-    const getCategories = async () => {
-    
-  try {
-    const res = await getCategory();
-    categoryList.value = res.data.data;
-    console.log("CATEGORY+>", categoryList.value);
-    
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-  }
+const getCategories = async () => {
+
+    try {
+        const res = await getCategory();
+        categoryList.value = res.data.data;
+        console.log("CATEGORY+>", categoryList.value);
+
+    } catch (error) {
+        console.error("Error fetching categories:", error);
+    }
 };
     const getCollections = async () => {
     
@@ -1036,22 +1084,22 @@ try {
 }
 }
 watch(
-  [() => route.params.slug, categoryList],
-  ([slug, categories]) => {
+    [() => route.params.slug, categoryList],
+    ([slug, categories]) => {
 
-    if (!slug || !categories.length) {
-      selectedCategory.value = "";
-      return;
-    }
+        if (!slug || !categories.length) {
+            selectedCategory.value = "";
+            return;
+        }
 
-    const category = categories.find(
-      c => c.slugable?.key === slug
-    );
+        const category = categories.find(
+            c => c.slugable?.key === slug
+        );
 
-    selectedCategory.value = category?.id || "";
-    loadProducts();
-  },
-  { immediate: true }
+        selectedCategory.value = category?.id || "";
+        loadProducts();
+    },
+    { immediate: true }
 );
 
 const minAvailablePrice = computed(() => {
