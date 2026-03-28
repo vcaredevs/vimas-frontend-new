@@ -261,7 +261,7 @@
                 <div class="row">
                     <div class="col-xl-9">
                         <button type="button" id="filterShop" class="tf-btn-filter d-xl-none">
-                            <span class="icon icon-filter"></span><span class="text">Filter</span>
+                            <i class="bi bi-filter"></i><span class="text">Filter</span>
                         </button>
                         <div class="tf-shop-control">
                             <div class="meta-filter-shop">
@@ -274,43 +274,57 @@
                             </div>
                             <div class="tf-control-sorting">
                                 <p class="text-body-4 d-none d-lg-block cl-gray-60">Sort By</p>
-                                <div class="tf-dropdown-sort style-2" data-bs-toggle="dropdown">
+                                                <form>
+  <select
+    class="form-select"
+ v-model="selectedCollection"
+  @change="onCollectionChange"
+  >
+    <option  v-on:click="fetchAllProducts" selected="">
+     All Products 
+    </option>
+
+
+    <option
+      v-for="item in collectionList"
+      :key="item.id"
+      :value="item.id"
+     
+    >
+      {{ item.name }}
+    </option>
+  </select>
+</form>
+                                <!-- <div class="tf-dropdown-sort style-2" data-bs-toggle="dropdown">
                                     <div class="btn-select">
                                         <span class="text-sort-value font-main">Best Selling</span>
-                                        <i class="bi bi-caret-down-fill"></i>
+                                        <i class="bi bi-caret-down"></i>
                                     </div>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu
+                                    ">
                                         <div class="select-item active remove-all-filters" data-sort-value="best-selling">
                                             <span class="text-value-item">Best Selling</span>
                                         </div>
-                                        <div class="select-item" data-sort-value="a-z">
-                                            <span class="text-value-item">Alphabetically, A-Z</span>
-                                        </div>
-                                        <div class="select-item" data-sort-value="z-a">
-                                            <span class="text-value-item">Alphabetically, Z-A</span>
-                                        </div>
-                                        <div class="select-item" data-sort-value="price-low-high">
-                                            <span class="text-value-item">Price, low to high</span>
-                                        </div>
-                                        <div class="select-item" data-sort-value="price-high-low">
-                                            <span class="text-value-item">Price, high to low</span>
-                                        </div>
+                                   
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>  
                         <div class="wrapper-control-shop gridLayout-wrapper">
                             <div class="wrapper-shop tf-grid-layout tf-col-2" id="gridLayout">
                                 <!-- product 1 -->
-                                <div class="card-product card-product-v02 grid" v-for="product in productList"
+                                <div class="card-product card-product-v02 grid" v-for="product in filteredProducts"
     :key="product.id" >
                                     <div class="card-product_wrapper">
-                                        <a href="shop-detail.html" class="product-img">
+                                        <router-link :to="`/product/${product.slug?.key || product.slugable?.key}`">
+                                        <a href="#" class="product-img">
+                                             
                                             <img class="img-product" width="277" height="239"
                                                :src="image_url + product.image">
                                             <img class="img-hover" width="277" height="239"
                                                    :alt="product.name">
                                         </a>
+                                        </router-link>
                                         <ul class="product-badge-list">
                                             <li class="product-badge text-body-4">
                                                 New
@@ -377,19 +391,19 @@
                                     <ul class="pagination-list justify-content-center">
                                         <li   :disabled="currentPage === 1"
                   @click="fetchAllProducts(currentPage - 1)">
-                                            <a href="#" class="btn-direc direc-left"><i
-                                                    class="icon icon-arrow-caret-left"></i></a>
+                                          < 
                                         </li>
                                         <li  v-for="page in lastPage"
                   :key="page"
                 
                   :class="page === currentPage ? 'activecolor' : 'basiccolor'"
-                  @click="fetchAllProducts(page)"><a href="#" class="pagination-item">{{ page }}</a></li>
+                  @click="fetchAllProducts(page)">{{ page }}</li>
                                   
                                         <li  :disabled="currentPage === lastPage"
                   @click="fetchAllProducts(currentPage + 1)">
-                                            <a href="#" class="btn-direc direc-right"><i
-                                                    class="icon icon-arrow-caret-right"></i></a>
+                                            <!-- <a href="#" class="btn-direc direc-right"> -->
+                                             >
+                                                <!-- </a> -->
                                         </li>
                                     </ul>
                                 </div>
@@ -401,72 +415,39 @@
                             <div class="canvas-wrapper">
                                 <div class="canvas-header d-xl-none">
                                     <span class="title h3 fw-medium">Filter</span>
-                                    <span class="icon-close link icon-close-popup fs-24 close-filter"></span>
+                                    <i class="bi bi-filter  link icon-close-popup fs-24"></i>
+                                    <!-- <span class="icon-close link icon-close-popup fs-24 close-filter"></span> -->
                                 </div>
+
                                 <div class="canvas-body">
                                     <div class="widget-facet style-2">
-                                        <div class="facet-title" data-bs-target="#category" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="category">
-                                            <span class="text-body-2 text-black">Product type (1)</span>
-                                            <span class="icon icon-arrow-caret-down fs-16"></span>
+                                        <div class="facet-title"  role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="category">
+                                            <span class="text-body-2 text-black">Categories</span>
+                                            <i class="bi bi-caret-down"></i>
                                         </div>
                                         <div id="category" class="collapse show">
                                             <ul class="collapse-body filter-group-check current-scrollbar">
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="all-type" checked>
-                                                    <label for="all-type" class="label text-body-4">
-                                                        <span class="type-text flex-1">All Types</span>
-                                                        <span class="count">24</span>
-                                                    </label>
-                                                </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="moisturize">
-                                                    <label for="moisturize" class="label text-body-4">
-                                                        <span class="type-text flex-1">Moisturize</span>
-                                                        <span class="count">10</span>
-                                                    </label>
-                                                </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="body-lotions">
-                                                    <label for="body-lotions" class="label text-body-4">
-                                                        <span class="type-text flex-1">Body Lotions</span>
-                                                        <span class="count">6</span>
-                                                    </label>
-                                                </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="foundation">
-                                                    <label for="foundation" class="label text-body-4">
-                                                        <span class="type-text flex-1">Foundation</span>
-                                                        <span class="count">1</span>
-                                                    </label>
-                                                </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="lips">
-                                                    <label for="lips" class="label text-body-4">
-                                                        <span class="type-text flex-1">Lips</span>
-                                                        <span class="count">1</span>
-                                                    </label>
-                                                </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="mascara">
-                                                    <label for="mascara" class="label text-body-4">
-                                                        <span class="type-text flex-1">Mascara</span>
+                                                <li class="list-item"  v-for="item in categoryList"
+      :key="item.id"
+      :value="item.id">
+                                                    <input type="radio" name="type" class="tf-check style-4"  
+                                                        :id="'cat-' + item.id"
+      :value="item.id"
+      v-model="selectedCategory"
+      @change.prevent="onCategoryChange">
+                                                    <label  :for="'cat-' + item.id" class="label text-body-4">
+                                                        <span class="type-text flex-1"   >{{ item.name }}</span>
                                                         <span class="count">2</span>
                                                     </label>
                                                 </li>
-                                                <li class="list-item">
-                                                    <input type="radio" name="type" class="tf-check style-4" id="shampoo">
-                                                    <label for="shampoo" class="label text-body-4">
-                                                        <span class="type-text flex-1">Shampoo</span>
-                                                        <span class="count">2</span>
-                                                    </label>
-                                                </li>
+                                               
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="widget-facet style-2">
+                                    <!-- <div class="widget-facet style-2">
                                         <div class="facet-title" data-bs-target="#avaiable" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="avaiable">
                                             <span class="text-body-2 text-black">Availablity</span>
-                                            <span class="icon icon-arrow-caret-down fs-16"></span>
+                                            <i class="bi bi-caret-down"></i>
                                         </div>
                                         <div id="avaiable" class="collapse show">
                                             <ul class="collapse-body filter-group-check current-scrollbar">
@@ -486,33 +467,47 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="widget-facet style-2">
                                         <div class="facet-title" data-bs-target="#price" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="price">
                                             <span class="text-body-2 text-black">Price</span>
-                                            <span class="icon icon-arrow-caret-down fs-16"></span>
+                                            <i class="bi bi-caret-down"></i>
                                         </div>
                                         <div id="price" class="collapse show">
                                             <div class="collapse-body widget-price type-2 filter-price">
                                                 <div class="box-value-price">
-                                                    <span class="text-body-4 cl-gray-60">The highest price is
-                                                        $500.00</span>
+                                             
                                                     <div class="price-box">
-                                                        <div class="price-val" id="price-min-value" data-currency="$">
+                                                        <div class="price-val" >
+                                                              ₹{{ minPrice }}
                                                         </div>
                                                         <span>-</span>
-                                                        <div class="price-val" id="price-max-value" data-currency="$">
+                                                        <div class="price-val" >
+                                                            ₹{{ maxPrice }}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="price-val-range" id="price-value-range" data-min="0" data-max="500"></div>
                                             </div>
                                         </div>
+                                        <input
+  type="range"
+  :min="minAvailablePrice"
+  :max="maxAvailablePrice"
+  v-model="minPrice"
+/>
+
+<input
+  type="range"
+  :min="minAvailablePrice"
+  :max="maxAvailablePrice"
+  v-model="maxPrice"
+/>
                                     </div>
-                                    <div class="widget-facet style-2">
+                                    <!-- <div class="widget-facet style-2">
                                         <div class="facet-title" data-bs-target="#size" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="size">
                                             <span class="text-body-2 text-black">Size (1)</span>
-                                            <span class="icon icon-arrow-caret-down fs-16"></span>
+                                            <i class="bi bi-caret-down"></i>
                                         </div>
                                         <div id="size" class="collapse show">
                                             <ul class="collapse-body filter-group-check current-scrollbar">
@@ -543,7 +538,7 @@
                                     <div class="widget-facet style-2">
                                         <div class="facet-title" data-bs-target="#skin" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="skin">
                                             <span class="text-body-2 text-black">Skin (1)</span>
-                                            <span class="icon icon-arrow-caret-down fs-16"></span>
+                                            <i class="bi bi-caret-down"></i>
                                         </div>
                                         <div id="skin" class="collapse show">
                                             <ul class="collapse-body filter-group-check current-scrollbar">
@@ -577,7 +572,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- <div class="canvas-footer"></div> -->
                             </div>
@@ -616,7 +611,7 @@
                                         <a href="shop-detail.html" class="info__name text-body-2 text-black link">
                                             Dream Bio Retinol
                                         </a>
-                                        <p class="infor__price text-black fw-medium text-sub-head">$56.00</p>
+                                        <p class="infor__price text-black fw-medium text-sub-head">₹56.00</p>
                                     </div>
                                 </div>
                                 <a href="#shoppingCart" data-bs-toggle="offcanvas" class="action tf-btn-icon rounded-circle">
@@ -917,7 +912,7 @@
         <!-- /Brand -->
 </template>
     <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import {  getCategory, getCategoryList, getCategoryListById, getCategoryProducts, getCollectionList, getCollectionListById, getProducts } from '../services/apiService';
 import { image_url } from '../config/api';
@@ -932,6 +927,9 @@ const currentPage = ref(1);
 const lastPage = ref(1);
 const route = useRoute();
 const router=useRouter();
+const minPrice = ref(0);
+const maxPrice = ref(0);
+const selectedCollection = ref("");
 const fetchAllProducts = async (page = 1) => {
   try {
     const res = await getProducts(page);
@@ -986,7 +984,16 @@ const onCategoryChange = () => {
     router.push("/shop");
   }
 }
+const onCollectionChange=async()=>{
+ const id= selectedCollection.value;
+ try {
+    const res=await getCollectionListById(id);
+    productList.value=res.data.data
+ } catch (error) {
+    
+ }
 
+}
 
     const getCategories = async () => {
     
@@ -999,7 +1006,17 @@ const onCategoryChange = () => {
     console.error("Error fetching categories:", error);
   }
 };
+    const getCollections = async () => {
     
+  try {
+    const res = await getCollectionList();
+    collectionList.value = res.data.data;
+    console.log("collectionList", collectionList.value);
+    
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+}; 
 const loadProducts=async()=>{
   const slug=route.params.slug;
   console.log("slug=>",slug);
@@ -1037,12 +1054,41 @@ watch(
   { immediate: true }
 );
 
+const minAvailablePrice = computed(() => {
+  if (!productList.value.length) return 0;
 
+  return Math.min(
+    ...productList.value.map(p =>
+      p.sale_price ? p.sale_price : p.price
+    )
+  );
+});
 
+const maxAvailablePrice = computed(() => {
+  if (!productList.value.length) return 0;
+
+  return Math.max(
+    ...productList.value.map(p =>
+      p.sale_price ? p.sale_price : p.price
+    )
+  );
+});
+watch(productList, () => {
+  minPrice.value = minAvailablePrice.value;
+  maxPrice.value = maxAvailablePrice.value;
+});
+const filteredProducts = computed(() => {
+  return productList.value.filter((product) => {
+    const price = product.sale_price || product.price;
+
+    return price >= minPrice.value && price <= maxPrice.value;
+  });
+});
 
 onMounted(async () => {
   try {
-    await getCategories();  
+    await getCategories(); 
+    await getCollections(); 
     await loadProducts();   
   } finally {
     pageLoading.value = false;
@@ -1053,5 +1099,19 @@ onMounted(async () => {
 <style scoped>
 .card-product-v02 .product-img img {
     max-height: 402px;
+}
+.pagination-list li {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;   
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;              
+}
+.bi-caret-down::before{
+     color: #666; 
 }
 </style>

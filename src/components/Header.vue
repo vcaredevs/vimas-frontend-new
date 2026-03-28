@@ -1,7 +1,4 @@
-<script setup lang="ts">
-import { routerKey } from 'vue-router';
 
-</script>
 
 <template>
      <div class="tf-header-block-height d-none"></div>
@@ -92,11 +89,14 @@ import { routerKey } from 'vue-router';
                         <div class="col-6 col-lg-3">
                             <div class="header-right">
                                 <ul class="nav-icon">
-                                    <li>
-                                        <a href="sign-in.html" class="nav-icon_link link-2">
+                                    
+ <li class="nav-icon_link link-2"  @click="goToProfile">
+                                        <!-- <a href="#" class="nav-icon_link link-2"> -->
                                            <i class="fa-solid fa-user fs-24"></i>
-                                        </a>
+                                        <!-- </a> -->
                                     </li>
+                                  
+                                   
                                     <li class="br-line type-vertical"></li>
                                     <li>
                                         <a href="#shoppingCart" data-bs-toggle="offcanvas" class="nav-icon_link link-2 btn-open-shop">
@@ -282,3 +282,51 @@ import { routerKey } from 'vue-router';
     <!-- /Mobile Menu -->
         </header>
 </template>
+<script setup>
+import { useRouter } from "vue-router";
+import { image_url } from "../config/api";
+import { useCartStore } from "../cartStore";
+import { onMounted, ref } from "vue";
+import { useUserStore } from "../assets/js/store";
+
+const checkoutLoading = ref(false);
+const router = useRouter();
+const cartStore = useCartStore();
+const couponCode = ref("");
+const userStore = useUserStore();
+const isLoggedIn = () => {
+  return !!localStorage.getItem("authToken");
+};
+
+const handleCheckout = async () => {
+  if (checkoutLoading.value) return;
+  checkoutLoading.value = true;
+  try {
+    if (!isLoggedIn()) {
+      router.push("/login");
+      return;
+    }
+    const success = await cartStore.checkout(couponCode.value);
+
+    if (success) {
+      router.push("/checkout");
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    checkoutLoading.value = false;
+  }
+};
+
+function goToProfile() {
+  if (!isLoggedIn()) {
+    router.push("/login");
+  } else {
+    router.push("/customer/profile");
+  }
+}
+
+onMounted(() => {
+  cartStore.fetchCart();
+});
+</script>

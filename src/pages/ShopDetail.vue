@@ -1,7 +1,7 @@
 <template>
 
      <!-- Product Detail -->
-        <section class="section-cosmetic-product-detail tf-main-product section-image-zoom flat-spacing-6">
+        <section class="section-cosmetic-product-detail tf-main-product section-image-zoom flat-spacing-6" >
             <div class="container-5">
                 <div class="row">
                     <!-- Product Image -->
@@ -878,3 +878,112 @@
         </div>
         <!-- /Brand -->
 </template>
+<script setup>
+import { computed, onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { getProductDetails, getProducts } from "../services/apiService";
+import { image_url,imageUrl } from "../config/api";
+
+import { useUserStore } from "../assets/js/store";
+import { useCartStore } from "../cartStore";
+const { addDeleteWishlist } = useUserStore();
+const route = useRoute();
+const cartStore=useCartStore();
+const slug = route.params.slug;
+const product = ref(null);
+// const imageUrl = "http://127.0.0.1:8000";
+const products = ref([]);
+const slideIndex = ref(0);
+const pageLoading = ref(true);  
+const quantity = ref(1);
+const productList = ref([]);
+const router=useRouter()
+const openSections = ref({
+  description: false,
+  benefits: false,
+  ingredients: false,
+});
+const increment = () => quantity.value++;
+const decrement = () => {
+  if (quantity.value > 1) quantity.value--;
+};
+const handleAddToCart = (product) => {
+
+  
+ cartStore.addOrUpdateCart (product, quantity.value);
+};
+
+async function fetchProducById() {
+  try {
+    const res = await getProductDetails(slug);
+
+    product.value = res.data.data ?? res.data;
+
+    console.log(" product.value", product.value);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+
+async function fetchProducts(page = 1, param = null) {
+  try {
+    const result = await getProducts(page, param);
+
+    productList.value = result.data.data.data ?? result.data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+const limitedProducts = computed(() => {
+  return productList.value.slice(0, 4);
+});
+onMounted(async () => {
+  try {
+    pageLoading.value = true;
+
+    await Promise.all([
+      fetchProducById(),
+      fetchProducts()
+    ]);
+
+  } catch (error) {
+    console.error(error);
+  } finally {
+    pageLoading.value = false;
+  }
+});
+const price = computed(() => {
+  if (product.value?.productVariation) {
+    return {
+      original: product.value.productVariation.original_price,
+      sale: product.value.productVariation.front_sale_price,
+    };
+  }
+
+  return {
+    original: product.value?.product?.original_price,
+    sale: product.value?.product?.front_sale_price,
+  };
+});
+
+const activeIndex = ref(0);
+const images = computed(() => {
+  if (!product.value?.productImages?.length) return [];
+
+  return product.value.productImages.map(
+    (img) => `${imageUrl}/storage/${img.split("#")[0]}`,
+  );
+});
+const activeImage = computed(() => images.value[activeIndex.value]);
+
+function setImage(index) {
+  activeIndex.value = index;
+}
+
+function toggleSection(section) {
+  openSections.value[section] = !openSections.value[section];
+}
+const addWishlist = (id, type) => {
+  addDeleteWishlist(id, type);
+};
+</script>

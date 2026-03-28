@@ -7,6 +7,9 @@ import ShopCart from "../pages/ShopCart.vue";
 import Blog from "../pages/Blog.vue";
 import BlogDetail from "../pages/BlogDetail.vue";
 import Checkout from "../pages/Checkout.vue";
+import Login from "../pages/Login.vue";
+import OrderView from "../pages/customer/OrderView.vue";
+import Profile from "../pages/customer/Profile.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -17,16 +20,23 @@ const routes = [
   { path: "/blog", name: "Blog", component: Blog },
   { path: "/blog-detail", name: "BlogDetail", component: BlogDetail },
   { path: "/checkout", name: "Checkout", component: Checkout },
+         { path: "/login", name: "Login", component: Login },
+           { path: "/customer/order/:id", name: "OrderView", component:OrderView  },
+    { path: "/customer/profile", name: "Profile", component: Profile },
+     { path: "/product/:slug", name: "ProductDetail", component: ShopDetail },
+     {
+  path: '/shop/product-categories/:slug',
+  name: 'ShopCategory',
+  component: Shop
+}
+   
 ];
 const router = createRouter({
   history: createWebHistory("/"),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { top: 0 };
-    }
-  },
+    scrollBehavior() {
+    return false; 
+  }
+ 
 });
 export default router;
