@@ -88,7 +88,7 @@
                         <div dir="ltr" class="swiper swiper-hero-thumb">
                             <div class="swiper-wrapper">
                                 <!-- item 1 -->
-                                <div class="swiper-slide">
+                                <div class="swiper-slide bg-white">
                                     <div class="card-product card-product-v02 type-2 bg-white">
                                         <div class="card-product_wrapper">
                                             <a href="shop-detail.html" class="product-img">
@@ -164,7 +164,7 @@
                                     </div>
                                 </div>
                                 <!-- item 2 -->
-                                <div class="swiper-slide">
+                                <div class="swiper-slide bg-white">
                                     <div class="card-product card-product-v02 type-2 bg-white">
                                         <div class="card-product_wrapper">
                                             <a href="shop-detail.html" class="product-img">
@@ -232,7 +232,7 @@
                                     </div>
                                 </div>
                                 <!-- item 3 -->
-                                <div class="swiper-slide">
+                                <div class="swiper-slide bg-white">
                                     <div class="card-product card-product-v02 type-2 bg-white">
                                         <div class="card-product_wrapper">
                                             <a href="shop-detail.html" class="product-img">
@@ -1214,6 +1214,7 @@
                                         <span class="price-new text-sub-head fw-medium">$56.00</span>
                                     </div>
                                 </div>
+
                                 <div class="action-shop-list">
                                     <div class="btn-add-shop">
                                         <i class="fa-solid fa-plus fs-24 plus-icon"></i>
@@ -1676,7 +1677,7 @@
                         </div>
                         <div class="tf-btn-swiper-main">
                             <div class="nav-prev-swiper">
-                                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                                <i class="fa-solid fa-chevron-left arrow-icon text-white"></i>
 
                             </div>
                             <div dir="ltr" class="swiper tf-swiper swiper-lookbook" data-space="12">
@@ -1892,8 +1893,8 @@
                                 <div class="sw-line-vertical style-2 tf-sw-pagination"></div>
                             </div>
                             <div class="nav-next-swiper">
-                                <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                                <!--  <i class="fa-solid fa-chevron-right arrow-icon"> -->
+                                <i class="fa-solid fa-chevron-right arrow-icon text-white"></i>
+                                <!--  <i class="fa-solid fa-chevron-right arrow-icon text-white"> -->
                             </div>
                         </div>
                     </div>
@@ -2007,7 +2008,7 @@
             </div>
             <div class="row d-flex align-items-end">
                 <div class="col-md-5 col-lg-4">
-                    <div class="col-left mb-md-0">
+                    <div class="col-left mb-md-0 mb-3">
                         <div class="tag-list">
                             <a href="#" class="text-body-2">Niacinamide</a>
                             <a href="#" class="text-body-2">Rafinose</a>
@@ -2225,10 +2226,10 @@
                         </div>
                         <div class="group-nav">
                             <div class="nav-action nav-prev-swiper">
-                                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                                <i class="fa-solid fa-chevron-left arrow-icon text-white"></i>
                             </div>
                             <div class="nav-action nav-next-swiper">
-                                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                                <i class="fa-solid fa-chevron-right arrow-icon text-white"></i>
                             </div>
                         </div>
                         <!-- <div class="sw-dot-default tf-sw-pagination"></div> -->
@@ -2236,6 +2237,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <!-- /Restock -->
     <!-- Before After -->
@@ -3432,12 +3434,12 @@ onMounted(() => {
         // ✅ responsive breakpoints
         breakpoints: {
             0: {
-                slidesPerView: 2,    // ✅ mobile — 1 slide
+                slidesPerView: 1.2,    // ✅ mobile — 1 slide
                 spaceBetween: 10,
-                
+
             },
             576: {
-                slidesPerView: 2,    // tablet small
+                slidesPerView: 1.2,    // tablet small
                 spaceBetween: 15,
             },
             768: {
@@ -3445,7 +3447,7 @@ onMounted(() => {
                 spaceBetween: 20,
             },
             1024: {
-                slidesPerView: 4.5,  // ✅ desktop — 4.5 slides
+                slidesPerView: 4,  // ✅ desktop — 4.5 slides
                 spaceBetween: 20,
             },
         }
@@ -3742,5 +3744,59 @@ onMounted(() => {
     background: #FF8C50;
     width: 20px;
     border-radius: 4px;
+}
+
+
+.container-comp {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://raw.githubusercontent.com/ivanmmarkovic/misc/master/images/large/aerial-shot-bird-s-eye-view-forest-1660004.jpg);
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.mask-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.mask-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://raw.githubusercontent.com/ivanmmarkovic/misc/master/images/large/aerial-view-color-daylight-1125278.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.border {
+    position: absolute;
+    width: 4px;
+    height: 100vh;
+    left: 50%;
+    margin-left: -2px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: steelblue;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    opacity: 0.9;
+    cursor: ew-resize;
 }
 </style>

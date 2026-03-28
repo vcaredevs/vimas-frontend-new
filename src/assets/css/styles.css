@@ -1660,8 +1660,8 @@ h6,
 
 @media (max-width: 991px) {
   .flat-spacing-4 {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -1679,7 +1679,7 @@ h6,
 
 .flat-spacing-6 {
   padding-top: 160px;
-  padding-bottom: 160px;
+  padding-bottom: 100px;
 }
 
 @media (max-width: 1439px) {
@@ -1691,8 +1691,8 @@ h6,
 
 @media (max-width: 991px) {
   .flat-spacing-6 {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 110px;
+    padding-bottom: 30px;
   }
 }
 
@@ -1740,8 +1740,8 @@ h6,
 }
 
 .flat-spacing-10 {
-  padding-top: 156px;
-  padding-bottom: 156px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 @media (max-width: 1439px) {
@@ -2489,6 +2489,10 @@ h6,
 }
 
 @media (max-width: 767px) {
+  .section-cosmetic-hero-shop .hero-image img {
+    width: 100%;
+    height: 56% !important;
+  }
   .md-mb-20 {
     margin-bottom: 20px;
   }
@@ -3796,13 +3800,8 @@ header.normal.header-sticky {
 
 .tf-header-5.style-abs .item-link {
   /* color: #2B2B2B; */
-   color: #000000;
-           background-color: var(--white-40);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    padding-top: 31px;
+  color: #000000;
 }
-
 
 .tf-header-5.style-abs .nav-icon {
   background-color: var(--white);
@@ -3821,13 +3820,13 @@ header.normal.header-sticky {
 }
 
 @media (min-width: 992px) {
-    .tf-header-5 .logo-site {
-        /* margin-top: 8px; */
-    }
-    .tf-header-5.header-fixed.scrolling .header-inner {
-        padding-top: 15px;
-        border-radius: 50px;
-    }
+  .tf-header-5 .logo-site {
+    /* margin-top: 8px; */
+  }
+  .tf-header-5.header-fixed.scrolling .header-inner {
+    padding-top: 15px;
+    border-radius: 50px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -8362,13 +8361,13 @@ form .fieldset-ip .fieldset_label {
 
 .tf-social-icon-2.style-5 .social-link {
   border-radius: 50%;
-  background-color: var(--gray-10);
+  background-color: #ffc2ac30;
   color: var(--black);
   border: 0;
 }
 
 .tf-social-icon-2.style-5 .social-link:hover {
-  background-color: var(--primary);
+  background-color: #ffc2ac;
   color: var(--white);
 }
 
@@ -9534,7 +9533,7 @@ form .fieldset-ip .fieldset_label {
 
 @media (max-width: 991px) {
   .tab-btn-product_list .nav-tab-item {
-    gap: 24px;
+    gap: 20px;
   }
 }
 
@@ -10481,7 +10480,7 @@ button.animate-btn::after,
 }
 
 .btn-wrap.btn-4.stroke:hover {
-  background-color: var(--primary);
+  background-color: #ff9169;
   color: var(--white);
 }
 
@@ -13531,7 +13530,7 @@ button.animate-btn::after,
 }
 
 .s-header-3 {
-  padding-bottom: 64px;
+  padding-bottom: 30px;
 }
 
 .s-header-3 .title span {
@@ -15166,13 +15165,13 @@ button.animate-btn::after,
 
 @media (min-width: 1440px) {
   .section-cosmetic-product-detail {
-    padding-top: 86px;
+    padding-top: 120px;
   }
   .section-cosmetic-product-detail .tf-product-media-wrap {
     margin-right: -20px;
   }
   .section-cosmetic-product-detail .tf-product-info-wrap {
-    max-width: 555px;
+    /* max-width: 555px; */
   }
 }
 
@@ -24325,11 +24324,12 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .thumbs-slider.style-row .tf-product-media-thumbs {
   order: 1;
 }
-
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .thumbs-slider.style-row {
     flex-direction: row;
   }
+}
+@media (min-width: 1200px) {
   .thumbs-slider.style-row .flat-wrap-media-product {
     width: calc(100% - 111px);
   }
@@ -24357,7 +24357,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .flat-wrap-media-product .media-product-tag .tag-item {
-  height: 36px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24410,7 +24410,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 @media (max-width: 767px) {
   .tf-product-info-wrap {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 
@@ -24471,17 +24471,17 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .tf-product-info-list {
   display: grid;
-  gap: 40px;
+  /* gap: 40px; */
 }
 
 @media (max-width: 1199px) {
   .tf-product-info-list {
-    gap: 30px;
+    /* gap: 30px; */
   }
 }
 
 .tf-product-info_heading .product-info__name {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .tf-product-info_heading .product-info__rate {
@@ -24549,7 +24549,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 30px;
   border: 1px solid var(--black-10);
   padding-left: 20px;
   padding-right: 20px;
@@ -24568,7 +24568,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .tf-product-info_variant .unit-btn.active {
-  background-color: var(--primary);
+  background-color: #ff9169;
   color: var(--white);
 }
 
@@ -24577,7 +24577,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     margin-bottom: 10px;
   }
   .tf-product-info_variant .unit-btn {
-    height: 40px;
+    height: 26px;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -24927,12 +24927,12 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .tf-product-info-list.ver-2 .tf-product-info_heading > .br-line {
   background-color: var(--black-10);
   display: flex;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
-.tf-product-info-list.ver-2 .product-info__category {
+/* .tf-product-info-list.ver-2 .product-info__category {
   margin-bottom: 12px;
-}
+} */
 
 .tf-product-info-list.ver-2 .product-info__rate {
   gap: 8px;
@@ -24943,7 +24943,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .tf-product-info-list.ver-2 .product-info__desc {
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .tf-product-info-list.ver-2 .rate-wrap {
@@ -24962,7 +24962,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .tf-product-info-list.ver-2 .product-info__only {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   color: var(--success);
 }
 
@@ -24970,9 +24970,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   width: 17px;
   height: 17px;
   border-radius: 50%;
-  background-color: var(--success);
+  /* background-color: var(--success); */
   color: var(--white);
-  font-size: 13px;
+  /* font-size: 13px; */
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -24995,7 +24995,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   display: flex;
   align-items: start;
   gap: 14px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .tf-product-info-list.ver-2 .product-info__pickup .address-avaiable {
@@ -25007,7 +25007,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .tf-product-info-list.ver-2 .br-line.line-2 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .tf-product-info-list.ver-2 .tf-social-icon-2 {
@@ -38973,21 +38973,155 @@ ul.list-check li .icon {
   .text-body-1 {
     font-size: 15px;
   }
-  .section-cosmetic-restock .s-header-3{
+  .section-cosmetic-restock .s-header-3 {
     flex-direction: column;
   }
+  .card-product-v02.type-2 {
+    padding: 12px;
+  }
+  .section-cosmetic-lookbook .s-header-3 {
+    padding-bottom: 0px !important;
+  }
+  .section-cosmetic-lookbook .tf-btn-swiper-main .nav-next-swiper,
+  .section-cosmetic-lookbook .tf-btn-swiper-main .nav-prev-swiper {
+    background-color: #ffbea0;
+    border-radius: 50px;
+    padding: 2px;
+  }
+  .card-product-v02 {
+    padding: 14px 12px !important;
+  }
+  .section-cosmetic-lookbook .col-left {
+    padding: 20px 10px;
+  }
+  .section-cosmetic-lookbook .col-right {
+    margin-bottom: 0;
+  }
+  .wg-icon-2 {
+    padding: 5px 15px 20px;
+  }
+  .section-cosmetic-beautiful .wg-icon-2 {
+    margin-bottom: 5px;
+  }
+  .wg-icon-2 .ic-wrap {
+    margin-bottom: 14px;
+    width: 80px;
+    height: 80px;
+  }
+  .wg-icon-2 .title {
+    margin-bottom: 10px;
+  }
+  .section-cosmetic-beautiful .s-header-3 {
+    padding-bottom: 22px;
+  }
+  h2,
+  .h2 {
+    font-size: 30px;
+  }
+  .section-cosmetic-beautiful .ic-head {
+    margin: 0 auto 8px;
+  }
+  h4,
+  .h4 {
+    font-size: 20px;
+  }
+  .card-product-v02 .product-badge {
+    padding: 0px 15px;
+    height: 26px;
+    font-size: 13px;
+  }
+  .card-product-v02 .product-badge {
+    margin: 10px 0 0 10px;
+  }
+  .section-comestic-tab-product .s-header-2 {
+    margin-bottom: 10px;
+  }
+  .text-body-2 {
+    font-size: 16px;
+  }
+  .card-best-product .info__name {
+    margin-bottom: 3px;
+  }
+  .section-cosmetic-hero-shop.style-home {
+    padding-bottom: 10px;
+  }
+  .word-wrapper,
+  .char-wrapper {
+    font-size: 24px;
+  }
+  .box-text-image-wrap {
+    gap: 2px 6px;
+  }
+  .section-cosmetic-text-image .box-text-image-wrap {
+    margin-bottom: 16px;
+  }
+  .card-product-v02 .product-badge-list {
+    gap: 0;
+  }
+  .tf-header-5 .btn-open-shop .number-count {
+    font-size: 8px;
+    font-weight: 500;
+    width: 12px;
+    height: 12px;
+  }
+  .tf-header-5 .nav-icon {
+    gap: 6px;
+    padding: 6px 10px 6px 10px;
+  }
+  .nav-icon_link .fa-solid {
+    font-size: 16px !important;
+  }
+  .tf-product-info_heading .product-info__rate {
+    margin-bottom: 10px;
+  }
+  .tf-product-info-list.ver-2 .product-info__price {
+    margin-bottom: 12px;
+  }
+  .tf-product-info-list.ver-2 .product-info__desc {
+    margin-bottom: 12px;
+  }
+  .tf-product-info-list.ver-2 .tf-product-info_heading > .br-line {
+    margin-bottom: 12px;
+  }
+  .tf-product-info_variant .unit-btn {
+    height: 26px;
+  }
+  .tf-product-info_variant .product-info__only {
+    margin-bottom: 12px;
+  }
+  .tf-product-info-list.ver-2 .br-line.line-2 {
+    margin-bottom: 0px;
+  }
+  .tf-product-info-list.ver-2 .product-info__pickup {
+    margin-bottom: 12px;
+  }
+  .card-best-product .product_image img {
+    height: 50px;
+  }
+  .text-sub-head {
+    font-size: 12px !important;
+  }
+  .text-body-4 {
+    font-size: 10px;
+    line-height: 1;
+  }
 }
-.plus-icon{
-  color:#e9471a;
+.plus-icon {
+  color: #e9471a;
   transition: all 0.3s ease;
 }
 
-.plus-icon:hover{
+.plus-icon:hover {
   rotate: 45deg;
 }
-.wishlist-icon{
+.wishlist-icon {
   color: black;
-  
 }
 
-/*# sourceMappingURL=styles.css.map */
+@media (min-width: 991px) {
+  .tf-product-info-wrap {
+    max-width: 567px;
+  }
+   .flat-spacing-6 {
+        padding-top: 115px;}
+}

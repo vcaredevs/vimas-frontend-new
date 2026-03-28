@@ -36,11 +36,11 @@
  * Cursor Custom
  **/
 
-(function($) {
+(function ($) {
     ("use strict");
     /* Header Sticky
     -------------------------------------------------------------------------*/
-    var headerSticky = function() {
+    var headerSticky = function () {
         const skipClass = ["tf-header", "tf-header-d6", "tf-header-5", "tf-header-d10"];
         if (skipClass.some((c) => $("header").hasClass(c))) {
             return;
@@ -54,7 +54,7 @@
         const $header = $("header");
         const headerOriginalOffset = $header.offset().top;
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             didScroll = true;
         });
 
@@ -68,7 +68,7 @@
             const $hideSection = $(".scroll-hide-head");
             let isInHideSection = false;
 
-            $hideSection.each(function() {
+            $hideSection.each(function () {
                 const offsetTop = $(this).offset().top;
                 const offsetBottom = offsetTop + $(this).outerHeight();
                 if (st + navbarHeight > offsetTop && st < offsetBottom) {
@@ -125,7 +125,7 @@
 
         handleHeader();
 
-        setInterval(function() {
+        setInterval(function () {
             if (didScroll) {
                 handleHeader();
                 didScroll = false;
@@ -137,9 +137,9 @@
 
     /* Infinite Slide 
     -------------------------------------------------------------------------*/
-    var infiniteSlide = function() {
+    var infiniteSlide = function () {
         if ($(".infiniteSlide").length > 0) {
-            $(".infiniteSlide").each(function() {
+            $(".infiniteSlide").each(function () {
                 var $this = $(this);
                 var style = $this.data("style") || "left";
                 var clone = $this.data("clone") || 2;
@@ -166,7 +166,7 @@
         }
 
         function runCounterIfInView() {
-            $(".wg-counter").each(function() {
+            $(".wg-counter").each(function () {
                 var $counter = $(this);
                 if (
                     isElementInViewport($counter) &&
@@ -177,7 +177,7 @@
                         .find(".odometer")
                         .data("number");
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $counter.find(".odometer").text(targetNumber);
                     }, 200);
                 }
@@ -187,7 +187,8 @@
         if ($(".counter-scroll").length > 0) {
             runCounterIfInView();
 
-            $(window).on("scroll", function() {
+            $(window).on("scroll", function () {
+                
                 runCounterIfInView();
             });
         }
@@ -195,7 +196,7 @@
     /* Active Accordion
     -------------------------------------------------------------------------*/
     const activeAccordion = () => {
-        $(".faq-accordion .faq-accordion_item ").on("click", function() {
+        $(".faq-accordion .faq-accordion_item ").on("click", function () {
             const $this = $(this);
 
             if ($this.hasClass("active")) {
@@ -205,7 +206,7 @@
                 $this.addClass("active");
             }
         });
-        $(".accordion-action").on("click", function() {
+        $(".accordion-action").on("click", function () {
             const $parent = $(this).closest(".accordion-active");
 
             if ($parent.hasClass("active")) {
@@ -218,14 +219,15 @@
     };
     /* Handle Mobile Menu
     -------------------------------------------------------------------------*/
-    var handleMobileMenu = function() {
+    var handleMobileMenu = function () {
         const $desktopMenu = $(".box-nav-menu:not(.not-append)").clone();
         $desktopMenu.find(".list-ver, .list-hor,.mn-none").remove();
 
         const $mobileMenu = $('<ul class="nav-ul-mb"></ul>');
 
-        $desktopMenu.find("> li.menu-item").each(function(i, menuItem) {
+        $desktopMenu.find("> li.menu-item").each(function (i, menuItem) {
             const $item = $(menuItem);
+            // console.log($item)
             const iconArrow = "icon-arrow-caret-down";
             const text = $item
                 .find("> a.item-link")
@@ -260,7 +262,7 @@
 
                 const $subNav = $('<ul class="sub-nav-menu"></ul>');
 
-                submenu.find(".mega-menu-item").each(function(j) {
+                submenu.find(".mega-menu-item").each(function (j) {
                     const heading = $(this).find(".menu-heading").text().trim();
                     const subId = `${id}-group-${j}`;
                     const $group = $(`
@@ -279,7 +281,7 @@
 
                     $(this)
                         .find(".sub-menu_list a")
-                        .each(function() {
+                        .each(function () {
                             const $link = $(this);
                             const linkHref = $link.attr("href") || "#";
                             const title = $link.text().trim();
@@ -299,7 +301,7 @@
                 });
 
                 if ($subNav.children().length === 0) {
-                    submenu.find("a").each(function() {
+                    submenu.find("a").each(function () {
                         const link = $(this).attr("href") || "#";
                         const title = $(this).text().trim();
                         const isActive = $(this).hasClass("active");
@@ -332,7 +334,7 @@
 
     /* Select Image
     -------------------------------------------------------------------------*/
-    var dropdownSelect = function() {
+    var dropdownSelect = function () {
         if ($(".tf-dropdown-select").length > 0) {
             const selectIMG = $(".tf-dropdown-select");
 
@@ -351,9 +353,9 @@
     };
     /* Color Swatch Product
   -------------------------------------------------------------------------*/
-    var swatchColor = function() {
+    var swatchColor = function () {
         if ($(".card-product").length > 0) {
-            $(".color-swatch").on("click mouseover", function() {
+            $(".color-swatch").on("click mouseover", function () {
                 var $swatch = $(this);
                 var swatchColor = $swatch
                     .find("img:not(.swatch-img)")
@@ -377,12 +379,12 @@
     };
     /* Handle Footer
     -------------------------------------------------------------------------*/
-    var handleFooter = function() {
-        var footerAccordion = function() {
+    var handleFooter = function () {
+        var footerAccordion = function () {
             var args = {
                 duration: 250
             };
-            $(".footer-heading-mobile").on("click", function() {
+            $(".footer-heading-mobile").on("click", function () {
                 var $parent = $(this).parent(".footer-col-block");
                 var $content = $(this).next();
 
@@ -411,7 +413,7 @@
                 $(".footer-heading-mobile")
                     .off("click")
                     .removeData("accordion-initialized")
-                    .each(function() {
+                    .each(function () {
                         $(this)
                             .parent(".footer-col-block")
                             .removeClass("open")
@@ -427,7 +429,7 @@
     };
     /* Parallaxie 
     -------------------------------------------------------------------------*/
-    var parallaxie = function() {
+    var parallaxie = function () {
         var $window = $(window);
 
         if ($(".parallaxie").length) {
@@ -442,7 +444,7 @@
 
             initParallax();
 
-            $window.on("resize", function() {
+            $window.on("resize", function () {
                 if ($window.width() > 991) {
                     initParallax();
                 }
@@ -451,9 +453,9 @@
     };
     /* Change Value
     -------------------------------------------------------------------------*/
-    var changeValue = function() {
+    var changeValue = function () {
         if ($(".tf-dropdown-sort").length > 0) {
-            $(".select-item").on("click", function(event) {
+            $(".select-item").on("click", function (event) {
                 $(this)
                     .closest(".tf-dropdown-sort")
                     .find(".text-sort-value")
@@ -477,24 +479,24 @@
     };
     /* Handle Sidebar Filter 
     -------------------------------------------------------------------------*/
-    var handleSidebarFilter = function() {
-        $("#filterShop,.sidebar-btn").on("click", function() {
+    var handleSidebarFilter = function () {
+        $("#filterShop,.sidebar-btn").on("click", function () {
             if ($(window).width() <= 1200) {
                 $(".sidebar-filter,.overlay-filter").addClass("show");
             }
         });
-        $(".close-filter,.overlay-filter").on("click", function() {
+        $(".close-filter,.overlay-filter").on("click", function () {
             $(".sidebar-filter,.overlay-filter").removeClass("show");
         });
     };
     /* Total Price Variant
     -------------------------------------------------------------------------*/
-    var totalPriceVariant = function() {
-        $(".tf-product-info-wrap").each(function() {
+    var totalPriceVariant = function () {
+        $(".tf-product-info-wrap").each(function () {
             var productItem = $(this);
             var quantityInput = productItem.find(".quantity-product");
 
-            productItem.find(".unit-btn").on("click", function() {
+            productItem.find(".unit-btn").on("click", function () {
                 var rawPrice = $(this).attr("data-price");
                 var newPrice =
                     parseFloat(rawPrice.replace(/,/g, "")) || basePrice;
@@ -510,13 +512,13 @@
                 updateTotalPrice(newPrice, productItem);
             });
 
-            productItem.find(".btn-increase").on("click", function() {
+            productItem.find(".btn-increase").on("click", function () {
                 var currentQuantity = parseInt(quantityInput.val(), 10);
                 quantityInput.val(currentQuantity + 1);
                 updateTotalPrice(null, productItem);
             });
 
-            productItem.find(".btn-decrease").on("click", function() {
+            productItem.find(".btn-decrease").on("click", function () {
                 var currentQuantity = parseInt(quantityInput.val(), 10);
                 if (currentQuantity > 1) {
                     quantityInput.val(currentQuantity - 1);
@@ -544,7 +546,7 @@
     /* Mouse Hover
     -------------------------------------------------------------------------*/
     var mouseHover = () => {
-        $(".main-mouse-hover").each(function() {
+        $(".main-mouse-hover").each(function () {
             const $container = $(this);
             const $mouseEl = $container.find(".tf-mouse");
             let currentX, currentY, targetX, targetY;
@@ -561,7 +563,7 @@
                 });
             }
 
-            $container.on("mouseenter", function() {
+            $container.on("mouseenter", function () {
                 if ($mouseEl.hasClass("mode-2")) {
                     $mouseEl.css({
                         opacity: 1
@@ -569,7 +571,7 @@
                 }
             });
 
-            $container.on("mousemove", function(e) {
+            $container.on("mousemove", function (e) {
                 const rect = this.getBoundingClientRect();
                 targetX = e.clientX - rect.left;
                 targetY = e.clientY - rect.top;
@@ -582,7 +584,7 @@
                 if (!animationFrame) animate();
             });
 
-            $container.on("mouseleave", function() {
+            $container.on("mouseleave", function () {
                 if ($mouseEl.hasClass("mode-2")) {
                     $mouseEl.css({
                         opacity: 0
@@ -616,7 +618,7 @@
     };
     /* Video Popup
     -------------------------------------------------------------------------*/
-    var videoPopup = function() {
+    var videoPopup = function () {
         if ($("div").hasClass("video-wrap")) {
             $(".popup-youtube").magnificPopup({
                 type: "iframe",
@@ -682,7 +684,7 @@
 
     /* Anime Cycle
   -------------------------------------------------------------------------------------*/
-    var animateCycle = function() {
+    var animateCycle = function () {
         const $container = $(".circle-container");
         if (!$container.length) return;
 
@@ -722,7 +724,7 @@
             const innerHeight = 206 * scale;
 
             if (!outerPaused) {
-                $outerElements.each(function(index) {
+                $outerElements.each(function (index) {
                     const avatarAngle =
                         angle + index * ((2 * Math.PI) / $outerElements.length);
                     const x = Math.cos(avatarAngle) * (outerWidth / 2);
@@ -732,7 +734,7 @@
             }
 
             if (!innerPaused) {
-                $innerElements.each(function(index) {
+                $innerElements.each(function (index) {
                     const elemAngle =
                         innerAngle +
                         index * ((2 * Math.PI) / $innerElements.length);
@@ -766,10 +768,10 @@
                 frameId = null;
             }
 
-            $outerElements.each(function() {
+            $outerElements.each(function () {
                 this.style.transform = "";
             });
-            $innerElements.each(function() {
+            $innerElements.each(function () {
                 this.style.transform = "";
             });
 
@@ -780,24 +782,24 @@
         }
 
         $outerElements.hover(
-            function() {
+            function () {
                 outerPaused = true;
             },
-            function() {
+            function () {
                 outerPaused = false;
             }
         );
 
         $innerElements.hover(
-            function() {
+            function () {
                 innerPaused = true;
             },
-            function() {
+            function () {
                 innerPaused = false;
             }
         );
 
-        $(window).on("resize", function() {
+        $(window).on("resize", function () {
             if (window.innerWidth >= 1200) {
                 startAnimation();
             } else {
@@ -816,9 +818,9 @@
     };
     /* Variant Picker
     -------------------------------------------------------------------------*/
-    var variantPicker = function() {
+    var variantPicker = function () {
         if ($(".variant-picker-item").length) {
-            $(".unit-btn").on("click", function(e) {
+            $(".unit-btn").on("click", function (e) {
                 var value = $(this).data("unit");
                 $(".value-currentUnit").text(value);
 
@@ -838,7 +840,7 @@
         );
 
         allSwitches.forEach((switchEl) => {
-            switchEl.addEventListener("change", function() {
+            switchEl.addEventListener("change", function () {
                 const wrapper = switchEl.closest(".wg-pricing");
                 const priceEl = wrapper.querySelector(".plan-price");
 
@@ -853,16 +855,16 @@
     /* Card Btn Active
     -------------------------------------------------------------------------*/
     var cardBtnActive = () => {
-        $(".action-shop-list").on("mouseenter click", function(e) {
+        $(".action-shop-list").on("mouseenter click", function (e) {
             e.stopPropagation();
             $(this).addClass("active");
         });
 
-        $(".card-product").on("mouseleave", function() {
+        $(".card-product").on("mouseleave", function () {
             $(this).find(".action-shop-list").removeClass("active");
         });
 
-        $(".tf-header-d8 .burger-menu").on("click", function(e) {
+        $(".tf-header-d8 .burger-menu").on("click", function (e) {
             $(this).toggleClass("active");
         });
     };
@@ -874,13 +876,13 @@
         const $cateList = $(".section-category .cate-list");
 
         function setItemClass($el, num) {
-            $el.removeClass(function(i, cls) {
+            $el.removeClass(function (i, cls) {
                 return (cls.match(/\bitem-\d+\b/g) || []).join(" ");
             }).addClass("item-" + num);
         }
 
         function rotateBy(index) {
-            $items.each(function(i) {
+            $items.each(function (i) {
                 const newNum = ((index + i) % 4) + 1;
                 setItemClass($(this), newNum);
             });
@@ -893,21 +895,21 @@
 
         resetDefault();
 
-        $cates.on("mouseenter", function() {
+        $cates.on("mouseenter", function () {
             const idx = $(this).index();
             $cates.removeClass("active");
             $(this).addClass("active");
             rotateBy(idx);
         });
 
-        $cateList.on("mouseleave", function() {
+        $cateList.on("mouseleave", function () {
             resetDefault();
         });
     };
     /* Click Change Image
     -------------------------------------------------------------------------*/
     var clickChangeImage = () => {
-        $(document).on("click", "[data-stt][data-img]", function() {
+        $(document).on("click", "[data-stt][data-img]", function () {
             const stt = $(this).data("stt");
             const newImg = $(this).data("img");
             const frame = $(".picture-frame." + stt);
@@ -945,8 +947,8 @@
     const reveal = () => {
         const $reveals = $(".reveal");
         if ($(window).width() > 768) {
-            $(window).on("scroll", function() {
-                $reveals.each(function() {
+            $(window).on("scroll", function () {
+                $reveals.each(function () {
                     const $el = $(this);
                     const windowHeight = $(window).height();
                     const revealTop = this.getBoundingClientRect().top;
@@ -1021,8 +1023,8 @@
     };
     /* Button Quantity
    -------------------------------------------------------------------------*/
-    var btnQuantity = function() {
-        $(".minus-btn").on("click", function(e) {
+    var btnQuantity = function () {
+        $(".minus-btn").on("click", function (e) {
             e.preventDefault();
             var $this = $(this);
             var $input = $this.closest("div").find("input");
@@ -1034,7 +1036,7 @@
             $input.val(value);
         });
 
-        $(".plus-btn").on("click", function(e) {
+        $(".plus-btn").on("click", function (e) {
             e.preventDefault();
             var $this = $(this);
             var $input = $this.closest("div").find("input");
@@ -1049,7 +1051,7 @@
 
     /* Delete File 
     -------------------------------------------------------------------------*/
-    var deleteFile = function(e) {
+    var deleteFile = function (e) {
         function updateCount() {
             var count = $(".list-file-delete .file-delete").length;
             $(".prd-count").text(count);
@@ -1058,7 +1060,7 @@
         function updateTotalPrice() {
             var total = 0;
 
-            $(".list-file-delete .tf-mini-cart-item").each(function() {
+            $(".list-file-delete .tf-mini-cart-item").each(function () {
                 var priceText = $(this)
                     .find(".tf-mini-card-price")
                     .text()
@@ -1079,7 +1081,7 @@
         }
 
         function updatePriceEach() {
-            $(".each-prd").each(function() {
+            $(".each-prd").each(function () {
                 var priceText = $(this)
                     .find(".each-price")
                     .text()
@@ -1105,7 +1107,7 @@
         function updateTotalPriceEach() {
             var total = 0;
 
-            $(".each-list-prd .each-prd").each(function() {
+            $(".each-list-prd .each-prd").each(function () {
                 var priceText = $(this)
                     .find(".each-subtotal-price")
                     .text()
@@ -1131,7 +1133,7 @@
         }
 
         function checkListEmpty() {
-            $(".wrap-empty_text").each(function() {
+            $(".wrap-empty_text").each(function () {
                 var $listEmpty = $(this);
                 var $textEmpty = $listEmpty.find(".box-text_empty");
                 var $otherChildren = $listEmpty
@@ -1149,10 +1151,10 @@
         }
 
         if ($(".main-list-clear").length) {
-            $(".main-list-clear").each(function() {
+            $(".main-list-clear").each(function () {
                 var $mainList = $(this);
 
-                $mainList.find(".clear-list-empty").on("click", function() {
+                $mainList.find(".clear-list-empty").on("click", function () {
                     $mainList
                         .find(".list-empty")
                         .children()
@@ -1166,14 +1168,14 @@
         function ortherDel() {
             $(".container .orther-del").remove();
         }
-        $(".list-file-delete").on("input", ".quantity-product", function() {
+        $(".list-file-delete").on("input", ".quantity-product", function () {
             updateTotalPrice();
         });
 
         $(".list-file-delete,.each-prd").on(
             "click",
             ".minus-quantity, .plus-quantity",
-            function() {
+            function () {
                 var $quantityInput = $(this).siblings(".quantity-product");
                 var currentQuantity = parseInt($quantityInput.val(), 10);
 
@@ -1192,7 +1194,7 @@
             }
         );
 
-        $(".remove").on("click", function(e) {
+        $(".remove").on("click", function (e) {
             e.preventDefault();
             var $this = $(this);
             $this.closest(".file-delete").remove();
@@ -1203,7 +1205,7 @@
             ortherDel();
         });
 
-        $(".clear-file-delete").on("click", function(e) {
+        $(".clear-file-delete").on("click", function (e) {
             e.preventDefault();
             $(this).closest(".list-file-delete").find(".file-delete").remove();
             updateCount();
@@ -1218,7 +1220,7 @@
     };
     /* Estimate Shipping
 -------------------------------------------------------------------------*/
-    var estimateShipping = function() {
+    var estimateShipping = function () {
         if ($(".estimate-shipping").length) {
             const $countrySelect = $("#shipping-country-form");
             const $provinceSelect = $("#shipping-province-form");
@@ -1238,7 +1240,7 @@
                 if (provinces.length === 0) {
                     $provinceSelect.append($("<option>").text("------"));
                 } else {
-                    provinces.forEach(function(province) {
+                    provinces.forEach(function (province) {
                         $provinceSelect.append(
                             $("<option>").val(province[0]).text(province[1])
                         );
@@ -1291,7 +1293,7 @@
                 return regex.test(zipcode);
             }
 
-            $shippingForm.on("submit", function(event) {
+            $shippingForm.on("submit", function (event) {
                 const zipcode = $zipcodeInput.val().trim();
                 const country = $countrySelect.val();
 
@@ -1311,21 +1313,21 @@
     };
     /* Handle Progress
     -------------------------------------------------------------------------*/
-    var handleProgress = function() {
+    var handleProgress = function () {
         if ($(".progress-cart").length > 0) {
             var progressValue = $(".progress-cart .value").data("progress");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".progress-cart .value").css("width", progressValue + "%");
             }, 800);
         }
 
         function handleProgressBar(showEvent, hideEvent, target) {
-            $(target).on(hideEvent, function() {
+            $(target).on(hideEvent, function () {
                 $(".tf-progress-bar .value").css("width", "0%");
             });
 
-            $(target).on(showEvent, function() {
-                setTimeout(function() {
+            $(target).on(showEvent, function () {
+                setTimeout(function () {
                     var progressValue = $(".tf-progress-bar .value").data(
                         "progress"
                     );
@@ -1356,7 +1358,7 @@
     /* Play Video
     -------------------------------------------------------------------------*/
     var playVideo = () => {
-        $(".btn-view-video").on("click", function(e) {
+        $(".btn-view-video").on("click", function (e) {
             e.preventDefault();
 
             const video = $("#showreel").get(0);
@@ -1451,7 +1453,7 @@
         setHeaderHeight();
         checkScrollHideSection();
 
-        const handleResize = debounce(function() {
+        const handleResize = debounce(function () {
             setHeaderHeight();
             checkScrollHideSection();
         }, 400);
@@ -1502,7 +1504,7 @@
 
             var triggerPoint = windowHeight * 0.5;
 
-            $accordionItems.each(function(index) {
+            $accordionItems.each(function (index) {
                 var $item = $(this);
                 var rect = $item[0].getBoundingClientRect();
 
@@ -1640,7 +1642,7 @@
   -------------------------------------------------------------------------------------*/
     const getDataImage = () => {
         if (!$("[data-background]").length) return;
-        $("[data-background]").each(function() {
+        $("[data-background]").each(function () {
             $(this).css(
                 "background-image",
                 "url(" + $(this).attr("data-background") + ")"
@@ -1653,7 +1655,7 @@
     var directAction = () => {
         $(".form-log-d2.forgot, .form-log-d5.forgot").on(
             "submit",
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
                 let email = $("#ip-email").val().trim();
@@ -1735,8 +1737,8 @@
                         track.classList.remove("dark-mode");
                     }
                 }, {
-                    threshold: 0.3,
-                }
+                threshold: 0.3,
+            }
             );
 
             darkSections.forEach((sec) => observer.observe(sec));
@@ -1745,10 +1747,10 @@
 
     /* Cursor Image Hover
     ---------------------------------------------------------- */
-    var hoverImgCursor = function() {
+    var hoverImgCursor = function () {
         let offsetX = 20;
         let offsetY = 20;
-        $(".hover-cursor-img").on("mousemove", function(e) {
+        $(".hover-cursor-img").on("mousemove", function (e) {
             let hoverImage = $(this).find(".hover-image");
             hoverImage.css({
                 top: e.clientY + offsetY + "px",
@@ -1756,14 +1758,14 @@
             });
         });
 
-        $(".hover-cursor-img").on("mouseenter", function() {
+        $(".hover-cursor-img").on("mouseenter", function () {
             let hoverImage = $(this).find(".hover-image");
             hoverImage.css({
                 opacity: 1,
             });
         });
 
-        $(".hover-cursor-img").on("mouseleave", function() {
+        $(".hover-cursor-img").on("mouseleave", function () {
             let hoverImage = $(this).find(".hover-image");
             hoverImage.css({
                 opacity: 0,
@@ -1810,7 +1812,7 @@
             }, 0);
 
             ScrollTrigger.matchMedia({
-                "(min-width: 768px)": function() {
+                "(min-width: 768px)": function () {
                     const PRE_SELECTOR = ".reel-pre";
                     const SMALL_W = 329;
                     const SMALL_H = 220;
@@ -1970,31 +1972,31 @@
 
                     expandTL.fromTo(
                         reelWrap, {
-                            width: SMALL_W,
-                            height: SMALL_H,
-                            right: 40,
-                            bottom: 40,
-                        }, {
-                            width: `calc(${container}px - ${paddingLeft}px - ${paddingRight}px )`,
-                            height: `calc(100vh - ${h}px - ${bottom}px)`,
-                            right: `${right}px`,
-                            bottom: `${bottom}px`,
-                            ease: "power2.out",
-                        },
+                        width: SMALL_W,
+                        height: SMALL_H,
+                        right: 40,
+                        bottom: 40,
+                    }, {
+                        width: `calc(${container}px - ${paddingLeft}px - ${paddingRight}px )`,
+                        height: `calc(100vh - ${h}px - ${bottom}px)`,
+                        right: `${right}px`,
+                        bottom: `${bottom}px`,
+                        ease: "power2.out",
+                    },
                         0
                     );
 
                     expandTL.to(
                         reel, {
-                            borderRadius: 0,
-                            boxShadow: "0 0 0 rgba(0,0,0,0)",
-                            ease: "power2.out",
-                        },
+                        borderRadius: 0,
+                        boxShadow: "0 0 0 rgba(0,0,0,0)",
+                        ease: "power2.out",
+                    },
                         0
                     );
                 },
 
-                "(max-width: 767px)": function() {
+                "(max-width: 767px)": function () {
                     ScrollTrigger.getAll().forEach((st) => st.kill());
                     gsap.set([reelWrap, reel], {
                         clearProps: "all"
@@ -2006,7 +2008,7 @@
         }
     };
 
-    (function() {
+    (function () {
         let lastIsMobile = window.innerWidth < 768;
         let resizeTimer = null;
 
@@ -2069,8 +2071,8 @@
 
     /* hoverActive 
   -------------------------------------------------------------------------------------*/
-    var hoverActive = function() {
-        $(".wrap-box-hover-active").each(function(index) {
+    var hoverActive = function () {
+        $(".wrap-box-hover-active").each(function (index) {
             var $container = $(this);
             var containerId = `hover-container-${index}`;
             $container.attr("data-hover-id", containerId);
@@ -2081,7 +2083,7 @@
             ) {
                 $hoverItems.first().addClass("is-active");
             }
-            $container.on("mouseenter", ".item-hover", function() {
+            $container.on("mouseenter", ".item-hover", function () {
                 var $activeItem = $container.find(".item-hover.is-active");
                 if ($activeItem.length > 0 && $activeItem[0] !== this) {
                     $activeItem.removeClass("is-active");
@@ -2093,9 +2095,9 @@
 
     /* cursorCustom 
   ------------------------------------------------------------------------------------- */
-    var cursorCustom = function() {
+    var cursorCustom = function () {
         if ($(".custom-cursor").length > 0) {
-            $(".cursor-wrapper").each(function() {
+            $(".cursor-wrapper").each(function () {
                 var $wrapper = $(this);
                 var $cursor = $wrapper.find(".custom-cursor");
                 var $title = $wrapper.find(".process-title");
@@ -2133,7 +2135,7 @@
 
     /* steps 
     ------------------------------------------------------------------------------------- */
-    var steps = function() {
+    var steps = function () {
         if ($(".js-steps-wrapper").length > 0) {
             const wrapper = document.querySelector(".js-steps-wrapper");
             const steps = document.querySelectorAll(".step-box-d8");
@@ -2197,8 +2199,8 @@
                             }
                         });
                     }, {
-                        threshold: 0.25
-                    }
+                    threshold: 0.25
+                }
                 );
 
                 desktopObserver.observe(wrapper);
@@ -2225,8 +2227,8 @@
                             else step.classList.remove("up");
                         });
                     }, {
-                        threshold: 0.2
-                    }
+                    threshold: 0.2
+                }
                 );
 
                 steps.forEach(step => mobileObserver.observe(step));
@@ -2290,7 +2292,7 @@
 
 
     // Dom Ready
-    $(function() {
+    $(function () {
         headerSticky();
         infiniteSlide();
         counterOdo();
