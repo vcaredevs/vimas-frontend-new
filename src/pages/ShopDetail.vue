@@ -6,92 +6,26 @@
             <div class="row">
                 <!-- Product Image -->
                 <div class="col-md-6">
-                    <div class="tf-product-media-wrap sticky-top">
-                        <div class="thumbs-slider style-row">
-                            <div dir="ltr" class="swiper tf-product-media-thumbs ver-2" data-preview="3"
-                                data-direction="vertical" data-space="10">
-                                <div class="swiper-wrapper stagger-wrap">
-                                    <!-- item 1 -->
-                                    <div class="swiper-slide stagger-item">
-                                        <div class="item">
-                                            <img loading="lazy" width="91" height="112"
-                                                src="../assets/images/product/whiteningmaskrose.png" alt="Thumb">
-                                        </div>
-                                    </div>
-                                    <!-- item 2 -->
-                                    <div class="swiper-slide stagger-item">
-                                        <div class="item">
-                                            <img loading="lazy" width="91" height="112"
-                                                src="../assets/images/product/whiteningmaskrose.png" alt="Thumb">
-                                        </div>
-                                    </div>
-                                    <!-- item 3 -->
-                                    <div class="swiper-slide stagger-item">
-                                        <div class="item">
-                                            <img loading="lazy" width="91" height="112"
-                                                src="../assets/images/product/whiteningmaskrose.png" alt="Thumb">
-                                        </div>
-                                    </div>
-                                    <!-- item 4 -->
-                                    <div class="swiper-slide stagger-item">
-                                        <div class="item">
-                                            <img loading="lazy" width="91" height="112"
-                                                src="../assets/images/product/whiteningmaskrose.png" alt="Thumb">
-                                        </div>
-                                    </div>
+                    <div id="app">
+                        <div class="container container-space">
+
+
+                            <div> <img class="img-fluid" :src="bannerImage" alt="" />
+                                <div class="product_tags">
+                                    <span>New</span><span>Moisturize</span>
                                 </div>
                             </div>
-                            <div class="flat-wrap-media-product ver-2">
-                                <div class="media-product-tag">
-                                    <a href="#" class="tag-item text-body-4 fw-medium text-black link">New</a>
-                                    <a href="#" class="tag-item text-body-4 fw-medium text-black link">Online
-                                        Exclusive</a>
-                                </div>
-                                <div dir="ltr" class="swiper tf-product-media-main" id="gallery-swiper-started">
-                                    <div class="swiper-wrapper">
-                                        <!-- item 1 -->
-                                        <div class="swiper-slide">
-                                            <a href="../assets/images/product/whiteningmaskrose.png" target="_blank"
-                                                class="item" data-pswp-width="555px" data-pswp-height="768px">
-                                                <img loading="lazy" width="555" height="768" class="tf-image-zoom"
-                                                    src="../assets/images/product/whiteningmaskrose.png"
-                                                    data-zoom="../assets/images/product/whiteningmaskrose.png"
-                                                    alt="img-product">
-                                            </a>
-                                        </div>
-                                        <!-- item 2 -->
-                                        <div class="swiper-slide">
-                                            <a href="../assets/images/product/whiteningmaskrose.png" target="_blank"
-                                                class="item" data-pswp-width="555px" data-pswp-height="768px">
-                                                <img loading="lazy" width="555" height="768" class="tf-image-zoom"
-                                                    src="../assets/images/product/whiteningmaskrose.png"
-                                                    data-zoom="../assets/images/product/whiteningmaskrose.png"
-                                                    alt="img-product">
-                                            </a>
-                                        </div>
-                                        <!-- item 3 -->
-                                        <div class="swiper-slide">
-                                            <a href="../assets/images/product/whiteningmaskrose.png" target="_blank"
-                                                class="item" data-pswp-width="555px" data-pswp-height="768px">
-                                                <img loading="lazy" width="555" height="768" class="tf-image-zoom"
-                                                    src="../assets/images/product/whiteningmaskrose.png"
-                                                    data-zoom="../assets/images/product/whiteningmaskrose.png"
-                                                    alt="img-product">
-                                            </a>
-                                        </div>
-                                        <!-- item 4 -->
-                                        <div class="swiper-slide">
-                                            <a href="../assets/images/product/whiteningmaskrose.png" target="_blank"
-                                                class="item" data-pswp-width="555px" data-pswp-height="768px">
-                                                <img loading="lazy" width="555" height="768" class="tf-image-zoom"
-                                                    src="../assets/images/product/whiteningmaskrose.png"
-                                                    data-zoom="../assets/images/product/whiteningmaskrose.png"
-                                                    alt="img-product">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+
+                            <div class="product-thumbnails">
+                                <ul>
+                                    <li v-for="(image, index) in productImages"
+                                        :class="[activeClass == index ? 'thumbnail-active' : '']" :key="index"><img
+                                            @click="currentThumnail(image.imageUrl, index)" :src="image.imageUrl"
+                                            alt="" /></li>
+                                </ul>
                             </div>
+
+
 
                         </div>
                     </div>
@@ -130,7 +64,7 @@
                                     </span>
                                 </p>
                                 <p class="product-info__desc text-caption text-black">
-                                    Shipping and discounts calculated at checkout.
+                                    Shipping and discounts calculated at checkout.
                                 </p>
                                 <div class="br-line"></div>
                                 <!-- <p class="product-info__desc-2 text-body-4 cl-gray-60">
@@ -144,7 +78,8 @@
                                     <div class="variant-picker-label">
                                         <div class="text-body-4 text-black " style="font-weight: 500;">
                                             SIZE:
-                                            <span class="variant-picker-label-value value-currentUnit" style="font-weight: 400;">100ML</span>
+                                            <span class="variant-picker-label-value value-currentUnit"
+                                                style="font-weight: 400;">100ML</span>
                                         </div>
                                     </div>
                                     <div class="variant-picker-values">
@@ -587,7 +522,6 @@
     </section> -->
     <!-- /Customer Review -->
     <!-- Best Product -->
-    <!-- Best Product -->
     <section class="section-cosmetic-best-product">
         <div class="container-5">
             <div class="s-header-3">
@@ -919,7 +853,6 @@
         </div>
     </section>
     <!-- /Best Product -->
-    <!-- /Best Product -->
     <!-- Brand -->
     <div class="section-brand-2 mt-5">
         <div class="container-5">
@@ -953,24 +886,39 @@
     </div>
     <!-- /Brand -->
 </template>
+
+
 <script setup>
 import { ref, onMounted } from "vue";
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import hero1 from "@/assets/images/section/hero-1.jpg"
-import hero2 from "@/assets/images/section/hero-2.jpg"
-const images = [
-    hero1,
-    hero2
-];
 
-const currentIndex = ref(0);
 
-onMounted(() => {
-    setInterval(() => {
-        currentIndex.value =
-            (currentIndex.value + 1) % images.length;
-    }, 3500);
-});
+
+const bannerImage = ref("https://i.imgur.com/Nmuu6Jh.jpg")
+
+const productImages = ref([
+    {
+        id: 3435,
+        imageUrl: "https://i.imgur.com/Nmuu6Jh.jpg"
+    },
+    {
+        id: 3436,
+        imageUrl: "https://i.imgur.com/VFcTYyU.jpg"
+    }
+])
+
+const cart = ref(0)
+const stockAvailability = ref(true)
+const activeClass = ref(0)
+
+function addToCart() {
+    cart.value++
+}
+
+function currentThumnail(image, index) {
+    bannerImage.value = image
+    activeClass.value = index
+}
 onMounted(() => {
     new Swiper(".swiper-best", {
         modules: [Navigation, Pagination, Autoplay],
@@ -1002,5 +950,61 @@ onMounted(() => {
         }
     })
 })
-
 </script>
+<style scoped>
+.product-thumbnails {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.product-thumbnails>ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-thumbnails>li {
+    margin-right: 10px;
+}
+
+.product-thumbnails>ul>li>img {
+    width: 100px;
+    cursor: pointer;
+}
+
+.thumbnail-active {
+    border: 2px solid #ff9169;
+}
+
+.nav-link>img {
+    width: 40px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.btn-custom-color {
+    border: 2px solid #4fc08d;
+    color: #4fc08d;
+}
+
+.btn-custom-color:hover {
+    border: 2px solid #4fc08d;
+    background-color: #4fc08d;
+    color: #ffffff;
+}
+
+.product_tags span {
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-right: 3px;
+}
+
+.product_tags {
+    position: absolute;
+    top: 14px;
+    left: 23px;
+}
+</style>

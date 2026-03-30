@@ -2336,6 +2336,7 @@ onMounted(()=>{
     align-items: center;
     justify-content: center;
     /* height: 200px; */
+    /* background: #f0f0f0; */
    
     border-radius: 8px;
     font-size: 20px;

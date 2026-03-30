@@ -1647,8 +1647,8 @@ h6,
 }
 
 .flat-spacing-4 {
-  padding-top: 160px;
-  padding-bottom: 160px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 @media (max-width: 1439px) {
@@ -3685,8 +3685,8 @@ header.normal.header-sticky {
 }
 
 .tf-header-5 .header-inner {
-   background-color: rgb(253 253 253 / 80%);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: rgb(253 253 253 / 80%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding-top: 49px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -6420,8 +6420,8 @@ form .fieldset-ip .fieldset_label {
 }
 
 .tf-check.style-4:checked {
-    border-color: #e9471a;
-    background-color: #e9471a;
+  border-color: #e9471a;
+  background-color: #e9471a;
 }
 
 .tf-check.style-4:checked ~ label {
@@ -10177,13 +10177,13 @@ button.animate-btn::after,
 .btn-mobile-menu-2.style-white span,
 .btn-mobile-menu-2.style-white::after,
 .btn-mobile-menu-2.style-white::before {
-  background-color: var(--white);
+  background-color: black;
 }
 
 .btn-mobile-menu-2.style-primary span,
 .btn-mobile-menu-2.style-primary::after,
 .btn-mobile-menu-2.style-primary::before {
-  background-color: var(--primary);
+  background-color: black;
 }
 
 .btn-mobile-menu-3 {
@@ -10266,7 +10266,7 @@ button.animate-btn::after,
 .btn-wrap.btn-1.stroke {
   border: 1px solid #e9471a;
   background-color: #e9471a;
-  color: var(--primary);
+  color: white;
 }
 
 .btn-wrap.btn-1.stroke:hover {
@@ -15850,7 +15850,7 @@ button.animate-btn::after,
 
 @media (min-width: 1200px) {
   .section-cosmetic-hero-about {
-    padding-top: 63px;
+    padding-top: 100px;
   }
   .section-cosmetic-hero-about .s-header-3 {
     padding-bottom: 88px;
@@ -39109,6 +39109,8 @@ ul.list-check li .icon {
     font-size: 10px;
     line-height: 1;
   }
+  .btn-wrap.btn-1 {
+    height: 35px;}
 }
 .plus-icon {
   color: #e9471a;
@@ -39126,6 +39128,19 @@ ul.list-check li .icon {
   .tf-product-info-wrap {
     max-width: 567px;
   }
-   .flat-spacing-6 {
-        padding-top: 115px;}
+  .flat-spacing-6 {
+    padding-top: 115px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .tf-product-info-list.ver-2 {
+    max-width: 350px;
+    margin: auto;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .tf-product-info-list.ver-2 {
+    max-width: 450px;
+    margin: auto;
+  }
 }
