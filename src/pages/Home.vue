@@ -151,9 +151,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="box-image-v01 hover-img mb-0">
+                    <div class="box-image-v01 hover-img mb-0 overlay-banner">
                         <div class="box-image_image img-style">
-                            <img loading="lazy" width="646" height="520" src="../assets/images/section/box-2.jpg"
+                            <img loading="lazy" width="646" height="520" src="../assets/images/section/box-2.png"
                                 alt="Image">
                         </div>
                         <div class="box-image_content ">
