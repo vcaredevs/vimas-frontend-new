@@ -328,19 +328,7 @@
     </option>
   </select>
 </form>
-                                <!-- <div class="tf-dropdown-sort style-2" data-bs-toggle="dropdown">
-                                    <div class="btn-select">
-                                        <span class="text-sort-value font-main">Best Selling</span>
-                                        <i class="bi bi-caret-down"></i>
-                                    </div>
-                                    <div class="dropdown-menu
-                                    ">
-                                        <div class="select-item active remove-all-filters" data-sort-value="best-selling">
-                                            <span class="text-value-item">Best Selling</span>
-                                        </div>
-                                   
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>  
                         <div class="wrapper-control-shop gridLayout-wrapper">
