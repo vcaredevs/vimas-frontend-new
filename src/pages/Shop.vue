@@ -371,16 +371,8 @@
                                             <a href="shop-detail.html" class="product__name text-body-2 link-2 text-black">	{{ product.name }}</a>
                                             <div class="product__price price-wrap text-black">
                                                 <span class="price-new text-sub-head fw-medium">
-                                                   <del v-if="product.sale_price !== null"
-                          >₹{{ product.price }}</del
-                        >
-                        <span
-                          >₹{{
-                            product.sale_price
-                              ? product.sale_price
-                              : product.price
-                          }}</span
-                        >
+                                                   <del v-if="product.sale_price !== null">₹{{ product.price }}</del>
+                        <span>₹{{product.sale_price? product.sale_price: product.price}}</span>
                                                 </span>
                                             </div>
                                         </div>
