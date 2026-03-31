@@ -2000,6 +2000,27 @@
                 <div class="img-brand">
                     <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-7.svg" alt="brand">
                 </div>
+                 <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-1.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-2.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-3.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-4.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-5.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-6.svg" alt="brand">
+                </div>
+                <div class="img-brand">
+                    <img loading="lazy" width="196" height="76" src="../assets/images/brand/brand-7.svg" alt="brand">
+                </div>
             </div>
         </div>
     </div>
@@ -2487,5 +2508,6 @@ onMounted(()=>{
     position: absolute;
     z-index: 2;
 }
+
 
 </style>
