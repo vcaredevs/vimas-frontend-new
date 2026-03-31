@@ -3695,21 +3695,18 @@ header.normal.header-sticky {
   transition: all 0.3s ease;
 }
 
-.tf-header-5.header-fixed.scrolling {
+/* .tf-header-5.header-fixed.scrolling {
   background-color: var(--white-40);
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .tf-header-5.header-fixed.scrolling .br-line.bottom {
   display: none !important;
 }
 
 .tf-header-5.style-abs.header-fixed.scrolling {
-  /* background-color: #FFF1EC; */
   background-color: #ffc2ac;
-  /* background-color: #FAF7F4; */
-  /* background-color: var(--black-30); */
   box-shadow: 0 1px 5px rgba(255, 255, 255, 0.1);
 }
 .tf-header-5.style-abs.header-fixed.scrolling a {
@@ -3797,7 +3794,7 @@ header.normal.header-sticky {
 }
 
 .tf-header-5.style-abs .header-inner {
-  padding-top: 31px;
+  padding-top: 14px;
 }
 
 .tf-header-5.style-abs .item-link {
@@ -6371,8 +6368,8 @@ form .fieldset-ip .fieldset_label {
 .tf-check::before {
   line-height: 1;
   font-weight: 500;
-  font-family: "icomoon";
-  content: "\e908";
+  font-family: none !important; /* remove icomoon */
+  content: "✓" !important;
   position: absolute;
   color: var(--white);
   opacity: 0;
@@ -6713,9 +6710,9 @@ form .fieldset-ip .fieldset_label {
 }
 
 .tf-select::after {
-  font-family: "icomoon";
+  font-family: "none";
   position: absolute;
-  content: "\e911";
+  content: "▼";
   right: 24px;
   top: 50%;
   transform: translateY(-50%);
@@ -6845,7 +6842,7 @@ form .fieldset-ip .fieldset_label {
 }
 
 .form-discount .action-submit {
-  background-color: var(--primary);
+  background-color: #e34519;
   height: 44px;
   color: var(--white);
   min-width: 96px;
@@ -10260,7 +10257,7 @@ button.animate-btn::after,
 .btn-wrap.btn-1 {
   height: 48px;
   background-color: #e9471a;
-  color: var(--white);
+  color: var(--white) !important;
 }
 
 .btn-wrap.btn-1.stroke {
@@ -16115,7 +16112,7 @@ button.animate-btn::after,
 
 .section-checkout {
   position: relative;
-  padding: 64px 0px;
+  padding: 120px 0px;
 }
 
 .section-checkout .container-wrapper {
@@ -16160,7 +16157,7 @@ button.animate-btn::after,
 
 .section-checkout.type-2 .payment-body .payment-head {
   border-radius: 12px 12px 0px 0px;
-  border-color: var(--primary);
+  /* border-color: var(--primary); */
   background: rgba(162, 123, 104, 0.1019607843);
 }
 
@@ -39110,7 +39107,12 @@ ul.list-check li .icon {
     line-height: 1;
   }
   .btn-wrap.btn-1 {
-    height: 35px;}
+    height: 35px;
+  }
+  .section-checkout {
+    position: relative;
+    padding: 90px 0px;
+  }
 }
 .plus-icon {
   color: #e9471a;
@@ -39143,4 +39145,74 @@ ul.list-check li .icon {
     max-width: 450px;
     margin: auto;
   }
+}
+.infiniteSlide-text-cosmetic {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite; /* starts immediately */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  } /* -33.33% because 3 clones */
+}
+.infiniteSlide-text-cosmetic {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  /* fallback animation until JS kicks in */
+  animation: marquee 15s linear infinite;
+}
+
+/* JS plugin adds this class when ready — stops CSS animation */
+.infiniteslide_wrap.loaded .infiniteSlide-text-cosmetic {
+  animation: none;
+}
+.inf-slide-brand-2 {
+  overflow: hidden;
+}
+
+.inf-slide-brand-2 .infiniteSlide {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  white-space: nowrap;
+  width: max-content; /* ADD THIS */
+  animation: brandMarquee 15s linear infinite;
+}
+
+@keyframes brandMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.tf-check::before {
+  opacity: 1 !important;
+  color: white !important; /* or any color you want */
+}
+
+.tf-check:checked::before {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+.fa-circle-question,
+.fa-location-dot {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+}
+.tf-checkout-cart-main .action-sign:not(:hover) {
+  color: #e9471a;
 }

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="tf-header-block-height d-none"></div>
     <header class="tf-header-5 style-abs header-fixed scrolling">
@@ -7,7 +5,7 @@
             <div class="container-5">
                 <div class="row">
                     <div class="col-6 col-lg-3">
-                        <a href="index.html" class="logo-site">
+                        <a href="/" class="logo-site">
                             <img loading="lazy" width="98" height="20" src="../assets/images/vimas/logo.png"
                                 alt="Image">
                         </a>
@@ -17,40 +15,14 @@
                             <nav class="box-navigation">
                                 <ul class="box-nav-menu">
                                     <li class="menu-item">
-                                        <router-link to="/">
-                                            <a href="#" class="item-link">
-                                                Home
-                                            </a>
-                                        </router-link>
+                                        <router-link to="/" class="item-link">Home</router-link>
                                     </li>
-                                    <li class="menu-item has-sub_menu">
+                                    <li class="menu-item">
                                         <router-link to="/shop-default">
                                             <a href="#" class="item-link">
                                                 Shop
                                             </a>
                                         </router-link>
-                                        <div class="sub-menu">
-                                            <ul class="sub-menu_list">
-                                                <li>
-                                                    <router-link to="/shop-default">
-                                                        <a href="#" class="sub-menu_link">Shop
-                                                            Default</a>
-                                                    </router-link>
-                                                </li>
-                                                <li>
-                                                    <router-link to="/shop-detail">
-                                                        <a href="#" class="sub-menu_link">Shop
-                                                            Details</a>
-                                                    </router-link>
-                                                </li>
-                                                <li>
-                                                    <router-link to="/shop-cart">
-                                                        <a href="#" class="sub-menu_link">Shop
-                                                            Cart</a>
-                                                    </router-link>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </li>
                                     <li class="menu-item">
                                         <router-link to="/about-us">
@@ -59,29 +31,7 @@
                                             </a>
                                         </router-link>
                                     </li>
-                                    <li class="menu-item has-sub_menu">
-                                        <router-link to="/blog">
-                                            <a href="#" class="item-link">
-                                                Blog
-                                            </a>
-                                        </router-link>
-                                        <div class="sub-menu">
-                                            <ul class="sub-menu_list">
-                                                <li>
 
-                                                    <router-link to="/blog">
-                                                        <a href="#" class="sub-menu_link">Blog
-                                                            Stardard</a>
-                                                    </router-link>
-                                                </li>
-                                                <li>
-                                                    <router-link to="/blog-detail">
-                                                        <a href="#" class="sub-menu_link">Blog Single</a>
-                                                    </router-link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li >
 
                                 </ul>
                             </nav>
@@ -90,7 +40,7 @@
                     <div class="col-6 col-lg-3">
                         <div class="header-right">
                             <ul class="nav-icon">
-                                <li class="nav-icon_link link-2"  @click="goToProfile">
+                                <li class="nav-icon_link link-2" @click="goToProfile">
                                     <a href="sign-in.html" class="nav-icon_link link-2">
                                         <i class="fa-solid fa-user fs-24 "></i>
                                     </a>
@@ -257,25 +207,10 @@
                         <li class="nav-mb-item"><a href="/" class="mb-menu-link "><span>Home</span></a></li>
                         <li class="nav-mb-item"><a href="/" class="mb-menu-link "><span>Blog</span></a></li>
                         <li class="nav-mb-item"><a href="/" class="mb-menu-link "><span>About</span></a></li>
+                        <li class="nav-mb-item"><a href="shop-detail" class="mb-menu-link "><span>Shop</span></a></li>
 
 
-                        <li class="nav-mb-item">
-                            <a href="#dropdown-menu-1" class="collapsed mb-menu-link " data-bs-toggle="collapse"
-                                aria-expanded="false" aria-controls="dropdown-menu-1">
-                                <span>Shop</span>
-                                <span class="icon icon-arrow-caret-down"></span>
-                            </a>
-                            <div id="dropdown-menu-1" class="collapse ">
-                                <ul class="sub-nav-menu">
-                                    <li><a href="/shop-default" class="sub-nav-link ">Shop Default</a></li>
-                                    <li><a href="#" class="sub-nav-link ">Shop Default</a></li>
-                                    <li><a href="/shop-detail" class="sub-nav-link ">Shop Details</a></li>
-                                    <li><a href="#" class="sub-nav-link ">Shop Details</a></li>
-                                    <li><a href="/shop-cart" class="sub-nav-link ">Shop Cart</a></li>
-                                    <li><a href="#" class="sub-nav-link ">Shop Cart</a></li>
-                                </ul>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -329,38 +264,38 @@ const cartStore = useCartStore();
 const couponCode = ref("");
 const userStore = useUserStore();
 const isLoggedIn = () => {
-  return !!localStorage.getItem("authToken");
+    return !!localStorage.getItem("authToken");
 };
 
 const handleCheckout = async () => {
-  if (checkoutLoading.value) return;
-  checkoutLoading.value = true;
-  try {
-    if (!isLoggedIn()) {
-      router.push("/login");
-      return;
-    }
-    const success = await cartStore.checkout(couponCode.value);
+    if (checkoutLoading.value) return;
+    checkoutLoading.value = true;
+    try {
+        if (!isLoggedIn()) {
+            router.push("/login");
+            return;
+        }
+        const success = await cartStore.checkout(couponCode.value);
 
-    if (success) {
-      router.push("/checkout");
+        if (success) {
+            router.push("/checkout");
+        }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        checkoutLoading.value = false;
     }
-  } catch (error) {
-    console.error(error);
-  } finally {
-    checkoutLoading.value = false;
-  }
 };
 
 function goToProfile() {
-  if (!isLoggedIn()) {
-    router.push("/login");
-  } else {
-    router.push("/customer/profile");
-  }
+    if (!isLoggedIn()) {
+        router.push("/login");
+    } else {
+        router.push("/customer/profile");
+    }
 }
 
 onMounted(() => {
-  cartStore.fetchCart();
+    cartStore.fetchCart();
 });
 </script>
